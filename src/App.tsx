@@ -1,4 +1,4 @@
-import "./App.css";
+import "@src/App.tsx";
 
 function App() {
   return <></>;
