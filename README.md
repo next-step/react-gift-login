@@ -9,7 +9,3 @@
 - [ ] emotion 스타일 라이브러리 추가
 - [ ] reset css 적용
 - [ ] 기본폰트로 pretendard 폰트 적용
-
-## 커밋 컨벤션
-
-[AngularJS Git Commit Message Conventions](https://gist.github.com/stephenparish/9941e89d80e2bc58a153)
