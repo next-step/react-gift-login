@@ -1,16 +1,22 @@
+import styled from '@emotion/styled';
+
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+`;
+
+const Text = styled.div`
+  font-size: 30px;
+`;
+
 function App() {
   return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: '100vw',
-        height: '100vh',
-      }}
-    >
-      <div style={{ fontSize: 30 }}>Hello, world!</div>
-    </div>
+    <Container>
+      <Text>Hello, world!</Text>
+    </Container>
   );
 }
 
