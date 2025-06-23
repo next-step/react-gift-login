@@ -13,7 +13,7 @@ export default function Reset() {
           font-smoothing: antialiased;
         }
         body {
-          font-family: Arial, sans-serif;
+          font-family: 'Pretendard', Arial, sans-serif;
           background-color: #fff;
         }
       `}
