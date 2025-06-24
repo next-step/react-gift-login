@@ -7,6 +7,6 @@
 - [x] 불필요한 파일, 코드 정리
 - [x] 절대경로 import를 위한 alias 설정
 - [x] Prettier 설정 추가 (포맷터 적용)
-- [ ] Emotion 스타일 라이브러리 설치 및 reset css 적용
+- [x] Emotion 스타일 라이브러리 설치 및 reset css 적용
 - [ ] 기본 폰트 Pretendard 적용
 - [ ] 기능 단위 커밋 진행 (AngularJS Git Commit Message Conventions 참고)
