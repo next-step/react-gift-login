@@ -1,7 +1,7 @@
 import "@src/App.css";
 
 function App() {
-  return <></>;
+  return <>가마남</>;
 }
 
 export default App;
