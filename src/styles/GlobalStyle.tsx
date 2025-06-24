@@ -18,6 +18,8 @@ const GlobalStyle = () => (
       body {
         line-height: 1;
         -webkit-font-smoothing: antialiased;
+        font-family: 'Pretendard', sans-serif;
+
       }
       ol,
       ul,
