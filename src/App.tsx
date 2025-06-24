@@ -1,9 +1,12 @@
 import './App.css'
+import Present from '@components/Present'
 
 function App() {
   return (
     <>
-      <h1>테스트</h1>
+      <div>
+        <Present></Present>
+      </div>
     </>
   )
 }
