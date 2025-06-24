@@ -1,12 +1,12 @@
+import ResetStyles from './styles/ResetStyles';
 
 function App() {
   return (
     <>
-      <div>
-        Hello World!
-      </div>
+      <ResetStyles />
+      <div>김세한</div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

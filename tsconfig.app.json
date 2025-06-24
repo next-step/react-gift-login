@@ -11,6 +11,7 @@
     "paths": {
       "@/*": ["src/*"]
     },
+    "jsxImportSource": "@emotion/react",
 
     /* Bundler mode */
     "moduleResolution": "bundler",
