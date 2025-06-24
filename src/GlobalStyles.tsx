@@ -1,4 +1,5 @@
 import { Global, css } from '@emotion/react'
+import 'pretendard/dist/web/static/pretendard.css'
 
 const reset = css`
   /*CSS reset */
