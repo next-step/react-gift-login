@@ -1,9 +1,8 @@
-// src/App.tsx
 import { useState } from "react";
 import reactLogo from "@assets/react.svg";
 import viteLogo from "@assets/vite.svg";
 
-import { Global, css } from "@emotion/react"; // css를 임포트
+import { Global, css } from "@emotion/react";
 import { reset } from "@styles/reset";
 import { globalStyles } from "@styles/global";
 
