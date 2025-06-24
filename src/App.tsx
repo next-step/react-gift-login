@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import './App.css'
+import GlobalStyle from '@/styles/GlobalStyle'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-
+    <GlobalStyle />
       <h1>My Project</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
