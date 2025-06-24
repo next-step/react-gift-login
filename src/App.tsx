@@ -1,11 +1,14 @@
-import './App.css'
+import { Global } from '@emotion/react'
+import { GlobalResetStyle } from '../styles/reset'
 
 function App() {
-
   return (
-    <div className='App'>
-      <h1>react-gift-login page</h1>
-    </div>
+    <>
+      <Global styles={GlobalResetStyle} />
+      <div className="App">
+        <h1>react-gift-login page</h1>
+      </div>
+    </>
   )
 }
 
