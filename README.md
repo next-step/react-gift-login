@@ -8,7 +8,12 @@
         - assets/react.svg, App.css 같은 기본 템플릿 파일 삭제
         - App.tsx 수정(import 삭제, className 삭제)
   - [o] 절대경로 alias 설정
-  - [ ] Prettier 설정
+        - vite.config.ts에서 path 설정 (Node.js 설치)
+        - 절대 경로 설정하기
+  - [o] Prettier 설정
+        - Prettier는 코드 포맷터로, 코드 스타일을 자동으로 맞춰주는 도구이다.
+        - Prettier 설치
+        - .prettierrc 파일 생성 후 코드 작성
   - [ ] emotion 스타일 라이브러리 추가 후 reset css 적용
   - [ ] Pretendard 기본 폰트 적용
   - [ ] 기능 단위로 나누어 커밋하기
