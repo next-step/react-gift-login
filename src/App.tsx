@@ -12,18 +12,22 @@ const AppContainer = styled.div`
   align-items: center;
   justify-content: center;
   background-color: #f8f9fa;
+  font-family: 'Pretendard', sans-serif;
 `
 
 const Title = styled.h1`
   color: #333;
   margin-bottom: 1rem;
   font-size: 2.5rem;
+  font-weight: 700;
+  font-family: 'Pretendard', sans-serif;
 `
 
 const Description = styled.p`
   color: #666;
   font-size: 1.1rem;
   margin-bottom: 2rem;
+  font-family: 'Pretendard', sans-serif;
 `
 
 const ButtonContainer = styled.div`
