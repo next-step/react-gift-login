@@ -11,7 +11,7 @@ const resetStyles = css`
 
   html, body {
     height: 100%;
-    font-family: Arial, sans-serif;
+    font-family: 'Pretendard', Arial, sans-serif; /* 기본 폰트로 Pretendard 적용 */
   }
 
   a {
