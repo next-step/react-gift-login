@@ -13,7 +13,7 @@ const GlobalStyle = () => (
 
       html,
       body {
-        font-family: sans-serif;
+        font-family: 'Pretendard', sans-serif;
         background-color: #fff;
         color: #9631ac;
         line-height: 2;
