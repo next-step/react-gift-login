@@ -1,5 +1,12 @@
+import GlobalStyle from '@/styles/GlobalStyle'
+
 function App() {
-  return <div>홈</div>
+  return (
+    <>
+      <GlobalStyle />
+      <div>홈</div>
+    </>
+  )
 }
 
 export default App
