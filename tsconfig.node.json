@@ -21,7 +21,7 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
 
-    "types": ["node"] //추가
+    "types": ["node"]
   },
   "include": ["vite.config.ts"]
 }
