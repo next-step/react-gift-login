@@ -17,8 +17,10 @@
   - [o] emotion 스타일 라이브러리 추가 후 reset css 적용
         - Emotion 설치
         - styles>GlobalStyle.tsx 생성 후 Reset CSS를 글로벌 스타일로 적용
-  - [ ] Pretendard 기본 폰트 적용
-  - [ ] 기능 단위로 나누어 커밋하기
+  - [o] Pretendard 기본 폰트 적용
+        - index.html에 Pretended link 추가
+        - GolbalStyle.tsx의 font-family 수정
+  - [o] 기능 단위로 나누어 커밋하기
 
 - [ ] 2단계 : 선물하기 메인 페이지 UI 구현하기
 - [ ] 3단계 : 로그인 페이지 UI 만들기
