@@ -1,15 +1,13 @@
-import { Global } from '@emotion/react'
-import { GlobalResetStyle } from '../styles/reset'
+import { GlobalResetStyle } from './styles/reset'
+import { Global } from "@emotion/react";
 
-function App() {
+const App = () => {
   return (
     <>
       <Global styles={GlobalResetStyle} />
-      <div className="App">
-        <h1>react-gift-login page</h1>
-      </div>
+      <div>카카오테크캠퍼스 2단계</div>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;

@@ -42,12 +42,6 @@ export const GlobalResetStyle = css`
   input,
   optgroup,
   select,
-  textarea {
-    font-family: inherit;
-    font-size: 100%;
-    line-height: 1.15;
-    margin: 0;
-  }
 
   button {
     background: none;
@@ -55,4 +49,13 @@ export const GlobalResetStyle = css`
     padding: 0;
     cursor: pointer;
   }
+  
+  textarea {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+  }
+
+  
 `
