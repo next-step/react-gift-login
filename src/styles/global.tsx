@@ -11,7 +11,7 @@ const reset = css`
 
   html, body {
     height: 100%;
-    font-family: sans-serif;
+    font-family: 'Pretendard', sans-serif;
     background-color: #fff;
     color: #000;
   }
