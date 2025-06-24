@@ -21,6 +21,5 @@ function App() {
       </Layout>
     </ThemeProvider>
   );
-}
 
 export default App;
