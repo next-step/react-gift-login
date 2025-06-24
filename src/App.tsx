@@ -1,12 +1,10 @@
-
-
 function App() {
 
-  return 
+  return (
       <div>
         app
       </div>
-    
+  );
   
 }
 
