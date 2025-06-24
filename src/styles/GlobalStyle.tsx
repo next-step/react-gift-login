@@ -21,6 +21,7 @@ const ResetStyle = css`
         font-size: 100%;
         font: inherit;
         vertical-align: baseline;
+        font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
     }
     /* HTML5 display-role reset for older browsers */
     article, aside, details, figcaption, figure, 

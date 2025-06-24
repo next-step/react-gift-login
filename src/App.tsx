@@ -5,6 +5,7 @@ function App() {
   return (
     <>
       <GlobalStyle />
+      <h1>Pretendard</h1>
     </>
   )
 }
