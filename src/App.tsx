@@ -1,5 +1,6 @@
-import { Global, css } from '@emotion/react';
+import { Global, ThemeProvider, css } from '@emotion/react';
 import resetStyles from '@/reset';
+import theme from './styles/theme';
 
 const globalStyles = css`
   body {
@@ -9,9 +10,9 @@ const globalStyles = css`
 
 function App() {
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <Global styles={[resetStyles, globalStyles]} />
-    </>
+    </ThemeProvider>
   );
 }
 
