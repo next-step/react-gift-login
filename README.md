@@ -9,4 +9,3 @@
 - [x] Prettier 설정 추가 (포맷터 적용)
 - [x] Emotion 스타일 라이브러리 설치 및 reset css 적용
 - [x] 기본 폰트 Pretendard 적용
-- [ ] 기능 단위 커밋 진행 (AngularJS Git Commit Message Conventions 참고)
