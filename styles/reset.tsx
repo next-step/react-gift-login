@@ -1,6 +1,7 @@
 import { css } from '@emotion/react';
 
 const reset = css`
+  @import url('pretendard/dist/web/static/pretendard.css');
   html,
   body,
   div,
@@ -124,6 +125,10 @@ const reset = css`
   table {
     border-collapse: collapse;
     border-spacing: 0;
+  }
+
+  body {
+    font-family: 'Pretendard', sans-serif;
   }
 `;
 
