@@ -1,10 +1,16 @@
 import './App.css'
+import styled from '@emotion/styled';
+
+const Title = styled.h1`
+  font-size: 32px;
+  color: #8321ff;
+`;
 
 function App() {
  
   return (
     <>
-      <div>react-gift-login</div>
+      <Title>react-gift-login</Title>
     </>
   )
 }
