@@ -3,6 +3,7 @@ import { Global, css } from '@emotion/react';
 const GlobalStyle = () => (
   <Global
     styles={css`
+      <<<<<<< HEAD
       /* http://meyerweb.com/eric/tools/css/reset/
          v2.0 | 20110126
          License: none (public domain) */
@@ -117,7 +118,7 @@ const GlobalStyle = () => (
         color: #000;
       }
 
-      ol,
+      <<<<<<< HEAD ol,
       ul {
         list-style: none;
       }
