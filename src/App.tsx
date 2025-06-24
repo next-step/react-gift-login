@@ -3,7 +3,7 @@ import reactLogo from "@assets/react.svg";
 import viteLogo from "@assets/vite.svg";
 
 import { Global, css } from "@emotion/react";
-import { reset } from "@styles/reset";
+
 import { globalStyles } from "@styles/global";
 
 function App() {
@@ -11,7 +11,6 @@ function App() {
 
   return (
     <>
-      <Global styles={reset} />
       <Global styles={globalStyles} />
 
       <div
