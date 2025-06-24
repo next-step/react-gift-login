@@ -20,6 +20,8 @@
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
+
+    "types": ["node"] //추가
   },
   "include": ["vite.config.ts"]
 }

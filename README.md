@@ -7,7 +7,7 @@
   - [o] 불필요한 파일, 코드 정리하기
         - assets/react.svg, App.css 같은 기본 템플릿 파일 삭제
         - App.tsx 수정(import 삭제, className 삭제)
-  - [ ] 절대경로 alias 설정
+  - [o] 절대경로 alias 설정
   - [ ] Prettier 설정
   - [ ] emotion 스타일 라이브러리 추가 후 reset css 적용
   - [ ] Pretendard 기본 폰트 적용
