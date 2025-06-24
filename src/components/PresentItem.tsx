@@ -4,11 +4,12 @@ import StyledPresentItemDiv from '@styles/StyledPresentItemDiv'
 
 const StyledImage = styled.img`
   width: 50px;
-  height: 50px;
+  height: 60px;
   margin: 5px;
 `
 const StyledP = styled.p`
-  font-size: 15px;
+  font-size: 13px;
+  margin: 3px;
 `
 
 const PresentItem = () => {

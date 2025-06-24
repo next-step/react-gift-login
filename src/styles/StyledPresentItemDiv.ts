@@ -6,7 +6,6 @@ const StyledPresentItemDiv = styled.div`
   align-items: center;
   flex-direction: column;
   background-color: green;
-  padding: 10px;
-  margin: 10px;
+  padding: 4px;
 `
 export default StyledPresentItemDiv
