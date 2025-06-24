@@ -32,7 +32,6 @@ function App() {
   return (
     <AppContainer>
       <Title>React Gift Login</Title>
-      <Subtitle>Pretendard 폰트가 적용된 앱입니다!</Subtitle>
     </AppContainer>
   );
 }
