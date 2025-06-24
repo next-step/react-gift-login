@@ -1,22 +1,10 @@
-import { Global, css } from '@emotion/react';
+import { Global } from '@emotion/react';
+import reset from "@/styles/reset";
 
 function App() {
   return (
     <>
-      <Global
-          styles={css`
-            html, body, #root {
-              height: 100%;
-              margin: 0;
-              padding: 0;
-              background: #fff;
-              font-family: 'Pretendard';
-            }
-            *, *::before, *::after {
-              box-sizing: border-box;
-            }
-          `}
-        />
+      <Global styles={reset}/>
       <div>
         Kakao Gift project
       </div>
