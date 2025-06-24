@@ -14,7 +14,9 @@
         - Prettier는 코드 포맷터로, 코드 스타일을 자동으로 맞춰주는 도구이다.
         - Prettier 설치
         - .prettierrc 파일 생성 후 코드 작성
-  - [ ] emotion 스타일 라이브러리 추가 후 reset css 적용
+  - [o] emotion 스타일 라이브러리 추가 후 reset css 적용
+        - Emotion 설치
+        - styles>GlobalStyle.tsx 생성 후 Reset CSS를 글로벌 스타일로 적용
   - [ ] Pretendard 기본 폰트 적용
   - [ ] 기능 단위로 나누어 커밋하기
 
