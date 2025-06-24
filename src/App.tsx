@@ -3,7 +3,7 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <div>Hello World</div>
+      <h1>Hello World</h1>
     </>
   );
 }

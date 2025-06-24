@@ -1,5 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { css, Global } from '@emotion/react';
+import 'pretendard/dist/web/static/pretendard.css';
 
 const reset = css`
   *,
@@ -13,7 +14,7 @@ const reset = css`
   html,
   body {
     height: 100%;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Pretendard', sans-serif;
     background-color: #fff;
     color: #000;
     line-height: 1.6;
