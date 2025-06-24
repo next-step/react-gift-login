@@ -8,16 +8,12 @@
     "jsxImportSource": "@emotion/react",
     "skipLibCheck": true,
 
-    /* Absolute Path Imports (추가된 부분) */
-    "baseUrl": ".", // 프로젝트 루트를 기준으로 경로를 해석합니다.
+    "baseUrl": ".",
     "paths": {
-      // '@assets/*'를 'src/assets/*'로 해석합니다.
-      // 필요에 따라 다른 별칭(예: '@components/*', '@utils/*')을 추가할 수 있습니다.
       "@assets/*": ["src/assets/*"],
       "@styles/*": ["src/styles/*"]
     },
 
-    /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
@@ -25,7 +21,6 @@
     "noEmit": true,
     "jsx": "react-jsx",
 
-    /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
