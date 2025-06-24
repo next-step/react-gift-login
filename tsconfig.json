@@ -4,5 +4,11 @@
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
   ],
-  "types": ["node"], // Node.js 타입 포함
+  "compilerOptions": {
+    "baseUrl": ".", // 프로젝트 루트를 기준으로 설정
+    "paths": {
+      "@styles/*": ["src/styles/*"], // @styles alias 설정
+      "@components/*": ["src/components/*"] // 추가 alias 설정 (선택 사항)
+    }
+  }
 }
