@@ -1,4 +1,5 @@
 import { Global, css } from '@emotion/react';
+import resetStyles from '@/reset';
 
 const globalStyles = css`
   body {
@@ -9,7 +10,7 @@ const globalStyles = css`
 function App() {
   return (
     <>
-      <Global styles={[globalStyles]} />
+      <Global styles={[resetStyles, globalStyles]} />
     </>
   );
 }
