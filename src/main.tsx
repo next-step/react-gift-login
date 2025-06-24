@@ -2,8 +2,8 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 import { css, Global } from '@emotion/react'
-import { resetStyles } from './styles/reset.ts'
-import { fontStyles } from './styles/font.ts'
+import { resetStyles } from '@/styles/reset'
+import { fontStyles } from '@/styles/font'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
