@@ -4,6 +4,8 @@ const App = () => {
     <>
       <Global
         styles={css`
+          @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+
           html,
           body,
           div,
@@ -109,6 +111,18 @@ const App = () => {
 
           body {
             line-height: 1;
+            font-family:
+              'Pretendard',
+              -apple-system,
+              BlinkMacSystemFont,
+              system-ui,
+              Roboto,
+              'Helvetica Neue',
+              'Segoe UI',
+              'Apple SD Gothic Neo',
+              'Noto Sans KR',
+              'Malgun Gothic',
+              sans-serif;
           }
 
           ol,
@@ -135,6 +149,8 @@ const App = () => {
           }
         `}
       />
+      <h1>app</h1>
+      <p>글꼴 확인</p>
     </>
   );
 };
