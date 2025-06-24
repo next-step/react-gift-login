@@ -1,6 +1,5 @@
 # react-gift-login
 
-
 - 불필요한 파일 코드 정리
 - 절대 경로로 import 위한 alias설정
 - Prettier 추가
