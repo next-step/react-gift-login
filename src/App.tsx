@@ -1,11 +1,9 @@
-import { Global } from '@emotion/react'
 import './App.css'
-import { reset } from '@styles/reset'
 
 function App() {
   return (
     <>
-      <Global styles={reset}></Global>
+      <h1>테스트</h1>
     </>
   )
 }

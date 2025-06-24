@@ -2,6 +2,14 @@
 import { css } from '@emotion/react'
 
 export const reset = css`
+  @font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff')
+      format('woff');
+    font-weight: 400;
+    font-style: normal;
+  }
+
   html,
   body,
   div,
@@ -87,7 +95,6 @@ export const reset = css`
     padding: 0;
     border: 0;
     font-size: 100%;
-    font: inherit;
     vertical-align: baseline;
   }
   /* HTML5 display-role reset for older browsers */
@@ -125,5 +132,10 @@ export const reset = css`
   table {
     border-collapse: collapse;
     border-spacing: 0;
+  }
+
+  * {
+    font-family:
+      'Pretendard-Regular', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif, 'Noto Sans KR';
   }
 `
