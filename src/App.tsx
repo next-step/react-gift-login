@@ -1,4 +1,5 @@
 import React from 'react'
+import TestComponent from '@/components/TestComponent'
 import './App.css'
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <div className="App">
       <h1>React Gift Login</h1>
       <p>Welcome to the gift login application!</p>
+      <TestComponent />
     </div>
   )
 }
