@@ -132,6 +132,6 @@ feat: Emotion CSS-in-JS 라이브러리 추가 및 Reset CSS 적용
 feat: Pretendard 폰트 적용
 ```
 
-## �� 라이선스
+##  라이선스
 
 MIT License
