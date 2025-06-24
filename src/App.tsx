@@ -1,3 +1,4 @@
+import GlobalStyle from './styles/GlobalStyle'
 import './App.css'
 
 function App() {
