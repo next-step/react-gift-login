@@ -2,7 +2,7 @@
 
 ## 구현할 기능 목록
 [ ] 홈과 로그인 - 리엑트 기초, 라우팅
-- [ ] 1단계 : 프로젝트 초기 세팅
+- [o] 1단계 : 프로젝트 초기 세팅
   - [o] 홈과 로그인(WIP) 레포지토리 클론하기
   - [o] 불필요한 파일, 코드 정리하기
         - assets/react.svg, App.css 같은 기본 템플릿 파일 삭제
@@ -19,7 +19,7 @@
         - styles>GlobalStyle.tsx 생성 후 Reset CSS를 글로벌 스타일로 적용
   - [o] Pretendard 기본 폰트 적용
         - index.html에 Pretended link 추가
-        - GolbalStyle.tsx의 font-family 수정
+        - GlobalStyle.tsx의 font-family 수정
   - [o] 기능 단위로 나누어 커밋하기
 
 - [ ] 2단계 : 선물하기 메인 페이지 UI 구현하기
