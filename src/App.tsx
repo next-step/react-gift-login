@@ -4,7 +4,7 @@ function App() {
   return (
     <>
       <ResetStyles />
-      <div>김세한</div>
+      <h1>김세한</h1>
     </>
   );
 }

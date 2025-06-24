@@ -13,8 +13,9 @@ const reset = css`
   body {
     height: 100%;
     font-family:
-      -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
-      'Helvetica Neue', sans-serif;
+      'Pretendard',
+      -apple-system,
+      sans-serif;
     background-color: #fff;
     color: #000;
   }
