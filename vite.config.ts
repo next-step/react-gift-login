@@ -12,6 +12,10 @@ export default defineConfig({
         find: '@components',
         replacement: resolve(__dirname, 'src/components'),
       },
+      {
+        find: '@styles', // styles 폴더 alias 추가
+        replacement: resolve(__dirname, 'src/styles'),
+      },
     ],
   },
 
