@@ -1,14 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// src/App.tsx
+import { useState } from "react";
+import reactLogo from "@assets/react.svg";
+import viteLogo from "@assets/vite.svg";
+
+import { Global, css } from "@emotion/react"; // css를 임포트
+import { reset } from "@styles/reset";
+import { globalStyles } from "@styles/global";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <>
-      <div>
+      <Global styles={reset} />
+      <Global styles={globalStyles} />
+
+      <div
+        css={css`
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+          padding: 20px;
+          background-color: transparent;
+        `}
+      >
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -16,7 +31,16 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
+      <h1
+        css={css`
+          color: #white;
+          font-size: 3.2rem;
+          text-align: center;
+          margin-top: 20px;
+        `}
+      >
+        Vite + React
+      </h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
@@ -29,7 +53,7 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
