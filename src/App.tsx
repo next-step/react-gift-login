@@ -10,6 +10,7 @@ function App() {
               margin: 0;
               padding: 0;
               background: #fff;
+              font-family: 'Pretendard';
             }
             *, *::before, *::after {
               box-sizing: border-box;
