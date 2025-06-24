@@ -33,6 +33,7 @@ const reset = css`
 
   body {
     line-height: 1;
+    font-family: 'Pretendard', sans-serif;
   }
 
   ol, ul {
