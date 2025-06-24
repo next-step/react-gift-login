@@ -23,10 +23,14 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
 
+    /* Import Alias */
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+
+    /* emotion */
+    "jsxImportSource": "@emotion/react"
   },
   "include": ["src"]
 }
