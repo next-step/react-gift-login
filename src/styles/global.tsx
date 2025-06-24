@@ -42,6 +42,9 @@ const GlobalStyle = () => (
       body {
         min-height: 100vh;
         line-height: 1.5;
+        font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui,
+        Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR',
+        'Malgun Gothic', sans-serif;
       }
 
       /* Set shorter line heights on headings and interactive elements */
