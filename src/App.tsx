@@ -1,11 +1,10 @@
-function App() {
 
+function App() {
   return (
-      <div>
-        app
-      </div>
+    <div>
+      <h1>앱 실행 중</h1>
+    </div>
   );
-  
 }
 
-export default App
+export default App;
