@@ -31,7 +31,7 @@ function App() {
       </div>
       <h1
         css={css`
-          color: #white;
+          color: #ffffff;
           font-size: 3.2rem;
           text-align: center;
           margin-top: 20px;
