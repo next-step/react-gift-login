@@ -7,5 +7,5 @@
 - [x] 절대경로 alias 설정
 - [x] prettier 추가
 - [x] emotion 스타일 라이브러리 추가
-- [ ] reset css 적용
+- [x] reset css 적용
 - [ ] 기본폰트로 pretendard 폰트 적용
