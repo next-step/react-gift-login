@@ -9,7 +9,7 @@ export const resetStyle = css`
   }
 
   body {
-    font-family: sans-serif;
+    font-family: 'Pretendard', sans-serif;
     background-color: #fff;
     color: #222;
     line-height: 1.5;
