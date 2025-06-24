@@ -16,7 +16,7 @@ const GlobalStyles = () => (
       html,
       body {
         height: 100%;
-        font-family: 'Pretendard', sans-serif;
+        font-family: 'Pretendard';
         line-height: 1.5;
         -webkit-font-smoothing: antialiased;
       }
