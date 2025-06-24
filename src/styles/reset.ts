@@ -12,7 +12,15 @@ const reset = css`
   html,
   body {
     height: 100%;
-    font-family: sans-serif;
+    font-family:
+      'Pretendard Variable',
+      -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      Roboto,
+      'Helvetica Neue',
+      Arial,
+      sans-serif;
     line-height: 1.5;
     background-color: #ffffff;
     color: #000000;
