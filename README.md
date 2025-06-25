@@ -15,6 +15,7 @@
 - [x] emotion 에 Color, Typography 토큰 설정
 - [x] mobile first design 기반의 layout 구현
 - [x] 상단 네비게이션 바 영역 UI 구현
+- [ ] 선물할 친구 선택 UI 구현
 - [ ] 카테고리 섹션 UI 구현
-- [ ] 기타 섹션(선물한 친구 선택, 카테캠 화이팅) UI 구현
+- [ ] 카테캠 화이팅 섹션 UI 구현
 - [ ] 실시간 급상승 선물랭킹 UI 구현
