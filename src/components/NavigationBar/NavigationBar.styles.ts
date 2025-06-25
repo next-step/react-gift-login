@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const NavigationContainer = styled.section`
+export const NavigationSection = styled.section`
   max-width: ${({ theme }) => theme.layout.width.container};
   width: 100%;
   height: ${({ theme }) => theme.components.navigationBar.height};
@@ -16,7 +16,7 @@ export const NavigationContainer = styled.section`
   background-color: ${({ theme }) => theme.colors.background.default};
 `;
 
-export const Title = styled.h2`
+export const SectionTitle = styled.h2`
   font-size: ${({ theme }) => theme.typography.title.title1Bold.fontSize};
   font-weight: ${({ theme }) => theme.typography.title.title1Bold.fontWeight};
 `;

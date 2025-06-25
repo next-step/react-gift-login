@@ -3,22 +3,22 @@ import ProfileIconSvg from './icons/profile.svg';
 import {
   IconButton,
   LeftIcon,
-  NavigationContainer,
+  NavigationSection,
+  SectionTitle,
   ProfileIcon,
-  Title,
 } from './NavigationBar.styles';
 
 function NavigationBar() {
   return (
-    <NavigationContainer>
+    <NavigationSection>
       <IconButton>
         <LeftIcon src={BackIconSvg} alt="뒤로가기" />
       </IconButton>
-      <Title>선물하기</Title>
+      <SectionTitle>선물하기</SectionTitle>
       <IconButton>
         <ProfileIcon src={ProfileIconSvg} alt="프로필" />
       </IconButton>
-    </NavigationContainer>
+    </NavigationSection>
   );
 }
 
