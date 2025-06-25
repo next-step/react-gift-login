@@ -50,8 +50,7 @@ h6 {
   overflow-wrap: break-word;
 }
 
-#root,
-#__next {
+#root {
   isolation: isolate;
   height: 100%;
 }
