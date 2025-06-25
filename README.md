@@ -13,7 +13,7 @@
 ## 2 단계 - 선물하기 메인 페이지 UI 구현하기
 
 - [x] emotion 에 Color, Typography 토큰 설정
-- [ ] mobile first design 기반의 layout 구현
+- [x] mobile first design 기반의 layout 구현
 - [ ] 상단 네비게이션 바 영역 UI 구현
 - [ ] 카테고리 섹션 UI 구현
 - [ ] 기타 섹션(선물한 친구 선택, 카테캠 화이팅) UI 구현
