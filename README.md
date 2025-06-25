@@ -22,8 +22,9 @@
 - [ ] 본인만의 기준으로 일관된 코드 작성
   - [ ] 과도하지 않게 적절히 컴포넌트 나누어 재사용하기
 - [ ] 기능 단위로 나누어 커밋
-- [ ] emotion에 Color, Typography 토큰 설정 (토큰 가이드)
-- [ ] Mobile First Design 기반의 Layout 구현 (아래 설명 참고)
+- [x] emotion에 Color, Typography 토큰 설정
+      (토큰 가이드 : https://edu.nextstep.camp/s/0eoNzeZS/ls/lNeUqOll)
+- [ ] Mobile First Design 기반의 Layout 구현
   - [ ] 화면의 max-width를 720px으로 제한
 - [ ] 상단 네비게이션 바 영역 구현
 - [ ] 카테고리 섹션 구현
