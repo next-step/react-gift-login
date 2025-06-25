@@ -2,6 +2,7 @@ import { colors, semanticColors } from '@/styles/theme/colors';
 import { typography } from '@/styles/theme/typography';
 import { spacing } from '@/styles/theme/spacing';
 import { layout } from './layout';
+import { borderRadius } from './borderRadius';
 
 export const theme = {
   colors: {
@@ -11,12 +12,18 @@ export const theme = {
   typography,
   spacing,
   layout,
+  borderRadius,
 
   components: {
     navigationBar: {
       height: '3rem',
-      leftIcon: spacing[6],
+      leftIconSize: spacing[6],
       profileIconSize: spacing[5],
+    },
+    giftBanner: {
+      height: '7rem',
+      width: '95%',
+      AddIconSize: spacing[5],
     },
   },
 } as const;
