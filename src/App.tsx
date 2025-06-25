@@ -1,5 +1,5 @@
 import { Global } from '@emotion/react';
-import React from 'react';
+
 import { reset } from './styles/reset';
 
 const App = () => {
