@@ -1,5 +1,7 @@
 # react-gift-login
+
 ### 작업 사항
+
 1. 불필요한 파일, 코드 정리
 2. 절대경로 alias 설정
 3. Prettier 설정
