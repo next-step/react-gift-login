@@ -1,11 +1,15 @@
 import styled from "@emotion/styled";
 import RoundButton from "@src/components/RoundButton";
+import theme from "@src/styles/kakaoTheme";
 
 function RecipientSelector() {
   return (
     <RecipientSelectorWrapper>
       <InnerBox>
-        <RoundButton color="yellow" children="+"></RoundButton>
+        <RoundButton
+          color={`${theme.colors.yellow.yellow500}`}
+          children="+"
+        ></RoundButton>
         <p>선물할 친구를 선택해 주세요.</p>
       </InnerBox>
     </RecipientSelectorWrapper>
@@ -20,7 +24,7 @@ const InnerBox = styled.div`
   margin: 20px;
   padding: 20px;
   width: 100%;
-  background-color: grey;
+  background-color: white;
   border-radius: 20px;
 `;
 
@@ -29,7 +33,7 @@ const RecipientSelectorWrapper = styled.div`
   justify-content: center;
   align-items: center;
   gap: 10px;
-  background-color: green;
+  background-color: ${theme.colors.gray.gray200};
 `;
 
 export default RecipientSelector;

@@ -5,6 +5,7 @@ function Mainpage() {
   return (
     <>
       <NavBar />
+      <RecipientSelector />
     </>
   );
 }
