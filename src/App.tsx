@@ -2,11 +2,7 @@ import "@src/App.css";
 import Router from "@src/router/Router";
 
 function App() {
-  return (
-    <>
-      <Router />
-    </>
-  );
+  return <Router />;
 }
 
 export default App;
