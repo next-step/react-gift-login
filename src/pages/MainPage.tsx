@@ -7,7 +7,6 @@ import RecipientSelector from "@src/components/RecipientSelector";
 function Mainpage() {
   return (
     <>
-      <NavBar />
       <RecipientSelector />
       <GiftThemePanel />
       <CheerUpPanel />
