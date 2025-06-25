@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import PageLayout from '@/components/Layout/PageLayout';
 
 const Container = styled.div`
   padding: ${({ theme }) => theme.spacing.spacing6};
@@ -27,11 +28,13 @@ const Warning = styled.div`
 
 function App() {
   return (
-    <Container>
-      <Title>제목 테스트</Title>
-      <Subtitle>테스트</Subtitle>
-      <Warning>에러 테스트</Warning>
-    </Container>
+    <PageLayout>
+      <Container>
+        <Title>제목 테스트</Title>
+        <Subtitle>테스트</Subtitle>
+        <Warning>에러 테스트</Warning>
+      </Container>
+    </PageLayout>
   );
 }
 
