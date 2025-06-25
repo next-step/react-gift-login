@@ -9,6 +9,14 @@ const RankingSection = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [selectedGender, setSelectedGender] = useState('ALL');
   const [selectedAction, setSelectedAction] = useState('받고 싶어한');
+  // 고정인 데이터들을 배열로 만듦
+  const genderOptions = [
+    { key: 'ALL', icon: 'ALL', label: '전체' },
+    { key: '여성이', icon: '👩🏻', label: '여성이' },
+    { key: '남성이', icon: '👨🏻', label: '남성이' },
+    { key: '청소년이', icon: '👦🏻', label: '청소년이' }
+  ];
+  const actionOptions = ['받고 싶어한', '많이 선물한', '위시로 받은'];
   
   const sectionStyle = css`
     padding: ${theme.spacing.spacing4};
@@ -21,8 +29,12 @@ const RankingSection = () => {
     margin-bottom: ${theme.spacing.spacing4};
   `;
 
-  const filterContainerStyle = css`
-    margin-bottom: ${theme.spacing.spacing4};
+  // 공통 버튼 스타일 분리 
+  const baseButtonStyle = css`
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
   `;
 
   const genderFilterStyle = css`
@@ -40,10 +52,7 @@ const RankingSection = () => {
   `;
 
   const actionButtonStyle = (isSelected: boolean) => css`
-    border: none;
-    background: none;
-    padding: 0;
-    cursor: pointer;
+    ${baseButtonStyle}
     margin: 0;
     text-align: left;
     ${isSelected ? theme.typography.label1Bold : theme.typography.label1Regular}
@@ -51,13 +60,10 @@ const RankingSection = () => {
   `;
 
   const genderButtonStyle = css`
+    ${baseButtonStyle}
     display: flex;
     flex-direction: column;
     align-items: center;
-    cursor: pointer;
-    border: none;
-    background: none;
-    padding: 0;
   `;
 
   const genderIconContainerStyle = (isSelected: boolean) => css`
@@ -124,18 +130,18 @@ const RankingSection = () => {
     margin-bottom: ${theme.spacing.spacing1};
   `;
 
-  const productNameStyle = css`
+  // 공통 텍스트 스타일
+  const productTextStyle = css`
     ${theme.typography.body2Bold}
     color: ${theme.semantic.text.default};
+  `;
+
+  const productNameStyle = css`
+    ${productTextStyle}
     margin-bottom: ${theme.spacing.spacing2};
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-  `;
-
-  const priceStyle = css`
-    ${theme.typography.body2Bold}
-    color: ${theme.semantic.text.default};
   `;
 
   const moreButtonStyle = css`
@@ -153,36 +159,22 @@ const RankingSection = () => {
     <section css={sectionStyle}>
       <h3 css={titleStyle}>실시간 급상승 선물랭킹</h3>
       
-      <div css={filterContainerStyle}>
+      <div css={css`margin-bottom: ${theme.spacing.spacing4};`}>
         <div css={genderFilterStyle}>
-          <button css={genderButtonStyle} onClick={() => setSelectedGender('ALL')}>
-            <div css={genderIconContainerStyle(selectedGender === 'ALL')}>ALL</div>
-            <p css={genderTextStyle(selectedGender === 'ALL')}>전체</p>
-          </button>
-          <button css={genderButtonStyle} onClick={() => setSelectedGender('여성이')}>
-            <div css={genderIconContainerStyle(selectedGender === '여성이')}>👩🏻</div>
-            <p css={genderTextStyle(selectedGender === '여성이')}>여성이</p>
-          </button>
-          <button css={genderButtonStyle} onClick={() => setSelectedGender('남성이')}>
-            <div css={genderIconContainerStyle(selectedGender === '남성이')}>👨🏻</div>
-            <p css={genderTextStyle(selectedGender === '남성이')}>남성이</p>
-          </button>
-          <button css={genderButtonStyle} onClick={() => setSelectedGender('청소년이')}>
-            <div css={genderIconContainerStyle(selectedGender === '청소년이')}>👦🏻</div>
-            <p css={genderTextStyle(selectedGender === '청소년이')}>청소년이</p>
-          </button>
+          {genderOptions.map(option => (
+            <button key={option.key} css={genderButtonStyle} onClick={() => setSelectedGender(option.key)}>
+              <div css={genderIconContainerStyle(selectedGender === option.key)}>{option.icon}</div>
+              <p css={genderTextStyle(selectedGender === option.key)}>{option.label}</p>
+            </button>
+          ))}
         </div>
         
         <div css={actionFilterStyle}>
-          <button css={actionButtonStyle(selectedAction === '받고 싶어한')} onClick={() => setSelectedAction('받고 싶어한')}>
-            받고 싶어한
-          </button>
-          <button css={actionButtonStyle(selectedAction === '많이 선물한')} onClick={() => setSelectedAction('많이 선물한')}>
-            많이 선물한
-          </button>
-          <button css={actionButtonStyle(selectedAction === '위시로 받은')} onClick={() => setSelectedAction('위시로 받은')}>
-            위시로 받은
-          </button>
+          {actionOptions.map(action => (
+            <button key={action} css={actionButtonStyle(selectedAction === action)} onClick={() => setSelectedAction(action)}>
+              {action}
+            </button>
+          ))}
         </div>
       </div>
 
@@ -193,13 +185,13 @@ const RankingSection = () => {
             <img css={itemImageStyle} src={item.imageURL} alt={item.name} />
             <p css={brandNameStyle}>{item.brandInfo.name}</p>
             <h6 css={productNameStyle}>{item.name}</h6>
-            <p css={priceStyle}>{item.price.sellingPrice.toLocaleString()} <span>원</span></p>
+            <p css={productTextStyle}>{item.price.sellingPrice.toLocaleString()} <span>원</span></p>
           </div>
         ))}
       </div>
 
       <button css={moreButtonStyle} onClick={() => setIsExpanded(!isExpanded)}>
-        <p>{isExpanded ? '접기' : '더보기'}</p>
+        {isExpanded ? '접기' : '더보기'}
       </button>
     </section>
   );
