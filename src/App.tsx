@@ -1,5 +1,5 @@
-import './App.css'
-import Present from '@components/Present'
+import './App.css';
+import Present from '@components/Present';
 
 function App() {
   return (
@@ -8,7 +8,6 @@ function App() {
         <Present></Present>
       </div>
     </>
-  )
+  );
 }
-
-export default App
+export default App;
