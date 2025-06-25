@@ -1,17 +1,19 @@
 import { css } from '@emotion/react';
+import type { Theme } from '@/styles/theme';
 
-export const BaseStyle = css`
+export const BaseStyle = (theme: Theme) => css`
   body {
     font-family: 'Pretendard', sans-serif;
-    background-color: #fff;
-    color: #1a1a1a;
-    line-height: 2;
+    background-color: ${theme.color.semantic.background.default};
+    color: ${theme.color.semantic.text.default};
+    line-height: ${theme.typography.body.body2Regular.lineHeight};
   }
 
   h2 {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 8px;
+    font-size: ${theme.typography.title.title1Bold.fontSize};
+    font-weight: ${theme.typography.title.title1Bold.fontWeight};
+    line-height: ${theme.typography.title.title1Bold.lineHeight};
+    margin-bottom: ${theme.spacing[2]};
   }
 
   img {
