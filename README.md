@@ -26,6 +26,8 @@
     - [o] 화면의 max-width를 720px으로 제한
             - GlobalStyle.tsx에 #root 추가 후 max-width: 720px, margin: 0 auto → 중앙 정렬 및 최대 폭 제한
     - [ ] 디자인 토큰 설정 (emotion 기반 Color, Typography 설정)
+            - styles 폴더 안에 디자인 토큰 파일 생성(color.ts, typography.ts)
+            - theme.ts로 통합 후, Emotion의 ThemeProvider를 통해 전역 테마로 적용
     - [ ] Mobile First Design 기반의 레이아웃 구조 잡기
     - [ ] 상단 네비게이션 바 구현
     - [ ] 카테고리 섹션 구현
