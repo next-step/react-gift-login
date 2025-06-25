@@ -1,7 +1,7 @@
-// styles/theme.ts
 const theme = {
     colors: {
       gray: {
+        0: '#ffffff',
         100: '#f7f8f9',
         200: '#f3f4f5',
         300: '#eeeff1',
@@ -14,28 +14,86 @@ const theme = {
         1000: '#1a1c20',
       },
       yellow: {
-        600: '#fee500', // 카카오 메인
-        hover: '#ffea2e',
-        active: '#d5c000',
+        0: '#fffef9',
+        100: '#fffce5',
+        200: '#fff8b7',
+        300: '#fff38a',
+        400: '#ffef5c',
+        500: '#ffea2e',
+        600: '#fee500',
+        700: '#d5c000',
+        800: '#ac9b00',
+        900: '#847700',
+        1000: '#5b5200',
       },
-      kakaoBrown: '#654321',
-      critical: '#fa342c',
-      info: '#217cf9',
-    },
-    text: {
-      default: '#2a3038',
-      sub: '#b0b3ba',
-      disabled: '#dcdee3',
-      placeholder: '#b0b3ba',
-    },
-    background: {
-      default: '#ffffff',
-      disabled: '#f3f4f5',
-      fill: '#f7f8f9',
-    },
-    border: {
-      default: '#dcdee3',
-      disabled: '#eeeff1',
+      brown: {
+        0: '#fff9f4',
+        100: '#ffeedc',
+        200: '#ffe2c4',
+        300: '#f9d0a8',
+        400: '#edbc8a',
+        500: '#cb9a69',
+        600: '#a97b4d',
+        700: '#875e35',
+        800: '#654321',
+        900: '#432a12',
+        1000: '#2d1b08',
+      },
+      blue: {
+        0: '#f8faff',
+        100: '#eff6ff',
+        200: '#e2edfc',
+        300: '#cbdffa',
+        400: '#aacefd',
+        500: '#85b8fd',
+        600: '#5e98fe',
+        700: '#217cf9',
+        800: '#135fcd',
+        900: '#0b4596',
+        1000: '#032451',
+      },
+      red: {
+        0: '#fffafa',
+        100: '#fdf0f0',
+        200: '#fde7e7',
+        300: '#fed4d2',
+        400: '#feb7b3',
+        500: '#fe928d',
+        600: '#fc6a66',
+        700: '#fa342c',
+        800: '#ca1d13',
+        900: '#921708',
+        1000: '#4a1209',
+      },
+      semantic: {
+        kakaoYellow: '#fee500',
+        kakaoYellowHover: '#ffea2e',
+        kakaoYellowActive: '#d5c000',
+        kakaoYellowPressed: '#d5c000',
+        kakaoBrown: '#654321',
+        kakaoBrownPressed: '#432a12',
+      },
+      background: {
+        default: '#ffffff',
+        disabled: '#f3f4f5',
+        fill: '#f7f8f9',
+      },
+      text: {
+        default: '#2a3038',
+        sub: '#b0b3ba',
+        disabled: '#dcdee3',
+        placeholder: '#b0b3ba',
+      },
+      border: {
+        default: '#dcdee3',
+        disabled: '#eeeff1',
+      },
+      state: {
+        critical: '#fa342c',
+        criticalBackground: '#fdf0f0',
+        info: '#217cf9',
+        infoBackground: '#eff6ff',
+      },
     },
     spacing: {
       0: '0px',
@@ -49,6 +107,12 @@ const theme = {
       8: '32px',
       9: '36px',
       10: '40px',
+      11: '44px',
+      12: '48px',
+      13: '52px',
+      14: '56px',
+      15: '60px',
+      16: '64px',
     },
     typography: {
       title1Bold: {
@@ -56,13 +120,84 @@ const theme = {
         fontWeight: 700,
         lineHeight: '1.6875rem',
       },
+      title1Regular: {
+        fontSize: '1.25rem',
+        fontWeight: 400,
+        lineHeight: '1.6875rem',
+      },
+      title2Bold: {
+        fontSize: '1rem',
+        fontWeight: 700,
+        lineHeight: '1.5rem',
+      },
+      title2Regular: {
+        fontSize: '1rem',
+        fontWeight: 400,
+        lineHeight: '1.5rem',
+      },
+      subtitle1Bold: {
+        fontSize: '1rem',
+        fontWeight: 700,
+        lineHeight: '1.375rem',
+      },
+      subtitle1Regular: {
+        fontSize: '1rem',
+        fontWeight: 400,
+        lineHeight: '1.5rem',
+      },
+      subtitle2Bold: {
+        fontSize: '0.875rem',
+        fontWeight: 700,
+        lineHeight: '1.1875rem',
+      },
+      subtitle2Regular: {
+        fontSize: '0.875rem',
+        fontWeight: 400,
+        lineHeight: '1.1875rem',
+      },
+      body1Bold: {
+        fontSize: '1rem',
+        fontWeight: 700,
+        lineHeight: '1.375rem',
+      },
+      body1Regular: {
+        fontSize: '1rem',
+        fontWeight: 400,
+        lineHeight: '1.375rem',
+      },
+      body2Bold: {
+        fontSize: '0.875rem',
+        fontWeight: 700,
+        lineHeight: '1.1875rem',
+      },
       body2Regular: {
         fontSize: '0.875rem',
         fontWeight: 400,
         lineHeight: '1.1875rem',
       },
+      label1Bold: {
+        fontSize: '0.875rem',
+        fontWeight: 700,
+        lineHeight: '1.1875rem',
+      },
+      label1Regular: {
+        fontSize: '0.875rem',
+        fontWeight: 400,
+        lineHeight: '1.1875rem',
+      },
+      label2Bold: {
+        fontSize: '0.75rem',
+        fontWeight: 700,
+        lineHeight: '1rem',
+      },
+      label2Regular: {
+        fontSize: '0.75rem',
+        fontWeight: 400,
+        lineHeight: '1rem',
+      },
     },
   };
   
   export default theme;
+  
   
