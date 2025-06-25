@@ -10,7 +10,13 @@ const customGlobalStyles = css`
   }
   body {
     font-family: 'Pretendard', Arial, sans-serif;
-    background-color: #fff;
+    background-color: rgb(247, 248, 249);
+  }
+  
+  /* Mobile First Design 720px최대로 고정 */
+  #root {
+    max-width: 720px;
+    margin: 0 auto;
   }
 `;
 
