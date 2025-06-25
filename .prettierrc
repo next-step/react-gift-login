@@ -1,8 +1,8 @@
 {
-  "semi": true,
-  "trailingComma": "es5",
-  "singleQuote": true,
-  "printWidth": 80,
-  "tabWidth": 2,
-  "useTabs": false
+  "semi": true, // 세미콜론 사용 (default: true)
+  "trailingComma": "es5", // ES5 호환성을 위한 후행 쉼표 사용 (default: "none")
+  "singleQuote": true, // 작은 따옴표 사용 (default: false)
+  "printWidth": 80, // 줄 너비 80자 설정 (default: 80)
+  "tabWidth": 2, // 탭 너비 2칸 설정 (default: 2)
+  "useTabs": false // 스페이스 사용하여 들여쓰기 설정 (default: false)
 } 

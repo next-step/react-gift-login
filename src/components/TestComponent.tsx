@@ -20,4 +20,4 @@ const TestComponent: React.FC = () => {
   );
 };
 
-export default TestComponent; 
+export default TestComponent;
