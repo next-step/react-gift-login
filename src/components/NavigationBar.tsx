@@ -36,7 +36,7 @@ const Container = styled.div`
   align-items: center;
   height: ${({ theme }) => theme.spacing.spacing11};
   justify-content: space-between;
-  background-color: ${({ theme }) => theme.colors.semantic.backgroundFill};
+  background-color: ${({ theme }) => theme.colors.semantic.backgroundDefault};
 `;
 
 const Icon = styled.button`
@@ -46,8 +46,8 @@ const Icon = styled.button`
 `;
 
 const Title = styled.button`
-  ${({ theme }) => `
-    font: ${theme.typography.title1Bold};
-  `}
+  font: ${({ theme }) => 
+    theme.typography.title1Bold};
+  
 `;
 

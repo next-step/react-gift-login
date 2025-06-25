@@ -7,8 +7,7 @@ interface PageLayoutProps {
 
 const Wrapper = styled.div`
   max-width: 720px;
-  margin: 0 auto;
-  padding: 0 16px; // 모바일 기반 UI 기본 여백
+  margin: 0 auto;// 모바일 기반 UI 기본 여백
   box-sizing: border-box;
 `;
 
