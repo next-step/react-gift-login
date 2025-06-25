@@ -1,5 +1,7 @@
+import { GiftPage } from './pages/GiftPage';
+
 function App() {
-  return <></>;
+  return <GiftPage />;
 }
 
 export default App;
