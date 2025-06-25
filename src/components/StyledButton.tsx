@@ -29,4 +29,4 @@ export const SecondaryButton = styled(Button)`
   &:active {
     background-color: #3d4449;
   }
-`; 
+`;
