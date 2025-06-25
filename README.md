@@ -17,7 +17,7 @@
 ### 과제 진행 요구사항
 
 - [x] emotion에 Color, Typography 토큰 설정
-- [ ] Mobile First Design 기반의 Layout 구현
+- [x] Mobile First Design 기반의 Layout 구현
 - [ ] 상단 네비게이션 바 영역 구현
 - [ ] 카테고리 섹션 구현
 - [ ] 기타 섹션 (선물한 친구 선택, 카테캠 화이팅) UI 구현

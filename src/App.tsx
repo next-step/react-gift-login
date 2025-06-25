@@ -1,11 +1,13 @@
-import styled from "@emotion/styled";
 import GlobalStyle from "@/styles/global";
+import Layout from "./components/Layout";
 
 function App() {
   return (
     <>
       <GlobalStyle />
-      <div>초기화 APP</div>
+      <Layout>
+        <div>초기화 APP</div>
+      </Layout>
     </>
   );
 }

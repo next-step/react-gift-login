@@ -40,6 +40,8 @@ const GlobalStyle = () => (
 
       /* Set core body defaults */
       body {
+        margin: 0;
+        padding: 0;
         min-height: 100vh;
         line-height: 1.5;
         font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui,
