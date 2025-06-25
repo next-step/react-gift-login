@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
 
 export const NavigationContainer = styled.section`
-  max-width: 720px;
+  max-width: ${({ theme }) => theme.layout.width.container};
   width: 100%;
-  height: 3rem;
+  height: ${({ theme }) => theme.components.navigationBar.height};
   position: fixed;
 
   display: flex;
@@ -26,11 +26,11 @@ export const IconButton = styled.button`
 `;
 
 export const LeftIcon = styled.img`
-  width: ${({ theme }) => theme.spacing[6]};
-  height: ${({ theme }) => theme.spacing[6]};
+  width: ${({ theme }) => theme.components.navigationBar.leftIcon};
+  height: ${({ theme }) => theme.components.navigationBar.leftIcon};
 `;
 
 export const ProfileIcon = styled.img`
-  width: ${({ theme }) => theme.spacing[5]};
-  height: ${({ theme }) => theme.spacing[5]};
+  width: ${({ theme }) => theme.components.navigationBar.profileIconSize};
+  height: ${({ theme }) => theme.components.navigationBar.profileIconSize};
 `;
