@@ -26,8 +26,8 @@ export const IconButton = styled.button`
 `;
 
 export const LeftIcon = styled.img`
-  width: ${({ theme }) => theme.components.navigationBar.leftIcon};
-  height: ${({ theme }) => theme.components.navigationBar.leftIcon};
+  width: ${({ theme }) => theme.components.navigationBar.leftIconSize};
+  height: ${({ theme }) => theme.components.navigationBar.leftIconSize};
 `;
 
 export const ProfileIcon = styled.img`
