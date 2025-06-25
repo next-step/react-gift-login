@@ -1,19 +1,9 @@
-/** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react';
 import theme from '@src/styles/tokens/index';
-import { ReactNode } from 'react';
+import styled from '@emotion/styled';
 
-interface BackgroundProps {
-  children?: ReactNode;
-}
-
-const Background = ({ children }: BackgroundProps) => {
-  const style = css`
+const Background = styled.div`
     background-color: ${theme.colors.gray100};
-    min-height: 100vh;
-  `;
-
-  return <div css={style}>{children}</div>;
-};
+    min-height: 100vh
+`;
 
 export default Background;
