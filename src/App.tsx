@@ -1,10 +1,12 @@
 import './App.css';
-import Present from '@components/Present';
+import PresentTheme from '@/components/PresentTheme';
+import Present from './components/present';
 
 function App() {
   return (
     <>
       <div>
+        <PresentTheme></PresentTheme>
         <Present></Present>
       </div>
     </>
