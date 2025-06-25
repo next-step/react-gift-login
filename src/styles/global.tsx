@@ -5,11 +5,6 @@ import 'pretendard/dist/web/variable/pretendardvariable.css';
 const GlobalStyle = () => (
   <Global
     styles={css`
-      html,
-      body {
-        font-family: 'Pretendard Variable', sans-serif;
-      }
-
       /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -102,6 +97,7 @@ const GlobalStyle = () => (
         font-size: 100%;
         font: inherit;
         vertical-align: baseline;
+        font-family: 'Pretendard Variable', sans-serif;
       }
       /* HTML5 display-role reset for older browsers */
       article,
