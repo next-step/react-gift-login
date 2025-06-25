@@ -37,6 +37,8 @@ const reset = css`
   }
 `;
 
-const ResetStyles = () => <Global styles={reset} />;
+function ResetStyles() {
+  return <Global styles={reset} />;
+}
 
 export default ResetStyles;

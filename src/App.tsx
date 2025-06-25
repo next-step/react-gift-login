@@ -1,4 +1,4 @@
-import ResetStyles from './styles/ResetStyles';
+import ResetStyles from '@/styles/ResetStyles';
 
 function App() {
   return (
