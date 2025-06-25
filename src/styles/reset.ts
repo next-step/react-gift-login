@@ -8,22 +8,6 @@ export const GlobalResetStyle = css`
     height: 100%;
     margin: 0;
     padding: 0;
-    font-family:
-      "Pretendard Variable",
-      Pretendard,
-      -apple-system,
-      BlinkMacSystemFont,
-      system-ui,
-      Roboto,
-      "Helvetica Neue",
-      "Segoe UI",
-      "Apple SD Gothic Neo",
-      "Noto Sans KR",
-      "Malgun Gothic",
-      "Apple Color Emoji",
-      "Segoe UI Emoji",
-      "Segoe UI Symbol",
-      sans-serif;
   }
   * {
     box-sizing: border-box;
@@ -37,9 +21,6 @@ export const GlobalResetStyle = css`
   optgroup,
   select,
   textarea {
-    font-family: inherit;
-    font-size: 100%;
-    line-height: 1.15;
     margin: 0;
   }
   button {
