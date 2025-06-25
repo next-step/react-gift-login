@@ -96,25 +96,29 @@ const theme = {
     infoBackground: "#eff6ff", //정보 배경 색상
   },
   typography: {
-    title1Bold: "1.25rem (20px)	700	1.6875rem (27px)",
-    title1Regular: "1.25rem (20px)	400	1.6875rem (27px)",
-    title2Bold: "1rem (16px)	700	1.5rem (24px)",
-    title2Regular: "1rem (16px)	400	1.5rem (24px)",
+    title1Bold: '700 1.25rem/1.6875rem "Pretendard", sans-serif',
+    title1Regular: '400 1.25rem/1.6875rem "Pretendard", sans-serif',
 
-    subtitle1Bold: "1rem (16px)	700	1.375rem (22px)",
-    subtitle1Regular: "1rem (16px)	400	1.5rem (24px)",
-    subtitle2Bold: "0.875rem (14px)	700	1.1875rem (19px)",
-    subtitle2Regular: "0.875rem (14px)	400	1.1875rem (19px)",
+    title2Bold: '700 1rem/1.5rem "Pretendard", sans-serif',
+    title2Regular: '400 1rem/1.5rem "Pretendard", sans-serif',
 
-    body1Bold: "1rem (16px)	700	1.375rem (22px)",
-    body1Regular: "1rem (16px)	400	1.375rem (22px)",
-    body2Bold: "0.875rem (14px)	700	1.1875rem (19px)",
-    body2Regular: "0.875rem (14px)	400	1.1875rem (19px)",
+    subtitle1Bold: '700 1rem/1.375rem "Pretendard", sans-serif',
+    subtitle1Regular: '400 1rem/1.5rem "Pretendard", sans-serif',
 
-    label1Bold: "0.875rem (14px)	700	1.1875rem (19px)",
-    label1Regular: "0.875rem (14px)	400	1.1875rem (19px)",
-    label2Bold: "0.75rem (12px)	700	1rem (16px)",
-    label2Regular: "0.75rem (12px)	400	1rem (16px)",
+    subtitle2Bold: '700 0.875rem/1.1875rem "Pretendard", sans-serif',
+    subtitle2Regular: '400 0.875rem/1.1875rem "Pretendard", sans-serif',
+
+    body1Bold: '700 1rem/1.375rem "Pretendard", sans-serif',
+    body1Regular: '400 1rem/1.375rem "Pretendard", sans-serif',
+
+    body2Bold: '700 0.875rem/1.1875rem "Pretendard", sans-serif',
+    body2Regular: '400 0.875rem/1.1875rem "Pretendard", sans-serif',
+
+    label1Bold: '700 0.875rem/1.1875rem "Pretendard", sans-serif',
+    label1Regular: '400 0.875rem/1.1875rem "Pretendard", sans-serif',
+
+    label2Bold: '700 0.75rem/1rem "Pretendard", sans-serif',
+    label2Regular: '400 0.75rem/1rem "Pretendard", sans-serif',
 
     spacing0: "0px", //간격 없음
     spacing1: "4px", //최소 간격
