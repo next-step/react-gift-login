@@ -7,6 +7,9 @@ export const BaseStyle = (theme: Theme) => css`
     background-color: ${theme.color.semantic.background.default};
     color: ${theme.color.semantic.text.default};
     line-height: ${theme.typography.body.body2Regular.lineHeight};
+    max-width: 720px;
+    width: 100%;
+    margin: 0 auto;
   }
 
   h2 {
