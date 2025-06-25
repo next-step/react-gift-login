@@ -1,90 +1,61 @@
 import { Global, css } from '@emotion/react';
-import 'pretendard/dist/web/static/pretendard.css'; 
+import reset from './reset';
+import 'pretendard/dist/web/static/pretendard.css';
 
-const GlobalStyle = () => (
-  <Global
-    styles={css`
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-      }
+const global = css`
+  ${reset}
 
-      html {
-        -moz-text-size-adjust: none;
-        -webkit-text-size-adjust: none;
-        text-size-adjust: none;
-      }
+  body {
+    min-height: 100vh;
+    line-height: 1.5;
+    font-family: 'Pretendard', sans-serif;
+  }
 
-      body,
-      h1,
-      h2,
-      h3,
-      h4,
-      p,
-      figure,
-      blockquote,
-      dl,
-      dd {
-        margin-block-end: 0;
-      }
+  h1,
+  h2,
+  h3,
+  h4,
+  button,
+  input,
+  label {
+    line-height: 1.1;
+  }
 
-      ul[role='list'],
-      ol[role='list'] {
-        list-style: none;
-      }
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
 
-      body {
-        min-height: 100vh;
-        line-height: 1.5;
-        font-family: 'Pretendard', sans-serif; 
-      }
+  a:not([class]) {
+    text-decoration-skip-ink: auto;
+    color: inherit;
+  }
 
-      h1,
-      h2,
-      h3,
-      h4,
-      button,
-      input,
-      label {
-        line-height: 1.1;
-      }
+  img,
+  picture {
+    max-width: 100%;
+    display: block;
+  }
 
-      h1,
-      h2,
-      h3,
-      h4 {
-        text-wrap: balance;
-      }
+  input,
+  button,
+  textarea,
+  select {
+    font-family: inherit;
+    font-size: inherit;
+  }
 
-      a:not([class]) {
-        text-decoration-skip-ink: auto;
-        color: inherit;
-      }
+  textarea:not([rows]) {
+    min-height: 10em;
+  }
 
-      img,
-      picture {
-        max-width: 100%;
-        display: block;
-      }
+  :target {
+    scroll-margin-block: 5ex;
+  }
+`;
 
-      input,
-      button,
-      textarea,
-      select {
-        font-family: inherit;
-        font-size: inherit;
-      }
-
-      textarea:not([rows]) {
-        min-height: 10em;
-      }
-
-      :target {
-        scroll-margin-block: 5ex;
-      }
-    `}
-  />
-);
+const GlobalStyle = () => <Global styles={global} />;
 
 export default GlobalStyle;
