@@ -3,7 +3,7 @@ import { Global, css } from '@emotion/react';
 const GlobalStyle = () => (
   <Global
     styles={css`
-      <<<<<<< HEAD
+      914d48c (style: reset css meyer 버전으로 교체)
       /* http://meyerweb.com/eric/tools/css/reset/
          v2.0 | 20110126
          License: none (public domain) */
@@ -118,8 +118,9 @@ const GlobalStyle = () => (
         color: #000;
       }
 
-      <<<<<<< HEAD ol,
-      ul {
+      <<<<<<< HEAD <<<<<<< HEAD ol,
+      ======= ol,
+      >>>>>>>914d48c (style: reset css meyer 버전으로 교체) ul {
         list-style: none;
       }
 
