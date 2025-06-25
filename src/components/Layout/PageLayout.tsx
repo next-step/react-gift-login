@@ -2,18 +2,18 @@ import type { ReactNode } from 'react';
 import styled from '@emotion/styled';
 
 interface PageLayoutProps {
-  children: ReactNode;
+    children: ReactNode;
 }
 
 const Wrapper = styled.div`
   max-width: 720px;
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 0 16px; // 모바일 기반 UI 기본 여백
   box-sizing: border-box;
 `;
 
 const PageLayout = ({ children }: PageLayoutProps) => {
-  return <Wrapper>{children}</Wrapper>;
+    return <Wrapper>{children}</Wrapper>;
 };
 
 export default PageLayout;
