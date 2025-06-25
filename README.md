@@ -36,7 +36,10 @@
             - react-icons 설치
             - NavBar.tsx 파일 생성(아이콘과 텍스트 포함된 상단 바 컴포넌트 작성)
             - App.tsx에 <NavBar/> 적용
-    - [ ] 카테고리 섹션 구현
+    - [o] 카테고리 섹션 구현
+            - CategorySection.tsx 생성(grid 5열 3행)
+            - data>categories.ts(emotion.d.ts 설정 : Theme 타입 확장을 위해 작성)
+            - App.tsx에 <CategorySection/> 적용
     - [ ] 기타 섹션(선물한 친구 선택, 카테캠 화이팅)  구현
     - [ ] 실시간 급상승 선물 랭킹 구현
 
