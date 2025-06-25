@@ -2,6 +2,7 @@ import { Global, ThemeProvider, css } from '@emotion/react';
 import resetStyles from '@/reset';
 import theme from './styles/theme';
 import styled from '@emotion/styled';
+import NavigationBar from './components/NavigationBar/NavigationBar';
 
 const globalStyles = css`
   body {
@@ -28,7 +29,9 @@ function App() {
     <ThemeProvider theme={theme}>
       <Global styles={[resetStyles, globalStyles]} />
       <ViewportContainer>
-        <AppFrame></AppFrame>
+        <AppFrame>
+          <NavigationBar />
+        </AppFrame>
       </ViewportContainer>
     </ThemeProvider>
   );
