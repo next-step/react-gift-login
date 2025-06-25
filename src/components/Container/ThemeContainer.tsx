@@ -1,4 +1,4 @@
-import ThemeItem from './ThemeItem';
+import ThemeItem from '@/components/ThemeItem';
 
 function ThemeContainer() {
   return (

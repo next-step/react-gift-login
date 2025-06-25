@@ -1,14 +1,27 @@
 import SelectFriend from '@/components/SelectFriend';
-import ThemeContainer from '@/components/ThemeContainer';
+import ThemeContainer from '@/components/Container/ThemeContainer';
 import Ranking from '@/Layout/Ranking';
+import styled from '@emotion/styled';
+
+const MainLayoutContainer = styled.div`
+  display: flex;
+  max-width: 720px;
+  width: 100%;
+  background-color: red;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  padding-top: 45px;
+`;
 
 function MainLayout() {
   return (
-    <div className="flex flex-col">
+    <MainLayoutContainer>
       <SelectFriend />
       <ThemeContainer />
       <Ranking />
-    </div>
+    </MainLayoutContainer>
   );
 }
 

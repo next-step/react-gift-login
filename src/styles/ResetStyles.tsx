@@ -39,33 +39,37 @@ const reset = css`
 
 export const theme = {
   colors: {
-    gray100: "#f7f8f9",
-    gray900: "#2a3038",
-    kakaoYellow: "#fee500",
-    kakaoYellowHover: "#ffea2e",
-    disabled: "#f3f4f5",
-    default: "#2a3038",
-    sub: "#b0b3ba",
-    placeholder: "#b0b3ba",
+    gray100: '#f7f8f9',
+    gray900: '#2a3038',
+    kakaoYellow: '#fee500',
+    kakaoYellowHover: '#ffea2e',
+    disabled: '#f3f4f5',
+    default: '#2a3038',
+    sub: '#b0b3ba',
+    placeholder: '#b0b3ba',
   },
-  typography:{
+  typography: {
     title1Bold: {
-      fontSize: "1.25rem",
+      fontSize: '1.25rem',
       fontWeight: 700,
-      lineHeight: "1.6875rem",
+      lineHeight: '1.6875rem',
     },
-    title1Regular:{
-      fontSize: "1.25rem",
+    title1Regular: {
+      fontSize: '1.25rem',
       fontWeight: 400,
-      lineHeight: "1.6875rem",
+      lineHeight: '1.6875rem',
     },
-    subtitle1Regular:{
-      fontSize: "1rem",
+    title2Bold: {
+      fontSize: '1rem',
+      fontWeight: 700,
+      lineHeight: '1.5rem',
+    },
+    subtitle1Regular: {
+      fontSize: '1rem',
       fontWeight: 400,
-      lineHeight: "1.5rem",
-    }
-
-  }
+      lineHeight: '1.5rem',
+    },
+  },
 };
 
 function ResetStyles() {
