@@ -1,12 +1,13 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
+import theme from '@/styles/tokens';
 import arrowBackIcon from '@src/assets/icons/arrow_back.svg';
 import personIcon from '@src/assets/icons/person.svg';
 import logoIcon from '@src/assets/icons/logo.webp';
 
 const Title = () => {
   const wrapperStyle = css`
-    background-color: white;
+    background-color: ${theme.colors.gray00};
     position: relative;
   `;
 

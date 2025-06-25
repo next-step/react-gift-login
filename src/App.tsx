@@ -1,15 +1,17 @@
-import '@src/App.css'
 import Background from '@src/components/Background'
-import Center from './components/Center'
-import Title from './components/Title'
+import Center from '@src/components/Center'
+import Title from '@src/components/Title'
+import Banner from '@src/components/Banner'
 function App() {
   return (
     <>
       <Background>
         <Center>
-          <Title />
+          <header>
+            <Title />
+          </header>
           <main>
-            
+            <Banner />
           </main>
         </Center>
       </Background>
