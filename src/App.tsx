@@ -1,5 +1,13 @@
+import styled from "@emotion/styled";
+import GlobalStyle from "@/styles/global";
+
 function App() {
-  return <div>초기화 APP</div>;
+  return (
+    <>
+      <GlobalStyle />
+      <div>초기화 APP</div>
+    </>
+  );
 }
 
 export default App;
