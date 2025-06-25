@@ -10,6 +10,7 @@ const Container = styled.div`
 
 const Text = styled.div`
   font-size: 30px;
+  color: ${({ theme }) => theme.colors.gray800};
 `;
 
 function App() {
