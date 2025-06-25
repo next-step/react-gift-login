@@ -68,7 +68,7 @@ export const colors = {
     900: '#921708',
     1000: '#4a1209', // 가장 어두운 빨간색
   },
-};
+} as const;
 
 export const semanticColors = {
   // 브랜드 컬러
@@ -105,4 +105,4 @@ export const semanticColors = {
     info: '#217cf9', // 정보 색상
     infoBackground: '#eff6ff', // 정보 배경 색상
   },
-};
+} as const;

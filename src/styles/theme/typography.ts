@@ -90,4 +90,4 @@ export const typography = {
       lineHeight: '1rem',
     },
   },
-};
+} as const;
