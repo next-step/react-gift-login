@@ -3,6 +3,7 @@ import resetStyles from '@/reset';
 import theme from './styles/theme';
 import styled from '@emotion/styled';
 import NavigationBar from './components/NavigationBar/NavigationBar';
+import GiftBanner from './components/GiftBanner/GiftBanner';
 
 const globalStyles = css`
   body {
@@ -14,7 +15,7 @@ const ViewportContainer = styled.div`
   display: flex;
   justify-content: center;
   min-height: ${({ theme }) => theme.layout.height.viewport};
-  background-color: ${({ theme }) => theme.colors.background.disabled};
+  background-color: ${({ theme }) => theme.colors.background.fill};
 `;
 
 const AppFrame = styled.div`
@@ -31,6 +32,9 @@ function App() {
       <ViewportContainer>
         <AppFrame>
           <NavigationBar />
+          <main>
+            <GiftBanner />
+          </main>
         </AppFrame>
       </ViewportContainer>
     </ThemeProvider>
