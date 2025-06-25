@@ -89,7 +89,8 @@ const RankingSection = () => {
   const gridStyle = css`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: ${theme.spacing.spacing2};
+    column-gap: ${theme.spacing.spacing2};
+    row-gap: ${theme.spacing.spacing7};
     margin-bottom: ${theme.spacing.spacing4};
   `;
 
@@ -125,15 +126,24 @@ const RankingSection = () => {
   `;
 
   const brandNameStyle = css`
-    ${theme.typography.label2Regular}
+    ${theme.typography.label1Regular}
     color: ${theme.colors.gray[700]};
     margin-bottom: ${theme.spacing.spacing1};
   `;
 
   // 공통 텍스트 스타일
   const productTextStyle = css`
-    ${theme.typography.body2Bold}
+    ${theme.typography.body2Regular}
+    margin: 0;
+    text-align: left;
+  `;
+
+  const priceStyle = css`
+    ${theme.typography.title2Bold}
     color: ${theme.semantic.text.default};
+    margin: 0;
+    text-align: left;
+    word-break: break-word;
   `;
 
   const productNameStyle = css`
@@ -145,14 +155,16 @@ const RankingSection = () => {
   `;
 
   const moreButtonStyle = css`
-    width: 100%;
+    width: 70%;
     padding: ${theme.spacing.spacing3};
-    border: 1px solid ${theme.colors.gray[300]};
+    border: 1px solid ${theme.colors.gray[400]};
     border-radius: 8px;
     background-color: white;
     cursor: pointer;
-    ${theme.typography.body1Regular}
+    ${theme.typography.body2Regular}
     color: ${theme.semantic.text.default};
+    display: block;
+    margin: ${theme.spacing.spacing10} auto ${theme.spacing.spacing8};
   `;
 
   return (
@@ -185,7 +197,7 @@ const RankingSection = () => {
             <img css={itemImageStyle} src={item.imageURL} alt={item.name} />
             <p css={brandNameStyle}>{item.brandInfo.name}</p>
             <h6 css={productNameStyle}>{item.name}</h6>
-            <p css={productTextStyle}>{item.price.sellingPrice.toLocaleString()} <span>원</span></p>
+            <p css={priceStyle}>{item.price.sellingPrice.toLocaleString()} <span>원</span></p>
           </div>
         ))}
       </div>
