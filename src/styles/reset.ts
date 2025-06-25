@@ -1,4 +1,4 @@
-import { css } from '@emotion/react';
+import { css } from "@emotion/react";
 
 export const reset = css`
   *,
@@ -11,11 +11,6 @@ export const reset = css`
 
   html,
   body {
-    height: 100%;
-    font-family: 'Pretendard', sans-serif;
-    background-color: #fff;
-    color: #000;
-    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
 
