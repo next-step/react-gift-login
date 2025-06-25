@@ -5,13 +5,16 @@ import { ThemeProvider } from '@emotion/react'
 import theme from './styles/theme'
 import styled from '@emotion/styled'
 
+import Layout from './components/Layout'
+
 const Main = styled.div`
   background-color: ${({ theme }) => theme.colors.gray[200]};
   width: 700px;
   height: 100vh;
   margin: 0 auto;
 `
-  
+
+
 function App() {
   const [count, setCount] = useState(0)
 
@@ -19,9 +22,11 @@ function App() {
     <>
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Main>
+      <Layout>
+        <Main>
 
-      </Main>
+        </Main>
+      </Layout>
     </ThemeProvider>
     </>
   )
