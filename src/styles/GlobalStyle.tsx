@@ -1,9 +1,6 @@
-// src/styles/GlobalStyle.tsx
-import { Global, css } from '@emotion/react'
+import { css } from '@emotion/react'
 
-const globalStyles = css`
-  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
-
+export const globalStyles = css`
   *,
   *::before,
   *::after {
@@ -44,7 +41,3 @@ const globalStyles = css`
     display: block;
   }
 `
-
-export default function GlobalStyle() {
-  return <Global styles={globalStyles} />
-}

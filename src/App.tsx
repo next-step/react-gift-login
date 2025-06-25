@@ -1,14 +1,16 @@
-import GlobalStyle from './styles/GlobalStyle'
-import './App.css'
+import { globalStyles } from './styles/GlobalStyle'
+import { Global } from '@emotion/react'
 
 function App() {
 
   return (
     <>
-    <div>
-      project init
-    </div>
+      <Global styles={globalStyles} />
+      <div>
+        project init
+      </div>
     </>
+
   )
 }
 
