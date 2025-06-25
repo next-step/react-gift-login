@@ -197,4 +197,6 @@ const theme = {
   spacing,
 };
 
+export type AppTheme = typeof theme;
+
 export default theme;
