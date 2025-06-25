@@ -1,4 +1,6 @@
 import styled from '@emotion/styled';
+import { ThemeProvider } from '@emotion/react';
+import { theme } from '@/styles/theme';
 
 const AppContainer = styled.div`
   text-align: center;
@@ -28,11 +30,28 @@ const Subtitle = styled.p`
   line-height: 1.6;
 `;
 
+// 테마 토큰을 사용하는 예시 컴포넌트
+const ThemeExample = styled.div`
+  background-color: #fee500;
+  color: #2a3038;
+  padding: 16px;
+  border-radius: 8px;
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: 400;
+`;
+
 function App() {
   return (
-    <AppContainer>
-      <Title>React Gift Login</Title>
-    </AppContainer>
+    <ThemeProvider theme={theme}>
+      <AppContainer>
+        <Title>React Gift Login</Title>
+        <Subtitle>Pretendard 폰트가 적용된 앱입니다!</Subtitle>
+        <ThemeExample>
+          카카오 노란색 배경에 디자인 토큰이 적용된 예시입니다!
+        </ThemeExample>
+      </AppContainer>
+    </ThemeProvider>
   );
 }
 
