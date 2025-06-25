@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import styled from '@emotion/styled';
 
 const AppContainer = styled.div`
@@ -27,6 +28,9 @@ const Subtitle = styled.p`
   font-weight: 400;
   line-height: 1.6;
 `;
+=======
+import './App.css';
+>>>>>>> f6214d5 (feat: prettier 코드 포맷터 추가)
 
 function App() {
   return (
