@@ -40,6 +40,7 @@ const reset = css`
 export const theme = {
   colors: {
     gray100: '#f7f8f9',
+    gray300: '#eeeff1',
     gray900: '#2a3038',
     kakaoYellow: '#fee500',
     kakaoYellowHover: '#ffea2e',

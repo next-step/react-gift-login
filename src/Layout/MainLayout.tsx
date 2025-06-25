@@ -11,7 +11,6 @@ const MainLayoutContainer = styled.div`
   margin: 0 auto;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
   padding-top: 45px;
 `;
 
