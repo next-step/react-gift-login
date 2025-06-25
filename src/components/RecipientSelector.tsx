@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import RoundButton from "@src/components/RoundButton";
+import RoundButton from "@src/utils/RoundButton";
 import theme from "@src/styles/kakaoTheme";
 
 function RecipientSelector() {
