@@ -19,6 +19,7 @@ export const theme = {
       height: '3rem',
       leftIconSize: spacing[6],
       profileIconSize: spacing[5],
+      zIndex: 10000,
     },
     giftBanner: {
       height: '7rem',

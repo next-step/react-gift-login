@@ -12,6 +12,8 @@ export const NavigationContainer = styled.section`
 
   padding: 0 ${({ theme }) => theme.spacing[2]};
   box-sizing: border-box;
+  z-index: ${({ theme }) => theme.components.navigationBar.zIndex};
+  background-color: ${({ theme }) => theme.colors.background.default};
 `;
 
 export const Title = styled.h2`
