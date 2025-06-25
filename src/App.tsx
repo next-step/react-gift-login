@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from '@emotion/styled'
 import TestComponent from '@/components/TestComponent'
 import { Button, SecondaryButton } from '@/components/StyledButton'
