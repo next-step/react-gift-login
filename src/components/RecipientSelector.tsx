@@ -7,7 +7,7 @@ function RecipientSelector() {
     <RecipientSelectorWrapper>
       <InnerBox>
         <RoundButton
-          color={`${theme.colors.yellow.yellow500}`}
+          color={`${theme.colors.yellow.yellow600}`}
           children="+"
         ></RoundButton>
         <p>선물할 친구를 선택해 주세요.</p>

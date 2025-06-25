@@ -1,3 +1,4 @@
+import CheerUpPanel from "@src/components/CheerUpPanel";
 import NavBar from "@src/components/NavBar";
 import RecipientSelector from "@src/components/RecipientSelector";
 
@@ -6,6 +7,7 @@ function Mainpage() {
     <>
       <NavBar />
       <RecipientSelector />
+      <CheerUpPanel />
     </>
   );
 }
