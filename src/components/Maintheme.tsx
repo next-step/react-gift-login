@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 import theme from '@src/styles/tokens/index';
-import categories from '@src/assets/mock/category_mock'; // 경로 맞게 수정 필요
+import categories from '@src/assets/mock/category_mock'; 
 
 const Maintheme = () => {
     const divStyle = css`
