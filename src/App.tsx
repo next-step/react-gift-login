@@ -1,12 +1,10 @@
-import { useState } from 'react'
+/** @jsxImportSource @emotion/react */
+import MobileLayout from "./layouts/MobileLayout";
 
-function App() {
-
+export default function App() {
   return (
-    <>
-      hello world!
-    </>
-  )
+    <MobileLayout>
+      hello
+    </MobileLayout>
+  );
 }
-
-export default App
