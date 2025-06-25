@@ -4,6 +4,7 @@ import theme from './styles/theme';
 import styled from '@emotion/styled';
 import NavigationBar from './components/NavigationBar/NavigationBar';
 import GiftBanner from './components/GiftBanner/GiftBanner';
+import Category from './components/Category/Category';
 
 const globalStyles = css`
   body {
@@ -25,6 +26,11 @@ const AppFrame = styled.div`
   background-color: ${({ theme }) => theme.colors.background.default};
 `;
 
+const Content = styled.div`
+  margin-top: ${({ theme }) => theme.spacing[10]};
+  margin-bottom: ${({ theme }) => theme.spacing[10]};
+`;
+
 function App() {
   return (
     <ThemeProvider theme={theme}>
@@ -34,6 +40,9 @@ function App() {
           <NavigationBar />
           <main>
             <GiftBanner />
+            <Content>
+              <Category />
+            </Content>
           </main>
         </AppFrame>
       </ViewportContainer>

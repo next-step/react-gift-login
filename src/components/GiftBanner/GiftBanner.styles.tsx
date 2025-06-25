@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const GiftBannerContainer = styled.div`
+export const GiftBannerContainer = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
