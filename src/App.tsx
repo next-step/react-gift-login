@@ -13,14 +13,14 @@ const globalStyles = css`
 const ViewportContainer = styled.div`
   display: flex;
   justify-content: center;
-  min-height: 100vh;
+  min-height: ${({ theme }) => theme.layout.height.viewport};
   background-color: ${({ theme }) => theme.colors.background.disabled};
 `;
 
 const AppFrame = styled.div`
-  max-width: 720px;
+  max-width: ${({ theme }) => theme.layout.width.container};
   width: 100%;
-  min-height: 100vh;
+  min-height: ${({ theme }) => theme.layout.height.viewport};
   background-color: ${({ theme }) => theme.colors.background.default};
 `;
 
