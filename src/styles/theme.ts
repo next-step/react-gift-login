@@ -127,6 +127,16 @@ export const typography = {
     fontWeight: 400,
     lineHeight: '1.1875rem',
   },
+  body1Bold: {              
+    fontSize: '1rem',
+    fontWeight: 700,
+    lineHeight: '1.375rem',
+  },
+  body1Regular: {
+    fontSize: '1rem',
+    fontWeight: 400,
+    lineHeight: '1.375rem',
+  },
   body2Regular: {
     fontSize: '0.875rem',
     fontWeight: 400,

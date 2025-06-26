@@ -4,6 +4,10 @@ import { theme } from '@/styles/theme'
 import { Layout } from '@/components/Layout'
 import { Navbar } from '@/components/Navbar'
 import styled from '@emotion/styled'
+import GiftFriendSelector from '@/components/GiftFriendSelector'
+import { HomeContentCard } from '@/components/HomeContentCard'
+//import { RankingSection } from '@/components/RankingSection'
+import { MotivationBanner } from '@/components/MotivationBanner'
 import { CategorySection } from '@/components/CategorySection/CategorySection'
 const AppWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.gray[100]};
@@ -19,8 +23,14 @@ function App() {
         <Layout>
           <Navbar />
           <main>
-            <CategorySection />
-              <h1>컨텐츠 영역</h1>
+            <GiftFriendSelector />
+
+            <HomeContentCard>
+              <CategorySection />
+              <MotivationBanner />  
+            </HomeContentCard>
+
+            
           </main>
         </Layout>
       </AppWrapper>

@@ -18,16 +18,34 @@ const Title = styled.h3`
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);  /* ✅ 5열 고정 */
   gap: ${({ theme }) => theme.spacing.spacing4};
 `
 
-const Item = styled.div`
+
+const Item = styled.button`
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  border: none;
+  outline: none;       
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity 0.2s;
+
+  &:focus {
+    outline: none;       
+  }
+
+  &:active {
+    outline: none;
+  }
+
+  
 `
+
 
 const Image = styled.img`
   width: 56px;
@@ -42,17 +60,17 @@ const Label = styled.p`
 `
 
 export const CategorySection = () => {
-  return (
-    <Section>
-      <Title>선물 테마</Title>
-      <Grid>
-        {categories.map(({ themeId, name, image }) => (
-          <Item key={themeId}>
-            <Image src={image} alt={name} />
-            <Label>{name}</Label>
-          </Item>
-        ))}
-      </Grid>
-    </Section>
-  )
+    return (
+        <Section>
+            <Title>선물 테마</Title>
+            <Grid>
+                {categories.map(({ themeId, name, image }) => (
+                    <Item key={themeId} onClick={() => { /* 나중에 구현 예정 */ }}>
+                        <Image src={image} alt={name} />
+                        <Label>{name}</Label>
+                    </Item>
+                ))}
+            </Grid>
+        </Section>
+    )
 }
