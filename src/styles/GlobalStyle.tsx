@@ -15,9 +15,17 @@ const GlobalStyle = () => (
         font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui,
           Roboto, 'Helvetica Neue', Arial, sans-serif;
         background-color: #fff;
-        color: #9631ac;
+        color: black;
         line-height: 2;
       }
+
+      #root{
+        width: 100%;
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 0 16px;
+      }
+        
       h2 {
         font-size: 24px;
         font-weight: 600;
