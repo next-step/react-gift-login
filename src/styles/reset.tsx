@@ -132,6 +132,7 @@ const reset = (theme: Theme) => css`
     font-family: 'Pretendard', sans-serif;
     color: ${theme.colors.textDefault};
     height: 100%;
+    background-color: ${theme.colors.gray100};
   }
 
   #root {

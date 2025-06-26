@@ -1,5 +1,4 @@
 import Header from '@/components/Header';
-import React from 'react';
 import styled from '@emotion/styled';
 import { FiPlus } from 'react-icons/fi';
 import { mockThemeList } from '@/mocks/themeListMock';
@@ -40,7 +39,7 @@ const Home = () => {
 
 export default Home;
 
-export const HomeContainer = styled.main`
+const HomeContainer = styled.main`
   padding-top: 56px;
   width: 100%;
   max-width: 720px;
@@ -50,14 +49,14 @@ export const HomeContainer = styled.main`
   margin: 0 auto;
 `;
 
-export const SelectFriendSection = styled.section`
+const SelectFriendSection = styled.section`
   background-color: ${({ theme }) => theme.colors.gray200};
   width: 100%;
   display: flex;
   padding: 16px 12px;
 `;
 
-export const SelectFriend = styled.button`
+const SelectFriend = styled.button`
   display: flex;
   background-color: ${({ theme }) => theme.colors.backgroundDefault};
   align-items: center;
@@ -77,7 +76,7 @@ export const SelectFriend = styled.button`
   }
 `;
 
-export const FiPlusIcon = styled(FiPlus)`
+const FiPlusIcon = styled(FiPlus)`
   background-color: ${({ theme }) => theme.colors.kakaoYellow};
   border-radius: 16px;
   width: 36px;
@@ -85,7 +84,7 @@ export const FiPlusIcon = styled(FiPlus)`
   padding: ${({ theme }) => theme.spacing.spacing1};
 `;
 
-export const SelectFriendText = styled.p`
+const SelectFriendText = styled.p`
   ${({ theme }) => `
     font-size: ${theme.font.subtitle1Bold.size};
     font-weight: ${theme.font.subtitle1Bold.weight};
@@ -93,33 +92,33 @@ export const SelectFriendText = styled.p`
   `}
 `;
 
-export const ThemeSection = styled.section`
+const ThemeSection = styled.section`
   padding: ${({ theme }) => ` ${theme.spacing.spacing2}`};
   background-color: ${({ theme }) => theme.colors.backgroundDefault};
 `;
 
-export const ThemeSectionTitle = styled.p`
+const ThemeSectionTitle = styled.p`
   ${({ theme }) => `
     font-size: ${theme.font.title1Bold.size};
     font-weight: ${theme.font.title1Bold.weight};
     line-height: ${theme.font.title1Bold.lineHeight};`}
 `;
 
-export const ThemeGrid = styled.div`
+const ThemeGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: ${({ theme }) => theme.spacing.spacing2};
   padding: ${({ theme }) => theme.spacing.spacing3};
 `;
 
-export const CheerBannerSection = styled.section`
+const CheerBannerSection = styled.section`
   background-color: ${({ theme }) => theme.colors.backgroundDefault};
   width: 100%;
   display: flex;
   padding: 16px;
 `;
 
-export const CheerBanner = styled.button`
+const CheerBanner = styled.button`
   display: flex;
   background-color: ${({ theme }) => theme.colors.kakaoYellow};
   cursor: pointer;
@@ -140,7 +139,7 @@ export const CheerBanner = styled.button`
   gap: 2px;
 `;
 
-export const CheerBannerLabel = styled.div`
+const CheerBannerLabel = styled.div`
   ${({ theme }) => `
     font-size: ${theme.font.label2Regular.size};
     font-weight: 600;
@@ -149,7 +148,7 @@ export const CheerBannerLabel = styled.div`
   color: ${({ theme }) => theme.colors.gray700};
 `;
 
-export const CheerBannerText = styled.div`
+const CheerBannerText = styled.div`
   ${({ theme }) => `
     font-size: ${theme.font.body2Regular.size};
     font-weight: 600;

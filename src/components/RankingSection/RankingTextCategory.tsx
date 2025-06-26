@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styled from '@emotion/styled';
 
 const TEXT_CATEGORY_LIST = ['받고싶어한', '많이 선물한', '위시로 받은'] as const;

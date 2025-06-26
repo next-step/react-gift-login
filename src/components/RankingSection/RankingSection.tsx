@@ -1,4 +1,3 @@
-import React from 'react';
 import RankingCategory from './RankingCategory';
 import RankingTextCategory from './RankingTextCategory';
 import RankingItem from './RankingItem';

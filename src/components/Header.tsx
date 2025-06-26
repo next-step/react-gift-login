@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from '@emotion/styled';
 import { FiUser } from 'react-icons/fi';
 import { FaChevronRight } from 'react-icons/fa';
@@ -25,7 +24,6 @@ const HeaderWrapper = styled.div`
   height: 56px;
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
   max-width: 720px;
   background-color: ${({ theme }) => theme.colors.backgroundDefault};
