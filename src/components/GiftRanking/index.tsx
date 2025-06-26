@@ -17,6 +17,19 @@ import {
   Button,
 } from './styles';
 
+const categoryTabs = ['전체', '여성이', '남성이', '청소년이'] as const;
+const sortTabs = ['받고 싶어한', '많이 선물한', '위시로 받은'] as const;
+
+type Category = typeof categoryTabs[number]; 
+type Sort = typeof sortTabs[number];
+
+const categoryEmojis: Record<Category, string> = {
+  전체: 'ALL',
+  여성이: '👩',
+  남성이: '👨',
+  청소년이: '👦',
+};
+
 const mockItem = {
   id: 123,
   name: 'BBQ 양념치킨+크림치즈볼+콜라1.25L',
@@ -25,23 +38,14 @@ const mockItem = {
   brand: 'BBQ',
 };
 
-const categoryTabs = ['전체', '여성이', '남성이', '청소년이'];
-const sortTabs = ['받고 싶어한', '많이 선물한', '위시로 받은'];
-const categoryEmojis: Record<string, string> = {
-  전체: 'ALL',
-  여성이: '👩',
-  남성이: '👨',
-  청소년이: '👦',
-};
-
 const allItems = Array.from({ length: 21 }, (_, i) => ({
   ...mockItem,
   id: i + 1,
 }));
 
 const GiftRankingSection = () => {
-  const [selectedCategory, setSelectedCategory] = useState('전체');
-  const [selectedSort, setSelectedSort] = useState('받고 싶어한');
+  const [selectedCategory, setSelectedCategory] = useState<Category>('전체');
+  const [selectedSort, setSelectedSort] = useState<Sort>('받고 싶어한');
   const [expanded, setExpanded] = useState(false);
 
   const visibleItems = expanded ? allItems : allItems.slice(0, 6);

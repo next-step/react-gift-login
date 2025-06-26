@@ -5,8 +5,6 @@ import ReceiverSelectBox from '@/components/RecieverSelectBox';
 import Banner from '@/components/Banner';
 import GiftRanking from '@/components/GiftRanking';
 
-
-
 const App = () => {
   return (
     <>

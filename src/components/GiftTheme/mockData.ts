@@ -1,6 +1,10 @@
-import styled from '@emotion/styled';
+export type GiftTheme = {
+  themeId: number;
+  name: string;
+  image: string;
+};
 
-const giftThemes = [
+export const giftThemes : GiftTheme[] = [
   {
     themeId: 3715,
     name: '생일',
@@ -92,58 +96,3 @@ const giftThemes = [
       'https://img1.daumcdn.net/thumb/S104x104/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fgift%2Fhome%2Ftheme%2F370220241228_UPSAE.png',
   },
 ];
-
-const Section = styled.section`
-  
-  padding: ${({ theme }) => theme.spacing.spacing10} ${({ theme }) => theme.spacing.spacing4}; 
-  background-color: ${({ theme }) => theme.colors.semantic.backgroundDefault};
-`;
-
-const Title = styled.h3`
-  font : ${({ theme }) => theme.typography.title1Bold};
-  color: ${({ theme }) => theme.colors.semantic.textDefault};
-  margin-bottom: ${({ theme }) => theme.spacing.spacing4};
-`;
-
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: ${({ theme }) => theme.spacing.spacing3};
-  
-
-`;
-
-const Item = styled.div`
-  text-align: center;
-`;
-
-const Image = styled.img`
-  width: ${({ theme }) => theme.spacing.spacing13};
-  height: ${({ theme }) => theme.spacing.spacing13};
-  object-fit: contain;
-  margin: 0 auto;
-`;
-
-const Label = styled.div`
-font : ${({ theme }) => theme.typography.label2Regular};
-  color: ${({ theme }) => theme.colors.semantic.textDefault};
-  margin-top: ${({ theme }) => theme.spacing.spacing1};
-`;
-
-const GiftThemeSection = () => {
-  return (
-    <Section>
-      <Title>선물 테마</Title>
-      <Grid>
-        {giftThemes.map((theme) => (
-          <Item key={theme.themeId}>
-            <Image src={theme.image} alt={theme.name} />
-            <Label>{theme.name}</Label>
-          </Item>
-        ))}
-      </Grid>
-    </Section>
-  );
-};
-
-export default GiftThemeSection;
