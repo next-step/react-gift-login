@@ -1,6 +1,4 @@
-import type { Theme } from '@emotion/react'
-
-export const theme: Theme = {
+export const theme = {
     colors: {
         gray: {
             gray00: '#ffffff',
@@ -190,6 +188,6 @@ export const theme: Theme = {
             lineHeight: '1rem',
         },
     },
-}
+} as const
 
 export default theme
