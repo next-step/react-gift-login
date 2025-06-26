@@ -1,4 +1,3 @@
-// components/BottomBanner.tsx
 import styled from '@emotion/styled';
 
 const Frame = styled.div`
@@ -19,7 +18,7 @@ const Sub = styled.p`
   color: ${({ theme }) => theme.colors.semantic.textSub};
 `;
 
-export default function Banner() {
+const Banner = () => {
     return (
         <Frame>
             <Box>
@@ -28,4 +27,5 @@ export default function Banner() {
             </Box>
         </Frame>
     );
-}
+};
+export default Banner;

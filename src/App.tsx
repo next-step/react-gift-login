@@ -7,7 +7,7 @@ import GiftRanking from './components/GiftRanking';
 
 
 
-function App() {
+const App = () => {
   return (
     <>
       <NavigationBar />

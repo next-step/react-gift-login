@@ -1,4 +1,3 @@
-// components/ReceiverSelectBox.tsx
 import styled from '@emotion/styled';
 import { IoAdd } from 'react-icons/io5';
 const Frame = styled.div`
@@ -36,7 +35,7 @@ const Text = styled.p`
     color: ${({ theme }) => theme.colors.semantic.textDeafult};
 `;
 
-export default function ReceiverSelectBox() {
+const ReceiverSelectBox = () => {
     return (
         <Frame>
             <Box>
@@ -47,4 +46,5 @@ export default function ReceiverSelectBox() {
             </Box>
         </Frame>
     );
-}
+};
+export default ReceiverSelectBox;

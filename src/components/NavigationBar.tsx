@@ -1,24 +1,6 @@
 import styled from '@emotion/styled';
 import { IoArrowBack, IoPersonOutline } from 'react-icons/io5';
 
-const NavigationBar = () => {
-    return (
-        <FixedHeader>
-            <Container>
-                <Icon>
-                    <IoArrowBack size={24} />
-                </Icon>
-                <Title>선물하기</Title>
-                <Icon>
-                    <IoPersonOutline size={24} />
-                </Icon>
-            </Container>
-        </FixedHeader>
-    );
-};
-
-export default NavigationBar;
-
 const FixedHeader = styled.header`
   position: fixed;
   top: 0;
@@ -48,6 +30,22 @@ const Icon = styled.button`
 const Title = styled.button`
   font: ${({ theme }) => 
     theme.typography.title1Bold};
-  
 `;
 
+const NavigationBar = () => {
+    return (
+        <FixedHeader>
+            <Container>
+                <Icon>
+                    <IoArrowBack size={24} />
+                </Icon>
+                <Title>선물하기</Title>
+                <Icon>
+                    <IoPersonOutline size={24} />
+                </Icon>
+            </Container>
+        </FixedHeader>
+    );
+};
+
+export default NavigationBar;
