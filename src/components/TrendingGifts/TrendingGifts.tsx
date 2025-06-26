@@ -109,8 +109,8 @@ function TrendingGifts() {
       <TabsWrapper>
         {tabs.map((el, idx) => (
           <MainTabButton key={idx} onClick={() => setSelectedTabIdx(idx)}>
-            <TabIconContainer isSelected={idx === selectedTabIdx}>{el.icon}</TabIconContainer>
-            <TabLabel isSelected={idx === selectedTabIdx}>{el.name}</TabLabel>
+            <TabIconContainer isSelected={idx === selectedTabIdx}>{el.ICON}</TabIconContainer>
+            <TabLabel isSelected={idx === selectedTabIdx}>{el.NAME}</TabLabel>
           </MainTabButton>
         ))}
       </TabsWrapper>
