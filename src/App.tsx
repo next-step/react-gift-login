@@ -1,9 +1,23 @@
-import '@src/App.css'
-
+import Background, {Inner} from '@src/components/Background'
+import Title from '@src/components/Title'
+import Banner from '@src/components/Banner'
+import Maintheme from '@src/components/Maintheme'
+import Realtime from './components/Realtime'
 function App() {
   return (
     <>
-      App.tsx 페이지
+      <Background>
+        <Inner>
+          <header>
+            <Title />
+          </header>
+          <main>
+            <Banner />
+            <Maintheme />
+            <Realtime />
+          </main>
+        </Inner>
+      </Background>
     </>
   )
 }
