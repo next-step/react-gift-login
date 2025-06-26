@@ -3,6 +3,8 @@ import { colors } from '@/styles/tokens';
 import { Header } from '@/components/Header/Header';
 import { CategoryGrid } from '@/components/CategoryGrid/CategoryGrid';
 import { categories } from '@/mock/mockData';
+import { Banner } from '@/components/Banner/Banner';
+import { FriendSelector } from '@/components/FriendSelector/FriendSelector';
 
 const AppContainer = styled.div`
   max-width: 720px;
@@ -19,10 +21,14 @@ export const GiftPage = () => {
         onBackClick={() => console.log('뒤로가기 버튼 누름')}
         onProfileClick={() => console.log('프로필 버튼 누름')}
       />
-
+      <FriendSelector onClick={() => console.log('선물할 친구 선택')} />
       <CategoryGrid
         categories={categories}
         onCategoryClick={(category) => console.log('카테고리 클릭', category)}
+      />
+      <Banner
+        text="카카오테크 캠퍼스 3기 여러분 프로트엔드 2단계 과제 화이팅! 🎉"
+        onClick={() => console.log('Banner 클릭')}
       />
     </AppContainer>
   );
