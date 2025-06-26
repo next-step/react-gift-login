@@ -2,8 +2,9 @@
 
 ## 구현할 기능 목록
 
-- 불필요한 파일 코드 정리
-- 절대 경로로 import 위한 alias설정
-- Prettier 추가
-- emotion 스타일 라이브러리 추가 + reset.css 적용
-- 폰트로 Pretendard 적용
+- emotion에 Color, Typography 토큰을 설정
+- Mobile First Design 기반의 Layout을 구현
+- 상단 네비게이션 바 영역을 구현
+- 카테고리 섹션을 구현
+- 기타 섹션 (선물한 친구 선택, 카테캠 화이팅) UI를 구현
+- 실시간 급상승 선물랭킹을 구현
