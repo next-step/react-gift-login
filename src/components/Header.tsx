@@ -23,7 +23,6 @@ const Btn = styled.button`
 
 export const Header = () => {
   const svgSize = 30;
-  // rem 단위 사용 필요??
 
   return (
     <Container>

@@ -1,4 +1,4 @@
-export interface GiftItems {
+export interface GiftItemsType {
   id: number;
   name: string;
   imageURL: string;
