@@ -57,7 +57,16 @@ const InputField = styled.input`
   border-top: none;
   border-left: none;
   border-right: none;
+  border-bottom: 1px solid ${theme.colors.gray.gray500};
   width: 100%;
+  background-color: transparent;
+  height: 40px;
+  outline: none;
+  transition: border-bottom 0.25s ease;
+
+  &:focus {
+    border-bottom: 1px solid ${theme.colors.gray.gray700};
+  }
 `;
 
 const LoginButton = styled.button`
