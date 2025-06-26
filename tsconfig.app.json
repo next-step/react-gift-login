@@ -26,7 +26,8 @@
       "@/types/*": ["src/types/*"],
       "@/assets/*": ["src/assets/*"],
       "@/data/*": ["src/data/*"],
-      "@/styles/*": ["src/styles/*"]
+      "@/styles/*": ["src/styles/*"],
+      "@/layout/*": ["src/components/layout/*"]
     },
 
     /* Linting */
