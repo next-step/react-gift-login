@@ -25,7 +25,7 @@ const RankingSection = () => {
     margin-bottom: ${theme.spacing[4]};
   `;
 
-  const filterGroupStyle = css`
+  const filterWrapperStyle = css`
     display: flex;
     justify-content: space-between;
     gap: ${theme.spacing[2]};
@@ -68,7 +68,7 @@ const RankingSection = () => {
     text-align: left;
   `;
 
-  const sortGroupStyle = css`
+  const sortWrapperStyle = css`
     display: flex;
     justify-content: center;
     border: 1px solid rgba(70, 132, 233, 0.1);
@@ -102,6 +102,24 @@ const RankingSection = () => {
     margin-bottom: ${theme.spacing[4]};
   `;
 
+  const rankBadgeStyle = (rank: number) => css`
+    position: absolute;
+    top: ${theme.spacing[1]};
+    left: ${theme.spacing[1]};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background-color: ${rank <= 3
+      ? theme.color.red[600]
+      : theme.color.gray[600]};
+    border-radius: 4px;
+    ${theme.typography.label.label2Bold}
+    color: ${theme.color.gray[0]};
+    z-index: 1;
+  `;
+
   const itemStyle = css`
     display: flex;
     flex-direction: column;
@@ -109,20 +127,20 @@ const RankingSection = () => {
     position: relative;
   `;
 
-  const imageStyle = css`
+  const itemImageStyle = css`
     aspect-ratio: 1;
     border-radius: 8px;
     margin-bottom: ${theme.spacing[2]};
     object-fit: fit;
   `;
 
-  const brandStyle = css`
+  const itemBrandStyle = css`
     ${theme.typography.label.label1Regular}
     color: ${theme.color.gray[700]};
     margin-bottom: ${theme.spacing[1]};
   `;
 
-  const nameStyle = css`
+  const itemNameStyle = css`
     ${theme.typography.body.body2Regular}
     text-align: left;
     margin-bottom: ${theme.spacing[2]};
@@ -131,7 +149,7 @@ const RankingSection = () => {
     white-space: nowrap;
   `;
 
-  const priceStyle = css`
+  const itemPriceStyle = css`
     ${theme.typography.title.title2Bold}
     color: ${theme.color.semantic.text.default};
     text-align: left;
@@ -155,29 +173,11 @@ const RankingSection = () => {
     cursor: pointer;
   `;
 
-  const rankBadgeStyle = (rank: number) => css`
-    position: absolute;
-    top: ${theme.spacing[1]};
-    left: ${theme.spacing[1]};
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 24px;
-    height: 24px;
-    background-color: ${rank <= 3
-      ? theme.color.red[600]
-      : theme.color.gray[600]};
-    border-radius: 4px;
-    ${theme.typography.label.label2Bold}
-    color: ${theme.color.gray[0]};
-    z-index: 1;
-  `;
-
   return (
     <section css={sectionStyle}>
       <h3 css={titleStyle}>실시간 급상승 선물랭킹</h3>
 
-      <div css={filterGroupStyle}>
+      <div css={filterWrapperStyle}>
         {[
           { emoji: 'ALL', label: '전체' },
           { emoji: '👩🏻', label: '여성이' },
@@ -198,7 +198,7 @@ const RankingSection = () => {
         })}
       </div>
 
-      <div css={sortGroupStyle}>
+      <div css={sortWrapperStyle}>
         {['받고 싶어한', '많이 선물한', '위시로 받은'].map(label => (
           <button
             key={label}
@@ -215,10 +215,10 @@ const RankingSection = () => {
           (item, index) => (
             <div key={`${item.id}-${index}`} css={itemStyle}>
               <span css={rankBadgeStyle(index + 1)}>{index + 1}</span>
-              <img css={imageStyle} src={item.imageURL} alt={item.name} />
-              <p css={brandStyle}>{item.brandInfo.name}</p>
-              <h6 css={nameStyle}>{item.name}</h6>
-              <p css={priceStyle}>
+              <img css={itemImageStyle} src={item.imageURL} alt={item.name} />
+              <p css={itemBrandStyle}>{item.brandInfo.name}</p>
+              <h6 css={itemNameStyle}>{item.name}</h6>
+              <p css={itemPriceStyle}>
                 {item.price.sellingPrice.toLocaleString()} <span>원</span>
               </p>
             </div>

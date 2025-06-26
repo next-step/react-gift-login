@@ -23,7 +23,6 @@ const Navigation = () => {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: ${theme.spacing[0]};
     color: ${theme.color.semantic.text.default};
     cursor: pointer;
   `;
