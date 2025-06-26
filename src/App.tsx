@@ -310,11 +310,12 @@ const RealtimeItemPriceTitle =styled.p`
   line-height: ${({ theme}) => theme.typography['label1Bold'].lineHeight};
 `
 
-function RealtimeRankItemList() {
+function RealtimeRankItemList({ collapsed }: { collapsed: boolean }) {
+  const visibleItems = collapsed ? itemList.slice(0, 6) : itemList;
 
   return (
     <>
-    {itemList.map((item) => (
+    {visibleItems.map((item) => (
         <RealtimeItem key={item.id}>
           <RealtimeItemImg src={item.imageURL} alt={item.name}></RealtimeItemImg>
           <RealtimeItemGrayTitle>{item.brandInfo.name}</RealtimeItemGrayTitle>
@@ -343,10 +344,17 @@ const ExtraBtn = styled.button`
   cursor: pointer;
 `
 
+
+
 function App() {
   const [selected, setSelected] = useState('');
   const [selected2, setSelected2] = useState('');
+  const [collapsed, setCollapsed] = useState(true);
 
+  const toggleCollapse = () => {
+    setCollapsed(!collapsed);
+  };
+  
   return (
     <>
     <ThemeProvider theme={theme}>
@@ -399,12 +407,12 @@ function App() {
               <RealtimeRankNav2Btn onClick={() => setSelected2('WISH')} isSelected={selected2 === 'WISH'}>위시로 받은</RealtimeRankNav2Btn>
             </RealtimeRankNav2Wrapper>
             <RealtimeRankItemWrapper>
-              <RealtimeRankItemList>
+              <RealtimeRankItemList collapsed={collapsed}>
               </RealtimeRankItemList>
             </RealtimeRankItemWrapper>
           </RealtimeRankWrapper>
           <ExtraBtnWrapper>
-            <ExtraBtn>접기</ExtraBtn>
+            <ExtraBtn onClick={toggleCollapse}>{collapsed ? '더보기' : '접기'}</ExtraBtn>
           </ExtraBtnWrapper>
           
         </Main>
