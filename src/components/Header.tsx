@@ -22,6 +22,7 @@ const Header = ({ title }: HeaderProps) => {
 export default Header;
 
 const HeaderWrapper = styled.div`
+  height: 56px;
   position: fixed;
   top: 0;
   left: 0;
