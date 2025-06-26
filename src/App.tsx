@@ -4,7 +4,7 @@ import { theme } from '@/styles/theme'
 import { Layout } from '@/components/Layout'
 import { Navbar } from '@/components/Navbar'
 import styled from '@emotion/styled'
-
+import { CategorySection } from '@/components/CategorySection/CategorySection'
 const AppWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.gray[100]};
   display: flex;
@@ -19,7 +19,8 @@ function App() {
         <Layout>
           <Navbar />
           <main>
-            <h1>컨텐츠 영역</h1>
+            <CategorySection />
+              <h1>컨텐츠 영역</h1>
           </main>
         </Layout>
       </AppWrapper>
