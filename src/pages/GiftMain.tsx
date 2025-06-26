@@ -3,6 +3,7 @@ import { Navigation } from '@/components/header/Navigation';
 import { CategorySection } from '@/components/category/CategorySection';
 import { FriendBanner } from '@/components/banner/FriendBanner';
 import { MessageBanner } from '@/components/banner/MessageBanner';
+import { RankingSection } from '@/components/ranking/RankingSection'; // ✅ 추가
 
 
 const GiftMain= () =>{
@@ -12,7 +13,7 @@ const GiftMain= () =>{
             <FriendBanner />
             <CategorySection />
             <MessageBanner />
-            <h1>카카오 선물하기 메인 페이지</h1>
+            <RankingSection />
         </PageContainer>
     );
 };
