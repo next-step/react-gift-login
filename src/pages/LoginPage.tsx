@@ -1,8 +1,10 @@
 import styled from "@emotion/styled";
 import useUserInfo, { type UserInfoHook } from "@src/hooks/useUserInfo";
 import theme from "@src/styles/kakaoTheme";
+import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
+  const navigate = useNavigate();
   const userInfo = useUserInfo();
 
   const handleLogin = (userInfo: UserInfoHook) => {
@@ -10,6 +12,11 @@ function LoginPage() {
       email: userInfo.email.value,
       password: userInfo.password.value
     });
+    if (window.history.length > 1) {
+      navigate(-1);
+    } else {
+      navigate("/");
+    }
   };
 
   return (
