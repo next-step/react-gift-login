@@ -40,8 +40,12 @@
             - CategorySection.tsx 생성(grid 5열 3행)
             - data>categories.ts(emotion.d.ts 설정 : Theme 타입 확장을 위해 작성)
             - App.tsx에 <CategorySection/> 적용
-    - [ ] 기타 섹션(선물한 친구 선택, 카테캠 화이팅)  구현
-    - [ ] 실시간 급상승 선물 랭킹 구현
+    - [o] 기타 섹션(선물한 친구 선택, 카테캠 화이팅)  구현
+            - FriendSelector.tsx와 Banner.tsx 생성
+            - App.tsx에 <FriendSelector/>, <Banner/> 적용
+    - [o] 실시간 급상승 선물 랭킹 구현
+            - RankingSection.tsx 생성
+            - App.tsx에 <RankingSection/> 적용
 
 - [ ] 3단계 : 로그인 페이지 UI 만들기
 
