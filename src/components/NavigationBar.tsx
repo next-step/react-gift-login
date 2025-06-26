@@ -7,7 +7,7 @@ const FixedHeader = styled.header`
   left: 0;
   right: 0;
   background-color: ${({ theme }) => theme.colors.gray.gray300};
-  z-index: 1000;
+  z-index: ${({ theme }) => theme.zIndex.navigationBar};
 `;
 
 const Container = styled.div`
@@ -28,24 +28,24 @@ const Icon = styled.button`
 `;
 
 const Title = styled.button`
-  font: ${({ theme }) => 
+  font: ${({ theme }) =>
     theme.typography.title1Bold};
 `;
 
 const NavigationBar = () => {
-    return (
-        <FixedHeader>
-            <Container>
-                <Icon>
-                    <IoArrowBack size={24} />
-                </Icon>
-                <Title>선물하기</Title>
-                <Icon>
-                    <IoPersonOutline size={24} />
-                </Icon>
-            </Container>
-        </FixedHeader>
-    );
+  return (
+    <FixedHeader>
+      <Container>
+        <Icon>
+          <IoArrowBack size={24} />
+        </Icon>
+        <Title>선물하기</Title>
+        <Icon>
+          <IoPersonOutline size={24} />
+        </Icon>
+      </Container>
+    </FixedHeader>
+  );
 };
 
 export default NavigationBar;

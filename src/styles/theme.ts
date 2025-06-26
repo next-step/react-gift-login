@@ -124,6 +124,9 @@ export const theme = {
     spacing15: '60px',
     spacing16: '64px',
   },
+  zIndex : {
+    navigationBar: 1000,
+  },
 };
 
 export type AppTheme = typeof theme;
