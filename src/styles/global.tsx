@@ -142,6 +142,10 @@ const GlobalStyle = () => (
         margin: 0 auto;
         font-family: 'Pretendard Variable', sans-serif;
       }
+
+      * {
+        box-sizing: border-box;
+      }
     `}
   />
 );
