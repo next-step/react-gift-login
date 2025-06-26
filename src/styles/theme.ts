@@ -1,6 +1,6 @@
-import { colors } from './colors';
-import { typography } from './typography';
-import { spacing } from './spacing';
+import { colors } from '@/styles/colors';
+import { typography } from '@/styles/typography';
+import { spacing } from '@/styles/spacing';
 
 export const theme = {
   colors,
