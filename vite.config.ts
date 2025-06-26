@@ -1,4 +1,3 @@
-// @ts-ignore
 // Node.js 내장 모듈 타입 에러가 발생하면 'npm install --save-dev @types/node'를 실행하세요.
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
