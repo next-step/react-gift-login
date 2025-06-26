@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { MobileLayout, Main } from '@/components/layout'
 import { NavigationBar } from '@/components/navigation'
 import { HomePage, LoginPage } from '@/pages'
