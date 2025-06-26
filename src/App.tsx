@@ -5,6 +5,9 @@ import Layout from '@/components/Layout';
 import NavigationBar from '@/components/NavigationBar/NavigationBar';
 import SelectFriend from './components/Section/SelectFriend';
 import GiftCategoryList from './components/Category/GiftCategoryList';
+import Banner from './components/Section/Banner';
+
+
 function App() {
   return (
     <ThemeProvider theme={theme}>
@@ -13,6 +16,7 @@ function App() {
         <NavigationBar /> 
         <SelectFriend />
         <GiftCategoryList />
+        <Banner />
       </Layout>
     </ThemeProvider>
   );
