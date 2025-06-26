@@ -4,6 +4,7 @@ import type { ReactNode } from 'react';
 
 const layoutStyle = css`
   max-width: 720px;
+  width: 100%;
   margin: 0 auto;
 `;
 

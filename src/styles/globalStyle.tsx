@@ -5,6 +5,14 @@ import 'pretendard/dist/web/static/pretendard.css';
 const globalStyleCss = css`
   ${reset}
 
+  html,
+  body,
+  #root {
+    width: 100%;
+    height: 100%;
+  }
+
+
   body {
     min-height: 100vh;
     line-height: 1.5;
