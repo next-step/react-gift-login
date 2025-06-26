@@ -7,13 +7,14 @@ import styled from '@emotion/styled';
 
 const AppContainer = styled.div`
   width: 100%;
-  min-height: 100vh;
   height: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   background-color: ${({ theme }) => theme.colors.semantic.background.fill};
+  padding-top: 2.75rem;
 `;
 
 function App() {
