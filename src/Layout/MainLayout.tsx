@@ -7,7 +7,7 @@ const MainLayoutContainer = styled.div`
   display: flex;
   max-width: 720px;
   width: 100%;
-  background-color: yellow;
+  background-color: white;
   margin: 0 auto;
   flex-direction: column;
   align-items: center;
