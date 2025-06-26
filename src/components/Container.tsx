@@ -11,7 +11,7 @@ const Container = ({ children }: any) => {
 const ContainerDiv = styled.div`
   background-color: ${({ theme }) => theme.background_color.fill};
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;

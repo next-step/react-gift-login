@@ -2,6 +2,7 @@ import type { ThemeType } from "@/styles/theme";
 import { useTheme } from "@emotion/react";
 import styled from "@emotion/styled";
 import { useState } from "react";
+import RankingList from "@/components/RankingList";
 
 type TypeCategory = {
   image: string;
@@ -78,6 +79,7 @@ const Ranking = () => {
           ))}
         </WishCategoryList>
       </NavBar>
+      <RankingList />
     </Container>
   );
 };
