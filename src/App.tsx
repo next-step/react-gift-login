@@ -1,11 +1,19 @@
 import React from 'react';
-import GlobalStyle from '@/styles/global';
+import GlobalStyle from './styles/global';
+import styled from '@emotion/styled';
+import { ThemeProvider } from '@emotion/react';
+import { theme } from './theme/theme';
 
+const Container = styled.div`
+  background-color: ${(props) => props.theme.semanticColors.brand.kakaoYellow};
+`;
 const App = () => {
   return (
     <>
       <GlobalStyle />
-      <div>테스트 화면</div>
+      <ThemeProvider theme={theme}>
+        <Container>test</Container>
+      </ThemeProvider>
     </>
   );
 };

@@ -99,6 +99,7 @@ const GlobalStyle = () => (
         vertical-align: baseline;
         font-family: 'Pretendard Variable', sans-serif;
       }
+
       /* HTML5 display-role reset for older browsers */
       article,
       aside,
