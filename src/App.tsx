@@ -1,3 +1,4 @@
+// full request 이후 commit과 push를 했을때 pull request에도 바로 적용되는지 테스트
 import { useState } from 'react'
 <<<<<<< step2
 
@@ -301,7 +302,6 @@ import GlobalStyle from './styles/GlobalStyle'
 
 function App() {
   
-
   return (
     <>
 <<<<<<< step2
