@@ -20,7 +20,7 @@ function NavBar() {
           navigate("/");
         }}
       >
-        <h3>선물하기</h3>
+        <h2>선물하기</h2>
       </Button>
       <Button
         onClick={() => {

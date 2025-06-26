@@ -24,7 +24,7 @@ function RealTimeRankPanel() {
 
   return (
     <RealTimeRankPanelWrapper>
-      <p>실시간 급상승 선물랭킹</p>
+      <TitleP>실시간 급상승 선물랭킹</TitleP>
       <TargetSelectionPanel />
       <RankSelectionPanel />
       <CardPlaceHolder>
@@ -44,6 +44,12 @@ function RealTimeRankPanel() {
     </RealTimeRankPanelWrapper>
   );
 }
+
+const TitleP = styled.p`
+  width: 95%;
+  font-size: 20px;
+  font-weight: bold;
+`;
 
 const ExpandButton = styled.button`
   border: 2px solid ${theme.colors.gray.gray300};

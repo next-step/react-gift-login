@@ -10,19 +10,23 @@ function RecipientSelector() {
           color={`${theme.colors.yellow.yellow600}`}
           children="+"
         ></RoundButton>
-        <p>선물할 친구를 선택해 주세요.</p>
+        <DescriptionP>선물할 친구를 선택해 주세요.</DescriptionP>
       </InnerBox>
     </RecipientSelectorWrapper>
   );
 }
+
+const DescriptionP = styled.p`
+  font-weight: bold;
+`;
 
 const InnerBox = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
   gap: 10px;
-  margin: 20px;
-  padding: 20px;
+  margin: 15px;
+  padding: 15px;
   width: 100%;
   background-color: white;
   border-radius: 20px;

@@ -19,8 +19,8 @@ function ThemeButton({ image, caption }: ThemeButtonProps) {
 }
 
 const ThemeImageHolder = styled.img`
-  width: 50%;
-  height: 50%;
+  width: 38%;
+  height: 38%;
 `;
 
 const ThemeButtonWrapper = styled.button`

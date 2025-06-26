@@ -5,7 +5,7 @@ import { themeMockData } from "@src/mock/mockData";
 function GiftThemePanel() {
   return (
     <GiftThemePanelWrapper>
-      <p>선물 테마</p>
+      <TitleP>선물 테마</TitleP>
       <ThemePlaceholder>
         {themeMockData.map((theme) => {
           return (
@@ -20,6 +20,12 @@ function GiftThemePanel() {
     </GiftThemePanelWrapper>
   );
 }
+
+const TitleP = styled.p`
+  width: 95%;
+  font-size: 20px;
+  font-weight: bold;
+`;
 
 const ThemePlaceholder = styled.div`
   display: flex;
