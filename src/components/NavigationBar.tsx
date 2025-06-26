@@ -1,27 +1,30 @@
 import styled from '@emotion/styled';
 import { useNavigate } from 'react-router-dom';
 
-const NavBar = styled.header`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 48px;
-  padding: 0 16px;
-  background-color: white;
-  border-bottom: 1px solid #eee;
-`;
+const NavBar = styled.header(({ theme }) => ({
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  height: '48px',
+  padding: `0 ${theme.spacing.spacing4}`,
+  backgroundColor: theme.colors.semantic.backgroundDefault,
+  borderBottom: `1px solid ${theme.colors.semantic.borderDefault}`,
+}));
 
-const Title = styled.h1`
-  font-size: 14px;
-  font-weight: bold;
-`;
+const Title = styled.h1(({ theme }) => ({
+  fontSize: theme.typography.subtitle2Bold.fontSize,
+  fontWeight: theme.typography.subtitle2Bold.fontWeight,
+  lineHeight: theme.typography.subtitle2Bold.lineHeight,
+  color: theme.colors.semantic.textDefault,
+}));
 
-const IconButton = styled.button`
-  background: none;
-  border: none;
-  padding: 4px;
-  cursor: pointer;
-`;
+const IconButton = styled.button(({ theme }) => ({
+  background: 'none',
+  border: 'none',
+  padding: theme.spacing.spacing1,
+  cursor: 'pointer',
+  color: theme.colors.semantic.textDefault,
+}));
 
 const NavigationBar = () => {
   const navigate = useNavigate();

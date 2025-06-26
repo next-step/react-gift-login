@@ -1,7 +1,7 @@
 import Layout from '@components/Layout';
 import Home from '@pages/Home';
 import Login from '@pages/Login';
-import GlobalStyle from '@styles/globalStyles';
+import GlobalStyle from '@styles/GlobalStyles';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 const App = () => {
   return (
