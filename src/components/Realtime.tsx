@@ -115,6 +115,7 @@ const Realtime = () => {
     const sectionRealtimeStyle = css`
     padding: 0px 16px;
     width: 100%;
+    box-sizing:border-box;
   `;
 
     const h3Style = css`
@@ -133,7 +134,7 @@ const Realtime = () => {
     display: flex;
     border-radius: 1rem;
     background-color: white;
-    width: calc(100% - 32px);
+    width: 100%;
     flex-direction: column;
     justify-content: center;
   `;
@@ -148,7 +149,7 @@ const Realtime = () => {
     const div4Style = css`height: 16px;`;
 
     const selectBox = css`
-    width: calc(100% - 32px);
+    width: 100%;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
@@ -196,7 +197,7 @@ const Realtime = () => {
   `;
 
     const rankingGrid = css`
-    width: calc(100% - 32px);
+    width: 100%;
     box-sizing: border-box;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -295,7 +296,7 @@ const Realtime = () => {
     const div7Style = css`height: 32px;`;
 
     const moreButtonCover = css`
-        width: calc(100% - 32px);
+        width: 100%;
         box-sizing:border-box;
         display: flex;
         justify-content: center;
