@@ -1,5 +1,41 @@
-function ThemeItem() {
-  return <li>테마 아이템 1</li>;
+import styled from '@emotion/styled';
+
+export const ThemeItemWrapper = styled.li`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  width: 130px;
+  height: 70px;
+  padding: 10px;
+  cursor: pointer;
+`;
+export const ThemeImage = styled.img`
+  width: 50px;
+  height: 50px;
+`;
+export const ThemeItemText = styled.span`
+  ${({ theme }) => `
+    font-size: ${theme.typography.subtitle1Regular.fontSize};
+    font-weight: ${theme.typography.subtitle1Regular.fontWeight};
+    color: ${theme.colors.default};
+  `}
+`;
+
+type Themetype = {
+  themeId: number;
+  name: string;
+  image: string;
+};
+
+function ThemeItem({ theme }: { theme: Themetype }) {
+  return (
+    <ThemeItemWrapper>
+      <ThemeImage src={theme.image} alt={theme.name} />
+      <ThemeItemText>{theme.name}</ThemeItemText>
+    </ThemeItemWrapper>
+  );
 }
 
 export default ThemeItem;
