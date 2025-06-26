@@ -15,3 +15,19 @@ export const mockItem = {
       'https://st.kakaocdn.net/product/gift/gift_brand/20220216170226_38ba26d8eedf450683200d6730757204.png',
   },
 };
+
+export type mockItemType = {
+  id: number;
+  name: string;
+  imageURL: string;
+  price: {
+    basicPrice: number;
+    discountRate: number;
+    sellingPrice: number;
+  };
+  brandInfo: {
+    id: number;
+    name: string;
+    imageURL: string;
+  };
+};

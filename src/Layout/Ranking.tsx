@@ -5,13 +5,12 @@ import { mockItem } from '@/mocks/mockItem';
 import { RankingContainer, RankingTitle } from '@/styles/RankingStyle.styles.ts';
 
 function Ranking() {
-  console.log(mockItem);
   return (
     <RankingContainer>
       <RankingTitle>실시간 급상승 선물랭킹</RankingTitle>
       <SexContainer />
       <CategoryContainer />
-      <ItemContainer />
+      <ItemContainer itemList={mockItem} />
     </RankingContainer>
   );
 }
