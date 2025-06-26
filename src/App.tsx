@@ -1,17 +1,18 @@
-import { useState } from 'react'
-import { Global } from '@emotion/react';
-import { resetStyle } from '@/styles/reset';
-import { MainLayout } from './components/MainLayout';
+import { Global, ThemeProvider } from '@emotion/react'
+import { resetStyle } from '@/styles/reset'
+import theme from './styles/theme'
+import { MainLayout } from './components/MainLayout'
+import Header from './components/Header'
 
 function App() {
   return (
-    <>
-      <Global styles={resetStyle} /> 
+    <ThemeProvider theme={theme}>
+      <Global styles={resetStyle} />
       <MainLayout>
-        <h1>Hell React</h1>
+        <Header />
       </MainLayout>
-    </>
+    </ThemeProvider>
   )
 }
 
-export default App
+export default App;
