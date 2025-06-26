@@ -5,7 +5,7 @@ import { IoArrowBackOutline, IoPersonOutline } from "react-icons/io5";
 
 const NavigationBar = () => {
   return (
-    <header css={(theme: Theme) => navigationBarStyles(theme)}>
+    <div css={(theme: Theme) => navigationBarStyles(theme)}>
       <button
         css={(theme: Theme) => iconButtonStyles(theme)}
         aria-label="뒤로가기">
@@ -19,7 +19,7 @@ const NavigationBar = () => {
         aria-label="프로필">
         <IoPersonOutline />
       </button>
-    </header>
+    </div>
   );
 };
 
@@ -44,6 +44,7 @@ const iconButtonStyles = (theme: Theme) => css`
   font-size: 1.5rem;
   display: flex;
   color: ${theme.colors.semantic.text.default};
+  cursor: pointer;
 `;
 
 export default NavigationBar;

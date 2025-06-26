@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import type { Theme } from "@emotion/react";
-import { IoAdd } from "react-icons/io5"; // 추가된 아이콘
+import { IoAdd } from "react-icons/io5";
 
 const SelectFriend = () => {
   return (
@@ -17,11 +17,12 @@ const SelectFriend = () => {
 const containerStyle = (theme: Theme) => css`
   display: flex;
   align-items: center;
-  justify-content: center; /* 가로 가운데 정렬 */
+  justify-content: center;
   gap: 8px;
   width: 100%;
   min-height: 80px;
   background-color: ${theme.colors.gray.gray100};
+  cursor: pointer;
 `;
 const buttonStyle = (theme: Theme) => css`
   color: black;

@@ -1,6 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React from "react";
-import categoryData from "@/categoryData";
+import categoryData from "@/data/categoryData";
 import type { Theme } from "@emotion/react";
 import { css } from "@emotion/react";
 
@@ -13,7 +12,7 @@ const Category = () => {
             src={category.image}
             alt={category.name}
             className="category-image"
-            css={(theme) => imageStyle(theme)}
+            css={imageStyle}
           />
           <h3 className="category-name">{category.name}</h3>
         </div>
@@ -24,8 +23,8 @@ const Category = () => {
 
 const categoryStyle = (theme: Theme) => css`
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* 한 줄에 3개 */
-  gap: 16px; /* 아이템 간 간격 */
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
   font-size: ${theme.typography.label2Bold.size};
   font-weight: ${theme.typography.label2Bold.weight};
   line-height: ${theme.typography.label2Bold.lineHeight};
@@ -35,13 +34,14 @@ const categoryStyle = (theme: Theme) => css`
   border-bottom: 1px solid ${theme.colors.semantic.border.default};
 `;
 
-const imageStyle = (theme: Theme) => css`
+const imageStyle = () => css`
   width: 100%;
   max-width: 120px;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   display: block;
   border-radius: 8px;
+  cursor: pointer;
 `;
 
 export default Category;
