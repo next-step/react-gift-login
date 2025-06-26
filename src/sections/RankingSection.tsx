@@ -1,12 +1,17 @@
 import styled from '@emotion/styled';
 import AgeSelectionButton from "@/components/AgeSelectionButton";
 import RankSelectionBar from "@/components/RankSelectionBar";
+import ShowMoreButton from '@/components/ShowMoreButton';
+import CardList from '@/components/CardList';
+import { cardData } from '@/mockdata/cardData.ts';
 import { useState } from "react";
 
 const Wrapper = styled.section`
   padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 `;
-
 const Title = styled.h1`
   ${({ theme }) => `
     color: ${theme.colors.textDefault};
@@ -15,15 +20,15 @@ const Title = styled.h1`
     line-height: ${theme.typography.title1Bold.lineHeight};
   `}
 `;
-
 const ButtonGroup = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-  margin-bottom: 20px;
 `;
+const CardListSection = styled.section`
+`
 
 const AGE_BUTTONS = [
   { ageType: 'ALL', label: '전체', emoji: '😊' },
@@ -40,6 +45,17 @@ const TABS = [
 const RankingSection = () => {
   const [selectedAge, setSelectedAge] = useState('ALL');
   const [selectedTab, setSelectedTab] = useState('MANY_WISH');
+  const [showAll, setShowAll] = useState(false);
+
+  const cards = cardData.map((item) => ({
+    id: item.id,
+    imageUrl: item.imageURL,
+    brand: item.brandInfo.name,
+    name: item.name,
+    price: item.price.sellingPrice,
+  }));
+
+  const visibleCards = showAll ? cards : cards.slice(0, 6);
 
   return (
     <Wrapper>
@@ -61,6 +77,15 @@ const RankingSection = () => {
         selected={selectedTab}
         onSelect={setSelectedTab}
       />
+      <CardListSection>
+        <CardList cards={visibleCards} />
+        {!showAll && cards.length > 6 && (
+          <ShowMoreButton onClick={() => setShowAll(true)}>더보기</ShowMoreButton>
+        )}
+        {showAll && (
+          <ShowMoreButton onClick={() => setShowAll(false)}>접기</ShowMoreButton>
+        )}
+      </CardListSection>
     </Wrapper>
   );
 };
