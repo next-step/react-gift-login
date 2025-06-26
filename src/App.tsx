@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <Global styles={reset} />
-      <Global styles={globalStyle} />
+      <Global styles={(theme) => globalStyle(theme)} />
       <div>홈 화면입니다</div>
     </>
   );
