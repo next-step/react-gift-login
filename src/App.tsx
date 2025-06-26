@@ -5,6 +5,7 @@ import styled from '@emotion/styled';
 import NavigationBar from './components/NavigationBar/NavigationBar';
 import GiftBanner from './components/GiftBanner/GiftBanner';
 import Category from './components/Category/Category';
+import EventBanner from './components/EventBanner/EventBanner';
 
 const globalStyles = css`
   body {
@@ -42,6 +43,7 @@ function App() {
             <GiftBanner />
             <Content>
               <Category />
+              <EventBanner />
             </Content>
           </main>
         </AppFrame>
