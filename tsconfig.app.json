@@ -23,5 +23,12 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
+  "extends": "./tsconfig.json",
+
+  "baseUrl": "./src",
+  "paths": {
+    "@/*": ["*"]
+  },
+  
   "include": ["src"]
 }
