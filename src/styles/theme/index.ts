@@ -36,6 +36,17 @@ export const theme = {
       bannerCardHeight: '4rem',
       labelGap: '5px',
     },
+    trendingGifts: {
+      contentWidth: '95%',
+      moreInfoWidth: '65%',
+      productCard: {
+        rankBadgePadding: '2px',
+        imageRatio: '1',
+      },
+      subTab: {
+        borderWidth: '1px',
+      },
+    },
   },
 } as const;
 

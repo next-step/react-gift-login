@@ -3,11 +3,11 @@ import type { TrendingGiftsType } from '@/data/trendingGfitsMockData';
 import ProductCard from '../ProductCard/ProductCard';
 
 const ProductGridContainer = styled.div`
-  width: 95%;
+  width: ${({ theme }) => theme.components.trendingGifts.contentWidth};
   display: grid;
   grid-template-columns: ${({ theme }) => theme.layout.grid.columns.fixed3};
-  gap: 12px;
-  margin-top: 16px;
+  gap: ${({ theme }) => theme.spacing[2]};
+  margin-top: ${({ theme }) => theme.spacing[4]};
 `;
 
 interface ProductGridPropsType {

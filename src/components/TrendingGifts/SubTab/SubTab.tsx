@@ -2,14 +2,15 @@ import styled from '@emotion/styled';
 
 const SubTabContainer = styled.div`
   display: flex;
-  width: 95%;
+  width: ${({ theme }) => theme.components.trendingGifts.contentWidth};
   justify-content: space-around;
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.blue[200]};
-  border: 1px solid ${({ theme }) => theme.colors.blue[400]};
+  background-color: ${({ theme }) => theme.colors.blue[100]};
+  border: ${({ theme }) => theme.components.trendingGifts.subTab.borderWidth} solid
+    ${({ theme }) => theme.colors.blue[300]};
   box-sizing: border-box;
-  padding: 13px;
-  border-radius: 5px;
+  padding: ${({ theme }) => theme.spacing[3]};
+  border-radius: ${({ theme }) => theme.borderRadius.xs};
 `;
 
 const SubTabButton = styled.button<{ isSelected: boolean }>`
@@ -18,16 +19,19 @@ const SubTabButton = styled.button<{ isSelected: boolean }>`
   border: 0;
   background-color: transparent;
   cursor: pointer;
-  font-size: 0.9rem;
-  font-weight: ${({ isSelected }) => (isSelected ? 900 : 400)};
+  font-size: ${({ theme }) => theme.typography.label.label1Regular.fontSize};
+  font-weight: ${({ theme, isSelected }) =>
+    isSelected
+      ? theme.typography.label.label1Bold.fontWeight
+      : theme.typography.label.label1Regular.fontWeight};
 `;
 
-interface SubTabProps {
+interface SubTabPropsType {
   selectedTabIdx: number;
   setSelectedTabIdx: (idx: number) => void;
 }
 
-function SubTab({ selectedTabIdx, setSelectedTabIdx }: SubTabProps) {
+function SubTab({ selectedTabIdx, setSelectedTabIdx }: SubTabPropsType) {
   const tabs = ['받고 싶어한', '많이 선물한', '위시로 받은'];
 
   return (

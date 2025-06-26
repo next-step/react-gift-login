@@ -8,14 +8,14 @@ const TrendingGiftsSection = styled.section`
   align-items: center;
   flex-direction: column;
 
-  margin-top: 2.5rem;
+  margin-top: ${({ theme }) => theme.spacing[11]};
 `;
 
 const TitleWarpper = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  width: 95%;
+  width: ${({ theme }) => theme.components.trendingGifts.contentWidth};
 `;
 
 const SectionTitle = styled.h2`
@@ -28,60 +28,66 @@ const TabsWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  width: 95%;
+  width: ${({ theme }) => theme.components.trendingGifts.contentWidth};
   box-sizing: border-box;
-  padding-top: 1.5rem;
-  padding-bottom: 1rem;
+  padding-top: ${({ theme }) => theme.spacing[6]};
+  padding-bottom: ${({ theme }) => theme.spacing[3]};
 `;
 
 const MoreInfoWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 60%;
-  margin-top: 20px;
-  padding: 12px;
-  border: 1px solid #ddd;
+
+  width: ${({ theme }) => theme.components.trendingGifts.moreInfoWidth};
+  margin-top: ${({ theme }) => theme.spacing[5]};
+  padding: ${({ theme }) => theme.spacing[4]};
+  border: ${({ theme }) => theme.components.trendingGifts.subTab.borderWidth} solid
+    ${({ theme }) => theme.colors.gray[400]};
+  border-radius: ${({ theme }) => theme.borderRadius.xs};
 `;
 
 const MoreInfo = styled.p`
-  margin: 0;
-  font-size: ${({ theme }) => theme.typography.body.body1Regular.fontSize};
-  font-weight: ${({ theme }) => theme.typography.body.body1Regular.fontWeight};
-  color: #666;
+  font-size: ${({ theme }) => theme.typography.label.label1Regular.fontSize};
+  font-weight: ${({ theme }) => theme.typography.label.label1Regular.fontWeight};
 `;
 
 const MainTabButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+
   flex-direction: column;
-  gap: 8px;
+  gap: ${({ theme }) => theme.spacing[2]};
   border: 0;
   background-color: transparent;
   cursor: pointer;
 `;
 
 const TabIconContainer = styled.div<{ isSelected: boolean }>`
-  background-color: ${({ isSelected, theme }) =>
-    isSelected ? theme.colors.blue[700] : theme.colors.blue[200]};
-  width: 44px;
-  height: 44px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 1rem;
-  font-size: 14px;
-  font-weight: 700;
+
+  background-color: ${({ isSelected, theme }) =>
+    isSelected ? theme.colors.blue[700] : theme.colors.blue[200]};
+  width: ${({ theme }) => theme.spacing[11]};
+  height: ${({ theme }) => theme.spacing[11]};
+
+  border-radius: ${({ theme }) => theme.borderRadius.lg};
+  font-size: ${({ theme }) => theme.typography.label.label1Bold.fontSize};
+  font-weight: ${({ theme }) => theme.typography.label.label1Bold.fontWeight};
   color: ${({ isSelected, theme }) => (isSelected ? theme.colors.gray[0] : theme.colors.blue[500])};
 `;
 
 const TabLabel = styled.p<{ isSelected: boolean }>`
-  font-size: 0.9rem;
+  font-size: ${({ theme }) => theme.typography.label.label1Regular.fontSize};
+  font-weight: ${({ theme, isSelected }) =>
+    isSelected
+      ? theme.typography.label.label1Bold.fontWeight
+      : theme.typography.label.label1Regular.fontWeight};
   color: ${({ isSelected, theme }) =>
     isSelected ? theme.colors.blue[700] : theme.colors.gray[700]};
-  font-weight: ${({ isSelected }) => (isSelected ? 900 : 400)};
-  margin: 0;
 `;
 
 function TrendingGifts() {
