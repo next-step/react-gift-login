@@ -3,7 +3,7 @@ const Container = styled.div`
 background-color: coral;
 
   width: 100%;
-  height: 100vh;
+  height: auto;
   max-width:720px;
   margin: 0 auto;
 `

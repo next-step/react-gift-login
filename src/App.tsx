@@ -7,6 +7,7 @@ import FriendsBox from './components/friendsbox/FriendsBox';
 import Category from './components/category/Category';
 import { PaddingMd, PaddingLg } from './components/padding/Padding';
 import Banner from './components/banner/Banner';
+import Ranking from './components/ranking/Ranking';
 function App() {
 
   return (
@@ -20,6 +21,7 @@ function App() {
         <PaddingMd />
         <Banner/>
         <PaddingLg />
+        <Ranking/>
       </Container>
     </ThemeProvider>
   );

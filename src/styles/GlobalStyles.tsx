@@ -36,6 +36,15 @@ const GlobalStyles = () => {
         ol {
           list-style: none;
         }
+button{
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+
+}
+
         /* 폰트 적용 */
         * {
           font-family:

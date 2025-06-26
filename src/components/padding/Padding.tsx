@@ -1,6 +1,7 @@
 import styled  from '@emotion/styled'; 
 export const PaddingSm = styled.div`
-  padding: 4px;
+  width: 100%;
+  height: ${({theme})=>theme.spacing.spacing1};
 `;
 export const PaddingMd = styled.div`
         width: 100%;
