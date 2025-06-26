@@ -1,5 +1,4 @@
-﻿// src/components/RankingFilterBar.tsx
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import styled from '@emotion/styled'
 import { colors } from '@/theme/color'
 import { typography } from '@/theme/typography'
@@ -8,44 +7,56 @@ const FilterBarWrapper = styled.div`
   margin: 24px 0;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 8px;        /* 아이콘-레이블 간격 줄임 */
 `
 
-const GenderToggleWrapper = styled.div`
+// 아이콘 버튼들을 감싸는 행
+const GenderIconRow = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  gap: 127px;
+  gap: 120px;
   padding: 0 16px;
-  margin-bottom: 1rem;
+`
+
+// 레이블을 감싸는 행
+const GenderLabelRow = styled.div`
+  display: flex;
+  gap: 120px;
+  padding: 0 16px;
 `
 
 const GenderButton = styled.button<{ selected: boolean }>`
-  flex: 0 0 auto;
+  flex: 1;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  padding: 8px;
+  justify-content: center;
+  padding: 8px 0;
   background-color: ${({ selected }) =>
-    selected ? colors.blue[700] : colors.gray[100]};
+    selected ? colors.blue[700] : 'transparent'};
   border: none;
   border-radius: 12px;
   cursor: pointer;
 
-  &:hover {
-    background-color: ${({ selected }) =>
-      selected ? colors.blue[700] : colors.gray[200]};
+  &:not(:last-of-type) {
+    margin-right: 12px;
   }
 `
 
-const GenderIcon = styled.span`
+const GenderIcon = styled.span<{ selected: boolean }>`
   font-size: 1.5rem;
+  color: ${({ selected }) =>
+    selected ? colors.gray[0] : colors.gray[900]};
 `
 
-const GenderText = styled.span<{ selected: boolean }>`
+const GenderLabel = styled.span<{ selected: boolean }>`
   ${typography.label1Regular};
-  margin-top: 4px;
+  text-align: center;
+  flex: 1;
   color: ${({ selected }) =>
     selected ? colors.blue[700] : colors.gray[900]};
+
+  &:not(:last-of-type) {
+    margin-right: 12px;
+  }
 `
 
 const SortTabsWrapper = styled.div`
@@ -96,7 +107,8 @@ export function RankingFilterBar({
 
   return (
     <FilterBarWrapper>
-      <GenderToggleWrapper>
+      {/* 1) 아이콘 버튼 행 */}
+      <GenderIconRow>
         {genders.map((g) => {
           const isSelected = g.key === selectedGender
           return (
@@ -108,13 +120,25 @@ export function RankingFilterBar({
                 onGenderChange?.(g.key)
               }}
             >
-              <GenderIcon aria-hidden="true">{g.icon}</GenderIcon>
-              <GenderText selected={isSelected}>{g.label}</GenderText>
+              <GenderIcon selected={isSelected}>{g.icon}</GenderIcon>
             </GenderButton>
           )
         })}
-      </GenderToggleWrapper>
+      </GenderIconRow>
 
+      {/* 2) 버튼 밖 레이블 행 */}
+      <GenderLabelRow>
+        {genders.map((g) => {
+          const isSelected = g.key === selectedGender
+          return (
+            <GenderLabel key={g.key} selected={isSelected}>
+              {g.label}
+            </GenderLabel>
+          )
+        })}
+      </GenderLabelRow>
+
+      {/* 3) 정렬 탭 */}
       <SortTabsWrapper>
         {sorts.map((s) => {
           const isActive = s.key === selectedSort
