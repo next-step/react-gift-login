@@ -6,6 +6,7 @@ const reset = css`
     margin: 0;
     padding: 0;
     background: #f9f9f9;
+
     font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', '맑은 고딕', sans-serif;
   }
   *, *::before, *::after {
