@@ -3,6 +3,7 @@ import Home from "@/pages/Home";
 import globalStyle from '@/styles/global.ts';
 import { Global } from '@emotion/react';
 import { JSX } from 'react';
+import Login from '@/pages/Login.tsx';
 
 
 const App: () => JSX.Element = () => {
@@ -12,6 +13,7 @@ const App: () => JSX.Element = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>
     </>

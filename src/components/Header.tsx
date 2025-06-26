@@ -1,13 +1,20 @@
 import styled from '@emotion/styled';
 import leftArrow from '@/assets/left-arrow.png';
 import user from '@/assets/user.png';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Header() {
+  const navigate = useNavigate();
+
+  const handleBack = () => {
+    navigate(-1);
+  }
+
   return (
     <HeaderWrapper>
-      <Icon src={leftArrow} alt="left arrow" />
-      <Title>선물하기</Title>
-      <Icon src={user} alt="user" />
+      <Icon src={leftArrow} alt="left arrow" onClick={handleBack}/>
+      <Title><StyledLink to="/">선물하기</StyledLink></Title>
+      <Link to="/login"><Icon src={user} alt="user" /></Link>
     </HeaderWrapper>
   );
 }
@@ -36,4 +43,9 @@ const Title = styled.h1`
   flex-grow: 1;            /* 제목이 남은 공간 꽉 채우기 */
   text-align: center;      /* 가운데 정렬 */
   user-select: none;       /* 텍스트 선택 방지 (선택사항) */
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
 `;
