@@ -1,3 +1,4 @@
+
 import GlobalStyles from '@/styles/GlobalStyles'
 import { ThemeProvider } from '@emotion/react'
 import { theme } from './styles/theme/index';
@@ -25,6 +26,6 @@ function App() {
       </Container>
     </ThemeProvider>
   );
-}
+
 
 export default App
