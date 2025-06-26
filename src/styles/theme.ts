@@ -124,7 +124,7 @@ export const theme = {
     spacing15: '60px',
     spacing16: '64px',
   },
-  zIndex : {
+  zIndex: {
     navigationBar: 1000,
   },
 };

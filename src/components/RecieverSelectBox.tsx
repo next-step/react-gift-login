@@ -36,15 +36,15 @@ const Text = styled.p`
 `;
 
 const ReceiverSelectBox = () => {
-    return (
-        <Frame>
-            <Box>
-                <IconWrap>
-                    <IoAdd />
-                </IconWrap>
-                <Text>선물할 친구를 선택해 주세요.</Text>
-            </Box>
-        </Frame>
-    );
+  return (
+    <Frame>
+      <Box>
+        <IconWrap>
+          <IoAdd />
+        </IconWrap>
+        <Text>선물할 친구를 선택해 주세요.</Text>
+      </Box>
+    </Frame>
+  );
 };
 export default ReceiverSelectBox;

@@ -1,47 +1,23 @@
-import React, { useState } from 'react';
 import styled from '@emotion/styled';
 
-const mockItem = {
-  id: 123,
-  name: 'BBQ 양념치킨+크림치즈볼+콜라1.25L',
-  imageURL: 'https://st.kakaocdn.net/product/gift/product/20231030175450_53e90ee9708f45ffa45b3f7b4bc01c7c.jpg',
-  price: 29000,
-  brand: 'BBQ',
-};
-const categoryEmojis: Record<string, string> = {
-  전체: 'ALL',
-  여성이: '👩',
-  남성이: '👨',
-  청소년이: '👦',
-};
-
-
-const allItems = Array.from({ length: 21 }, (_, i) => ({
-  ...mockItem,
-  id: i + 1,
-}));
-
-const categoryTabs = ['전체', '여성이', '남성이', '청소년이'];
-const sortTabs = ['받고 싶어한', '많이 선물한', '위시로 받은'];
-
-const Section = styled.section`
+export const Section = styled.section`
   background-color: ${({ theme }) => theme.colors.semantic.backgroundDefault};
   padding: ${({ theme }) => theme.spacing.spacing11} ${({ theme }) => theme.spacing.spacing5};
 `;
 
-const Heading = styled.h2`
+export const Heading = styled.h2`
   font: ${({ theme }) => theme.typography.title1Bold};
   margin-bottom: ${({ theme }) => theme.spacing.spacing5};
 `;
 
-const TabRow = styled.div`
+export const TabRow = styled.div`
   display: flex;
   font: ${({ theme }) => theme.typography.label1Regular};
   justify-content: space-between;
   margin-bottom: ${({ theme }) => theme.spacing.spacing5};
 `;
 
-const CategoryTab = styled.button<{ isSelected: boolean }>`
+export const CategoryTab = styled.button<{ isSelected: boolean }>`
   all: unset;
   display: flex;
   flex-direction: column;
@@ -52,18 +28,11 @@ const CategoryTab = styled.button<{ isSelected: boolean }>`
     isSelected ? theme.colors.semantic.info : theme.colors.semantic.textSub};
 `;
 
-
-const TabCircle = styled.div<{ isSelected: boolean }>`
+export const TabCircle = styled.div<{ isSelected: boolean }>`
   background-color: ${({ theme, isSelected }) =>
-    isSelected
-      ? theme.colors.semantic.info
-      : theme.colors.semantic.backgroundDisabled};
-
+    isSelected ? theme.colors.semantic.info : theme.colors.semantic.backgroundDisabled};
   color: ${({ theme, isSelected }) =>
-    isSelected
-      ? theme.colors.semantic.backgroundDefault
-      : theme.colors.semantic.textSub};
-
+    isSelected ? theme.colors.semantic.backgroundDefault : theme.colors.semantic.textSub};
   border-radius: ${({ theme }) => theme.spacing.spacing5};
   width: ${({ theme }) => theme.spacing.spacing12};
   height: ${({ theme }) => theme.spacing.spacing12};
@@ -73,8 +42,7 @@ const TabCircle = styled.div<{ isSelected: boolean }>`
   justify-content: center;
 `;
 
-
-const SortRow = styled.div`
+export const SortRow = styled.div`
   background-color: ${({ theme }) => theme.colors.semantic.backgroundDisabled};
   padding: ${({ theme }) => theme.spacing.spacing3};
   border-radius: ${({ theme }) => theme.spacing.spacing3};
@@ -83,7 +51,7 @@ const SortRow = styled.div`
   margin-bottom: ${({ theme }) => theme.spacing.spacing5};
 `;
 
-const SortTab = styled.button<{ isSelected: boolean }>`
+export const SortTab = styled.button<{ isSelected: boolean }>`
   all: unset;
   font : ${({ theme }) => theme.typography.label2Bold};
   color: ${({ theme, isSelected }) =>
@@ -91,19 +59,18 @@ const SortTab = styled.button<{ isSelected: boolean }>`
   cursor: pointer;
 `;
 
-
-const Grid = styled.div`
+export const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: ${({ theme }) => theme.spacing.spacing2};
 `;
 
-const Card = styled.div`
+export const Card = styled.div`
   position: relative;
   background: ${({ theme }) => theme.colors.semantic.backgroundDefault};
 `;
 
-const RankBadge = styled.div<{ rank: number }>`
+export const RankBadge = styled.div<{ rank: number }>`
   position: absolute;
   top: ${({ theme }) => theme.spacing.spacing1};
   left: ${({ theme }) => theme.spacing.spacing1};
@@ -115,31 +82,30 @@ const RankBadge = styled.div<{ rank: number }>`
   border-radius: 6px;
 `;
 
-
-const ProductImage = styled.img`
+export const ProductImage = styled.img`
   width: 100%;
   border-radius: ${({ theme }) => theme.spacing.spacing1};
 `;
 
-const BrandName = styled.div`
+export const BrandName = styled.div`
   font: ${({ theme }) => theme.typography.label2Regular};
   color: ${({ theme }) => theme.colors.semantic.textSub};
   margin-top: ${({ theme }) => theme.spacing.spacing1};
 `;
 
-const ItemName = styled.div`
+export const ItemName = styled.div`
   font: ${({ theme }) => theme.typography.label1Regular};
   color: ${({ theme }) => theme.colors.semantic.textDefault};
   margin-top: 2px;
 `;
 
-const Price = styled.div`
+export const Price = styled.div`
   font: ${({ theme }) => theme.typography.label2Regular};
   color: ${({ theme }) => theme.colors.semantic.textDefault};
   margin-top: 2px;
 `;
 
-const Button = styled.button`
+export const Button = styled.button`
   margin: ${({ theme }) => theme.spacing.spacing6} auto 0;
   width: 70%;
   padding: ${({ theme }) => theme.spacing.spacing3};
@@ -150,63 +116,3 @@ const Button = styled.button`
   cursor: pointer;
   display: block;
 `;
-
-const GiftRankingSection = () => {
-  const [selectedCategory, setSelectedCategory] = useState('전체');
-  const [selectedSort, setSelectedSort] = useState('받고 싶어한');
-  const [expanded, setExpanded] = useState(false);
-
-  const visibleItems = expanded ? allItems : allItems.slice(0, 6);
-
-  return (
-    <Section>
-      <Heading>실시간 급상승 선물랭킹</Heading>
-      <TabRow>
-        {categoryTabs.map((tab) => (
-          <CategoryTab
-            key={tab}
-            isSelected={selectedCategory === tab}
-            onClick={() => setSelectedCategory(tab)}
-          >
-            <TabCircle isSelected={selectedCategory === tab}>
-              {categoryEmojis[tab]}
-            </TabCircle>
-            <span>{tab}</span>
-          </CategoryTab>
-        ))}
-      </TabRow>
-
-      <SortRow>
-        {sortTabs.map((tab) => (
-          <SortTab
-            key={tab}
-            isSelected={selectedSort === tab}
-            onClick={() => setSelectedSort(tab)}
-          >
-            {tab}
-          </SortTab>
-
-        ))}
-      </SortRow>
-      <Grid>
-        {visibleItems.map((item, index) => (
-          <Card key={item.id}>
-            <RankBadge rank={index + 1}>{index + 1}</RankBadge>
-            <ProductImage src={item.imageURL} alt={item.name} />
-            <BrandName>{item.brand}</BrandName>
-            <ItemName>{item.name}</ItemName>
-            <Price>
-              <strong>{item.price.toLocaleString()}</strong> 원
-            </Price>
-          </Card>
-        ))}
-      </Grid>
-
-      <Button onClick={() => setExpanded((prev) => !prev)}>
-        {expanded ? '접기' : '더보기'}
-      </Button>
-    </Section>
-  );
-};
-export default GiftRankingSection;
-
