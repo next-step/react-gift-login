@@ -7,7 +7,11 @@ export const globalReset = css`
     padding: 0;
   }
 
+<<<<<<< main
   html{
+=======
+  html, body {
+>>>>>>> bootaeng
     height: 100%;
     font-family: 'Pretendard', sans-serif;
     background-color: #fff;
@@ -15,6 +19,7 @@ export const globalReset = css`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+<<<<<<< main
   body {
   margin: 0;
   padding: 0;
@@ -23,6 +28,9 @@ export const globalReset = css`
   background-color: #fff;
   font-family: 'Pretendard', sans-serif;
   }
+=======
+
+>>>>>>> bootaeng
   a {
     color: inherit;
     text-decoration: none;
@@ -38,4 +46,8 @@ export const globalReset = css`
   ul, ol {
     list-style: none;
   }
+<<<<<<< main
 `
+=======
+`
+>>>>>>> bootaeng
