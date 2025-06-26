@@ -2,6 +2,7 @@ import { Global } from '@emotion/react';
 import reset from "@/styles/reset";
 import Layout from "@/layout/Layout"
 import NavigationBar from "@/components/NavigationBar"
+import CategorySection from "@/components/CategorySection"
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Global styles={reset}/>
       <Layout>
         <NavigationBar/>
+        <CategorySection/>
       </Layout>
     </>
   );
