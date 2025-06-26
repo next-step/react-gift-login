@@ -1,13 +1,15 @@
 import GlobalStyle from '@/styles/GlobalStyle';
 import Navigation from '@/components/Navigation';
-import FriendSelect from '@/components/FriendSelect';
+import FriendSelectSection from '@/components/FriendSelectSection';
+import CategorySection from './components/CategorySection';
 
 function App() {
   return (
     <>
       <GlobalStyle />
       <Navigation />
-      <FriendSelect />
+      <FriendSelectSection />
+      <CategorySection />
     </>
   );
 }

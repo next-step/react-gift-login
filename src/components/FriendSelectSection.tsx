@@ -2,7 +2,7 @@
 import { css, useTheme } from '@emotion/react';
 import type { Theme } from '@/styles/theme';
 
-const FriendSelect = () => {
+const FriendSelectSection = () => {
   const theme = useTheme();
 
   const sectionStyle = css`
@@ -70,4 +70,4 @@ const FriendSelect = () => {
   );
 };
 
-export default FriendSelect;
+export default FriendSelectSection;
