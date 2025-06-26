@@ -1,6 +1,6 @@
-import type { ThemeItem } from '@/types/theme';
+import type { ThemeItemType } from '@/types/theme';
 
-export const mockThemeList: ThemeItem[] = [
+export const mockThemeList: ThemeItemType[] = [
   {
     themeId: 3715,
     name: '생일',

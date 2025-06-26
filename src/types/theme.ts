@@ -1,4 +1,4 @@
-export type ThemeItem = {
+export type ThemeItemType = {
   themeId: number;
   name: string;
   image: string;
