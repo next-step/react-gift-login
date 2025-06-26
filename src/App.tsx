@@ -3,6 +3,8 @@ import logo from '@/assets/logo.png'
 import FriendSelector from '@/components/FriendSelector'
 import CategorySection from '@/components/CategorySection'
 import CampusBanner from '@/components/CampusBanner'
+import RankingFilterBar from '@/components/RankingFilterBar'
+
 
 const friends = ['라이언', '무지', '콘']
 function App() {
@@ -11,6 +13,7 @@ function App() {
       <FriendSelector friends={friends} />
       <CategorySection />
       <CampusBanner />
+      <RankingFilterBar />
     </Layout>
   )
 }
