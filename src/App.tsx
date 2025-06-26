@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
 import { Header } from '@/components/Header';
 import { Category } from '@/components/Category';
+import { SelectFriend } from './components/SelectFriend';
+import { Banner } from './components/Banner';
 
 const Container = styled.div`
   display: flex;
@@ -18,7 +20,9 @@ function App() {
   return (
     <Container>
       <Header />
+      <SelectFriend />
       <Category />
+      <Banner />
     </Container>
   );
 }

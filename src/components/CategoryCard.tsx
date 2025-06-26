@@ -32,5 +32,3 @@ export const CategoryCard = ({ name, image }: Category) => {
     </Card>
   );
 };
-
-export default CategoryCard;
