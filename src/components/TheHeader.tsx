@@ -1,6 +1,9 @@
 import styled from "@emotion/styled";
 
 const Header = styled.header`
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;
