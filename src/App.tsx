@@ -6,7 +6,7 @@ import { Navbar } from '@/components/Navbar'
 import styled from '@emotion/styled'
 import GiftFriendSelector from '@/components/GiftFriendSelector'
 import { HomeContentCard } from '@/components/HomeContentCard'
-//import { RankingSection } from '@/components/RankingSection'
+import { RankingSection } from '@/components/RankingSection/RankingSection'
 import { MotivationBanner } from '@/components/MotivationBanner'
 import { CategorySection } from '@/components/CategorySection/CategorySection'
 const AppWrapper = styled.div`
@@ -28,6 +28,7 @@ function App() {
             <HomeContentCard>
               <CategorySection />
               <MotivationBanner />  
+              <RankingSection />
             </HomeContentCard>
 
             
