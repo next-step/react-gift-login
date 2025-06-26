@@ -1,7 +1,8 @@
+import TheHeader from "@/components/TheHeader";
 import PresentCategory from "@/components/PresentCategory";
 import SelectFriendBox from "@/components/SelectFriendBox";
 import FightingBox from "@/components/FightingBox";
-import TheHeader from "@/components/TheHeader";
+import GiftsRanking from "@/components/GiftsRanking";
 
 const MainPage = () => {
   return (
@@ -10,6 +11,7 @@ const MainPage = () => {
       <SelectFriendBox />
       <PresentCategory />
       <FightingBox />
+      <GiftsRanking />
     </>
   );
 };
