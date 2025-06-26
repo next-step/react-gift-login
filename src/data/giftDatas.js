@@ -1,4 +1,4 @@
-[
+export const giftDatas = [
   {
     themeId: 3715,
     name: '생일',
