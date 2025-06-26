@@ -130,6 +130,11 @@ const reset = css`
   body {
     font-family: 'Pretendard', sans-serif;
   }
+
+  #root {
+    max-width: 720px;
+    margin: 0 auto;
+  }
 `;
 
 export default reset;
