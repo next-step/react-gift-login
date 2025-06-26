@@ -114,7 +114,7 @@ export const mockProduct: Product = {
 };
 
 // 랭킹용 상품들 (같은 상품을 여러 개로 복제)
-export const products: Product[] = Array.from({ length: 6 }, (_, i) => ({
+export const products: Product[] = Array.from({ length: 12 }, (_, i) => ({
   ...mockProduct,
   id: mockProduct.id + i,
 }));

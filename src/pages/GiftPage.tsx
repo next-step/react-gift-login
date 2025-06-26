@@ -5,6 +5,7 @@ import { CategoryGrid } from '@/components/CategoryGrid/CategoryGrid';
 import { categories } from '@/mock/mockData';
 import { Banner } from '@/components/Banner/Banner';
 import { FriendSelector } from '@/components/FriendSelector/FriendSelector';
+import { RankingSection } from '@/components/RankingSection/RankingSection';
 
 const AppContainer = styled.div`
   max-width: 720px;
@@ -30,6 +31,7 @@ export const GiftPage = () => {
         text="카카오테크 캠퍼스 3기 여러분 프로트엔드 2단계 과제 화이팅! 🎉"
         onClick={() => console.log('Banner 클릭')}
       />
+      <RankingSection />
     </AppContainer>
   );
 };
