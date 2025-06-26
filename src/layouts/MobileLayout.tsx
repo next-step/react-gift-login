@@ -9,5 +9,9 @@ const Wrapper = styled.div`
 `;
 
 export default function MobileLayout({ children }: PropsWithChildren) {
-  return <Wrapper>{children}</Wrapper>
+  return (
+    <Wrapper>
+      {children}
+    </Wrapper>
+  );
 }
