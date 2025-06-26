@@ -8,7 +8,6 @@ const Home = (): JSX.Element => {
 
   return (
     <div>
-      <div>Home</div>
       <Header />
       <Choose_Friend />
       <Gift_Thema />
