@@ -6,6 +6,7 @@ import Header from './components/Header'
 import Category from './components/Category'
 import Friends from './components/Friends'
 import Banner from './components/Banner'
+import TimeRanking from './components/TimeRanking'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Friends />
         <Category />
         <Banner />
+        <TimeRanking />
       </MainLayout>
     </ThemeProvider>
   )
