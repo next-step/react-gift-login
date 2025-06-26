@@ -1,5 +1,6 @@
 import { categoryMockData } from '@/data/categoryMockData';
 import styled from '@emotion/styled';
+import ThemeCard from './ThemeCard';
 
 const GiftThemeSection = styled.section`
   display: flex;
@@ -45,41 +46,6 @@ function Category() {
         ))}
       </ThemeGrid>
     </GiftThemeSection>
-  );
-}
-
-const ThemeCardContainer = styled.div`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-direction: column;
-
-  padding-top: ${({ theme }) => theme.spacing[0]};
-  padding-bottom: ${({ theme }) => theme.spacing[2]};
-  box-sizing: border-box;
-
-  width: ${({ theme }) => theme.components.category.themeCardWidth};
-  height: ${({ theme }) => theme.components.category.themeCardHeight};
-
-  cursor: pointer;
-`;
-
-const ThemeImage = styled.img`
-  width: ${({ theme }) => theme.components.category.themeCardImageSize};
-  height: ${({ theme }) => theme.components.category.themeCardImageSize};
-`;
-
-const ThemeName = styled.p`
-  font-size: ${({ theme }) => theme.typography.label.label2Regular.fontSize};
-  font-weight: ${({ theme }) => theme.typography.label.label2Regular.fontWeight};
-`;
-
-function ThemeCard({ theme }: { theme: any }) {
-  return (
-    <ThemeCardContainer>
-      <ThemeImage src={theme.image} alt={theme.name} />
-      <ThemeName>{theme.name}</ThemeName>
-    </ThemeCardContainer>
   );
 }
 
