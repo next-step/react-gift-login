@@ -34,6 +34,7 @@ const reset = css`
   body {
     line-height: 1;
     font-family: 'Pretendard', sans-serif;
+    background: rgb(247, 248, 249);
   }
 
   ol, ul {

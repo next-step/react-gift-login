@@ -1,12 +1,21 @@
-import { useState } from 'react'
+/** @jsxImportSource @emotion/react */
+import MobileLayout from "./layouts/MobileLayout";
+import NavBar from "./components/NavBar";
+import FriendSelect from "./components/FriendSelect";
+import GiftTheme from "./components/GiftTheme";
+import CheerBox from "./components/CheerBox";
+import GiftRanking from "./components/GiftRanking";
 
-function App() {
-
+export default function App() {
   return (
-    <>
-      hello world!
-    </>
-  )
+    <MobileLayout>
+      <NavBar />
+      <main>
+        <FriendSelect />
+        <GiftTheme />
+        <CheerBox />
+        <GiftRanking />
+      </main>
+    </MobileLayout>
+  );
 }
-
-export default App
