@@ -19,7 +19,6 @@ const ContainerDiv = styled.div`
 const ContentDiv = styled.div`
   max-width: 720px;
   width: 100%;
-  background-color: green;
 `;
 
 export default Container;
