@@ -27,7 +27,9 @@
       "@/assets/*": ["src/assets/*"],
       "@/data/*": ["src/data/*"],
       "@/styles/*": ["src/styles/*"],
-      "@/layout/*": ["src/components/layout/*"]
+      "@/layout/*": ["src/components/layout/*"],
+      "@/navigation/*": ["src/components/navigation/*"],
+      "@/pages/*": ["src/pages/*"]
     },
 
     /* Linting */
