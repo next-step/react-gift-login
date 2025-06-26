@@ -4,7 +4,7 @@ import { ThemeProvider } from '@emotion/react';
 import { theme } from './styles/theme';
 import App from './App.tsx';
 
-createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ThemeProvider theme={theme}>
       <App />
