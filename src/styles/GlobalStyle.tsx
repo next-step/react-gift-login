@@ -15,6 +15,11 @@ const GlobalStyle = () => (
       #root {
         height: 100%;
       }
+      #root {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 0 16px;
+      }
       body {
         line-height: 1;
         -webkit-font-smoothing: antialiased;

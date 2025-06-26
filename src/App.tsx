@@ -1,12 +1,10 @@
-import '@/App.css'
+import Layout from '@/Layout'
 
 function App() {
   return (
-    <body>
-      <p>
-        Hello, world!
-      </p>
-    </body>
+    <Layout>
+      <p>Hello, world!</p>
+    </Layout>
   )
 }
 
