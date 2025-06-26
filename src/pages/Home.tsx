@@ -1,12 +1,12 @@
 import CategorySection from '@components/CategorySection';
 import PromoBanner from '@components/PromoBanner';
 import RankingSection from '@components/RankingSection';
-import RecipientSelector from '@components/RecipientSelector';
+import FreiendSelector from '@components/FreiendSelector';
 
 const Home = () => {
   return (
     <>
-      <RecipientSelector />
+      <FreiendSelector />
       <CategorySection />
       <PromoBanner />
       <RankingSection />
