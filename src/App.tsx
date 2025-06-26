@@ -12,7 +12,10 @@ function App() {
     <ThemeProvider theme={theme}>
       <Container>
         <GlobalStyles />
-        <Navbar />
+        <Navbar /> 
+        <FriendsBox />
+        <Padding />
+        <Category />
       </Container>
     </ThemeProvider>
   );
