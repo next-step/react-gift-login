@@ -1,6 +1,7 @@
 import { categoryMockData } from '@/data/categoryMockData';
 import styled from '@emotion/styled';
 import ThemeCard from './ThemeCard';
+import { CATEGORY_LABELS } from './constants/labels';
 
 const GiftThemeSection = styled.section`
   display: flex;
@@ -38,7 +39,7 @@ function Category() {
   return (
     <GiftThemeSection>
       <SectionHeader>
-        <SectionTitle>선물 테마</SectionTitle>
+        <SectionTitle>{CATEGORY_LABELS.SECTION_TITLE}</SectionTitle>
       </SectionHeader>
       <ThemeGrid>
         {categoryMockData.map((theme) => (

@@ -7,16 +7,17 @@ import {
   SectionTitle,
   ProfileIcon,
 } from './NavigationBar.styles';
+import { NAVIGATION_BAR_LABELS } from './constants/labels';
 
 function NavigationBar() {
   return (
     <NavigationSection>
       <IconButton>
-        <LeftIcon src={BackIconSvg} alt="뒤로가기" />
+        <LeftIcon src={BackIconSvg} alt={NAVIGATION_BAR_LABELS.BACK_BUTTON_ALT} />
       </IconButton>
-      <SectionTitle>선물하기</SectionTitle>
+      <SectionTitle>{NAVIGATION_BAR_LABELS.SECTION_TITLE}</SectionTitle>
       <IconButton>
-        <ProfileIcon src={ProfileIconSvg} alt="프로필" />
+        <ProfileIcon src={ProfileIconSvg} alt={NAVIGATION_BAR_LABELS.PROFILE_BUTTON_ALT} />
       </IconButton>
     </NavigationSection>
   );

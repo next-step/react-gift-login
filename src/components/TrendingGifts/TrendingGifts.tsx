@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { useState } from 'react';
 import { AllTab, WomenTab, MenTab, TeenTab } from './TabComponents/TabComponents';
+import { TRENDING_GIFTS_TABS, TRENDING_GIFTS_LABELS } from './constants/labels';
 
 const TrendingGiftsSection = styled.section`
   display: flex;
@@ -94,46 +95,28 @@ function TrendingGifts() {
   const [selectedTabIdx, setSelectedTabIdx] = useState<number>(0);
 
   const tabs = [
-    {
-      name: '전체',
-      icon: 'ALL',
-      component: <AllTab />,
-    },
-    {
-      name: '여성이',
-      icon: '👩🏻',
-      component: <WomenTab />,
-    },
-    {
-      name: '남성이',
-      icon: '👨🏻',
-      component: <MenTab />,
-    },
-    {
-      name: '청소년이',
-      icon: '👦🏻',
-      component: <TeenTab />,
-    },
+    { ...TRENDING_GIFTS_TABS[0], component: <AllTab /> },
+    { ...TRENDING_GIFTS_TABS[1], component: <WomenTab /> },
+    { ...TRENDING_GIFTS_TABS[2], component: <MenTab /> },
+    { ...TRENDING_GIFTS_TABS[3], component: <TeenTab /> },
   ];
 
   return (
     <TrendingGiftsSection>
       <TitleWarpper>
-        <SectionTitle>실시간 급상승 선물랭킹</SectionTitle>
+        <SectionTitle>{TRENDING_GIFTS_LABELS.SECTION_TITLE}</SectionTitle>
       </TitleWarpper>
       <TabsWrapper>
         {tabs.map((el, idx) => (
           <MainTabButton key={idx} onClick={() => setSelectedTabIdx(idx)}>
-            <TabIconContainer isSelected={idx === selectedTabIdx}>
-              {el.icon === 'ALL' ? 'ALL' : el.icon}
-            </TabIconContainer>
+            <TabIconContainer isSelected={idx === selectedTabIdx}>{el.icon}</TabIconContainer>
             <TabLabel isSelected={idx === selectedTabIdx}>{el.name}</TabLabel>
           </MainTabButton>
         ))}
       </TabsWrapper>
       {tabs[selectedTabIdx].component}
       <MoreInfoWrapper>
-        <MoreInfo>더보기</MoreInfo>
+        <MoreInfo>{TRENDING_GIFTS_LABELS.MORE_INFO}</MoreInfo>
       </MoreInfoWrapper>
     </TrendingGiftsSection>
   );

@@ -6,6 +6,7 @@ import {
   GiftBannerSection,
 } from './GiftBanner.styles';
 import PlusIconSvg from './icons/plus.svg';
+import { GIFT_BANNER_LABELS } from './constants/labels';
 
 function GiftBanner() {
   return (
@@ -14,7 +15,7 @@ function GiftBanner() {
         <AddIconWrapper>
           <AddIcon src={PlusIconSvg} />
         </AddIconWrapper>
-        <BannerMessage>선물할 친구를 선택해주세요.</BannerMessage>
+        <BannerMessage>{GIFT_BANNER_LABELS.BANNER_MESSAGE}</BannerMessage>
       </BannerCard>
     </GiftBannerSection>
   );
