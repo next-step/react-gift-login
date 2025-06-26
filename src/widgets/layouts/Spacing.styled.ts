@@ -1,4 +1,5 @@
 import type { BaseSpacingProps } from "@/widgets/layouts/Spacing";
+
 import styled from "@emotion/styled";
 
 export const VerticalSpacing = styled.div<BaseSpacingProps>`

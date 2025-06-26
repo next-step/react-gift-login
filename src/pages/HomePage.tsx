@@ -5,6 +5,7 @@ import { GiftCard, GiftCardGrid } from "@/entities/gift/ui/GiftCard";
 import { GiftCategoryGrid, GiftCategoryItem } from "@/entities/gift/ui/GiftCategoryGrid";
 import { RankTypeSelector } from "@/entities/gift/ui/RankTypeSelector";
 import { UserGroupSelector } from "@/entities/gift/ui/UserGroupSelector";
+
 import { Banner } from "@/widgets/banner/Banner";
 import { VerticalSpacing } from "@/widgets/layouts/Spacing.styled";
 import { TitledSection } from "@/widgets/sections/TitledSection";
@@ -51,7 +52,6 @@ export default function HomePage() {
                 <GiftCardGrid>
                     {Array.from({ length: 21 })
                         .fill(null)
-                        // eslint-disable-next-line @typescript-eslint/no-unused-vars
                         .map((_, index) => {
                             return (
                                 <GiftCard

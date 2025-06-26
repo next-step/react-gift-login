@@ -1,6 +1,8 @@
-import * as Styles from "./UserGroupSelector.styled";
 import { userGroup, type UserGroup } from "@/entities/gift/constants/userGroup";
+
 import { useQueryParamState } from "@/shared/hooks/useQueryParamState";
+
+import * as Styles from "./UserGroupSelector.styled";
 
 export const UserGroupSelector = () => {
     const [selectedGroup, setSelectedGroup] = useQueryParamState("targetType", "ALL");

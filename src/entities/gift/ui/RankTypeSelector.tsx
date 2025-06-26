@@ -1,6 +1,8 @@
-import * as Styles from "./RankTypeSelector.styled";
 import { rankType, type RankType } from "@/entities/gift/constants/rankType";
+
 import { useQueryParamState } from "@/shared/hooks/useQueryParamState";
+
+import * as Styles from "./RankTypeSelector.styled";
 
 export const RankTypeSelector = () => {
     const [selectedRankType, setSelectedRankType] = useQueryParamState("rankType", "MANY_WISH");

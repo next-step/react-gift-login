@@ -1,8 +1,10 @@
 import type { PropsWithChildren } from "react";
 
-import * as Styles from "./GiftCard.styled";
 import type { GiftModel } from "@/entities/gift/model/GiftModel";
+
 import { VerticalSpacing } from "@/widgets/layouts/Spacing.styled";
+
+import * as Styles from "./GiftCard.styled";
 
 export const GiftCardGrid = ({ children }: PropsWithChildren) => {
     return <Styles.Grid>{children}</Styles.Grid>;

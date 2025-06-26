@@ -2,8 +2,9 @@ import { Link } from "react-router-dom";
 
 import { ChevronLeft, User } from "lucide-react";
 
-import * as Styles from "./NavTop.styled";
 import { KakaoGiftLogo } from "@/app/assets/KakaoGiftLogo";
+
+import * as Styles from "./NavTop.styled";
 
 export const NavTop = () => {
     return (

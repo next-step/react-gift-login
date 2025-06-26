@@ -1,6 +1,7 @@
 import { colorToken } from "@/app/theme/colors";
 import { spacingToken } from "@/app/theme/spacing";
 import { typographyToken } from "@/app/theme/typography";
+
 import "@emotion/react";
 
 declare module "@emotion/react" {

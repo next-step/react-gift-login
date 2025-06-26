@@ -1,7 +1,8 @@
 import { Outlet } from "react-router-dom";
 
-import * as Styles from "./RootLayout.styled";
 import { NavTop } from "@/widgets/layouts/NavTop";
+
+import * as Styles from "./RootLayout.styled";
 
 export const RootLayout = () => {
     return (
