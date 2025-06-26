@@ -6,7 +6,6 @@ import CampusBanner from '@/components/CampusBanner'
 import RankingFilterBar from '@/components/RankingFilterBar'
 import RankingList, { fetchMoreProducts } from '@/components/RankingList'
 
-
 const friends = ['라이언', '무지', '콘']
 function App() {
   return (
