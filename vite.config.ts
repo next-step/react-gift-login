@@ -27,6 +27,7 @@ export default defineConfig({
       '@/navigation': path.resolve(__dirname, './src/components/navigation'),
       '@/category': path.resolve(__dirname, './src/components/category'),
       '@/misc': path.resolve(__dirname, './src/components/misc'),
+      '@/ranking': path.resolve(__dirname, './src/components/ranking'),
     }
   }
 })

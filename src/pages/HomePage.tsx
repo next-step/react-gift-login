@@ -2,6 +2,7 @@ import React from 'react'
 import { Main, Section } from '@/components/layout'
 import { CategorySection } from '@/components/category'
 import { FriendSelectSection, PromoSection } from '@/components/misc'
+import { RankingSection } from '@/components/ranking'
 import { categories } from '@/data'
 
 const HomePage: React.FC = () => {
@@ -30,6 +31,8 @@ const HomePage: React.FC = () => {
           subtitle="프론트엔드 2단계 과제 화이팅!"
         />
       </Section>
+      
+      <RankingSection />
     </Main>
   );
 };
