@@ -12,6 +12,4 @@ body {
   margin: 0;
   height: 100%;
   min-width: 320px;
-  min-height: 100vh;
-  background-color: rgb(223, 223, 223);
 }

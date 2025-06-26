@@ -13,15 +13,18 @@ const StyledPresentP = styled.p`
   margin: 5px;
   font-weight: 700;
 `;
+const StyledPresentContainer = styled.div`
+  background-color: ${({ theme }) => theme.symenticPalette.backgroundDefault};
+`;
 
 const PresentTheme = () => {
   return (
-    <>
+    <StyledPresentContainer>
       <StyledPresentP>선물 테마</StyledPresentP>
       <StyledPresentThemeDiv>
         <PresentThemeItem></PresentThemeItem>
       </StyledPresentThemeDiv>
-    </>
+    </StyledPresentContainer>
   );
 };
 

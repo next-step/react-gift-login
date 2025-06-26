@@ -10,7 +10,7 @@ const StyledPrsentDiv = styled.div`
 const Present = () => {
   return (
     <>
-      <div>실시간 급상승 선물랭킹</div>
+      <p>실시간 급상승 선물랭킹</p>
       <div>
         <RankingTagContainer></RankingTagContainer>
       </div>
