@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 import { theme } from '@/styles/theme'
 import { Nav } from '@/components/home/Nav'
+import { Category } from '@/components/home/Category'
 
 // * 홈 컨테이너
 const Container = styled.div`
@@ -27,6 +28,7 @@ export const Home = () => {
       <Nav />
       {/* 선물할 친구 섹션 */}
       {/* 카테고리 섹션 */}
+      <Category />
       {/* 기타 배너 섹션 */}
       {/* 실시간 급상승 섹션 */}
     </Container>

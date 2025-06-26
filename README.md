@@ -28,10 +28,11 @@
 - [ ] 기능 단위로 나누어 커밋
 - [x] emotion에 Color, Typography 토큰 설정
       (토큰 가이드 : https://edu.nextstep.camp/s/0eoNzeZS/ls/lNeUqOll)
-- [ ] Mobile First Design 기반의 Layout 구현
-  - [ ] 화면의 max-width를 720px으로 제한
-- [ ] 상단 네비게이션 바 영역 구현
-- [ ] 카테고리 섹션 구현
-  - [ ] 카테고리, 급상승 선물랭킹을 만들때 Flex, Grid 등을 활용
-- [ ] 기타 섹션 (선물한 친구 선택, 카테캠 화이팅) UI 구현
+- [x] Mobile First Design 기반의 Layout 구현
+  - [x] 화면의 max-width를 720px으로 제한
+- [x] 상단 네비게이션 바 영역 구현
+- [x] 카테고리 섹션 구현
+  - [x] Flex, Grid 등을 활용
 - [ ] 실시간 급상승 선물랭킹 구현
+  - [ ] Flex, Grid 등을 활용
+- [ ] 기타 섹션 (선물한 친구 선택, 카테캠 화이팅) UI 구현
