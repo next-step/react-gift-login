@@ -4,6 +4,12 @@ import { Link } from 'react-router-dom'
 
 // * 네비게이션
 const Navigation = styled.nav`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+
   width: 100%;
   height: 44px;
 
