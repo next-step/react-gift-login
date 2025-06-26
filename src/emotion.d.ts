@@ -13,6 +13,9 @@ declare module '@emotion/react' {
       yellow00: string;
       yellow600: string;
       yellow800: string;
+      blue00: string;
+      blue200: string;
+      blue500: string;
       kakaoYellow: string;
       kakaoYellowHover: string;
       kakaoYellowActive: string;
