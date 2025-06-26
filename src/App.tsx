@@ -1,14 +1,17 @@
-import { globalStyles } from './styles/GlobalStyle'
-import { Global } from '@emotion/react'
+import { GlobalStyle } from './styles/GlobalStyle'
+import { ThemeProvider } from '@emotion/react'
+import theme from './styles/theme'
 
 function App() {
 
   return (
     <>
-      <Global styles={globalStyles} />
-      <div>
-        project init
-      </div>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <div>
+          project init
+        </div>
+      </ThemeProvider>
     </>
 
   )

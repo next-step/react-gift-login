@@ -1,6 +1,6 @@
-import { css } from '@emotion/react'
+import { Global, css } from '@emotion/react'
 
-export const globalStyles = css`
+const globalStyles = css`
   *,
   *::before,
   *::after {
@@ -41,3 +41,6 @@ export const globalStyles = css`
     display: block;
   }
 `
+export function GlobalStyle(){
+  return <Global styles={globalStyles} />
+}
