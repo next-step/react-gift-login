@@ -1,5 +1,5 @@
-import { FiChevronLeft, FiUser } from 'react-icons/fi'
-import styled from '@emotion/styled'
+import { FiChevronLeft, FiUser } from 'react-icons/fi';
+import styled from '@emotion/styled';
 
 export default function Header() {
   return (
@@ -12,7 +12,7 @@ export default function Header() {
         <FiUser size={24} />
       </IconButton>
     </Container>
-  )
+  );
 }
 
 const Container = styled.header`
@@ -34,8 +34,8 @@ const IconButton = styled.button`
 `;
 
 const Title = styled.h1`
-  font-size: ${({ theme }) => theme.typography.title2Bold.fontSize};
-  font-weight: ${({ theme }) => theme.typography.title2Bold.fontWeight};
-  line-height: ${({ theme }) => theme.typography.title2Bold.lineHeight};
+  font-size: ${({ theme }) => theme.typography.title1Bold.fontSize};
+  font-weight: ${({ theme }) => theme.typography.title1Bold.fontWeight};
+  line-height: ${({ theme }) => theme.typography.title1Bold.lineHeight};
   color: ${({ theme }) => theme.colors.text.default};
 `;

@@ -12,6 +12,5 @@ export function MainLayout(props: { children: ReactNode }) {
 const Container = styled.main`
   max-width: 720px;
   margin: 0 auto;
-  padding: 0 16px;
   width: 100%;
 `;
