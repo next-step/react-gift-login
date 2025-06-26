@@ -5,6 +5,8 @@ import { css, Global, ThemeProvider } from '@emotion/react'
 import { resetStyles } from '@/styles/reset'
 import { fontStyles } from '@/styles/font'
 import { theme } from '@/styles/theme'
+import { baseStyles } from './styles/base.ts'
+import 'material-icons/iconfont/material-icons.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -15,6 +17,7 @@ createRoot(document.getElementById('root')!).render(
         styles={css`
           ${resetStyles}
           ${fontStyles}
+          ${baseStyles}
         `}
       />
       {/* App 컴포넌트 렌더링 */}

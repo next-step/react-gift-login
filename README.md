@@ -1,5 +1,9 @@
 # react-gift-login
 
+#### 참고 페이지
+
+- https://kakaotech-mission1-home.pages.dev/
+
 ## STEP 1
 
 ### 과제 진행 요구사항

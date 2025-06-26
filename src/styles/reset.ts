@@ -140,4 +140,12 @@ export const resetStyles = css`
   *::after {
     box-sizing: border-box;
   }
+
+  /* 링크, 버튼 기본 스타일 초기화 */
+  a,
+  button {
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+  }
 `

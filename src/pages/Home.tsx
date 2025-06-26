@@ -1,23 +1,34 @@
-import { useTheme } from '@emotion/react'
+import styled from '@emotion/styled'
+import { theme } from '@/styles/theme'
+import { Nav } from '@/components/home/Nav'
 
+// * 홈 컨테이너
+const Container = styled.div`
+  width: 100%;
+  max-width: 720px;
+  height: fit-content;
+  min-height: 100vh;
+
+  margin: 0 auto;
+
+  background-color: ${theme.colors.gray.gray00};
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+`
+
+// * 메인
 export const Home = () => {
-  const theme = useTheme()
-
   return (
-    <div>
-      <h1
-        css={{
-          ...theme.typography.title.title1Bold,
-          color: theme.colors.gray.gray800,
-          backgroundColor: theme.colors.gray.gray100,
-          padding: `${theme.spacing.spacing4} ${theme.spacing.spacing8}`,
-          borderRadius: theme.spacing.spacing4,
-          marginBottom: theme.spacing.spacing8,
-        }}
-      >
-        카카오테크 캠퍼스 2단계 - 1차 과제
-      </h1>
-      <h2 css={theme.typography.subtitle.subtitle1Bold}>카카오 선물하기 로그인</h2>
-    </div>
+    <Container>
+      {/* 네비게이션 */}
+      <Nav />
+      {/* 선물할 친구 섹션 */}
+      {/* 카테고리 섹션 */}
+      {/* 기타 배너 섹션 */}
+      {/* 실시간 급상승 섹션 */}
+    </Container>
   )
 }
