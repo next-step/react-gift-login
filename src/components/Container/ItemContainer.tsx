@@ -1,19 +1,13 @@
 import type { mockItemType } from '@/mocks/mockItem';
 import Item from '@/components/Item';
 
-import styled from '@emotion/styled';
 import ItemBtn from '@/components/ItemBtn';
+import { useState } from 'react';
 
-export const ItemContainerStyle = styled.div`
-  display: grid;
-  width: 100%;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
-  align-items: center;
-  padding: 5px;
-`;
+import { ItemContainerStyle, ItemlistContainer } from '@/styles/ItemlistContainer.styles';
 
 function ItemContainer({ itemList }: { itemList: mockItemType }) {
+  const [isExpanded, setIsExpanded] = useState(false);
   const item: mockItemType[] = Array.from({ length: 20 }, () => ({
     id: itemList.id,
     name: itemList.name,
@@ -29,15 +23,20 @@ function ItemContainer({ itemList }: { itemList: mockItemType }) {
       imageURL: itemList.brandInfo.imageURL,
     },
   }));
+
+  const visibleItems = isExpanded ? item : item.slice(0, 6);
+
+  const handleToggle = () => setIsExpanded((prev) => !prev);
+
   return (
-    <>
+    <ItemlistContainer>
       <ItemContainerStyle>
-        {item.map((itemData, index) => (
-          <Item key={itemData.id} index={index} itemData={itemData} />
+        {visibleItems.map((itemData, index) => (
+          <Item key={itemData.id + '-' + index} index={index} itemData={itemData} />
         ))}
       </ItemContainerStyle>
-      <ItemBtn />
-    </>
+      <ItemBtn isExpanded={isExpanded} onClick={handleToggle} />
+    </ItemlistContainer>
   );
 }
 
