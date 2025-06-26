@@ -16,7 +16,7 @@
 
 ### 요구사항
 
-- [ ] 본인만의 기준으로 일관된 코드를 작성해주세요.
+- [x] 본인만의 기준으로 일관된 코드를 작성해주세요.
 - [x] 기능 단위로 나누어 커밋을 해주세요.
 - [x] emotion에 Color, Typography 토큰을 설정해요. [(토큰 가이드)](https://edu.nextstep.camp/s/0eoNzeZS/ls/lNeUqOll)
 - [x] Mobile First Design 기반의 Layout을 구현해요. (아래 설명 참고)
