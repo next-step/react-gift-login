@@ -4,7 +4,8 @@ import theme from './styles/theme'
 import { MainLayout } from './components/MainLayout'
 import Header from './components/Header'
 import Category from './components/Category'
-//import Friends from './components/Friends'
+import Friends from './components/Friends'
+import Banner from './components/Banner'
 
 function App() {
   return (
@@ -12,8 +13,9 @@ function App() {
       <Global styles={resetStyle} />
       <MainLayout>
         <Header />
-        {/* <Friends /> */}
+        <Friends />
         <Category />
+        <Banner />
       </MainLayout>
     </ThemeProvider>
   )
