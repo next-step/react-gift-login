@@ -5,6 +5,7 @@ import { FiPlus } from 'react-icons/fi';
 import { mockThemeList } from '@/mocks/themeListMock';
 import ThemeItem from '@/components/ThemeItem';
 import type { ThemeItemType } from '@/types/theme';
+import { GiCheerful } from 'react-icons/gi';
 
 const Home = () => {
   return (
@@ -25,6 +26,12 @@ const Home = () => {
             ))}
           </ThemeGrid>
         </ThemeSection>
+        <CheerBannerSection>
+          <CheerBanner>
+            <CheerBannerLabel>카카오테크 캠퍼스 3기 여러분</CheerBannerLabel>
+            <CheerBannerText>프론트엔드 2단계 과제 화이팅!🎉</CheerBannerText>
+          </CheerBanner>
+        </CheerBannerSection>
       </HomeContainer>
     </>
   );
@@ -102,4 +109,49 @@ export const ThemeGrid = styled.div`
   grid-template-columns: repeat(5, 1fr);
   gap: ${({ theme }) => theme.spacing.spacing2};
   padding: ${({ theme }) => theme.spacing.spacing3};
+`;
+
+export const CheerBannerSection = styled.section`
+  background-color: ${({ theme }) => theme.colors.backgroundDefault};
+  width: 100%;
+  display: flex;
+  padding: 16px;
+`;
+
+export const CheerBanner = styled.button`
+  display: flex;
+  background-color: ${({ theme }) => theme.colors.kakaoYellow};
+  cursor: pointer;
+  border-radius: 18px;
+  align-items: flex-start;
+  max-width: 720px;
+  width: 100%;
+  padding: ${({ theme }) => `${theme.spacing.spacing3}`};
+  gap: ${({ theme }) => theme.spacing.spacing2};
+  border: none;
+  flex-direction: column;
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    outline: none;
+  }
+  gap: 2px;
+`;
+
+export const CheerBannerLabel = styled.div`
+  ${({ theme }) => `
+    font-size: ${theme.font.label2Regular.size};
+    font-weight: 600;
+    line-height: ${theme.font.label2Regular.lineHeight};
+  `}
+  color: ${({ theme }) => theme.colors.gray700};
+`;
+
+export const CheerBannerText = styled.div`
+  ${({ theme }) => `
+    font-size: ${theme.font.body2Regular.size};
+    font-weight: 600;
+    line-height: ${theme.font.body2Regular.lineHeight};
+    `}
 `;
