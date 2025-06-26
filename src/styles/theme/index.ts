@@ -31,6 +31,11 @@ export const theme = {
       themeCardHeight: '5rem',
       themeCardImageSize: '50px',
     },
+    eventBanner: {
+      bannerCardWidth: '95%',
+      bannerCardHeight: '4rem',
+      labelGap: '5px',
+    },
   },
 } as const;
 
