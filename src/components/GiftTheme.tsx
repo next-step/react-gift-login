@@ -94,8 +94,8 @@ const giftThemes = [
 ];
 
 const Section = styled.section`
-  margin-top: ${({ theme }) => theme.spacing.spacing11}; // 네비게이션바
-  padding: ${({ theme }) => theme.spacing.spacing10} ${({ theme }) => theme.spacing.spacing2}; 
+  
+  padding: ${({ theme }) => theme.spacing.spacing10} ${({ theme }) => theme.spacing.spacing4}; 
   background-color: ${({ theme }) => theme.colors.semantic.backgroundDefault};
 `;
 
