@@ -5,13 +5,23 @@ import Layout from "./styles/Layout";
 // import NavigationBar from "./components/NavigationBar";
 import GlobalStyle from "@/styles/GlobalStyle";
 import NavigationBar from "./components/NavigationBar";
+import Category from "./components/Category";
+import SelectFriend from "./components/SelectFriend";
+import Cheering from "./components/Cheering";
+import GiftRanking from "./components/GiftRankingBox";
+import GiftRankingHeader from "./components/GiftRankingHeader";
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Layout>
-        <NavigationBar></NavigationBar>
+        <NavigationBar />
+        <SelectFriend />
+        <Category />
+        <Cheering />
+        <GiftRankingHeader />
+        <GiftRanking />
       </Layout>
     </ThemeProvider>
   );
