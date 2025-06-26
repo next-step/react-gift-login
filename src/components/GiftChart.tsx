@@ -2,8 +2,10 @@ import styled from '@emotion/styled';
 import { useState } from 'react';
 import ProductCard from '@/components/ProductCard';
 
-type CategoryType = '전체' | '여성이' | '남성이' | '청소년이';
-type SortType = '받고 싶어한' | '많이 선물한' | '위시로 받은';
+const categories = ['전체', '여성이', '남성이', '청소년이'] as const;
+type CategoryType = (typeof categories)[number];
+const sortTypes = ['받고 싶어한', '많이 선물한', '위시로 받은'] as const;
+type SortType = (typeof sortTypes)[number];
 
 const GiftChart: React.FC = () => {
   const [selectedCategory, setSelectedCategory] =
