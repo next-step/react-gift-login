@@ -25,7 +25,6 @@ const HeaderWrapper = styled.header`
     justify-content: space-between;
     padding: 0 16px;
     height: 56px;
-    border-bottom: 1px solid #ddd;
     background-color: #FFFFFFFF;
 `;
 
