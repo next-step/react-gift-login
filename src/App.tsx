@@ -1,14 +1,15 @@
 import GlobalStyle from "@/styles/global";
 import Layout from "./components/Layout";
 import Header from "./components/Header";
+import CategorySection from "@/sections/CategorySection";
 
 function App() {
   return (
     <>
       <GlobalStyle />
       <Layout>
-        <Header/>
-        <div>초기화 APP</div>
+        <Header />
+        <CategorySection />
       </Layout>
     </>
   );

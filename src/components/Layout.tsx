@@ -20,6 +20,6 @@ const Wrapper = styled.div`
     background-color: ${({ theme }) => theme.color.semantic.backgroundDefault};
 `;
 
-export default function Layout({children}: LayoutProps) {
+export default function Layout({ children }: LayoutProps) {
     return <Outer><Wrapper>{children}</Wrapper></Outer>;
 }
