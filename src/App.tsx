@@ -5,6 +5,7 @@ import { NavigationBar } from "./components/NavigationBar";
 import { CategorySection } from "./components/CategorySection";
 import { KakaoTechCampusBanner } from "./components/KakaoTechCampusBanner";
 import { FriendBanner } from "./components/FriendBanner";
+import { RankingSection } from "./components/RankingSection";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
       <FriendBanner />
       <CategorySection />
       <KakaoTechCampusBanner />
-      <div>홈 화면입니다</div>
+      <RankingSection />
     </>
   );
 }
