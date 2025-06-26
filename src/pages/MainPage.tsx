@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 import NavigationBar from "@/components/NavigationBar"
 import SelectFriendSection from "@/components/SelectFriendSection"
 import CategorySection from "@/components/CategorySection"
+import RankingSection from "@/components/RankingSection"
 
 const Container = styled.div`
   ${({ theme }) => `
@@ -30,6 +31,7 @@ const MainPage = () => {
         <Line1>카카오테크 캠퍼스 3기 여러분</Line1>
         <Line2>프론트엔드 2단계 과제 화이팅! 🎉</Line2>
       </Container>
+      <RankingSection/>
     </>
   )
 }
