@@ -7,6 +7,7 @@ const CategorySection = () => {
 
   const sectionStyle = css`
     padding: ${theme.spacing[2]};
+    margin-bottom: ${theme.spacing[6]};
   `;
 
   const titleWrapperStyle = css`
@@ -15,9 +16,7 @@ const CategorySection = () => {
   `;
 
   const titleStyle = css`
-    font-size: ${theme.typography.title.title1Bold.fontSize};
-    font-weight: ${theme.typography.title.title1Bold.fontWeight};
-    line-height: ${theme.typography.title.title1Bold.lineHeight};
+    ${theme.typography.title.title1Bold};
   `;
 
   const gridStyle = css`
@@ -33,7 +32,7 @@ const CategorySection = () => {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 0.25rem;
+    gap: ${theme.spacing[1]};
     cursor: pointer;
   `;
 
@@ -45,9 +44,7 @@ const CategorySection = () => {
   `;
 
   const textStyle = css`
-    font-size: ${theme.typography.label.label2Regular.fontSize};
-    font-weight: ${theme.typography.label.label2Regular.fontWeight};
-    line-height: ${theme.typography.label.label2Regular.lineHeight};
+    ${theme.typography.label.label2Regular};
     color: ${theme.color.semantic.text.default};
   `;
 

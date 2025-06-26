@@ -19,13 +19,13 @@ const Navigation = () => {
 
   const iconButtonStyle = css`
     border: none;
-    background: none;
-    cursor: pointer;
+    background-color: ${theme.color.semantic.background.default};
     display: flex;
     align-items: center;
     justify-content: center;
     padding: ${theme.spacing[0]};
     color: ${theme.color.semantic.text.default};
+    cursor: pointer;
   `;
 
   const logoStyle = css`

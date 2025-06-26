@@ -6,6 +6,7 @@ const BannerSection = () => {
 
   const sectionStyle = css`
     padding: ${theme.spacing[0]} ${theme.spacing[4]};
+    margin-bottom: ${theme.spacing[8]};
   `;
 
   const textWrapperStyle = css`
@@ -17,16 +18,12 @@ const BannerSection = () => {
   `;
 
   const topTextStyle = css`
-    font-size: ${theme.typography.label.label2Regular.fontSize};
-    font-weight: ${theme.typography.label.label2Regular.fontWeight};
-    line-height: ${theme.typography.label.label2Regular.lineHeight};
+    ${theme.typography.label.label2Regular};
     color: ${theme.color.gray[700]};
   `;
 
   const bottomTextStyle = css`
-    font-size: ${theme.typography.label.label1Bold.fontSize};
-    font-weight: ${theme.typography.label.label1Bold.fontWeight};
-    line-height: ${theme.typography.label.label1Bold.lineHeight};
+    ${theme.typography.label.label1Bold};
     color: ${theme.color.semantic.text.default};
   `;
 

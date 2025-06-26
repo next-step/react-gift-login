@@ -21,9 +21,7 @@ const RankingSection = () => {
   `;
 
   const titleStyle = css`
-    font-size: ${theme.typography.title.title1Bold.fontSize};
-    font-weight: ${theme.typography.title.title1Bold.fontWeight};
-    line-height: ${theme.typography.title.title1Bold.lineHeight};
+    ${theme.typography.title.title1Bold};
     margin-bottom: ${theme.spacing[4]};
   `;
 
@@ -41,7 +39,7 @@ const RankingSection = () => {
     padding: ${theme.spacing[2]};
     margin-bottom: ${theme.spacing[2]};
     border: none;
-    background-color: transparent;
+    background-color: ${theme.color.semantic.background.default};
     cursor: pointer;
   `;
 
@@ -56,9 +54,7 @@ const RankingSection = () => {
     align-items: center;
     justify-content: center;
     color: ${isSelected ? theme.color.gray[0] : theme.color.blue[400]};
-    font-size: ${theme.typography.subtitle.subtitle2Bold.fontSize};
-    font-weight: ${theme.typography.subtitle.subtitle2Bold.fontWeight};
-    line-height: ${theme.typography.subtitle.subtitle2Bold.lineHeight};
+    ${theme.typography.subtitle.subtitle2Bold};
   `;
 
   const labelStyle = (isSelected: boolean) => css`
@@ -76,7 +72,7 @@ const RankingSection = () => {
     display: flex;
     justify-content: center;
     border: 1px solid rgba(70, 132, 233, 0.1);
-    background-color: rgb(239, 246, 255);
+    background-color: ${theme.color.blue[100]};
     border-radius: 0.5rem;
     padding: ${theme.spacing[3]} ${theme.spacing[4]};
     margin-bottom: ${theme.spacing[4]};
@@ -91,7 +87,7 @@ const RankingSection = () => {
       ? theme.typography.subtitle.subtitle2Bold
       : theme.typography.subtitle.subtitle2Regular};
     color: ${isActive ? theme.color.blue[600] : theme.color.blue[400]};
-    background-color: transparent;
+    background-color: ${theme.color.blue[100]};
     border: none;
     cursor: pointer;
     border-radius: 8px;
@@ -128,7 +124,6 @@ const RankingSection = () => {
 
   const nameStyle = css`
     ${theme.typography.body.body2Regular}
-    margin: 0;
     text-align: left;
     margin-bottom: ${theme.spacing[2]};
     overflow: hidden;
@@ -139,7 +134,6 @@ const RankingSection = () => {
   const priceStyle = css`
     ${theme.typography.title.title2Bold}
     color: ${theme.color.semantic.text.default};
-    margin: 0;
     text-align: left;
     word-break: break-word;
   `;
@@ -157,7 +151,7 @@ const RankingSection = () => {
     padding: ${theme.spacing[3]};
     border-radius: 4px;
     border: 1px solid rgb(220, 222, 227);
-    background-color: white;
+    background-color: ${theme.color.semantic.background.default};
     cursor: pointer;
   `;
 
@@ -175,7 +169,7 @@ const RankingSection = () => {
       : theme.color.gray[600]};
     border-radius: 4px;
     ${theme.typography.label.label2Bold}
-    color: white;
+    color: ${theme.color.gray[0]};
     z-index: 1;
   `;
 

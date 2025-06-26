@@ -10,6 +10,7 @@ const FriendSelectSection = () => {
     height: 106px;
     padding: ${theme.spacing[4]} ${theme.spacing[3]};
     background-color: ${theme.color.gray[200]};
+    margin-bottom: ${theme.spacing[4]};
   `;
 
   const buttonStyle = css`
@@ -38,9 +39,7 @@ const FriendSelectSection = () => {
   `;
 
   const textStyle = css`
-    font-size: ${theme.typography.body.body1Bold.fontSize};
-    font-weight: ${theme.typography.body.body1Bold.fontWeight};
-    line-height: ${theme.typography.body.body1Bold.lineHeight};
+    ${theme.typography.body.body1Bold};
     color: ${theme.color.semantic.text.default};
   `;
 
