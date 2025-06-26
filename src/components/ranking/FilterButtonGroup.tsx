@@ -42,8 +42,7 @@ const FilterButton = styled.button<{ isActive: boolean }>`
   }
 `;
 
-const FilterButtonGroup: React.FC<FilterButtonGroupProps> = ({ 
-  type, 
+const FilterButtonGroup: React.FC<FilterButtonGroupProps> = ({
   options, 
   selected, 
   onChange 
