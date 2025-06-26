@@ -1,6 +1,4 @@
-// full request 이후 commit과 push를 했을때 pull request에도 바로 적용되는지 테스트
 import { useState } from 'react'
-<<<<<<< step2
 
 import GlobalStyle from './styles/GlobalStyle'
 import { ThemeProvider } from '@emotion/react'
@@ -25,11 +23,30 @@ const Nav = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 `
 const NavTitle = styled.h1`
   font-weight: ${({ theme }) => theme.typography['title1Bold'].fontWeight};
   font-size: ${({ theme }) => theme.typography['title1Bold'].fontSize};
   line-height: ${({ theme }) => theme.typography['title1Bold'].lineHeight};
+  cursor: pointer;
+`
+const NavBackBtn = styled.button`
+  position:absolute;
+  top:0px;
+  left:0px;
+  width: 50px;
+  height: 50px;
+  background-color: ${({ theme }) => theme.colors.gray[0]};
+  border: none;
+  cursor: pointer;
+
+  &::before {
+    content: '<';
+    font-size: 34px;
+    font-weight: 100;
+    color: ${({ theme }) => theme.colors.gray[1000]};
+  }
 `
 
 const SelectFriendsWrapper = styled.div`
@@ -49,6 +66,7 @@ const SelectFriendsBox = styled.div`
   box-sizing: border-box;
   display: flex;
   justify-content: left;
+  cursor: pointer;
 `
 
 const SelectFriendsBoxPlusButton = styled.div`
@@ -95,7 +113,7 @@ const CategoryItemWrapper = styled.div`
   gap: 12px;
   padding-top: 16px;
   box-sizing: border-box;
-  
+  cursor: pointer;
 `
 const CategoryItem = styled.div`
   width: 100px;
@@ -178,9 +196,10 @@ const RealtimeRankNavBtnTitleWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 `
 
-const RealtimeRankNavBtn = styled.div`
+const RealtimeRankNavBtnStyle = styled.div<{ isSelected?: boolean}>`
   width: 50px;
   height: 50px;
   background-color: ${({ theme }) => theme.colors.blue[100]};
@@ -188,7 +207,27 @@ const RealtimeRankNavBtn = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  color: ${({ theme }) => theme.colors.blue[400]};
+  font-size: ${({ theme }) => theme.typography['label1Bold'].fontSize};
+  font-weight: ${({ theme }) => theme.typography['label1Bold'].fontWeight};
+  line-height: ${({ theme }) => theme.typography['label1Bold'].lineHeight};
+  cursor: pointer;
+
+  background-color: ${({ theme, isSelected}) =>
+    isSelected ? theme.colors.blue[700] : theme.colors.blue[100]};
+  color: ${({ theme, isSelected}) =>
+    isSelected ? theme.colors.gray[0] : theme.colors.blue[400]};
 `
+
+function RealtimeRankNavBtn({ children, onClick, isSelected, }: { children: React.ReactNode; onClick?: () => void; isSelected?: boolean}) {
+
+  return (
+    <>
+      <RealtimeRankNavBtnStyle onClick={onClick} isSelected={isSelected}>{children}</RealtimeRankNavBtnStyle>
+    </>
+  );
+}
+
 const RealtimeRankNavTitle =styled.p`
   font-size: 12px;
   margin-top: 5px;
@@ -207,16 +246,25 @@ const RealtimeRankNav2Wrapper = styled.div`
    gap: 150px;
 `
 
-const RealtimeRankNav2Btn = styled.div`
+const RealtimeRankNav2BtnStyle = styled.div<{ isSelected?: boolean}>`
   font-size: ${({ theme }) => theme.typography.label1Bold.fontSize};
   font-weight: ${( { theme }) => theme.typography.label1Bold.fontWeight};
   line-height: ${( {theme}) => theme.typography.label1Bold.lineHeight};
   color: ${({ theme }) => theme.colors.blue[500]};
+  cursor: pointer;
 
-  &:hover {
-    color: ${({ theme }) => theme.colors.blue[700]};
-  }
+  color: ${({ theme, isSelected }) =>
+    isSelected ? theme.colors.blue[700] : theme.colors.blue[500]};
 `
+
+function RealtimeRankNav2Btn({children, onClick, isSelected,}: {children: React.ReactNode; onClick?: () => void; isSelected?: boolean}) {
+
+  return(
+    <RealtimeRankNav2BtnStyle onClick={onClick} isSelected={isSelected}>
+      {children}
+    </RealtimeRankNav2BtnStyle>
+  )
+}
 
 const RealtimeRankItemWrapper = styled.div`
   width: 100%;
@@ -226,7 +274,7 @@ const RealtimeRankItemWrapper = styled.div`
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   box-sizing: border-box;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 `
 
 const RealtimeItem = styled.div`
@@ -292,24 +340,21 @@ const ExtraBtn = styled.button`
   border: 1px solid ${({ theme}) => theme.colors.gray[300]};
   border-radius: 5px;
   font-size: ${({ theme }) => theme.typography['label1Bold'].fontSize};
+  cursor: pointer;
 `
-=======
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import GlobalStyle from './styles/GlobalStyle'
->>>>>>> anseonghyeon
 
 function App() {
-  
+  const [selected, setSelected] = useState('');
+  const [selected2, setSelected2] = useState('');
+
   return (
     <>
-<<<<<<< step2
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Layout>
         <Main>
           <Nav>
+            <NavBackBtn></NavBackBtn>
             <NavTitle>선물하기</NavTitle>
           </Nav>
           <SelectFriendsWrapper>
@@ -332,30 +377,29 @@ function App() {
             <RealtimeRankTitle>실시간 급상승 선물랭킹</RealtimeRankTitle>
             <RealtimeRankNavWrapper>
               <RealtimeRankNavBtnTitleWrapper>
-                <RealtimeRankNavBtn>ALL</RealtimeRankNavBtn>
+                <RealtimeRankNavBtn onClick={() => setSelected('ALL')} isSelected={selected === 'ALL'}>ALL</RealtimeRankNavBtn>
                 <RealtimeRankNavTitle>전체</RealtimeRankNavTitle>
               </RealtimeRankNavBtnTitleWrapper>
               <RealtimeRankNavBtnTitleWrapper>
-                <RealtimeRankNavBtn>👩🏻</RealtimeRankNavBtn>
+                <RealtimeRankNavBtn onClick={() => setSelected('FEMALE')} isSelected={selected === 'FEMALE'}>👩🏻</RealtimeRankNavBtn>
                 <RealtimeRankNavTitle>여성이</RealtimeRankNavTitle>
               </RealtimeRankNavBtnTitleWrapper>
               <RealtimeRankNavBtnTitleWrapper>
-                <RealtimeRankNavBtn>👨🏻</RealtimeRankNavBtn>
+                <RealtimeRankNavBtn onClick={() => setSelected('MALE')} isSelected={selected === 'MALE'}>👨🏻</RealtimeRankNavBtn>
                 <RealtimeRankNavTitle>남성이</RealtimeRankNavTitle>
               </RealtimeRankNavBtnTitleWrapper>
               <RealtimeRankNavBtnTitleWrapper>
-                <RealtimeRankNavBtn>👦🏻</RealtimeRankNavBtn>
+                <RealtimeRankNavBtn onClick={() => setSelected('TEEN')} isSelected={selected === 'TEEN'}>👦🏻</RealtimeRankNavBtn>
                 <RealtimeRankNavTitle>청소년이</RealtimeRankNavTitle>
               </RealtimeRankNavBtnTitleWrapper>
             </RealtimeRankNavWrapper>
             <RealtimeRankNav2Wrapper>
-              <RealtimeRankNav2Btn>받고 싶어한</RealtimeRankNav2Btn>
-              <RealtimeRankNav2Btn>많이 선물한</RealtimeRankNav2Btn>
-              <RealtimeRankNav2Btn>위시로 받은</RealtimeRankNav2Btn>
+              <RealtimeRankNav2Btn onClick={() => setSelected2('WANT')} isSelected={selected2 === 'WANT'}>받고 싶어한</RealtimeRankNav2Btn>
+              <RealtimeRankNav2Btn onClick={() => setSelected2('MANY')} isSelected={selected2 === 'MANY'}>많이 선물한</RealtimeRankNav2Btn>
+              <RealtimeRankNav2Btn onClick={() => setSelected2('WISH')} isSelected={selected2 === 'WISH'}>위시로 받은</RealtimeRankNav2Btn>
             </RealtimeRankNav2Wrapper>
             <RealtimeRankItemWrapper>
               <RealtimeRankItemList>
-
               </RealtimeRankItemList>
             </RealtimeRankItemWrapper>
           </RealtimeRankWrapper>
@@ -366,29 +410,7 @@ function App() {
         </Main>
       </Layout>
     </ThemeProvider>
-=======
-      <GlobalStyle />
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
->>>>>>> anseonghyeon
+
     </>
   )
 }
