@@ -13,8 +13,6 @@ export interface RankingList {
     imageURL: string;
   };
 }
-
-// 단일 항목
 export const rankingItem: RankingList = {
   id: 123,
   name: "BBQ 양념치킨+크림치즈볼+콜라1.25L",
@@ -33,8 +31,7 @@ export const rankingItem: RankingList = {
   },
 };
 
-// 21개 항목으로 구성된 리스트
 export const rankingList: RankingList[] = Array.from({ length: 21 }, (_, i) => ({
   ...rankingItem,
-  id: rankingItem.id + i, // 각 항목에 고유 id 부여
+  id: rankingItem.id + i,
 }));

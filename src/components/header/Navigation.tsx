@@ -16,10 +16,14 @@ const Left = styled.div`
   color: ${({ theme }) => theme.colors.textDefault};
 `;
 
-const Center = styled.div`
+const BackLink = styled.a`
+  display: flex;
+  align-items: center;
+`;
 
+const Center = styled.div`
   flex: 1;
-  text-align: center;      
+  text-align: center;
   ${({ theme }) => theme.typography.title1Bold};
   color: ${({ theme }) => theme.colors.textDefault};
 `;
@@ -32,11 +36,16 @@ const Right = styled.div`
   cursor: pointer;
 `;
 
+const ProfileLink = styled.a`
+  display: flex;
+  align-items: center;
+`;
+
 export const Navigation = () => {
   return (
     <HeaderContainer>
       <Left>
-        <a href="/" aria-label="뒤로가기" style={{ display: 'flex', alignItems: 'center' }}>
+        <BackLink href="/" aria-label="뒤로가기">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -50,11 +59,13 @@ export const Navigation = () => {
           >
             <path d="m15 18-6-6 6-6" />
           </svg>
-        </a>
+        </BackLink>
       </Left>
+
       <Center>선물하기</Center>
+
       <Right>
-        <a href="/login?redirect=%2F" aria-label="프로필">
+        <ProfileLink href="/login?redirect=%2F" aria-label="프로필">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="30"
@@ -69,7 +80,7 @@ export const Navigation = () => {
             <circle cx="12" cy="8" r="5"></circle>
             <path d="M20 21a8 8 0 0 0-16 0"></path>
           </svg>
-        </a>
+        </ProfileLink>
       </Right>
     </HeaderContainer>
   );

@@ -3,7 +3,7 @@ import { Navigation } from '@/components/header/Navigation';
 import { CategorySection } from '@/components/category/CategorySection';
 import { FriendBanner } from '@/components/banner/FriendBanner';
 import { MessageBanner } from '@/components/banner/MessageBanner';
-import { RankingSection } from '@/components/ranking/RankingSection'; // ✅ 추가
+import { RankingSection } from '@/components/ranking/RankingSection';
 
 
 const GiftMain= () =>{
