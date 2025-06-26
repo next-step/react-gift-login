@@ -5,6 +5,7 @@ import { theme } from './styles/theme';
 import { FriendSelect } from './components/FriendSelect';
 import { Header } from './components/Header';
 import { GiftThemeGrid } from './components/GiftThemeGrid';
+import { YellowBanner } from './components/YellowBanner';
 
 const containerStyle = css`
   max-width: 720px;
@@ -21,6 +22,7 @@ const App = () => {
         <Header />
         <FriendSelect />
         <GiftThemeGrid />
+        <YellowBanner />
       </div>
     </ThemeProvider>
   );

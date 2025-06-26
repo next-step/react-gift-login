@@ -201,6 +201,6 @@ export const theme = {
       spacing16: '64px',
     },
   },
-};
+} as const;
 
 export type AppTheme = typeof theme;
