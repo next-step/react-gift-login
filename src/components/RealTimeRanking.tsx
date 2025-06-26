@@ -165,14 +165,16 @@ const Price = styled.div`
 `;
 
 const MoreButton = styled.button`
-  width: 100%;
+  width: 70%;
   padding: ${theme.spacing.spacing3};
   border: 1px solid ${theme.colors.borderDefault};
-  border-radius: 8px;
+  border-radius: 6px;
   background: ${theme.colors.default};
   color: ${theme.colors.textDefault};
   font-size: ${theme.typography.body1Regular.fontSize};
   transition: all 0.2s ease;
+  margin: 0 auto;
+  display: block;
 
   &:hover {
     background: ${theme.colors.gray100};
