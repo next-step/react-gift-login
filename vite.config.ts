@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import path from 'path';
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -8,7 +7,7 @@ export default defineConfig({
   resolve: {
     // Vite에서 alias 인식을 위해 옵션 추가
     alias: {
-      '@': path.resolve(__dirname, 'src'), // @를 쓰면 src 폴더를 가리키게 됨
+      '@': '/src', // @를 쓰면 src 폴더를 가리키게 됨
     },
   },
 });
