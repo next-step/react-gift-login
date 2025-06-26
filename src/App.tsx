@@ -5,6 +5,7 @@ import CategoryList from '@/components/CategoryList'
 import NoticeBanner from '@/components/NoticeBanner'
 import RankingTabs from '@/components/RankingTabs'
 import ProductGrid from '@/components/ProductGrid'
+import LoadMoreButton from '@/components/LoadMoreButton'
 
 function App() {
   return (
@@ -16,10 +17,10 @@ function App() {
       <NoticeBanner />
       <RankingTabs />
       <ProductGrid />
+      <LoadMoreButton />
     </div>
   )
 }
 
 export default App
-
 
