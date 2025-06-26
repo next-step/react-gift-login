@@ -1,3 +1,4 @@
+
 import GlobalStyle from '@/styles/GlobalStyle';
 import NavigationBar from '@/components/NavigationBar/NavigationBar';
 import CategorySection from '@/components/Category/CategorySection';
@@ -19,6 +20,7 @@ function App() {
         <SectionTitle title="실시간 급상승 선물랭킹" />
         <GiftRankingSection />
       </Layout>
+
     </>
   );
 }
