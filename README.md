@@ -1,27 +1,52 @@
-# react-gift-login
+# 🎁 카카오 선물하기 클론 - 프론트엔드 과제
 
-## ✅ 프로젝트 초기 세팅 완료 사항
+<br/>
 
-1. **홈과 로그인(WIP) 화면 레포지토리 클론**
-   - 초기 코드 기반 정리 및 불필요한 파일 제거
+## ✅ 구현 완료 항목
 
-2. **절대경로 Import 설정 완료**
-   - `@/` alias를 사용하여 `vite.config.ts`와 `tsconfig.json`에 경로 매핑 설정
+### 1. Emotion 기반의 디자인 토큰 설정 (Color, Typography)
 
-3. **Prettier 설정 및 적용**
-   - `.prettierrc`와 `.prettierignore` 파일 추가
-   - 코드 일관성을 위한 포맷터 적용 완료
+- `theme.ts` 파일에 컬러 팔레트 및 타이포그래피 스타일 정의
+- `ThemeProvider`를 통해 전역에 스타일 토큰 적용
+- `@emotion/react`의 모듈 확장을 통한 타입 지원
 
-4. **Emotion 스타일 라이브러리 적용**
-   - `@emotion/react`와 `@emotion/styled` 설치
-   - CSS-in-JS 방식으로 스타일 구성 시작
+### 2. Mobile First Design 기반의 Layout 구현
 
-5. **reset.css 적용**
-   - Emotion의 `Global` 스타일 기능을 활용해 CSS 초기화 적용
+- `max-width: 720px` 기준의 모바일 레이아웃 구성
+- PC 환경에서는 중앙 정렬, 그림자, padding 등 반응형 대응
+- 모바일에 최적화된 UX를 기본으로 설계
 
-6. **웹폰트 Pretendard 적용**
-   - `index.html`에 Pretendard 웹폰트 링크 추가 및 글로벌 스타일에서 설정
+### 3. 상단 네비게이션 바 영역 구현
 
-7. **기능 단위 커밋 실천**
-   - 커밋 메시지를 `feat`, `fix`, `style` 등으로 구분하여 관리
-   - 각 변경사항을 기능별로 분리하여 커밋
+- `NavigationHeader` 컴포넌트
+  - 좌측: 뒤로가기 버튼
+  - 중앙: 타이틀 텍스트
+  - 우측: 프로필 버튼
+- 클릭 시 `console.log`로 이벤트 확인 가능
+
+### 4. 카테고리 섹션 구현
+
+- `GiftCategoryGrid` 컴포넌트
+  - 선물 테마 리스트를 5열 그리드로 출력
+  - 테마 클릭 시 콜백 함수 호출
+  - 반응형 레이아웃 및 호버 인터랙션 적용
+
+### 5. 기타 섹션 구현
+
+- `FriendSelector` 컴포넌트
+  - 선물할 친구 선택 UI
+  - Plus 버튼 클릭 시 이벤트 발생
+
+- `PromotionBanner` 컴포넌트
+  - 과제 독려 배너 UI
+  - hover 효과 제거된 정적 스타일
+
+### 6. 실시간 급상승 선물랭킹 구현
+
+- `RealTimeRanking` 컴포넌트
+  - 연령 필터(`전체`, `여성이`, `남성이`, `청소년이`)
+  - 정렬 필터(`받고 싶어한`, `많이 선물한`, `위시로 받은`)
+  - 상품 랭킹 카드 UI (이미지, 브랜드명, 가격, 랭킹 뱃지 포함)
+  - 최대 6개까지 노출 → "더보기/접기" 버튼으로 토글
+
+<br/>
