@@ -1,7 +1,5 @@
-// src/components/LiveRanking.tsx
-import React from 'react';
 import styled from '@emotion/styled';
-import { colors, fontSizes, spaces } from '../tokens/designTokens';
+import { colors, fontSizes, spaces, } from '@/tokens/designTokens';
 
 const Wrap = styled.section`
   padding: ${spaces.lg} ${spaces.md};
@@ -36,8 +34,8 @@ export default function LiveRanking() {
     <Wrap>
       <Title>실시간 급상승 선물</Title>
       <List>
-        {RANKS.map((name, idx) => (
-          <Item key={idx}>{name}</Item>
+        {RANKS.map(name => (
+          <Item key={name}>{name}</Item>
         ))}
       </List>
     </Wrap>

@@ -1,13 +1,11 @@
-// src/components/Footer.tsx
-import React from 'react';
 import styled from '@emotion/styled';
-import { spaces, fontSizes } from '../tokens/designTokens';
+import { spaces, fontSizes, colors } from '@/tokens/designTokens';
 
 const Wrap = styled.footer`
   padding: ${spaces.md};
   text-align: center;
   font-size: ${fontSizes.body};
-  color: #999;
+  color: ${colors.footer};
 `;
 
 export default function Footer() {

@@ -1,8 +1,6 @@
-// src/components/Header.tsx
-import React from 'react';
 import styled from '@emotion/styled';
 import { IoArrowBackOutline, IoEllipsisVertical } from 'react-icons/io5';
-import { colors, spaces, fontSizes } from '../tokens/designTokens';
+import { colors, spaces, fontSizes } from '@/tokens/designTokens';
 
 const Wrap = styled.header`
   display: flex;

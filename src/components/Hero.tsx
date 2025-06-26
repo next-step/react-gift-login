@@ -1,7 +1,5 @@
-// src/components/Hero.tsx
-import React from 'react';
 import styled from '@emotion/styled';
-import { colors, fontSizes, spaces } from '../tokens/designTokens';
+import { colors, fontSizes, spaces, } from '@/tokens/designTokens';
 
 const HeroWrap = styled.section`
   background: ${colors.accent};

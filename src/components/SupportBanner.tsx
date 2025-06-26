@@ -1,6 +1,5 @@
-import React from 'react';
 import styled from '@emotion/styled';
-import { colors, fontSizes, spaces } from '../tokens/designTokens';
+import { colors, fontSizes, spaces, } from '@/tokens/designTokens';
 
 const Wrap = styled.section`
   background: ${colors.accent};

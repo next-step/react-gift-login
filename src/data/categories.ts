@@ -1,4 +1,3 @@
-// src/data/categories.ts
 export interface Category {
   themeId: number;
   name: string;

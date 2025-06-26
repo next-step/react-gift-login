@@ -1,8 +1,6 @@
-// src/components/FeaturedGifts.tsx
-import React from 'react';
 import styled from '@emotion/styled';
-import { colors, fontSizes, spaces } from '../tokens/designTokens';
-import products from '../data/products';  // ← 추가
+import { colors, fontSizes, spaces, radii, shadows } from '@/tokens/designTokens';
+import products from '@/data/products';
 
 const Wrap = styled.section`
   padding: ${spaces.lg} ${spaces.md};
@@ -22,9 +20,9 @@ const Grid = styled.div`
 `;
 
 const Card = styled.div`
-  background: #fafafa;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background: ${colors.surface};
+  border-radius: ${radii.sm};
+  box-shadow: ${shadows.card};
   overflow: hidden;
 `;
 
@@ -38,9 +36,19 @@ const Content = styled.div`
   padding: ${spaces.sm};
 `;
 
+const BrandWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: ${spaces.sm};
+`;
+
+const BrandName = styled.span`
+  font-size: ${fontSizes.body};
+`;
+
 const GiftName = styled.h3`
   font-size: ${fontSizes.body};
-  margin: 0 0 ${spaces.xs} 0;
+  margin: 0 0 ${spaces.sm} 0;
   color: ${colors.text};
 `;
 
@@ -51,12 +59,11 @@ const GiftPrice = styled.p`
   color: ${colors.primary};
 `;
 
-// (선택) 브랜드 로고 작게 보여주고 싶으면 이 컴포넌트도 추가 가능
 const BrandLogo = styled.img`
   width: 24px;
   height: 24px;
   object-fit: contain;
-  margin-right: ${spaces.xs};
+  margin-right: ${spaces.sm};
 `;
 
 export default function FeaturedGifts() {
@@ -68,12 +75,17 @@ export default function FeaturedGifts() {
           <Card key={item.id}>
             <Image src={item.imageURL} alt={item.name} />
             <Content>
-              <div style={{ display: 'flex', alignItems: 'center', marginBottom: spaces.xs }}>
-                <BrandLogo src={item.brandInfo.imageURL} alt={item.brandInfo.name} />
-                <span style={{ fontSize: fontSizes.body }}>{item.brandInfo.name}</span>
-              </div>
+              <BrandWrapper>
+                <BrandLogo
+                  src={item.brandInfo.imageURL}
+                  alt={item.brandInfo.name}
+                />
+                <BrandName>{item.brandInfo.name}</BrandName>
+              </BrandWrapper>
               <GiftName>{item.name}</GiftName>
-              <GiftPrice>{item.price.sellingPrice.toLocaleString()}원</GiftPrice>
+              <GiftPrice>
+                {item.price.sellingPrice.toLocaleString()}원
+              </GiftPrice>
             </Content>
           </Card>
         ))}

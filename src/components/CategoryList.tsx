@@ -1,8 +1,6 @@
-// src/components/CategoryList.tsx
-import React from 'react';
 import styled from '@emotion/styled';
-import { colors, spaces, fontSizes } from '../tokens/designTokens';
-import categories from '../data/categories';
+import { colors, fontSizes, spaces} from '@/tokens/designTokens';
+import categories from '@/data/categories';
 
 const Wrap = styled.section`
   padding: ${spaces.lg} ${spaces.md};
@@ -27,7 +25,7 @@ const Item = styled.li`
 const IconWrapper = styled.div`
   width: 56px;        /* 이미지 크기 고정 */
   height: 56px;
-  margin-bottom: ${spaces.xs};
+  margin-bottom: ${spaces.sm};
 
   img {
     width: 100%;
