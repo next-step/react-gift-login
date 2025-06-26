@@ -4,8 +4,6 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
