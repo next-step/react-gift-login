@@ -3,6 +3,8 @@ import { theme } from '@/styles/theme'
 import { Nav } from '@/components/home/Nav'
 import { Category } from '@/components/home/Category'
 import { Trend } from '@/components/home/Trend/Trend'
+import { Banner } from '@/components/home/Banner'
+import { Friends } from '@/components/home/Friends'
 
 // * 홈 컨테이너
 const Container = styled.div`
@@ -31,9 +33,11 @@ export const Home = () => {
       {/* 네비게이션 */}
       <Nav />
       {/* 선물할 친구 섹션 */}
+      <Friends />
       {/* 카테고리 섹션 */}
       <Category />
       {/* 기타 배너 섹션 */}
+      <Banner />
       {/* 실시간 급상승 섹션 */}
       <Trend />
     </Container>

@@ -11,7 +11,10 @@ const Navigation = styled.nav`
   z-index: 100;
 
   width: 100%;
+  max-width: 720px;
   height: 44px;
+
+  margin: 0 auto;
 
   background-color: ${theme.colors.gray.gray00};
 
