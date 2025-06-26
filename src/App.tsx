@@ -3,6 +3,7 @@ import MobileLayout from "./layouts/MobileLayout";
 import NavBar from "./components/NavBar";
 import FriendSelect from "./components/FriendSelect";
 import GiftTheme from "./components/GiftTheme";
+import CheerBox from "./components/CheerBox";
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
       <main>
         <FriendSelect />
         <GiftTheme />
+        <CheerBox />
       </main>
     </MobileLayout>
   );

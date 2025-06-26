@@ -49,13 +49,13 @@ const themes = [
   },
   {
     themeId: 3707,
-    name: '출산・돌',
+    name: '출산 ・ 돌',
     image:
       'https://img1.daumcdn.net/thumb/S104x104/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fgift%2Fhome%2Ftheme%2F370720241228_QFZPM.png',
   },
   {
     themeId: 3697,
-    name: '결혼・집들이',
+    name: '결혼 ・ 집들이',
     image:
       'https://img1.daumcdn.net/thumb/S104x104/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fgift%2Fhome%2Ftheme%2F369720250126_OGWLG.png',
   },
@@ -67,13 +67,13 @@ const themes = [
   },
   {
     themeId: 3705,
-    name: '합격・응원',
+    name: '합격 ・ 응원',
     image:
       'https://img1.daumcdn.net/thumb/S104x104/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fgift%2Fhome%2Ftheme%2F370520250127_NLVFN.png',
   },
   {
     themeId: 3706,
-    name: '건강・케어',
+    name: '건강 ・ 케어',
     image:
       'https://img1.daumcdn.net/thumb/S104x104/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fgift%2Fhome%2Ftheme%2F370620250415_HENTO.png',
   },

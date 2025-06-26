@@ -21,7 +21,7 @@ const Box = styled.button`
   padding: ${({ theme }) => theme.spacing.spacing4};
   background: #ffffff;
   border: 0;
-  border-radius: 12px;
+  border-radius: 18px;
   cursor: pointer;
 `;
 
