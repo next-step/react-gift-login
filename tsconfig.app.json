@@ -30,6 +30,7 @@
       "@/layout/*": ["src/components/layout/*"],
       "@/navigation/*": ["src/components/navigation/*"],
       "@/category/*": ["src/components/category/*"],
+      "@/misc/*": ["src/components/misc/*"],
     },
 
     /* Linting */
