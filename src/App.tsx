@@ -5,17 +5,21 @@ import Container from './styles/Container.tsx/Container';
 import Navbar from './components/navbar/Navbar';
 import FriendsBox from './components/friendsbox/FriendsBox';
 import Category from './components/category/Category';
-import Padding from './components/padding/Padding';
+import { PaddingMd, PaddingLg } from './components/padding/Padding';
+import Banner from './components/banner/Banner';
 function App() {
 
   return (
     <ThemeProvider theme={theme}>
       <Container>
         <GlobalStyles />
-        <Navbar /> 
+        <Navbar />
         <FriendsBox />
-        <Padding />
+        <PaddingMd />
         <Category />
+        <PaddingMd />
+        <Banner/>
+        <PaddingLg />
       </Container>
     </ThemeProvider>
   );

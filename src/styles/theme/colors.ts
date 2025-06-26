@@ -19,7 +19,7 @@ export const colorScale = {
     yellow300: "#fff38a",
     yellow400: "#ffef5c",
     yellow500: "#ffea2e",
-    yellow600: "#fee500",
+    yellow600: "#fee500", // Kakao main Yellow
     yellow700: "#d5c000",
     yellow800: "#ac9b00",
     yellow900: "#847700",
