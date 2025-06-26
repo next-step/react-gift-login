@@ -4,6 +4,8 @@ import GlobalStyle from '@/styles/GlobalStyle';
 import Layout from '@/components/Layout/Layout';
 import NavigationBar from '@/components/NavigationBar/NavigationBar';
 import CategorySection from '@/components/CategorySection/CategorySection';
+import AddFriend from '@/components/OtherSection/AddFriend';
+import Fighting from '@/components/OtherSection/Fighting';
 
 function App() {
   return (
@@ -11,7 +13,9 @@ function App() {
       <GlobalStyle />
       <Layout>
         <NavigationBar />
+        <AddFriend />
         <CategorySection />
+        <Fighting />
         <div></div>
       </Layout>
     </ThemeProvider>
