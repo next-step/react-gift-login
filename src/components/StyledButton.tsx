@@ -1,32 +1,35 @@
 import styled from '@emotion/styled';
 
 export const Button = styled.button`
-  background-color: #007bff;
-  color: white;
+  background-color: ${props => props.theme.semanticColors.kakaoYellow};
+  color: ${props => props.theme.colors.gray900};
   border: none;
-  padding: 12px 24px;
+  padding: ${props => props.theme.spacing.spacing3} ${props => props.theme.spacing.spacing6};
   border-radius: 6px;
-  font-size: 16px;
+  font-size: ${props => props.theme.typography.body2Regular.fontSize};
+  font-weight: ${props => props.theme.typography.body2Bold.fontWeight};
   cursor: pointer;
   transition: background-color 0.2s;
+  font-family: 'Pretendard', sans-serif;
 
   &:hover {
-    background-color: #0056b3;
+    background-color: ${props => props.theme.semanticColors.kakaoYellowHover};
   }
 
   &:active {
-    background-color: #004085;
+    background-color: ${props => props.theme.semanticColors.kakaoYellowActive};
   }
 `;
 
 export const SecondaryButton = styled(Button)`
-  background-color: #6c757d;
+  background-color: ${props => props.theme.colors.gray600};
+  color: ${props => props.theme.colors.gray00};
 
   &:hover {
-    background-color: #545b62;
+    background-color: ${props => props.theme.colors.gray700};
   }
 
   &:active {
-    background-color: #3d4449;
+    background-color: ${props => props.theme.colors.gray800};
   }
 `;

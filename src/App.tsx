@@ -4,35 +4,40 @@ import { Button, SecondaryButton } from '@/components/StyledButton'
 
 const AppContainer = styled.div`
   text-align: center;
-  padding: 2rem;
+  padding: ${props => props.theme.spacing.spacing8};
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #f8f9fa;
+  background-color: ${props => props.theme.semanticColors.background.fill};
   font-family: 'Pretendard', sans-serif;
+  max-width: 720px; /* Mobile First Design */
+  margin: 0 auto;
 `
 
 const Title = styled.h1`
-  color: #333;
-  margin-bottom: 1rem;
-  font-size: 2.5rem;
-  font-weight: 700;
+  color: ${props => props.theme.semanticColors.text.default};
+  margin-bottom: ${props => props.theme.spacing.spacing4};
+  font-size: ${props => props.theme.typography.title1Bold.fontSize};
+  font-weight: ${props => props.theme.typography.title1Bold.fontWeight};
+  line-height: ${props => props.theme.typography.title1Bold.lineHeight};
   font-family: 'Pretendard', sans-serif;
 `
 
 const Description = styled.p`
-  color: #666;
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
+  color: ${props => props.theme.semanticColors.text.sub};
+  font-size: ${props => props.theme.typography.body1Regular.fontSize};
+  font-weight: ${props => props.theme.typography.body1Regular.fontWeight};
+  line-height: ${props => props.theme.typography.body1Regular.lineHeight};
+  margin-bottom: ${props => props.theme.spacing.spacing8};
   font-family: 'Pretendard', sans-serif;
 `
 
 const ButtonContainer = styled.div`
   display: flex;
-  gap: 1rem;
-  margin-top: 2rem;
+  gap: ${props => props.theme.spacing.spacing4};
+  margin-top: ${props => props.theme.spacing.spacing8};
 `
 
 function App() {
