@@ -22,7 +22,7 @@
         - GlobalStyle.tsx의 font-family 수정
   - [o] 기능 단위로 나누어 커밋하기
 
-- [ ] 2단계 : 선물하기 메인 페이지 UI 구현하기
+- [o] 2단계 : 선물하기 메인 페이지 UI 구현하기
     - [o] 화면의 max-width를 720px으로 제한
             - GlobalStyle.tsx에 #root 추가 후 max-width: 720px, margin: 0 auto → 중앙 정렬 및 최대 폭 제한
     - [o] 디자인 토큰 설정 (emotion 기반 Color, Typography 설정)
