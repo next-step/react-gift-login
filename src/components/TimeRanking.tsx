@@ -7,7 +7,6 @@ export default function TimeRanking() {
   const [selectedRankType, setSelectedRankType] = useState('받고 싶어한')
 
   const filteredRanking = ranking.filter((item) => {
-    // 지금은 gender, type이 없으므로 조건만 남겨둠
     return true
   })
 
@@ -18,40 +17,43 @@ export default function TimeRanking() {
       <SmallBlock />
 
       <GenderBox>
-        <GenderTab>
-          <GenderButton onClick={() => setSelectedGender('ALL')}>ALL</GenderButton>
-          <GenderText>전체</GenderText>
-        </GenderTab>
-        <GenderTab>
-          <GenderButton onClick={() => setSelectedGender('여성')}>👩🏻</GenderButton>
-          <GenderText>여성이</GenderText>
-        </GenderTab>
-        <GenderTab>
-          <GenderButton onClick={() => setSelectedGender('남성')}>👨🏻</GenderButton>
-          <GenderText>남성이</GenderText>
-        </GenderTab>
-        <GenderTab>
-          <GenderButton onClick={() => setSelectedGender('청소년')}>🧒🏻</GenderButton>
-          <GenderText>청소년이</GenderText>
-        </GenderTab>
+        {[
+          { label: 'ALL', icon: 'ALL', value: 'ALL' },
+          { label: '여성이', icon: '👩🏻', value: '여성' },
+          { label: '남성이', icon: '👨🏻', value: '남성' },
+          { label: '청소년이', icon: '🧒🏻', value: '청소년' },
+        ].map(({ label, icon, value }) => (
+          <GenderTab key={value}>
+            <GenderButton
+              isSelected={selectedGender === value}
+              onClick={() => setSelectedGender(value)}
+            >
+              {icon}
+            </GenderButton>
+            <GenderText>{label}</GenderText>
+          </GenderTab>
+        ))}
       </GenderBox>
 
-      <UndergenderandrankingBox/>
+      <UndergenderandrankingBox />
 
       <RankingBox>
         {['받고 싶어한', '많이 선물한', '위시로 받은'].map((tab) => (
-          <RankingTab key={tab} onClick={() => setSelectedRankType(tab)}>
+          <RankingTab 
+          key={tab} 
+          isSelected={selectedRankType === tab}
+          onClick={() => setSelectedRankType(tab)}>
             {tab}
           </RankingTab>
         ))}
       </RankingBox>
-      <UndergenderandrankingBox/>
+      <UndergenderandrankingBox />
       <CardGrid>
         {filteredRanking.map((item, index) => (
           <Card key={item.id}>
             <RankLabel>{index + 1}</RankLabel>
             <Image src={item.imageURL} alt={item.name} />
-            <UnderimageBox/>
+            <UnderimageBox />
             <Brand>{item.brandInfo.name}</Brand>
             <Name>{item.name}</Name>
             <Price>{item.price.sellingPrice.toLocaleString()}원</Price>
@@ -61,7 +63,6 @@ export default function TimeRanking() {
     </Container>
   )
 }
-
 
 const Block = styled.div`
   width: 100%;
@@ -96,7 +97,7 @@ const GenderTab = styled.div`
   gap: 4px;
 `
 
-const GenderButton = styled.button`
+const GenderButton = styled.button<{ isSelected: boolean }>`
   width: 44px;
   height: 44px;
   border-radius: 16px;
@@ -104,8 +105,11 @@ const GenderButton = styled.button`
   align-items: center;
   justify-content: center;
   border: none;
-  color: ${({ theme }) => theme.colors.blue[400]};
-  background-color: ${({ theme }) => theme.colors.blue[100]};
+  cursor: pointer;
+  color: ${({ theme, isSelected }) =>
+    isSelected ? theme.colors.gray['00'] : theme.colors.blue[400]};
+  background-color: ${({ theme, isSelected }) =>
+    isSelected ? theme.colors.blue[700] : theme.colors.blue[100]};
   ${({ theme }) => theme.typography.subtitle2Bold};
 `
 
@@ -133,7 +137,7 @@ const RankingBox = styled.div`
   padding: 12px 16px;
 `
 
-const RankingTab = styled.button`
+const RankingTab = styled.button<{ isSelected: boolean}>`
   width: 100%;
   flex: 1 1 0%;
   display: flex;
@@ -141,8 +145,11 @@ const RankingTab = styled.button`
   justify-content: center;
   background-color: transparent;
   border: 0px;
-  ${({ theme }) => theme.typography.label1Regular};
-  color: ${({ theme }) => theme.colors.blue[400]};
+  cursor: pointer;
+  ${({ theme, isSelected }) => 
+    isSelected ? theme.typography.label1Bold : theme.typography.label1Regular};
+  color: ${({ theme, isSelected }) =>
+    isSelected ? theme.colors.blue[700] : theme.colors.blue[400]};
 `
 
 const CardGrid = styled.div`
@@ -159,22 +166,22 @@ const Card = styled.div`
 
 const RankLabel = styled.div`
   position: absolute;
-    z-index: 2;
-    width: 20px;
-    min-width: 20px;
-    height: 20px;
-    min-height: 20px;
-    border-radius: 4px;
-    display: flex;
-    -webkit-box-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    align-items: center;
-    ${({ theme }) => theme.typography.label2Bold};
-    top: 0.25rem;
-    left: 0.25rem;
-    color: ${({ theme }) => theme.colors.text.default};
-    background-color: ${({ theme }) => theme.colors.red[600]};
+  z-index: 2;
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+  border-radius: 4px;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  ${({ theme }) => theme.typography.label2Bold};
+  top: 0.25rem;
+  left: 0.25rem;
+  color: ${({ theme }) => theme.colors.text.default};
+  background-color: ${({ theme }) => theme.colors.red[600]};
 `
 
 const Image = styled.img`
