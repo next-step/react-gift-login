@@ -1,4 +1,20 @@
-export const productData = {
+interface ProductData {
+  id: number;
+  name: string;
+  imageURL: string;
+  price: {
+    basicPrice: number;
+    discountRate: number;
+    sellingPrice: number;
+  };
+  brandInfo: {
+    id: number;
+    name: string;
+    imageURL: string;
+  };
+}
+
+export const productData: ProductData = {
   id: 123,
   name: 'BBQ 양념치킨+크림치즈볼+콜라1.25L',
   imageURL:

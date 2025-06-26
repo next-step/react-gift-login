@@ -1,4 +1,10 @@
-export const categoryData = [
+interface CategoryItem {
+  themeId: number;
+  name: string;
+  image: string;
+}
+
+export const categoryData: CategoryItem[] = [
   {
     themeId: 3715,
     name: '생일',
