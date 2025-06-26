@@ -6,6 +6,7 @@ import NavigationBar from './components/NavigationBar/NavigationBar';
 import GiftBanner from './components/GiftBanner/GiftBanner';
 import Category from './components/Category/Category';
 import EventBanner from './components/EventBanner/EventBanner';
+import TrendingGifts from './components/TrendingGifts/TrendingGifts';
 
 const globalStyles = css`
   body {
@@ -44,6 +45,7 @@ function App() {
             <Content>
               <Category />
               <EventBanner />
+              <TrendingGifts />
             </Content>
           </main>
         </AppFrame>
