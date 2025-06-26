@@ -5,7 +5,7 @@ import { FiPlus } from 'react-icons/fi';
 import { mockThemeList } from '@/mocks/themeListMock';
 import ThemeItem from '@/components/ThemeItem';
 import type { ThemeItemType } from '@/types/theme';
-import { GiCheerful } from 'react-icons/gi';
+import RankingSection from '@/components/RankingSection/RankingSection';
 
 const Home = () => {
   return (
@@ -32,6 +32,7 @@ const Home = () => {
             <CheerBannerText>프론트엔드 2단계 과제 화이팅!🎉</CheerBannerText>
           </CheerBanner>
         </CheerBannerSection>
+        <RankingSection />
       </HomeContainer>
     </>
   );
