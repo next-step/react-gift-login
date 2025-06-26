@@ -4,6 +4,7 @@ import { reset } from './styles/reset';
 import { theme } from './styles/theme';
 import { FriendSelect } from './components/FriendSelect';
 import { Header } from './components/Header';
+import { GiftThemeGrid } from './components/GiftThemeGrid';
 
 const containerStyle = css`
   max-width: 720px;
@@ -19,6 +20,7 @@ const App = () => {
       <div css={containerStyle}>
         <Header />
         <FriendSelect />
+        <GiftThemeGrid />
       </div>
     </ThemeProvider>
   );
