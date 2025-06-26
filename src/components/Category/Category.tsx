@@ -26,11 +26,11 @@ const SectionTitle = styled.h2`
 
 const ThemeGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 10px;
+  grid-template-columns: ${({ theme }) => theme.layout.grid.columns.fixed5};
+  gap: ${({ theme }) => theme.layout.grid.gaps.sm};
 
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-top: ${({ theme }) => theme.spacing[5]};
+  margin-bottom: ${({ theme }) => theme.spacing[5]};
 `;
 
 function Category() {
@@ -54,19 +54,19 @@ const ThemeCardContainer = styled.div`
   align-items: center;
   flex-direction: column;
 
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding-top: ${({ theme }) => theme.spacing[0]};
+  padding-bottom: ${({ theme }) => theme.spacing[2]};
   box-sizing: border-box;
 
-  width: 8rem;
-  height: 5rem;
+  width: ${({ theme }) => theme.components.category.themeCardWidth};
+  height: ${({ theme }) => theme.components.category.themeCardHeight};
 
   cursor: pointer;
 `;
 
 const ThemeImage = styled.img`
-  width: 50px;
-  height: 50px;
+  width: ${({ theme }) => theme.components.category.themeCardImageSize};
+  height: ${({ theme }) => theme.components.category.themeCardImageSize};
 `;
 
 const ThemeName = styled.p`

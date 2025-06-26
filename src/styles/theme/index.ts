@@ -26,6 +26,11 @@ export const theme = {
       width: '95%',
       AddIconSize: spacing[5],
     },
+    category: {
+      themeCardWidth: '8rem',
+      themeCardHeight: '5rem',
+      themeCardImageSize: '50px',
+    },
   },
 } as const;
 
