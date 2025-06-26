@@ -6,6 +6,8 @@ import { FriendSelect } from './components/FriendSelect';
 import { Header } from './components/Header';
 import { GiftThemeGrid } from './components/GiftThemeGrid';
 import { YellowBanner } from './components/YellowBanner';
+import { RankingGrid } from './components/RankingGrid';
+import GiftRankingFilter from './components/GiftRankingFilter';
 
 const containerStyle = css`
   max-width: 720px;
@@ -23,6 +25,8 @@ const App = () => {
         <FriendSelect />
         <GiftThemeGrid />
         <YellowBanner />
+        <GiftRankingFilter />
+        <RankingGrid />
       </div>
     </ThemeProvider>
   );
