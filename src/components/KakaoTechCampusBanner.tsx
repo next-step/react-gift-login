@@ -1,3 +1,4 @@
+import type { Theme } from "@emotion/react";
 import { css, useTheme } from "@emotion/react";
 
 export const KakaoTechCampusBanner = () => {
@@ -11,24 +12,24 @@ export const KakaoTechCampusBanner = () => {
   );
 };
 
-const container = (theme: any) => css`
-  background-color: ${theme.colors.kakaoYellow};
-  color: ${theme.colors.gray1000};
+const container = (theme: Theme) => css`
+  background-color: ${theme.colors.brand.kakao.yellow};
+  color: ${theme.colors.colorScale.gray.gray1000};
   padding: 16px;
   margin: 16px;
   border-radius: 12px;
   text-align: left;
 `;
 
-const subText = (theme: any) => css`
-  color: ${theme.colors.gray800};
+const subText = (theme: Theme) => css`
+  color: ${theme.colors.colorScale.gray.gray800};
   font-size: ${theme.typography.body2Regular.fontSize};
   font-weight: ${theme.typography.body2Regular.fontWeight};
   line-height: ${theme.typography.body2Regular.lineHeight};
   margin-bottom: 4px;
 `;
 
-const mainText = (theme: any) => css`
+const mainText = (theme: Theme) => css`
   display: block;
   font-size: ${theme.typography.body1Bold.fontSize};
   font-weight: ${theme.typography.body1Bold.fontWeight};

@@ -1,5 +1,6 @@
 import { css, useTheme } from "@emotion/react";
 import { RANKING_TABS, type TabType } from "../constants/ranking";
+import type { Theme } from "@emotion/react";
 
 type RankingTabProps = {
   selected: TabType;
@@ -30,11 +31,14 @@ const tabWrapperStyle = css`
   margin-bottom: 12px;
 `;
 
-const tabButtonStyle = (theme: any, active: boolean) => css`
+const tabButtonStyle = (theme: Theme, active: boolean) => css`
   font-size: 14px;
   font-weight: 700;
   padding: 4px 0;
-  border-bottom: 2px solid ${active ? theme.colors.gray1000 : "transparent"};
-  color: ${active ? theme.colors.text.default : theme.colors.text.sub};
+  border-bottom: 2px solid
+    ${active ? theme.colors.colorScale.gray.gray1000 : "transparent"};
+  color: ${active
+    ? theme.colors.semantic.text.default
+    : theme.colors.semantic.text.sub};
   background: none;
 `;

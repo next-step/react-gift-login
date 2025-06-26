@@ -1,5 +1,6 @@
 import { css, useTheme } from "@emotion/react";
 import { GENDER_FILTERS, type GenderType } from "../constants/ranking";
+import type { Theme } from "@emotion/react";
 
 type RankingFilterProps = {
   selected: GenderType;
@@ -31,13 +32,15 @@ const wrapperStyle = css`
   overflow-x: auto;
 `;
 
-const buttonStyle = (theme: any, active: boolean) => css`
+const buttonStyle = (theme: Theme, active: boolean) => css`
   padding: 6px 12px;
   font-size: 14px;
   border-radius: 20px;
   border: 1px solid
-    ${active ? theme.colors.gray800 : theme.colors.border.default};
-  background-color: ${active ? theme.colors.gray800 : "white"};
-  color: ${active ? "white" : theme.colors.text.default};
+    ${active
+      ? theme.colors.colorScale.gray.gray800
+      : theme.colors.semantic.border.default};
+  background-color: ${active ? theme.colors.colorScale.gray.gray800 : "white"};
+  color: ${active ? "white" : theme.colors.semantic.text.default};
   white-space: nowrap;
 `;

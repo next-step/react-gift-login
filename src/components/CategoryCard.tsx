@@ -1,3 +1,4 @@
+import type { Theme } from "@emotion/react";
 import { css } from "@emotion/react";
 
 type CategoryCardProps = {
@@ -21,15 +22,15 @@ const cardStyle = css`
   gap: 6px;
 `;
 
-const imageStyle = css`
+const imageStyle = (theme: Theme) => css`
   width: 56px;
   height: 56px;
   border-radius: 50%;
   object-fit: cover;
-  background-color: #f3f4f5;
+  background-color: ${theme.colors.colorScale.gray.gray200};
 `;
 
-const labelStyle = css`
+const labelStyle = (theme: Theme) => css`
   font-size: 12px;
-  color: #2a3038;
+  color: ${theme.colors.semantic.text.default};
 `;

@@ -2,219 +2,25 @@ import { css } from "@emotion/react";
 import { useState } from "react";
 import { RankingCard } from "./RankingCard";
 import { type GenderType, type TabType } from "../constants/ranking";
+import { mockRankingData } from "@/mock/mockData";
 
 type RankingGridProps = {
   gender: GenderType;
   tab: TabType;
 };
 
-const MOCK_DATA = [
-  {
-    id: 1,
-    name: "BBQ 양념치킨+크림치즈볼+콜라1.25L",
-    imageURL:
-      "https://st.kakaocdn.net/product/gift/product/20231030175450_53e90ee9708f45ffa45b3f7b4bc01c7c.jpg",
-    price: { basicPrice: 29000, discountRate: 0, sellingPrice: 29000 },
-    brandInfo: {
-      id: 2088,
-      name: "BBQ",
-      imageURL:
-        "https://st.kakaocdn.net/product/gift/gift_brand/20220216170226_38ba26d8eedf450683200d6730757204.png",
-    },
-  },
-  {
-    id: 2,
-    name: "BBQ 양념치킨+크림치즈볼+콜라1.25L",
-    imageURL:
-      "https://st.kakaocdn.net/product/gift/product/20231030175450_53e90ee9708f45ffa45b3f7b4bc01c7c.jpg",
-    price: { basicPrice: 29000, discountRate: 0, sellingPrice: 29000 },
-    brandInfo: {
-      id: 2088,
-      name: "BBQ",
-      imageURL:
-        "https://st.kakaocdn.net/product/gift/gift_brand/20220216170226_38ba26d8eedf450683200d6730757204.png",
-    },
-  },
-  {
-    id: 3,
-    name: "BBQ 양념치킨+크림치즈볼+콜라1.25L",
-    imageURL:
-      "https://st.kakaocdn.net/product/gift/product/20231030175450_53e90ee9708f45ffa45b3f7b4bc01c7c.jpg",
-    price: { basicPrice: 29000, discountRate: 0, sellingPrice: 29000 },
-    brandInfo: {
-      id: 2088,
-      name: "BBQ",
-      imageURL:
-        "https://st.kakaocdn.net/product/gift/gift_brand/20220216170226_38ba26d8eedf450683200d6730757204.png",
-    },
-  },
-  {
-    id: 4,
-    name: "BBQ 양념치킨+크림치즈볼+콜라1.25L",
-    imageURL:
-      "https://st.kakaocdn.net/product/gift/product/20231030175450_53e90ee9708f45ffa45b3f7b4bc01c7c.jpg",
-    price: { basicPrice: 29000, discountRate: 0, sellingPrice: 29000 },
-    brandInfo: {
-      id: 2088,
-      name: "BBQ",
-      imageURL:
-        "https://st.kakaocdn.net/product/gift/gift_brand/20220216170226_38ba26d8eedf450683200d6730757204.png",
-    },
-  },
-  {
-    id: 5,
-    name: "BBQ 양념치킨+크림치즈볼+콜라1.25L",
-    imageURL:
-      "https://st.kakaocdn.net/product/gift/product/20231030175450_53e90ee9708f45ffa45b3f7b4bc01c7c.jpg",
-    price: { basicPrice: 29000, discountRate: 0, sellingPrice: 29000 },
-    brandInfo: {
-      id: 2088,
-      name: "BBQ",
-      imageURL:
-        "https://st.kakaocdn.net/product/gift/gift_brand/20220216170226_38ba26d8eedf450683200d6730757204.png",
-    },
-  },
-  {
-    id: 6,
-    name: "BBQ 양념치킨+크림치즈볼+콜라1.25L",
-    imageURL:
-      "https://st.kakaocdn.net/product/gift/product/20231030175450_53e90ee9708f45ffa45b3f7b4bc01c7c.jpg",
-    price: { basicPrice: 29000, discountRate: 0, sellingPrice: 29000 },
-    brandInfo: {
-      id: 2088,
-      name: "BBQ",
-      imageURL:
-        "https://st.kakaocdn.net/product/gift/gift_brand/20220216170226_38ba26d8eedf450683200d6730757204.png",
-    },
-  },
-  {
-    id: 7,
-    name: "BBQ 양념치킨+크림치즈볼+콜라1.25L",
-    imageURL:
-      "https://st.kakaocdn.net/product/gift/product/20231030175450_53e90ee9708f45ffa45b3f7b4bc01c7c.jpg",
-    price: { basicPrice: 29000, discountRate: 0, sellingPrice: 29000 },
-    brandInfo: {
-      id: 2088,
-      name: "BBQ",
-      imageURL:
-        "https://st.kakaocdn.net/product/gift/gift_brand/20220216170226_38ba26d8eedf450683200d6730757204.png",
-    },
-  },
-  {
-    id: 8,
-    name: "BBQ 양념치킨+크림치즈볼+콜라1.25L",
-    imageURL:
-      "https://st.kakaocdn.net/product/gift/product/20231030175450_53e90ee9708f45ffa45b3f7b4bc01c7c.jpg",
-    price: { basicPrice: 29000, discountRate: 0, sellingPrice: 29000 },
-    brandInfo: {
-      id: 2088,
-      name: "BBQ",
-      imageURL:
-        "https://st.kakaocdn.net/product/gift/gift_brand/20220216170226_38ba26d8eedf450683200d6730757204.png",
-    },
-  },
-  {
-    id: 9,
-    name: "BBQ 양념치킨+크림치즈볼+콜라1.25L",
-    imageURL:
-      "https://st.kakaocdn.net/product/gift/product/20231030175450_53e90ee9708f45ffa45b3f7b4bc01c7c.jpg",
-    price: { basicPrice: 29000, discountRate: 0, sellingPrice: 29000 },
-    brandInfo: {
-      id: 2088,
-      name: "BBQ",
-      imageURL:
-        "https://st.kakaocdn.net/product/gift/gift_brand/20220216170226_38ba26d8eedf450683200d6730757204.png",
-    },
-  },
-  {
-    id: 10,
-    name: "BBQ 양념치킨+크림치즈볼+콜라1.25L",
-    imageURL:
-      "https://st.kakaocdn.net/product/gift/product/20231030175450_53e90ee9708f45ffa45b3f7b4bc01c7c.jpg",
-    price: { basicPrice: 29000, discountRate: 0, sellingPrice: 29000 },
-    brandInfo: {
-      id: 2088,
-      name: "BBQ",
-      imageURL:
-        "https://st.kakaocdn.net/product/gift/gift_brand/20220216170226_38ba26d8eedf450683200d6730757204.png",
-    },
-  },
-  {
-    id: 11,
-    name: "BBQ 양념치킨+크림치즈볼+콜라1.25L",
-    imageURL:
-      "https://st.kakaocdn.net/product/gift/product/20231030175450_53e90ee9708f45ffa45b3f7b4bc01c7c.jpg",
-    price: { basicPrice: 29000, discountRate: 0, sellingPrice: 29000 },
-    brandInfo: {
-      id: 2088,
-      name: "BBQ",
-      imageURL:
-        "https://st.kakaocdn.net/product/gift/gift_brand/20220216170226_38ba26d8eedf450683200d6730757204.png",
-    },
-  },
-  {
-    id: 12,
-    name: "BBQ 양념치킨+크림치즈볼+콜라1.25L",
-    imageURL:
-      "https://st.kakaocdn.net/product/gift/product/20231030175450_53e90ee9708f45ffa45b3f7b4bc01c7c.jpg",
-    price: { basicPrice: 29000, discountRate: 0, sellingPrice: 29000 },
-    brandInfo: {
-      id: 2088,
-      name: "BBQ",
-      imageURL:
-        "https://st.kakaocdn.net/product/gift/gift_brand/20220216170226_38ba26d8eedf450683200d6730757204.png",
-    },
-  },
-  {
-    id: 13,
-    name: "BBQ 양념치킨+크림치즈볼+콜라1.25L",
-    imageURL:
-      "https://st.kakaocdn.net/product/gift/product/20231030175450_53e90ee9708f45ffa45b3f7b4bc01c7c.jpg",
-    price: { basicPrice: 29000, discountRate: 0, sellingPrice: 29000 },
-    brandInfo: {
-      id: 2088,
-      name: "BBQ",
-      imageURL:
-        "https://st.kakaocdn.net/product/gift/gift_brand/20220216170226_38ba26d8eedf450683200d6730757204.png",
-    },
-  },
-  {
-    id: 14,
-    name: "BBQ 양념치킨+크림치즈볼+콜라1.25L",
-    imageURL:
-      "https://st.kakaocdn.net/product/gift/product/20231030175450_53e90ee9708f45ffa45b3f7b4bc01c7c.jpg",
-    price: { basicPrice: 29000, discountRate: 0, sellingPrice: 29000 },
-    brandInfo: {
-      id: 2088,
-      name: "BBQ",
-      imageURL:
-        "https://st.kakaocdn.net/product/gift/gift_brand/20220216170226_38ba26d8eedf450683200d6730757204.png",
-    },
-  },
-  {
-    id: 15,
-    name: "BBQ 양념치킨+크림치즈볼+콜라1.25L",
-    imageURL:
-      "https://st.kakaocdn.net/product/gift/product/20231030175450_53e90ee9708f45ffa45b3f7b4bc01c7c.jpg",
-    price: { basicPrice: 29000, discountRate: 0, sellingPrice: 29000 },
-    brandInfo: {
-      id: 2088,
-      name: "BBQ",
-      imageURL:
-        "https://st.kakaocdn.net/product/gift/gift_brand/20220216170226_38ba26d8eedf450683200d6730757204.png",
-    },
-  },
-];
-
 const INITIAL_COUNT = 4;
 
 export const RankingGrid = ({ gender, tab }: RankingGridProps) => {
-  console.log(gender, tab);
+  void gender;
+  void tab;
 
   const [showAll, setShowAll] = useState(false);
 
-  const visibleItems = showAll ? MOCK_DATA : MOCK_DATA.slice(0, INITIAL_COUNT);
-  const canToggle = MOCK_DATA.length > INITIAL_COUNT;
+  const visibleItems = showAll
+    ? mockRankingData
+    : mockRankingData.slice(0, INITIAL_COUNT);
+  const canToggle = mockRankingData.length > INITIAL_COUNT;
 
   const handleToggle = () => setShowAll((prev) => !prev);
 
