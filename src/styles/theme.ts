@@ -246,7 +246,7 @@ export const theme: Theme = {
     // 제목 (Title)
     title1Bold: {
       fontSize: '1.25rem',
-      fontWeight: 700,
+      fontWeight: 800,
       lineHeight: '1.6875rem',
     },
     title1Regular: {
