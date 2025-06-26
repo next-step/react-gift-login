@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { Section } from '@/components/layout'
+import { CategorySection } from '@/components/category'
+import { categories } from '@/data/categories'
 import TestComponent from '@/components/TestComponent'
 import { Button, SecondaryButton } from '@/components/StyledButton'
 
@@ -43,8 +45,19 @@ const DemoSection = styled.div`
 `
 
 const HomePage: React.FC = () => {
+  const handleCategoryClick = (category: any) => {
+    console.log('카테고리 클릭:', category);
+    // 향후 카테고리별 상품 목록 페이지로 이동 기능 추가
+  };
+
   return (
     <>
+      {/* 카테고리 섹션 */}
+      <CategorySection 
+        categories={categories}
+        onCategoryClick={handleCategoryClick}
+      />
+
       <Section title="환영합니다!" subtitle="Mobile First Design이 적용된 레이아웃입니다.">
         <WelcomeContent>
           <Title>React Gift Login</Title>

@@ -25,6 +25,7 @@ export default defineConfig({
       '@/styles': path.resolve(__dirname, './src/styles'),
       '@/layout': path.resolve(__dirname, './src/components/layout'),
       '@/navigation': path.resolve(__dirname, './src/components/navigation'),
+      '@/category': path.resolve(__dirname, './src/components/category'),
     }
   }
 })

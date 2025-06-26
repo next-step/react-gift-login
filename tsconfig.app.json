@@ -29,6 +29,7 @@
       "@/styles/*": ["src/styles/*"],
       "@/layout/*": ["src/components/layout/*"],
       "@/navigation/*": ["src/components/navigation/*"],
+      "@/category/*": ["src/components/category/*"],
     },
 
     /* Linting */
