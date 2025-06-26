@@ -1,5 +1,11 @@
+import Header from '@/components/Header'
+
 const MainPage = () => {
-  return <div>임시</div>
+  return (
+    <>
+      <Header />
+    </>
+  )
 }
 
 export default MainPage
