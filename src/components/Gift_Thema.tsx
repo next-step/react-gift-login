@@ -1,4 +1,9 @@
 export default function Gift_Thema() {
 
-  return <div>Gift_Thema</div>
+  return (
+    <div>
+      <h1>선물 테마</h1>
+
+    </div>
+  )
 }
