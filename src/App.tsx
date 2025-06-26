@@ -4,6 +4,7 @@ import FriendSelector from '@/components/FriendSelector'
 import CategorySection from '@/components/CategorySection'
 import CampusBanner from '@/components/CampusBanner'
 import RankingFilterBar from '@/components/RankingFilterBar'
+import RankingList from '@/components/RankingList'
 
 
 const friends = ['라이언', '무지', '콘']
@@ -14,6 +15,8 @@ function App() {
       <CategorySection />
       <CampusBanner />
       <RankingFilterBar />
+      <RankingList />
+
     </Layout>
   )
 }
