@@ -2,8 +2,6 @@ import { CATEGORY_DATA } from '@/assets/CATEGORY_DATA';
 import styled from '@emotion/styled';
 
 const StyledImage = styled.img`
-  width: 50px;
-  height: 60px;
   margin: 5px;
 `;
 const StyledP = styled.p`
