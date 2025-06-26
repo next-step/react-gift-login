@@ -35,7 +35,7 @@ const StyledSelectFriendP = styled.p`
   width: 100%;
 `;
 
-const SelectFriend = () => {
+const SelectFriendContainer = () => {
   return (
     <StyledSelectFriendOuterContainer>
       <StyledSelectFriendBtn>
@@ -46,4 +46,4 @@ const SelectFriend = () => {
   );
 };
 
-export default SelectFriend;
+export default SelectFriendContainer;

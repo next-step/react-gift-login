@@ -13,7 +13,6 @@ const StyledPresentThemeItemDiv = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: ${({ theme }) => theme.symenticPalette.kakaoYellow};
   padding: 4px;
 `;
 const PresentThemeItem = () => {

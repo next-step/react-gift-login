@@ -1,7 +1,7 @@
 import './App.css';
-import PresentTheme from '@/components/PresentTheme';
-import Present from '@components/Present';
-import SelectFriend from './components/SelectFriend';
+import PresentThemeContainer from '@components/PresentThemeContainer';
+import PresentContainer from '@components/PresentContainer';
+import SelectFriendContainer from '@components/SelectFriendContainer';
 import styled from '@emotion/styled';
 
 const StyledTopestDiv = styled.div`
@@ -12,9 +12,9 @@ function App() {
   return (
     <>
       <StyledTopestDiv>
-        <SelectFriend></SelectFriend>
-        <PresentTheme></PresentTheme>
-        <Present></Present>
+        <SelectFriendContainer></SelectFriendContainer>
+        <PresentThemeContainer></PresentThemeContainer>
+        <PresentContainer></PresentContainer>
       </StyledTopestDiv>
     </>
   );

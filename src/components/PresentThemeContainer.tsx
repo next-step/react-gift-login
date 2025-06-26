@@ -17,15 +17,28 @@ const StyledPresentContainer = styled.div`
   background-color: ${({ theme }) => theme.symenticPalette.backgroundDefault};
 `;
 
-const PresentTheme = () => {
+const StyledPlusContainer = styled.div`
+  background-color: ${({ theme }) => theme.symenticPalette.kakaoYellow};
+  margin: 10px;
+  border-radius: 20px;
+  padding: 20px;
+`;
+
+const PresentThemeConatiner = () => {
   return (
     <StyledPresentContainer>
       <StyledPresentP>선물 테마</StyledPresentP>
       <StyledPresentThemeDiv>
         <PresentThemeItem></PresentThemeItem>
       </StyledPresentThemeDiv>
+      <div>
+        <StyledPlusContainer>
+          <p>카카오테크 캠퍼스 3기여러분</p>
+          <p>프론트엔드 2단계 과제 화이팅!</p>
+        </StyledPlusContainer>
+      </div>
     </StyledPresentContainer>
   );
 };
 
-export default PresentTheme;
+export default PresentThemeConatiner;
