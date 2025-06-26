@@ -13,10 +13,10 @@ const AppContainer = styled.div`
   background: ${theme.colors.gray200};
   display: flex;
   justify-content: center;
-  padding: 0 ${theme.spacing.spacing4};
 
-  @media (max-width: 768px) {
-    padding: 0;
+  /* PC에서만 좌우 여백 */
+  @media (min-width: 721px) {
+    padding: 0 24px;
   }
 `;
 
@@ -25,12 +25,12 @@ const MobileViewport = styled.div`
   max-width: 720px;
   min-height: 100vh;
   background: ${theme.colors.fill};
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   position: relative;
 
-  @media (max-width: 768px) {
-    max-width: 100%;
-    box-shadow: none;
+  /* PC에서만 그림자, border-radius */
+  @media (min-width: 721px) {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
   }
 `;
 
