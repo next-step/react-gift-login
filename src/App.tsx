@@ -3,6 +3,7 @@ import { resetStyle } from '@/styles/reset'
 import theme from './styles/theme'
 import { MainLayout } from './components/MainLayout'
 import Header from './components/Header'
+import Category from './components/Category'
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Global styles={resetStyle} />
       <MainLayout>
         <Header />
+        <Category />
       </MainLayout>
     </ThemeProvider>
   )
