@@ -1,5 +1,7 @@
 ﻿import styled from '@emotion/styled'
-
+import { colors } from '@/theme/color'
+import { typography } from '@/theme/typography'
+import { spacing } from '@/theme/spacing'
 interface CategoryCardProps {
   name: string
   image: string
@@ -9,21 +11,21 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: ${spacing.spacing2};
 `
 
 const Image = styled.img`
   width: 72px;
   height: 72px;
-  border-radius: 12px;
+  border-radius: ${spacing.spacing3};
   object-fit: cover;
 `
 
 const Name = styled.p`
-  font-size: 0.875rem;
-  font-weight: 400;
-  line-height: 1.1875rem;
-  color: #2a3038;
+  font-size: ${typography.subtitle2Regular.fontSize};
+  font-weight: ${typography.subtitle2Regular.fontWeight};
+  line-height: ${typography.subtitle2Regular.lineHeight};
+  color: ${colors.text.default};
 `
 
 const CategoryCard = ({ name, image }: CategoryCardProps) => {

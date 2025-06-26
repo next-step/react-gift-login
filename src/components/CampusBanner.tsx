@@ -1,15 +1,16 @@
 ﻿import styled from '@emotion/styled'
 import { colors } from '@/theme/color'
 import { typography } from '@/theme/typography'
+import { spacing } from '@/theme/spacing'
 
 const BannerWrapper = styled.section`
   background-color: ${colors.brand.kakaoYellow};
-  border-radius: 8px;
-  padding: 12px 16px;
-  margin: 24px 0;
+  border-radius: ${spacing.spacing2};
+  padding: ${spacing.spacing3} ${spacing.spacing4};
+  margin: ${spacing.spacing6} 0;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: ${spacing.spacing1};
 `
 
 const SmallText = styled.p`

@@ -1,6 +1,8 @@
 ﻿import styled from '@emotion/styled'
 import backIcon from '@/assets/back.png'
 import loginIcon from '@/assets/user.png'
+import { spacing } from '@/theme/spacing'
+
 
 interface NavBarProps {
   onBack?: () => void
@@ -12,7 +14,7 @@ const Nav = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 48px;
+  height: ${spacing.spacing12};
 `
 
 const IconButton = styled.button`

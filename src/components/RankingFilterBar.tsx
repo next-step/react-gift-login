@@ -2,26 +2,27 @@
 import styled from '@emotion/styled'
 import { colors } from '@/theme/color'
 import { typography } from '@/theme/typography'
+import { spacing } from '@/theme/spacing'
 
 const FilterBarWrapper = styled.div`
-  margin: 24px 0;
+  margin: ${spacing.spacing6} 0;
   display: flex;
   flex-direction: column;
-  gap: 8px;        /* 아이콘-레이블 간격 줄임 */
+  gap: ${spacing.spacing4};
 `
 
 // 아이콘 버튼들을 감싸는 행
 const GenderIconRow = styled.div`
   display: flex;
   gap: 120px;
-  padding: 0 16px;
+  padding: 0 ${spacing.spacing4};
 `
 
 // 레이블을 감싸는 행
 const GenderLabelRow = styled.div`
   display: flex;
   gap: 120px;
-  padding: 0 16px;
+  padding: 0 ${spacing.spacing4};
 `
 
 const GenderButton = styled.button<{ selected: boolean }>`
@@ -29,11 +30,11 @@ const GenderButton = styled.button<{ selected: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 0;
+  padding: ${spacing.spacing2};
   background-color: ${({ selected }) =>
     selected ? colors.blue[700] : 'transparent'};
   border: none;
-  border-radius: 12px;
+  border-radius: ${spacing.spacing3};
   cursor: pointer;
 
   &:not(:last-of-type) {
@@ -62,7 +63,7 @@ const GenderLabel = styled.span<{ selected: boolean }>`
 const SortTabsWrapper = styled.div`
   display: flex;
   background-color: ${colors.gray[100]};
-  border-radius: 8px;
+  border-radius: ${spacing.spacing2};
   overflow: hidden;
 `
 

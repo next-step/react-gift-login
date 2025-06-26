@@ -1,5 +1,8 @@
 ﻿import styled from '@emotion/styled'
 import CategoryCard from './CategoryCard'
+import { colors } from '@/theme/color'
+import { typography } from '@/theme/typography'
+import { spacing } from '@/theme/spacing'
 
 const categories = [
   {
@@ -95,20 +98,21 @@ const categories = [
 ]
 
 const Section = styled.section`
-  margin-top: 24px;
+  margin-top: ${spacing.spacing6};
 `
 
 const Title = styled.h3`
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1.5rem;
-  margin-bottom: 16px;
+  font-size: ${typography.title2Bold.fontSize};
+  font-weight: ${typography.title2Bold.fontWeight};
+  line-height: ${typography.title2Bold.lineHeight};
+  margin-bottom: ${spacing.spacing4};
+  color: ${colors.text.default};
 `
 
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 16px;
+  gap: ${spacing.spacing4};
 `
 
 const CategorySection = () => {

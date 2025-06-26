@@ -2,17 +2,19 @@
 import { useState } from 'react'
 import styled from '@emotion/styled'
 import plusIcon from '@/assets/plus.png'
-
+import { colors } from '@/theme/color'
+import { typography } from '@/theme/typography'
+import { spacing } from '@/theme/spacing'
 interface FriendSelectorProps {
   friends: string[]
   onSelect?: (friend: string) => void
 }
 
 const Wrapper = styled.section`
-  background: #ffffff;
-  border-radius: 8px;
+  background: ${colors.background.default};
+  border-radius: ${spacing.spacing2};
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  padding: 12px 16px;
+  padding: ${spacing.spacing3} ${spacing.spacing4};
   position: relative;
 `
 
@@ -23,8 +25,10 @@ const Button = styled.button`
   background: none;
   border: none;
   padding: 0;
-  font-size: 14px;
-  color: #2a3038;
+  font-size: ${typography.subtitle2Regular.fontSize};
+  font-weight: ${typography.subtitle2Regular.fontWeight};
+  line-height: ${typography.subtitle2Regular.lineHeight};
+  color: ${colors.text.default};
   text-align: left;
   cursor: pointer;
 `
@@ -33,36 +37,38 @@ const IconCircle = styled.div`
   flex-shrink: 0;
   width: 24px;
   height: 24px;
-  background: #ffe200;
+  background: ${colors.brand.kakaoYellow};
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 8px;
+  margin-right: ${spacing.spacing2};
 `
 
 const Dropdown = styled.ul`
   position: absolute;
-  top: calc(100% + 4px);
+  top: calc(100% + ${spacing.spacing1});
   left: 0;
   right: 0;
-  margin: 0;
-  padding: 4px 0;
-  background: #fff;
-  border: 1px solid #dcdee3;
-  border-radius: 4px;
+  margin: ${spacing.spacing0};
+  padding: ${spacing.spacing1} ${spacing.spacing0};
+  background: ${colors.background.default};
+  border: 1px solid ${colors.border.default};
+  border-radius: ${spacing.spacing1};
   list-style: none;
   z-index: 10;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 `
 
 const Item = styled.li`
-  padding: 8px 12px;
-  font-size: 14px;
-  color: #2a3038;
+  padding: ${spacing.spacing2} ${spacing.spacing3};
+  font-size: ${typography.subtitle2Regular.fontSize};
+  font-weight: ${typography.subtitle2Regular.fontWeight};
+  line-height: ${typography.subtitle2Regular.lineHeight};
+  color: ${colors.text.default};
   cursor: pointer;
   &:hover {
-    background: #f7f8f9;
+    background: ${colors.background.fill};
   }
 `
 
@@ -80,7 +86,8 @@ const FriendSelector = ({ friends, onSelect }: FriendSelectorProps) => {
     <Wrapper>
       <Button onClick={() => setOpen((p) => !p)}>
         <IconCircle>
-          <img src={plusIcon} alt="plus" width="16" height="16" />        </IconCircle>
+          <img src={plusIcon} alt="plus" width="16" height="16" />        
+        </IconCircle>
         {selected ?? '선물할 친구를 선택해 주세요.'}
       </Button>
 
