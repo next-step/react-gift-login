@@ -15,7 +15,6 @@ const GlobalStyle = () => (
         font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui,
           Roboto, 'Helvetica Neue', Arial, sans-serif;
         background-color: #fff;
-<<<<<<< HEAD
         color: black;
         line-height: 2;
       }
@@ -27,11 +26,6 @@ const GlobalStyle = () => (
         padding: 0 16px;
       }
         
-=======
-        color: #9631ac;
-        line-height: 2;
-      }
->>>>>>> eunchae-04
       h2 {
         font-size: 24px;
         font-weight: 600;
