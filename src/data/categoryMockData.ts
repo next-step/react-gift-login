@@ -1,4 +1,10 @@
-export const categoryMockData = [
+export type GiftThemeType = {
+  themeId: number;
+  name: string;
+  image: string;
+};
+
+export const categoryMockData: GiftThemeType[] = [
   {
     themeId: 3715,
     name: '생일',

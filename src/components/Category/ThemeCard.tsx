@@ -1,3 +1,4 @@
+import type { GiftThemeType } from '@/data/categoryMockData';
 import styled from '@emotion/styled';
 
 const ThemeCardContainer = styled.div`
@@ -26,11 +27,13 @@ const ThemeName = styled.p`
   font-weight: ${({ theme }) => theme.typography.label.label2Regular.fontWeight};
 `;
 
-function ThemeCard({ theme }: { theme: any }) {
+function ThemeCard({ theme }: { theme: GiftThemeType }) {
+  const { name, image } = theme;
+
   return (
     <ThemeCardContainer>
-      <ThemeImage src={theme.image} alt={theme.name} />
-      <ThemeName>{theme.name}</ThemeName>
+      <ThemeImage src={image} alt={name} />
+      <ThemeName>{name}</ThemeName>
     </ThemeCardContainer>
   );
 }
