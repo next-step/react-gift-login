@@ -1,4 +1,7 @@
 import { Global, css } from '@emotion/react';
+import Home from '@pages/Home';
+import Login from '@pages/Login';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 const App = () => {
   return (
     <>
@@ -149,8 +152,12 @@ const App = () => {
           }
         `}
       />
-      <h1>app</h1>
-      <p>글꼴 확인</p>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 };
