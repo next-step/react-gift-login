@@ -28,6 +28,13 @@
       "@components/*": ["src/components/*"],
       "@/*": ["src/*"]
     }
+    "noUncheckedSideEffectImports": true,
+
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@/*": ["src/*"]
+    }
   },
   "include": ["src", "**/*.ts", "**/*.tsx", "**/*.svg?react"]
 }
