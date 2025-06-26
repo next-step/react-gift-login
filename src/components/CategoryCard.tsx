@@ -5,7 +5,9 @@ interface Category {
   image: string;
 }
 
-const Card = styled.div`
+const Card = styled.button`
+  all: unset;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: center;

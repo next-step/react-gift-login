@@ -1,13 +1,15 @@
 import styled from '@emotion/styled';
 import PlusIcon from '@/assets/add.svg?react';
 
-const Container = styled.div`
+const Container = styled.button`
+  all: unset;
+  cursor: pointer;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   width: 96%;
-  height: 6.8%;
+  height: 70px;
   margin-top: ${({ theme }) => theme.spacing.spacing4};
   margin-bottom: ${({ theme }) => theme.spacing.spacing4};
   border-radius: 15px;

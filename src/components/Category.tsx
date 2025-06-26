@@ -11,7 +11,7 @@ const Container = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   width: 100%;
-  height: 35%;
+  height: 350px;
   background-color: white;
 `;
 
