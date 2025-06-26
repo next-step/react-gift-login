@@ -4,8 +4,7 @@ export function deepFreeze<T>(obj: T): T {
   }
 
   Object.getOwnPropertyNames(obj).forEach((prop) => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const propValue = (obj as any)[prop];
+    const propValue = (obj as Record<string, unknown>)[prop];
 
     if (propValue && typeof propValue === 'object') {
       deepFreeze(propValue);
