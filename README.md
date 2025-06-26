@@ -12,7 +12,7 @@
 
 ## 2단계 과제 진행 요구사항
 
-- [ ] emotion에 Color, Typography 토큰 설정
+- [x] emotion에 Color, Typography 토큰 설정
 - [ ] Mobile First Design 기반의 Layout 구현
 - [ ] 상단 네비게이션 바 영역 구현
 - [ ] 카테고리 섹션 구현
