@@ -12,12 +12,17 @@ const GlobalStyles = () => (
         padding: 0;
         box-sizing: border-box;
       }
-      html,
+      html {
+        height: 100%;
+      }
       body {
         height: 100%;
         font-family: 'Pretendard';
         line-height: 1.5;
         -webkit-font-smoothing: antialiased;
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 0 16px;
       }
       button {
         background: none;
