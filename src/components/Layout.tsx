@@ -14,7 +14,7 @@ const Outer = styled.div`
 const Wrapper = styled.div`
     max-width: 720px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0;
     width: 100%;
     box-sizing: border-box;
     background-color: ${({ theme }) => theme.color.semantic.backgroundDefault};
