@@ -1,15 +1,11 @@
 import GlobalStyle from './styles/GlobalStyle';
-import Logo from '@/assets/logo.png';
+import Navigation from './components/Navigation';
 
 function App() {
   return (
     <>
       <GlobalStyle />
-      <div>
-        <h2>불필요한 코드 삭제 후 App 화면</h2>
-        <h2>Complete!</h2>
-        <img src={Logo} alt="로고" width={100} />
-      </div>
+      <Navigation />
     </>
   );
 }
