@@ -1,10 +1,12 @@
-﻿import React from 'react'
+﻿import React, { useState } from 'react'
 import styled from '@emotion/styled'
 import { colors } from '@/theme/color'
 import { typography } from '@/theme/typography'
 import { spacing } from '@/theme/spacing'
+import LoadMoreButton from './LoadMoreButton'
+import { useLoadMore } from '@/hooks/useLoadMore'
 
-interface MockProduct {
+export interface Product {
   id: number
   name: string
   imageURL: string
@@ -20,7 +22,7 @@ interface MockProduct {
   }
 }
 
-const mockItem: MockProduct = {
+export const mockItem: Product = {
   id: 123,
   name: 'BBQ 양념치킨+크림치즈볼+콜라1.25L',
   imageURL:
@@ -34,24 +36,61 @@ const mockItem: MockProduct = {
   },
 }
 
-const mockProducts: MockProduct[] = Array(6).fill(mockItem)
+export const defaultProducts: Product[] = Array(6).fill(mockItem)
 
-const RankingList = () => {
+export const fetchMoreProducts = async (): Promise<Product[]> => {
+  await new Promise((r) => setTimeout(r, 500))
+  return Array(15).fill(mockItem)
+}
+
+export interface RankingListProps {
+  initialProducts?: Product[]
+  fetchMore?: () => Promise<Product[]>
+}
+
+const RankingList: React.FC<RankingListProps> = ({
+  initialProducts = defaultProducts,
+  fetchMore,
+}) => {
+  const { items, loadMore, loading, loaded } = useLoadMore<Product>(
+    initialProducts,
+    fetchMore,
+  )
+  const [expanded, setExpanded] = useState(false)
+
+  const visibleItems = expanded ? items : items.slice(0, 6)
+
+  const handleToggle = async () => {
+    if (!expanded && fetchMore && !loaded) {
+      await loadMore()
+    }
+    setExpanded((prev) => !prev)
+  }
+
   return (
-    <GridContainer>
-      {mockProducts.map((prod, idx) => (
-        <RankingItem key={idx} rank={idx + 1} product={prod} />
-      ))}
-    </GridContainer>
+    <Wrapper>
+      <GridContainer>
+        {visibleItems.map((prod, idx) => (
+          <RankingItem key={prod.id} rank={idx + 1} product={prod} />
+        ))}
+      </GridContainer>
+      {fetchMore && (
+        <ButtonWrap>
+          <LoadMoreButton onClick={handleToggle} disabled={loading}>
+            {loading ? '로딩중...' : expanded ? '접기' : '더보기'}
+          </LoadMoreButton>
+        </ButtonWrap>
+      )}
+    </Wrapper>
   )
 }
 
 interface RankingItemProps {
   rank: number
-  product: MockProduct
+  product: Product
 }
 
-const RankingItem = ({ rank, product }: RankingItemProps) => (
+const RankingItem: React.FC<RankingItemProps> = ({ rank, product }) => (
   <Card>
     <Badge rank={rank}>{rank}</Badge>
     <Image src={product.imageURL} alt={product.name} />
@@ -63,11 +102,18 @@ const RankingItem = ({ rank, product }: RankingItemProps) => (
   </Card>
 )
 
+const Wrapper = styled.div`
+  padding: 0 ${spacing.spacing4};
+`
+
 const GridContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: ${spacing.spacing4};
-  padding: 0 ${spacing.spacing4};
+`
+
+const ButtonWrap = styled.div`
+  margin-top: ${spacing.spacing4};
 `
 
 const Card = styled.div`
@@ -99,14 +145,12 @@ const Badge = styled.div<{ rank: number }>`
 
 const Image = styled.img`
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 1;
   object-fit: cover;
 `
 
 const Brand = styled.p`
   margin: ${spacing.spacing2} 0 ${spacing.spacing1};
-  font-size: ${typography.label2Regular.fontSize};
-  font-weight: ${typography.label2Regular.fontWeight};
   line-height: ${typography.label2Regular.lineHeight};
   color: ${colors.text.sub};
   overflow: hidden;
