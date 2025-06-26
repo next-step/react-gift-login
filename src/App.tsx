@@ -1,9 +1,9 @@
 import Navigation from '@/layouts/Navigation';
-import GiftsPage from '@/pages/GiftsPage';
 import GlobalStyle from '@/styles/global';
 import { ThemeProvider } from '@emotion/react';
 import { theme } from '@/styles/theme';
 import styled from '@emotion/styled';
+import AppRouter from './routes/Routers';
 
 const AppContainer = styled.div`
   width: 100%;
@@ -19,15 +19,13 @@ const AppContainer = styled.div`
 
 function App() {
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <AppContainer>
-          <Navigation />
-          <GiftsPage />
-        </AppContainer>
-      </ThemeProvider>
-    </>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <AppContainer>
+        <Navigation />
+        <AppRouter />
+      </AppContainer>
+    </ThemeProvider>
   );
 }
 

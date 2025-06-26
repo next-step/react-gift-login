@@ -1,11 +1,5 @@
-import {
-  BackButton,
-  GiftLogoImage,
-  GiftLogoLink,
-  NavBar,
-  NavContainer,
-  UserIconLink,
-} from './styles';
+import { BackButton, Container, LogoImage, LogoLink, Nav, UserIconLink } from './styles';
+import { useNavigate } from 'react-router-dom';
 
 const BackIcon = () => (
   <svg
@@ -24,7 +18,7 @@ const BackIcon = () => (
   </svg>
 );
 
-const UserRoundIcon = () => (
+const UserIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -43,22 +37,29 @@ const UserRoundIcon = () => (
 );
 
 const Navigation = () => {
+  const navigate = useNavigate();
+
+  const handleBackClick = () => {
+    navigate(-1);
+    console.log('working!');
+  };
+
   return (
-    <NavContainer>
-      <NavBar>
-        <BackButton>
+    <Container>
+      <Nav>
+        <BackButton onClick={handleBackClick}>
           <BackIcon />
         </BackButton>
 
-        <GiftLogoLink href="/" data-discover="true">
-          <GiftLogoImage src="/선물하기.webp" alt="카카오 선물하기 로고" />
-        </GiftLogoLink>
+        <LogoLink href="/" data-discover="true">
+          <LogoImage src="/선물하기.webp" alt="카카오 선물하기 로고" />
+        </LogoLink>
 
         <UserIconLink href="/" aria-label="로그인">
-          <UserRoundIcon />
+          <UserIcon />
         </UserIconLink>
-      </NavBar>
-    </NavContainer>
+      </Nav>
+    </Container>
   );
 };
 

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const NavContainer = styled.div`
+export const Container = styled.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -13,7 +13,7 @@ export const NavContainer = styled.div`
   z-index: 1000;
 `;
 
-export const NavBar = styled.nav`
+export const Nav = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -21,12 +21,12 @@ export const NavBar = styled.nav`
   padding: 0 ${({ theme }) => theme.spacing.spacing2};
 `;
 
-export const GiftLogoLink = styled.a`
+export const LogoLink = styled.a`
   display: flex;
   height: 100%;
 `;
 
-export const GiftLogoImage = styled.img`
+export const LogoImage = styled.img`
   height: 100%;
 `;
 
