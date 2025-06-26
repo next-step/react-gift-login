@@ -1,4 +1,4 @@
-[
+export const categories = [
   {
     themeId: 3715,
     name: '생일',
