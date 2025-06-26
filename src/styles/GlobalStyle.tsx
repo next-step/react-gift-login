@@ -21,6 +21,12 @@ const globalStyles = css`
     -moz-osx-font-smoothing: grayscale;
   }
 
+  #root {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
   a {
     text-decoration: none;
     color: inherit;
@@ -41,6 +47,6 @@ const globalStyles = css`
     display: block;
   }
 `
-export function GlobalStyle(){
+export function GlobalStyle() {
   return <Global styles={globalStyles} />
 }
