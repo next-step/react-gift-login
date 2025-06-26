@@ -3,9 +3,14 @@ import TargetButton from "./TargetButton";
 import theme from "@src/styles/kakaoTheme";
 import { target, type targetType } from "../enumerators";
 import { useState, type ReactNode } from "react";
+import { useSearchParams } from "react-router-dom";
 
 function TargetSelectionPanel() {
-  const [selected, setSelected] = useState<targetType>(target.ALL);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [selected, setSelected] = useState<targetType>(() => {
+    const q = searchParams.get("targetType") ?? "ALL";
+    return Object.values(target).find((t) => t.query === q) ?? target.ALL;
+  });
 
   return (
     <SelectionPanelWrapper>
@@ -25,9 +30,11 @@ function TargetSelectionPanel() {
             selected={selected === t}
             target={t}
             children={children}
-            onclick={() => {
+            onClick={() => {
               setSelected(t);
-              console.log(`?targetType=${t.query}`);
+              const newParams = new URLSearchParams(searchParams);
+              newParams.set("targetType", t.query);
+              setSearchParams(newParams);
             }}
           />
         );

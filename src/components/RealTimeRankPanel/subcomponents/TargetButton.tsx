@@ -8,14 +8,14 @@ type TargetButtonProps = {
   selected: boolean;
   target: targetType;
   children: string | ReactNode;
-  onclick: () => void;
+  onClick: () => void;
 };
 
 function TargetButton({
   selected,
   target,
   children,
-  onclick
+  onClick: onclick
 }: TargetButtonProps) {
   return (
     <TargetButtonWrapper selected={selected} onClick={() => onclick()}>
