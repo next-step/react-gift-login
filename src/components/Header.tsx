@@ -21,7 +21,6 @@ const Container = styled.header`
   align-items: center;
   height: 56px;
   padding: 0 16px;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.border.default};
 `;
 
 const IconButton = styled.button`
