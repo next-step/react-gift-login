@@ -1,19 +1,15 @@
-import { GlobalStyle } from './styles/GlobalStyle'
-import { ThemeProvider } from '@emotion/react'
-import theme from './styles/theme'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import MainPage from './pages/MainPage'
+import LoginPage from './pages/LoginPage'
 
-function App() {
-
+const App = () => {
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <div>
-          project init
-        </div>
-      </ThemeProvider>
-    </>
-
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/login" element={<LoginPage />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
