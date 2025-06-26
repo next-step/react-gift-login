@@ -51,10 +51,6 @@ export default function MainPage() {
     console.log('선택된 테마:', theme);
   };
 
-  const handlePromotionClick = () => {
-    console.log('프로모션 배너 클릭 - 과제 페이지로 이동');
-  };
-
   return (
     <AppContainer>
       <MobileViewport>
@@ -71,7 +67,6 @@ export default function MainPage() {
         <PromotionBanner
           subtitle="카카오테크 캠퍼스 3기 여러분"
           title="프론트엔드 2단계 과제 화이팅!"
-          onClick={handlePromotionClick}
         />
 
         <RealTimeRanking products={rankingProducts} />

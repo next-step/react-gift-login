@@ -41,16 +41,6 @@ const ThemeItem = styled.button`
   padding: ${theme.spacing.spacing2};
   border-radius: 12px;
   transition: all 0.2s ease;
-
-  &:hover {
-    background: ${theme.colors.gray100};
-    transform: translateY(-2px);
-  }
-
-  &:active {
-    transform: translateY(0);
-    background: ${theme.colors.gray200};
-  }
 `;
 
 const ThemeImage = styled.img`
