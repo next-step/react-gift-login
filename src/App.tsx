@@ -1,4 +1,4 @@
-import Navigation from '@/components/Navigation';
+import Navigation from '@/layouts/Navigation';
 import GiftsPage from '@/pages/GiftsPage';
 import GlobalStyle from '@/styles/global';
 import { ThemeProvider } from '@emotion/react';
