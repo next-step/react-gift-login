@@ -4,6 +4,7 @@ import Category from "@/components/Category";
 import Ranking from "@/components/Ranking";
 import Friend from "@/components/Friend";
 import DividerDiv from "@/components/DividerDiv";
+import Banner from "@/components/Banner";
 
 const Gift = () => {
   return (
@@ -12,6 +13,8 @@ const Gift = () => {
       <Friend />
       <DividerDiv />
       <Category />
+      <DividerDiv />
+      <Banner />
       <DividerDiv />
       <Ranking />
     </Container>
