@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import CategorySection from "@/sections/CategorySection";
 import FriendSelectBanner from "./sections/FriendSelectBanner";
 import CampaignBanner from "./sections/CampaignBanner";
+import GiftRankingSection from "@/sections/GiftRankingSection";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <FriendSelectBanner />
         <CategorySection />
         <CampaignBanner />
+        <GiftRankingSection />
       </Layout>
     </>
   );
