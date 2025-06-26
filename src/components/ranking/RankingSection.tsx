@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import styled from '@emotion/styled';
 import { Section } from '@/components/layout';
 import FilterButtonGroup from './FilterButtonGroup';
 import ProductGrid from './ProductGrid';
