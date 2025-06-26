@@ -1,7 +1,6 @@
-import { baseStyles } from "@/styles/base";
-import { fontStyles } from "@/styles/font";
-import { resetStyles } from "@/styles/reset";
-
+import { baseStyles } from "@/app/styles/base";
+import { fontStyles } from "@/app/styles/font";
+import { resetStyles } from "@/app/styles/reset";
 import { css } from "@emotion/react";
 import { Global } from "@emotion/react";
 
