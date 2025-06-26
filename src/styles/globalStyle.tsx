@@ -2,7 +2,7 @@ import { Global, css } from '@emotion/react';
 import reset from './reset';
 import 'pretendard/dist/web/static/pretendard.css';
 
-const global = css`
+const globalStyleCss = css`
   ${reset}
 
   body {
@@ -56,6 +56,6 @@ const global = css`
   }
 `;
 
-const GlobalStyle = () => <Global styles={global} />;
+const GlobalStyle = () => <Global styles={globalStyleCss} />;
 
 export default GlobalStyle;
