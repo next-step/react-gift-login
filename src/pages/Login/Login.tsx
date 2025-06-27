@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import Header from '@/components/Header/Header.tsx';
-import { Container, InputWrapper, LoginButton, LogoImg, StyledInput } from '@/pages/Login/Login.styles.ts';
-import { KAKAO_LOGO_SVG } from "@/assets/svg/kakaoLogo.ts";
+import Header from '@/components/Header/Header';
+import { Container, InputWrapper, LoginButton, LogoImg, StyledInput } from '@/pages/Login/Login.styles';
+import { KAKAO_LOGO_SVG } from "@/assets/svg/kakaoLogo";
 
 const Login = () => {
   return (

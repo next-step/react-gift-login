@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { productList } from '@/data/productList.ts';
+import { productList } from '@/data/productList';
 import {
   BrandName, Card, CategoryFilter, FilterButton, ImageWrapper,
   MoreButton, Grid, Section, Title,
@@ -8,7 +8,7 @@ import {
   ProductName, RankBadge, SortOptions, SortSpan,
 } from '@/components/GiftRanking/GiftRanking.styles.ts';
 
-export default function Gift_Ranking() {
+export default function GiftRanking() {
   const [showCount, setShowCount] = useState(6); // 초기에 6개 보여줌
   const [category, setCategory] = useState("전체");
   const [sort, setSort] = useState("받고 싶어한");

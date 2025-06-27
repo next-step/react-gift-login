@@ -1,7 +1,7 @@
 import leftArrow from '@/assets/left-arrow.svg';
 import user from '@/assets/user.svg';
 import { Link, useNavigate } from 'react-router-dom';
-import { HeaderWrapper, StyledLink, Title, Icon } from '@/components/Header/Header.styles.ts';
+import { HeaderWrapper, StyledLink, Title, Icon } from '@/components/Header/Header.styles';
 
 export default function Header() {
   const navigate = useNavigate();

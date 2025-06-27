@@ -1,6 +1,6 @@
-import { Message, PlusButton, Wrapper } from '@/components/ChooseFriend/ChooseFriend.styes.ts';
+import { Message, PlusButton, Wrapper } from '@/components/ChooseFriend/ChooseFriend.styes';
 
-export default function Choose_Friend() {
+export default function ChooseFriend() {
   return (
     <Wrapper>
       <PlusButton>+</PlusButton>

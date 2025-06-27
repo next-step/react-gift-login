@@ -1,7 +1,7 @@
-import { themes } from '@/data/themes.ts';
-import { Title, Section, ThemeCard, ThemeList, YellowBox } from '@/components/GiftThema/GiftThema.styles.ts';
+import { themes } from '@/data/themes';
+import { Title, Section, ThemeCard, ThemeList, YellowBox } from '@/components/GiftThema/GiftThema.styles';
 
-export default function Gift_Thema() {
+export default function GiftThema() {
   return (
     <Section>
       <Title>선물 테마</Title>
