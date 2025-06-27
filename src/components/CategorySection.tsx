@@ -1,63 +1,62 @@
-/** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react';
-import { useTheme } from '@emotion/react';
+import styled from '@emotion/styled';
 import { categories } from '../data/categories';
+//컴포넌트의 가독성을 좋게 하기 위해 styled방식으로 바꾸었습니다.
 
-export const CategorySection = () => {
-  const theme = useTheme();
-  
-  const sectionStyle = css`
-    padding: ${theme.spacing.spacing4};
-    background-color: white;
-  `;
-
-  const titleStyle = css`
-    ${theme.typography.title1Bold}
-    color: ${theme.semantic.text.default};
-    margin-bottom: ${theme.spacing.spacing5};
-  `;
-
-  const gridStyle = css`
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    row-gap: ${theme.spacing.spacing5};
-  `;
-
-  const imageStyle = css`
-    width: 52px;
-    height: 52px;
-    margin-bottom: ${theme.spacing.spacing1};
-  `;
-
-  const nameStyle = css`
-    ${theme.typography.label2Regular}
-    color: ${theme.semantic.text.default};
-    text-align: center;
-  `;
-
+const CategorySection = () => {
   return (
-    <section css={sectionStyle}>
-      <h1 css={titleStyle}>선물 테마</h1>
-      <div css={gridStyle}>
+    <Section>
+      <Title>선물 테마</Title>
+      <Grid>
         {categories.slice(0, 15).map((category) => (
-          <div key={category.themeId} css={itemStyle}>
-            <img 
-              css={imageStyle}
+          <Item key={category.themeId}>
+            <Image 
               src={category.image}
               alt={category.name}
             />
-            <span css={nameStyle}>{category.name}</span>
-          </div>
+            <Name>{category.name}</Name>
+          </Item>
         ))}
-      </div>
-    </section>
+      </Grid>
+    </Section>
   );
 };
-// theme를 사용하지 않은 스타일을 컴포넌트 외부로 옮겼습니다. 
-const itemStyle = css` 
-display: flex;
-flex-direction: column;
-align-items: center;
-cursor: pointer;
+
+export default CategorySection;
+
+const Section = styled.section`
+  padding: ${({ theme }) => theme.spacing.spacing4};
+  background-color: white;
 `;
+
+const Title = styled.h1`
+  ${({ theme }) => theme.typography.title1Bold}
+  color: ${({ theme }) => theme.semantic.text.default};
+  margin-bottom: ${({ theme }) => theme.spacing.spacing5};
+`;
+
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  row-gap: ${({ theme }) => theme.spacing.spacing5};
+`;
+
+const Item = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+`;
+
+const Image = styled.img`
+  width: 52px;
+  height: 52px;
+  margin-bottom: ${({ theme }) => theme.spacing.spacing1};
+`;
+
+const Name = styled.span`
+  ${({ theme }) => theme.typography.label2Regular}
+  color: ${({ theme }) => theme.semantic.text.default};
+  text-align: center;
+`;
+

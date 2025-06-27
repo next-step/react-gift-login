@@ -1,10 +1,10 @@
 import { ThemeProvider } from '@emotion/react';
 import { theme } from './styles/theme';
-import {Navigation} from './components/Navigation';
+import Navigation from './components/Navigation';
 import FriendSelector from './components/FriendSelector';
-import {CategorySection} from './components/CategorySection';
+import CategorySection from './components/CategorySection';
 import MessageSection from './components/MessageSection';
-import {RankingSection} from './components/RankingSection';
+import RankingSection from './components/RankingSection';
 
 function App() {
   return (
