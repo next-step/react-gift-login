@@ -3,6 +3,9 @@ import { css, useTheme } from '@emotion/react';
 import { FiChevronLeft, FiUser } from 'react-icons/fi';
 
 const headerWrapper = (theme: Theme) => css`
+  position: sticky;
+  top: 0;
+  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: space-between;
