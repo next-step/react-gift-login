@@ -20,5 +20,5 @@ export interface Product {
   };
 }
 
-export type AgeFilter = '전체' | '여성이' | '남성이' | '청소년이';
-export type SortType = '받고 싶어한' | '많이 선물한' | '위시로 받은';
+export type TargetFilter = '전체' | '여성이' | '남성이' | '청소년이';
+export type CategoryFilter = '받고 싶어한' | '많이 선물한' | '위시로 받은';
