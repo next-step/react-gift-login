@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
-import leftArrow from '@/assets/left-arrow.png';
-import user from '@/assets/user.png';
+import leftArrow from '@/assets/left-arrow.svg';
+import user from '@/assets/user.svg';
 import { Link, useNavigate } from 'react-router-dom';
 
 export default function Header() {
