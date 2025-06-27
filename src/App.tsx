@@ -1,21 +1,19 @@
-import { Global, useTheme } from '@emotion/react'
+import { Global } from '@emotion/react'
 import { globalStyle } from '@/styles/GlobalStyle'
-
 import TopNavigationBar from '@/component/TopNavigationBar'
-import GiftRecipientList from '@/component/GiftRecipientList'
-import CategorySection from '@/component/CategorySection'
-import CommentSection from './component/CommentSection'
-import TrendingGiftRanking from './component/TrendingGiftRanking'
+import GiftRecipient from '@/component/GiftRecipient'
+import GiftCategory from '@/component/GiftCategory'
+import EtceteraSection from '@/component/EtceteraSection'
+import TrendingGiftRanking from '@/component/TrendingGiftRanking'
 
 const App: React.FC = () => {
-  const theme = useTheme()
   return (
     <>
-      <Global styles={globalStyle(theme)} />
+      <Global styles={globalStyle} />
       <TopNavigationBar />
-      <GiftRecipientList />
-      <CategorySection />
-      <CommentSection />
+      <GiftRecipient />
+      <GiftCategory />
+      <EtceteraSection />
       <TrendingGiftRanking />
     </>
   )
