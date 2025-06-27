@@ -1,6 +1,4 @@
-/** @jsxImportSource @emotion/react */
-import { css, useTheme } from '@emotion/react';
-import type { Theme } from '@/styles/theme';
+import styled from '@emotion/styled';
 import type { Product } from '@/types/product';
 import ProductCard from '@/components/RankingSection/ProductCard';
 
@@ -8,23 +6,21 @@ interface ProductGridProps {
   products: Product[];
 }
 
-const theme = useTheme();
-
-const gridStyle = (theme: Theme) => css`
+const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  column-gap: ${theme.spacing[2]};
-  row-gap: ${theme.spacing[7]};
-  margin-bottom: ${theme.spacing[4]};
+  column-gap: ${({ theme }) => theme.spacing[2]};
+  row-gap: ${({ theme }) => theme.spacing[7]};
+  margin-bottom: ${({ theme }) => theme.spacing[4]};
 `;
 
 const ProductGrid = ({ products }: ProductGridProps) => {
   return (
-    <div css={gridStyle(theme)}>
+    <Grid>
       {products.map((item, index) => (
         <ProductCard key={item.id} item={item} rank={index + 1} />
       ))}
-    </div>
+    </Grid>
   );
 };
 

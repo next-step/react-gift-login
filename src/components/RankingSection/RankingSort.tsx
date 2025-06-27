@@ -1,34 +1,32 @@
-/** @jsxImportSource @emotion/react */
-import { css, useTheme } from '@emotion/react';
-import type { Theme } from '@/styles/theme';
+import styled from '@emotion/styled';
 
 interface RankingSortProps {
   selectedSort: string;
   onSelect: (label: string) => void;
 }
 
-const theme = useTheme();
-
-const sortWrapperStyle = (theme: Theme) => css`
+const SortWrapper = styled.div`
   display: flex;
   justify-content: center;
   border: 1px solid rgba(70, 132, 233, 0.1);
-  background-color: ${theme.color.blue[100]};
+  background-color: ${({ theme }) => theme.color.blue[100]};
   border-radius: 0.5rem;
-  padding: ${theme.spacing[3]} ${theme.spacing[4]};
-  margin-bottom: ${theme.spacing[4]};
+  padding: ${({ theme }) => `${theme.spacing[3]} ${theme.spacing[4]}`};
+  margin-bottom: ${({ theme }) => theme.spacing[4]};
 `;
 
-const sortButtonStyle = (theme: Theme, isActive: boolean) => css`
+const SortButton = styled.button<{ isActive: boolean }>`
   flex: 1 1 0%;
   display: flex;
   align-items: center;
   justify-content: center;
-  ${isActive
-    ? theme.typography.subtitle.subtitle2Bold
-    : theme.typography.subtitle.subtitle2Regular};
-  color: ${isActive ? theme.color.blue[600] : theme.color.blue[400]};
-  background-color: ${theme.color.blue[100]};
+  ${({ theme, isActive }) =>
+    isActive
+      ? theme.typography.subtitle.subtitle2Bold
+      : theme.typography.subtitle.subtitle2Regular};
+  color: ${({ theme, isActive }) =>
+    isActive ? theme.color.blue[600] : theme.color.blue[400]};
+  background-color: ${({ theme }) => theme.color.blue[100]};
   border: none;
   cursor: pointer;
   border-radius: 8px;
@@ -39,17 +37,17 @@ const RankingSort = ({ selectedSort, onSelect }: RankingSortProps) => {
   const labels = ['받고 싶어한', '많이 선물한', '위시로 받은'];
 
   return (
-    <div css={sortWrapperStyle(theme)}>
+    <SortWrapper>
       {labels.map(label => (
-        <button
+        <SortButton
           key={label}
-          css={sortButtonStyle(theme, selectedSort === label)}
+          isActive={selectedSort === label}
           onClick={() => onSelect(label)}
         >
           {label}
-        </button>
+        </SortButton>
       ))}
-    </div>
+    </SortWrapper>
   );
 };
 

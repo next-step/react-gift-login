@@ -1,67 +1,64 @@
-/** @jsxImportSource @emotion/react */
-import { css, useTheme } from '@emotion/react';
+import styled from '@emotion/styled';
 import { mockCategories } from '@/data/categories';
 
+const Section = styled.section`
+  padding: ${({ theme }) => theme.spacing[2]};
+  margin-bottom: ${({ theme }) => theme.spacing[6]};
+`;
+
+const TitleWrapper = styled.div`
+  margin-bottom: ${({ theme }) => theme.spacing[4]};
+  padding: ${({ theme }) => `${theme.spacing[0]} ${theme.spacing[1]}`};
+`;
+
+const Title = styled.h3`
+  ${({ theme }) => theme.typography.title.title1Bold};
+`;
+
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: ${({ theme }) => `${theme.spacing[5]} ${theme.spacing[1]}`};
+`;
+
+const Item = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: ${({ theme }) => theme.spacing[1]};
+  cursor: pointer;
+`;
+
+const CategoryImage = styled.img`
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+`;
+
+const CategoryText = styled.p`
+  ${({ theme }) => theme.typography.label.label2Regular};
+  color: ${({ theme }) => theme.color.semantic.text.default};
+`;
+
 const CategorySection = () => {
-  const theme = useTheme();
-
-  const sectionStyle = css`
-    padding: ${theme.spacing[2]};
-    margin-bottom: ${theme.spacing[6]};
-  `;
-
-  const titleWrapperStyle = css`
-    margin-bottom: ${theme.spacing[4]};
-    padding: ${theme.spacing[0]} ${theme.spacing[1]};
-  `;
-
-  const titleStyle = css`
-    ${theme.typography.title.title1Bold};
-  `;
-
-  const gridStyle = css`
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: ${theme.spacing[5]} ${theme.spacing[1]};
-  `;
-
-  const itemStyle = css`
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: ${theme.spacing[1]};
-    cursor: pointer;
-  `;
-
-  const imageStyle = css`
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-  `;
-
-  const textStyle = css`
-    ${theme.typography.label.label2Regular};
-    color: ${theme.color.semantic.text.default};
-  `;
-
   return (
-    <section css={sectionStyle}>
-      <div css={titleWrapperStyle}>
-        <h3 css={titleStyle}>선물 테마</h3>
-      </div>
-      <div css={gridStyle}>
+    <Section>
+      <TitleWrapper>
+        <Title>선물 테마</Title>
+      </TitleWrapper>
+      <Grid>
         {mockCategories.map(category => (
-          <div key={category.themeId} css={itemStyle}>
-            <img src={category.image} alt={category.name} css={imageStyle} />
-            <p css={textStyle}>{category.name}</p>
-          </div>
+          <Item key={category.themeId}>
+            <CategoryImage src={category.image} alt={category.name} />
+            <CategoryText>{category.name}</CategoryText>
+          </Item>
         ))}
-      </div>
-    </section>
+      </Grid>
+    </Section>
   );
 };
 

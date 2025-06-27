@@ -1,38 +1,32 @@
-/** @jsxImportSource @emotion/react */
-import { css, useTheme } from '@emotion/react';
-import type { Theme } from '@/styles/theme';
+import styled from '@emotion/styled';
 
 interface ExpandButtonProps {
   isExpanded: boolean;
   onToggle: () => void;
 }
 
-const theme = useTheme();
-
-const moreButtonWrapperStyle = (theme: Theme) => css`
+const Wrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: ${theme.spacing[5]};
+  margin-top: ${({ theme }) => theme.spacing[5]};
 `;
 
-const moreButtonStyle = (theme: Theme) => css`
+const Button = styled.button`
   max-width: 30rem;
   width: 100%;
-  padding: ${theme.spacing[3]};
+  padding: ${({ theme }) => theme.spacing[3]};
   border-radius: 4px;
   border: 1px solid rgb(220, 222, 227);
-  background-color: ${theme.color.semantic.background.default};
+  background-color: ${({ theme }) => theme.color.semantic.background.default};
   cursor: pointer;
 `;
 
 const ExpandButton = ({ isExpanded, onToggle }: ExpandButtonProps) => {
   return (
-    <div css={moreButtonWrapperStyle(theme)}>
-      <button css={moreButtonStyle(theme)} onClick={onToggle}>
-        {isExpanded ? '접기' : '더보기'}
-      </button>
-    </div>
+    <Wrapper>
+      <Button onClick={onToggle}>{isExpanded ? '접기' : '더보기'}</Button>
+    </Wrapper>
   );
 };
 
