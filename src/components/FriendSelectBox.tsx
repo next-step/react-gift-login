@@ -1,4 +1,3 @@
-/** @jsxImportSource @emotion/react */
 import { css, useTheme } from '@emotion/react';
 import { FiPlus } from 'react-icons/fi';
 
