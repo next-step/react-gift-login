@@ -1,12 +1,12 @@
 import styled from "@emotion/styled";
-import { rank, type rankType } from "../enumerators";
+import { rank, type RankType } from "../enumerators";
 import theme from "@src/styles/kakaoTheme";
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 function RankSelectionPanel() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [selected, setSelected] = useState<rankType>(() => {
+  const [selected, setSelected] = useState<RankType>(() => {
     const q = searchParams.get("rankType") ?? "ALL";
     return Object.values(rank).find((r) => r.query === q) ?? rank.MANY_WISH;
   });

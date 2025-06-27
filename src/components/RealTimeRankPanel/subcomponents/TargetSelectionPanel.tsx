@@ -1,13 +1,13 @@
 import styled from "@emotion/styled";
 import TargetButton from "./TargetButton";
 import theme from "@src/styles/kakaoTheme";
-import { target, type targetType } from "../enumerators";
+import { target, type TargetType } from "../enumerators";
 import { useState, type ReactNode } from "react";
 import { useSearchParams } from "react-router-dom";
 
 function TargetSelectionPanel() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [selected, setSelected] = useState<targetType>(() => {
+  const [selected, setSelected] = useState<TargetType>(() => {
     const q = searchParams.get("targetType") ?? "ALL";
     return Object.values(target).find((t) => t.query === q) ?? target.ALL;
   });

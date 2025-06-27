@@ -4,12 +4,12 @@ import TargetSelectionPanel from "./subcomponents/TargetSelectionPanel";
 import RankSelectionPanel from "./subcomponents/RankSelectionPanel";
 import Card from "./subcomponents/Card";
 import { productMockData } from "@src/mock/mockData";
-import type { product } from "@src/mock/mockData";
+import type { Product } from "@src/mock/mockData";
 import theme from "@src/styles/kakaoTheme";
 
 function RealTimeRankPanel() {
-  const [productList, setCardList] = useState<product[]>([]);
-  const [productRenderList, setProductRenderList] = useState<product[]>([]);
+  const [productList, setCardList] = useState<Product[]>([]);
+  const [productRenderList, setProductRenderList] = useState<Product[]>([]);
   const [expand, setExpand] = useState<boolean>(false);
 
   useEffect(() => {

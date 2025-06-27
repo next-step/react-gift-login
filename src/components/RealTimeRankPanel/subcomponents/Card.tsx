@@ -1,10 +1,10 @@
 import styled from "@emotion/styled";
-import type { product } from "@src/mock/mockData";
+import type { Product } from "@src/mock/mockData";
 import theme from "@src/styles/kakaoTheme";
 
 type CardProps = {
   no: number;
-  prod: product;
+  prod: Product;
 };
 
 function Card({ no, prod }: CardProps) {

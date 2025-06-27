@@ -1,4 +1,4 @@
-export type targetType = {
+export type TargetType = {
   query: string;
   label: string;
   children: string;
@@ -11,7 +11,7 @@ export const target = Object.freeze({
   TEEN: { query: "TEEN", label: "청소년이", children: "👦🏻" }
 });
 
-export type rankType = {
+export type RankType = {
   query: string;
   label: string;
 };

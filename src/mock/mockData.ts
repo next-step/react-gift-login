@@ -91,24 +91,24 @@ export const themeMockData = [
   }
 ];
 
-type brandInfo = {
+type BrandInfo = {
   id: number;
   name: string;
   imageURL: string;
 };
 
-type price = {
+type Price = {
   basicPrice: number;
   discountRate: number;
   sellingPrice: number;
 };
 
-export type product = {
+export type Product = {
   id: number;
   name: string;
   imageURL: string;
-  price: price;
-  brandInfo: brandInfo;
+  price: Price;
+  brandInfo: BrandInfo;
 };
 
 export const productMockData = {
