@@ -10,7 +10,7 @@ const StyledPresentRankingItemImage = styled.img`
   width: 100%;
 `;
 const StyledPresentRankingItemBrandName = styled.p`
-  color: ${({ theme }) => theme.symenticPalette.textDisabled};
+  color: ${({ theme }) => theme.sementicPalette.textDisabled};
   padding: ${({ theme }) => theme.spacing.spacing1};
 `;
 const StyledPresentRankingItemPresentItem = styled.p`

@@ -4,7 +4,7 @@ import RankingTagContainer from './RankingTagContainer';
 import { useState } from 'react';
 
 const StyledPresentRankingContainer = styled.div`
-  background-color: ${({ theme }) => theme.symenticPalette.backgroundDefault};
+  background-color: ${({ theme }) => theme.sementicPalette.backgroundDefault};
 `;
 
 const StyledPrsentRankingDiv = styled.div`
@@ -26,13 +26,18 @@ const StyledPresenetRankingAddItemBtn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${({ theme }) => theme.symenticPalette.backgroundDefault};
+  background-color: ${({ theme }) => theme.sementicPalette.backgroundDefault};
   border-radius: 3px;
   border: 1px solid ${({ theme }) => theme.palette.gray500};
 `;
-
+const StyledPresentRankingContainerTitle = styled.p`
+  ${({ theme }) => theme.typography.title1Bold};
+  padding: ${({ theme }) => theme.spacing.spacing2};
+`;
 const PresentRankingContainer = () => {
-  const [isVisible, setisVisible] = useState(false);
+  const [isVisible, setisVisible] = useState(true);
+  //기본값을 false라고 정의했더니 상품 랭킹 컴포넌트들이 많이 등장하게 되었다. -> 의도와는 다른 부분
+  //왜 기본값을 false라고 주었는데도 true인 상태로 PresentRankingItem에 보내지게 될까요?
 
   const handelToogle = () => {
     setisVisible((prev) => !prev);
@@ -40,7 +45,7 @@ const PresentRankingContainer = () => {
 
   return (
     <StyledPresentRankingContainer>
-      <p>실시간 급상승 선물랭킹</p>
+      <StyledPresentRankingContainerTitle>실시간 급상승 선물랭킹</StyledPresentRankingContainerTitle>
       <div>
         <RankingTagContainer></RankingTagContainer>
       </div>

@@ -1,9 +1,9 @@
 import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App.tsx';
-import { reset } from '@styles/reset.ts';
+import { reset } from '@styles/reset';
 import { Global, ThemeProvider } from '@emotion/react';
-import { theme } from './styles/theme.ts';
+import { theme } from './theme/theme';
 import { BrowserRouter } from 'react-router-dom';
 
 createRoot(document.getElementById('root')!).render(

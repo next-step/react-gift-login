@@ -12,7 +12,7 @@ const StyledRankingSexTagItem = styled.div`
   justify-content: center;
   margin: 10px;
   ${({ theme }) => theme.typography.label1Regular}
-  color: ${({ theme }) => theme.symenticPalette.textDefault};
+  color: ${({ theme }) => theme.sementicPalette.textDefault};
 `;
 
 const RankingSexTagItem = () => {

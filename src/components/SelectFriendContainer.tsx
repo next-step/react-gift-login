@@ -8,7 +8,7 @@ const StyledSelectFriendOuterContainer = styled.div`
 `;
 
 const StyledSelectFriendBtn = styled.div`
-  background-color: ${({ theme }) => theme.symenticPalette.backgroundDefault};
+  background-color: ${({ theme }) => theme.sementicPalette.backgroundDefault};
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -16,19 +16,19 @@ const StyledSelectFriendBtn = styled.div`
   border-radius: 15px;
   width: 100%;
   height: 100%;
-  margin: 20px;
+  margin: ${({ theme }) => theme.spacing.spacing4};
 `;
 const StyledSelectFriendBtnPlus = styled.div`
-  background-color: ${({ theme }) => theme.symenticPalette.kakaoYellow};
+  background-color: ${({ theme }) => theme.sementicPalette.kakaoYellow};
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 42px;
-  width: 42px;
-  margin: 10px;
+  height: 40px;
+  width: 50px;
   border-radius: 15px;
-  font: ${({ theme }) => theme.typography.label2Bold};
+  margin: ${({ theme }) => theme.spacing.spacing3};
+  ${({ theme }) => theme.typography.title1Bold};
 `;
 
 const StyledSelectFriendP = styled.p`

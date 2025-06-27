@@ -5,7 +5,7 @@ import RankingAnyTagItem from './RankingAnyTagItem';
 const StyledRankingTagContainer = styled.div`
   width: 720px;
   height: 150px;
-  background-color: ${({ theme }) => theme.symenticPalette.backgroundDefault};
+  background-color: ${({ theme }) => theme.sementicPalette.backgroundDefault};
 `;
 const StyledRankingSexTagContainer = styled.div`
   display: flex;
@@ -22,16 +22,14 @@ const StyledRankingAnyTagItem = styled.div`
 
 const RankingTag = () => {
   return (
-    <>
-      <StyledRankingTagContainer>
-        <StyledRankingSexTagContainer>
-          <RankingSexTagItem></RankingSexTagItem>
-        </StyledRankingSexTagContainer>
-        <StyledRankingAnyTagItem>
-          <RankingAnyTagItem></RankingAnyTagItem>
-        </StyledRankingAnyTagItem>
-      </StyledRankingTagContainer>
-    </>
+    <StyledRankingTagContainer>
+      <StyledRankingSexTagContainer>
+        <RankingSexTagItem></RankingSexTagItem>
+      </StyledRankingSexTagContainer>
+      <StyledRankingAnyTagItem>
+        <RankingAnyTagItem></RankingAnyTagItem>
+      </StyledRankingAnyTagItem>
+    </StyledRankingTagContainer>
   );
 };
 

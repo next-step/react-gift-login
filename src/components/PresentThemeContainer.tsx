@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import PresentThemeItem from './PresentThemeItem';
 
 const StyledPresentContainer = styled.div`
-  background-color: ${({ theme }) => theme.symenticPalette.backgroundDefault};
+  background-color: ${({ theme }) => theme.sementicPalette.backgroundDefault};
   padding-top: ${({ theme }) => theme.spacing.spacing6};
 `;
 const StyledPresentP = styled.p`
@@ -12,22 +12,22 @@ const StyledPresentP = styled.p`
 const StyledPresentThemeDiv = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  background-color: ${({ theme }) => theme.symenticPalette.backgroundDefault};
+  background-color: ${({ theme }) => theme.sementicPalette.backgroundDefault};
   width: 720px;
 `;
 
 const StyledExtraContainer = styled.div`
-  background-color: ${({ theme }) => theme.symenticPalette.kakaoYellow};
+  background-color: ${({ theme }) => theme.sementicPalette.kakaoYellow};
   margin: ${({ theme }) => theme.spacing.spacing3};
   border-radius: ${({ theme }) => theme.spacing.spacing5};
   padding: ${({ theme }) => theme.spacing.spacing4};
 `;
 const StyledExtraFristP = styled.div`
-  color: ${({ theme }) => theme.symenticPalette.textSub};
+  color: ${({ theme }) => theme.sementicPalette.textSub};
   ${({ theme }) => theme.typography.label1Regular};
 `;
 const StyledExtraSecondP = styled.div`
-  color: ${({ theme }) => theme.symenticPalette.textDefault};
+  color: ${({ theme }) => theme.sementicPalette.textDefault};
   ${({ theme }) => theme.typography.label1Bold};
 `;
 

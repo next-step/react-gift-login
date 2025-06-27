@@ -121,8 +121,8 @@ declare module '@emotion/react' {
     palette: {
       [key in palette]: string;
     };
-    symenticPalette: {
-      [key in symenticPalette]: string;
+    sementicPalette: {
+      [key in sementicPalette]: string;
     };
     typography: {
       [key in typography]: {

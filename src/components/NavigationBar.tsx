@@ -8,7 +8,7 @@ const Navbar = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: ${({ theme }) => theme.symenticPalette.backgroundDefault};
+  background-color: ${({ theme }) => theme.sementicPalette.backgroundDefault};
 `;
 
 const NavItem = styled.li`
