@@ -31,8 +31,8 @@ export const genderItems: GenderItems[] = [
 export type ActionItem = string;
 export const actionItems: ActionItem[] = ['받고 싶어한', '많이 선물한', '위시로 받은'];
 
-const mockRankingItem: RankingItem = {
-  id: 123,
+const mockRankingItem = (index: number): RankingItem => ({
+  id: 123 + index,
   name: 'BBQ 양념치킨+크림치즈볼+콜라1.25L',
   imageURL:
     'https://st.kakaocdn.net/product/gift/product/20231030175450_53e90ee9708f45ffa45b3f7b4bc01c7c.jpg',
@@ -47,6 +47,7 @@ const mockRankingItem: RankingItem = {
     imageURL:
       'https://st.kakaocdn.net/product/gift/gift_brand/20220216170226_38ba26d8eedf450683200d6730757204.png',
   },
-};
+});
 
-export const rankingItems: RankingItem[] = Array(21).fill(mockRankingItem); 
+// 리뷰3 Array.fill()얕은복사에서 Array.from()으로 독립적인 개체를 만들었습니다. 
+export const rankingItems: RankingItem[] = Array.from({ length: 21 }, (_, index) => mockRankingItem(index)); 
