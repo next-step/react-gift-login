@@ -1,10 +1,9 @@
-/** @jsxImportSource @emotion/react */
-import { css, useTheme } from '@emotion/react';
-import type { ThemeType } from '@/styles/theme';
+import styled from '@emotion/styled';
+
 import backIcon from '@/assets/icons/back.png';
 import userIcon from '@/assets/icons/user.png';
 
-const container = (theme: ThemeType) => css`
+const Container = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
@@ -12,11 +11,11 @@ const container = (theme: ThemeType) => css`
   
   height: 50px;
 
-  background-color: ${theme.color.semantic.background.default};
-  border-bottom: 1px solid ${theme.color.semantic.border.default};
+  background-color: ${({theme})=>theme.color.semantic.background.default};
+  border-bottom: 1px solid ${({ theme }) => theme.color.semantic.border.default};
 `;
 
-const back = css`
+const Back = styled.div`
   width: 24px;
   height: 24px;
   background-image: url(${backIcon});
@@ -24,12 +23,13 @@ const back = css`
   background-repeat: no-repeat;
 `;
 
-const title = (theme: ThemeType) => css`
+const Title = styled.div`
   font-size: 20px;
   font-weight: bold;
-  color: ${theme.color.semantic.text.default};
+  color: ${({ theme }) =>theme.color.semantic.text.default};
 `;
-const user = css`
+
+const User = styled.div`
   width: 24px;
   height: 24px;
   background-image: url(${userIcon});
@@ -38,14 +38,13 @@ const user = css`
 `;
 
 const NavigationBar = () => {
-    const theme = useTheme() as ThemeType;
 
     return (
-        <nav css={container(theme)}>
-            <div css={back} />
-            <div css={title(theme)}>선물하기</div>
-            <div css={user} />
-        </nav>
+        <Container>
+            <Back/>
+            <Title>선물하기</Title>
+            <User/>
+        </Container>
     );
 };
 

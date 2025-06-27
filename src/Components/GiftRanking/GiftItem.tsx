@@ -1,6 +1,4 @@
-/** @jsxImportSource @emotion/react */
-import { css, useTheme } from '@emotion/react';
-import type { ThemeType } from '@/styles/theme';
+import styled from '@emotion/styled';
 
 interface GiftItemProps {
   rank: number;
@@ -10,7 +8,8 @@ interface GiftItemProps {
   brand: string;
 }
 
-const card = css`
+// styled-components
+const Card = styled.div`
   width: 180px;
   display: flex;
   flex-direction: column;
@@ -18,59 +17,58 @@ const card = css`
   gap: 8px;
 `;
 
-const imageWrapper = css`
+const ImageWrapper = styled.div`
   width: 100%;
   position: relative;
 `;
 
-const image = css`
+const ProductImage = styled.img`
   width: 100%;
   border-radius: 8px;
 `;
 
+const RankBadge = styled.div`
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  background: ${({ theme }) => theme.color.red.red600};
+  color: ${({ theme }) => theme.color.gray.gray00};
+  font-size: 14px;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 50%;
+`;
+
+const Brand = styled.div`
+  font-size: 12px;
+  color: ${({ theme }) => theme.color.gray.gray700};
+`;
+
+const ProductName = styled.div`
+  font-size: 14px;
+  font-weight: bold;
+  color: ${({ theme }) => theme.color.semantic.text.default};
+  text-align: center;
+`;
+
+const Price = styled.div`
+  font-size: 15px;
+  font-weight: bold;
+  color: ${({ theme }) => theme.color.semantic.text.default};
+`;
+
+// main component
 const GiftItem = ({ rank, name, imageURL, price, brand }: GiftItemProps) => {
-  const theme = useTheme() as ThemeType;
-
-  const rankBadge = css`
-    position: absolute;
-    top: 4px;
-    left: 4px;
-    background: ${theme.color.red.red600};
-    color: ${theme.color.gray.gray00};
-    font-size: 14px;
-    font-weight: bold;
-    padding: 2px 6px;
-    border-radius: 50%;
-  `;
-
-  const brandStyle = css`
-    font-size: 12px;
-    color: ${theme.color.gray.gray700};
-  `;
-
-  const productName = css`
-    font-size: 14px;
-    font-weight: bold;
-    color: ${theme.color.semantic.text.default};
-    text-align: center;
-  `;
-
-  const priceStyle = css`
-    font-size: 15px;
-    font-weight: bold;
-    color: ${theme.color.semantic.text.default};
-  `;
-
   return (
-    <div css={card}>
-      <div css={imageWrapper}>
-        <img src={imageURL} alt={name} css={image} />
-        <div css={rankBadge}>{rank}</div>
-      </div>
-      <div css={brandStyle}>{brand}</div>
-      <div css={productName}>{name}</div>
-      <div css={priceStyle}>{price.toLocaleString()} 원</div>
-    </div>
+    <Card>
+      <ImageWrapper>
+        <ProductImage src={imageURL} alt={name} />
+        <RankBadge>{rank}</RankBadge>
+      </ImageWrapper>
+      <Brand>{brand}</Brand>
+      <ProductName>{name}</ProductName>
+      <Price>{price.toLocaleString()} 원</Price>
+    </Card>
   );
 };
 

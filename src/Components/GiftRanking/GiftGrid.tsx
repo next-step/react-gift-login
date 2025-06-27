@@ -1,8 +1,7 @@
-/** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react';
+import styled from '@emotion/styled';
 import GiftItem from './GiftItem';
 
-const giftList = Array.from({ length: 6 }).map((_, i) => ({
+const GiftList = Array.from({ length: 6 }).map((_, i) => ({
   rank: i + 1,
   name: 'BBQ 양념치킨+크림치즈볼+콜라1.25L',
   imageURL:
@@ -11,7 +10,7 @@ const giftList = Array.from({ length: 6 }).map((_, i) => ({
   brand: 'BBQ',
 }));
 
-const gridWrapper = css`
+const GridWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 32px;
@@ -20,11 +19,11 @@ const gridWrapper = css`
 
 const GiftGrid = () => {
   return (
-    <div css={gridWrapper}>
-      {giftList.map((gift) => (
+    <GridWrapper>
+      {GiftList.map((gift) => (
         <GiftItem key={gift.rank} {...gift} />
       ))}
-    </div>
+    </GridWrapper>
   );
 };
 

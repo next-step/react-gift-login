@@ -20,7 +20,7 @@ function App() {
         <SelectFriend />
         <GiftCategoryList />
         <Banner />
-        <GiftGrid>
+        <GiftGrid/>
           <GiftItem
             rank={1}
             name="BBQ 양념치킨+콜라"
@@ -28,7 +28,6 @@ function App() {
             price={29000}
             brand="BBQ"
           />
-        </GiftGrid>
       </Layout>
     </ThemeProvider>
   );

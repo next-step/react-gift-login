@@ -1,26 +1,24 @@
-/** @jsxImportSource @emotion/react */
-import { css, useTheme } from '@emotion/react';
-import type { ThemeType } from '@/styles/theme';
+import styled from '@emotion/styled';
 import { DataCategory } from '@/components/Category/DataCategory';
 
-const wrapper = css`
+const Wrapper = styled.div`
   margin-top: 40px;
 `;
 
-const titleStyle = (theme: ThemeType) => css`
+const Title = styled.div`
   font-size: 20px;
   font-weight: 600;
-  color: ${theme.color.semantic.text.default};
+  color: ${({ theme }) => theme.color.semantic.text.default};
   margin-bottom: 20px;
 `;
 
-const grid = css`
+const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
   gap: 28px 24px;
 `;
 
-const item = css`
+const Item = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,7 +27,7 @@ const item = css`
   gap: 8px;
 `;
 
-const imageStyle = css`
+const ImageStyle = styled.img`
   width: 70px;
   height: 70px;
   border-radius: 14px;
@@ -38,20 +36,19 @@ const imageStyle = css`
 
 
 const GiftCategoryList = () => {
-  const theme = useTheme() as ThemeType;
 
   return (
-    <section css={wrapper}>
-      <h2 css={titleStyle(theme)}>선물 테마</h2>
-      <div css={grid}>
+    <Wrapper>
+      <Title>선물 테마</Title>
+      <Grid>
         {DataCategory.map((itemData) => (
-          <div key={itemData.themeId} css={item}>
-            <img src={itemData.image} alt={itemData.name} css={imageStyle} />
+          <Item key={itemData.themeId}>
+            <ImageStyle src={itemData.image} alt={itemData.name} />
             <span>{itemData.name}</span>
-          </div>
+          </Item>
         ))}
-      </div>
-    </section>
+      </Grid>
+    </Wrapper>
   );
 };
 

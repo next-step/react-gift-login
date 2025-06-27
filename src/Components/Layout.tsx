@@ -1,15 +1,15 @@
-/** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react';
+import styled from '@emotion/styled';
+
 import type { ReactNode } from 'react';
 
-const layoutStyle = css`
+const LayoutStyle = styled.div`
   max-width: 720px;
   width: 100%;
   margin: 0 auto;
 `;
 
 const Layout = ({ children }: { children: ReactNode }) => {
-  return <div css={layoutStyle}>{children}</div>;
+  return <LayoutStyle>{children}</LayoutStyle>;
 };
 
 export default Layout;
