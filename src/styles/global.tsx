@@ -1,4 +1,5 @@
 
+
 import { Global, css } from '@emotion/react'
 import reset from './reset'
 
@@ -65,3 +66,4 @@ export const globalStyles = css`
 const GlobalStyle = () => <Global styles={globalStyles} />;
 
 export default GlobalStyle;
+
