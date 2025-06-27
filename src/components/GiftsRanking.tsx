@@ -5,6 +5,73 @@ import GiftItem from "./GiftItem";
 import { gifts } from "@/data/gift";
 import { useState } from "react";
 
+const GiftsRanking = () => {
+  const [selectedPersonType, setSelectedPersonType] = useState(
+    () => personType[0],
+  );
+  const [selectedPresentType, setSelectedPresentType] = useState(
+    () => presentType[0],
+  );
+  const [showMore, setShowMore] = useState(false);
+
+  const duplicatedMockGifts = Array(21)
+    .fill(null)
+    .flatMap((_, i) =>
+      gifts.map(gift => ({
+        ...gift,
+        id: gift.id + i,
+      })),
+    );
+  const visibleGifts = showMore
+    ? duplicatedMockGifts
+    : duplicatedMockGifts.slice(0, 6);
+
+  return (
+    <Background>
+      <RankingTitle>실시간 급상승 선물랭킹</RankingTitle>
+      <GiftPersonTypeFlex>
+        {personType.map((type, index) => (
+          <GiftPersonType
+            key={index}
+            icon={type.icon}
+            name={type.name}
+            selected={selectedPersonType === type}
+            onClick={() => setSelectedPersonType(type)}
+          />
+        ))}
+      </GiftPersonTypeFlex>
+      <PresentTypeFlex>
+        {presentType.map((type, index) => (
+          <PresentType
+            key={index}
+            selected={selectedPresentType === type}
+            onClick={() => setSelectedPresentType(type)}
+          >
+            {type}
+          </PresentType>
+        ))}
+      </PresentTypeFlex>
+      <GiftsGrid>
+        {visibleGifts.map((gift, index) => (
+          <GiftItem
+            key={gift.id}
+            gift={gift}
+            rank={index + 1}
+            isClickable={true}
+          />
+        ))}
+      </GiftsGrid>
+      <GiftsToggle>
+        <GiftsButton onClick={() => setShowMore(!showMore)}>
+          {showMore ? "접기" : "더보기"}
+        </GiftsButton>
+      </GiftsToggle>
+    </Background>
+  );
+};
+
+export default GiftsRanking;
+
 const Background = styled.div`
   width: 100%;
   height: 100%;
@@ -87,63 +154,3 @@ const GiftsButton = styled.button`
   line-height: ${({ theme }) => theme.typography.body2Regular.lineHeight};
   color: ${({ theme }) => theme.colors.semantic.text.default};
 `;
-
-const GiftsRanking = () => {
-  const [selectedPersonType, setSelectedPersonType] = useState(
-    () => personType[0],
-  );
-  const [selectedPresentType, setSelectedPresentType] = useState(
-    () => presentType[0],
-  );
-  const [showMore, setShowMore] = useState(false);
-
-  const repeatedGifts = Array(21)
-    .fill(null)
-    .flatMap((_, i) =>
-      gifts.map(gift => ({
-        ...gift,
-        id: gift.id + i,
-      })),
-    );
-  const visibleGifts = showMore ? repeatedGifts : repeatedGifts.slice(0, 6);
-
-  return (
-    <Background>
-      <RankingTitle>실시간 급상승 선물랭킹</RankingTitle>
-      <GiftPersonTypeFlex>
-        {personType.map((type, index) => (
-          <GiftPersonType
-            key={index}
-            icon={type.icon}
-            name={type.name}
-            selected={selectedPersonType === type}
-            onClick={() => setSelectedPersonType(type)}
-          />
-        ))}
-      </GiftPersonTypeFlex>
-      <PresentTypeFlex>
-        {presentType.map((type, index) => (
-          <PresentType
-            key={index}
-            selected={selectedPresentType === type}
-            onClick={() => setSelectedPresentType(type)}
-          >
-            {type}
-          </PresentType>
-        ))}
-      </PresentTypeFlex>
-      <GiftsGrid>
-        {visibleGifts.map((gift, index) => (
-          <GiftItem key={gift.id} gift={gift} rank={index + 1} />
-        ))}
-      </GiftsGrid>
-      <GiftsToggle>
-        <GiftsButton onClick={() => setShowMore(!showMore)}>
-          {showMore ? "접기" : "더보기"}
-        </GiftsButton>
-      </GiftsToggle>
-    </Background>
-  );
-};
-
-export default GiftsRanking;

@@ -20,11 +20,34 @@ interface Gift {
   brandInfo: BrandInfo;
 }
 
-const Flex = styled.div`
+type GiftItemProps = {
+  gift: Gift;
+  rank: number;
+  isClickable: boolean;
+};
+
+const GiftItem = ({ gift, rank, isClickable }: GiftItemProps) => {
+  return (
+    <GiftItemBox isClickable={isClickable}>
+      <RankDiv rank={rank}>{rank}</RankDiv>
+      <Img src={gift.imageURL} alt={gift.name} />
+      <BrandP>{gift.brandInfo.name}</BrandP>
+      <NameP>{gift.brandInfo.name}</NameP>
+      <PriceP>
+        {gift.price.sellingPrice}
+        <WonSpan> 원</WonSpan>
+      </PriceP>
+    </GiftItemBox>
+  );
+};
+
+export default GiftItem;
+
+const GiftItemBox = styled.div<{ isClickable: boolean }>`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  cursor: pointer;
+  cursor: ${({ isClickable }) => (isClickable ? "pointer" : "default")};
   position: relative;
 `;
 
@@ -82,20 +105,3 @@ const PriceP = styled.p`
 const WonSpan = styled.span`
   font-weight: ${({ theme }) => theme.typography.label1Regular.fontWeight};
 `;
-
-const GiftItem = ({ gift, rank }: { gift: Gift; rank: number }) => {
-  return (
-    <Flex>
-      <RankDiv rank={rank}>{rank}</RankDiv>
-      <Img src={gift.imageURL} alt={gift.name} />
-      <BrandP>{gift.brandInfo.name}</BrandP>
-      <NameP>{gift.brandInfo.name}</NameP>
-      <PriceP>
-        {gift.price.sellingPrice}
-        <WonSpan> 원</WonSpan>
-      </PriceP>
-    </Flex>
-  );
-};
-
-export default GiftItem;

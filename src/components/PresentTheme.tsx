@@ -6,6 +6,17 @@ type PresentThemeType = {
   image: string;
 };
 
+const PresentTheme = ({ theme }: { theme: PresentThemeType }) => {
+  return (
+    <Flex>
+      <Img src={theme.image} alt={theme.name} />
+      <P>{theme.name}</P>
+    </Flex>
+  );
+};
+
+export default PresentTheme;
+
 const Flex = styled.div`
   display: flex;
   flex-direction: column;
@@ -27,14 +38,3 @@ const P = styled.p`
   color: ${({ theme }) => theme.colors.semantic.text.default};
   margin: ${({ theme }) => theme.spacing.spacing0};
 `;
-
-const PresentTheme = ({ theme }: { theme: PresentThemeType }) => {
-  return (
-    <Flex>
-      <Img src={theme.image} alt={theme.name} />
-      <P>{theme.name}</P>
-    </Flex>
-  );
-};
-
-export default PresentTheme;

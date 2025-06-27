@@ -1,5 +1,23 @@
 import styled from "@emotion/styled";
 
+type FightingBoxProps = {
+  subMessage: string;
+  titleMessage: string;
+};
+
+const FightingBox = ({ subMessage, titleMessage }: FightingBoxProps) => {
+  return (
+    <FightingBoxSection>
+      <Box>
+        <SubP>{subMessage}</SubP>
+        <TitleP>{titleMessage}</TitleP>
+      </Box>
+    </FightingBoxSection>
+  );
+};
+
+export default FightingBox;
+
 const FightingBoxSection = styled.section`
   display: flex;
   align-items: center;
@@ -33,16 +51,3 @@ const TitleP = styled.p`
   color: ${({ theme }) => theme.colors.semantic.text.default};
   margin: ${({ theme }) => theme.spacing.spacing0};
 `;
-
-const FightingBox = () => {
-  return (
-    <FightingBoxSection>
-      <Box>
-        <SubP>카카오테크 캠퍼스 3기여러분</SubP>
-        <TitleP>프론트엔드 2단계 과제 화이팅! 🎉</TitleP>
-      </Box>
-    </FightingBoxSection>
-  );
-};
-
-export default FightingBox;

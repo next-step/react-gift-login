@@ -2,6 +2,21 @@ import styled from "@emotion/styled";
 import { presentThemes } from "@/data/present";
 import PresentTheme from "./PresentTheme";
 
+const PresentCategory = () => {
+  return (
+    <Background>
+      <CategoryTitle>선물 테마</CategoryTitle>
+      <ThemeGrid>
+        {presentThemes.map(theme => (
+          <PresentTheme key={theme.themeId} theme={theme} />
+        ))}
+      </ThemeGrid>
+    </Background>
+  );
+};
+
+export default PresentCategory;
+
 const Background = styled.div`
   width: 100%;
   height: 100%;
@@ -25,18 +40,3 @@ const ThemeGrid = styled.div`
   gap: ${({ theme }) => `${theme.spacing.spacing5} ${theme.spacing.spacing1}`};
   padding: ${({ theme }) => theme.spacing.spacing2};
 `;
-
-const PresentCategory = () => {
-  return (
-    <Background>
-      <CategoryTitle>선물 테마</CategoryTitle>
-      <ThemeGrid>
-        {presentThemes.map(theme => (
-          <PresentTheme key={theme.themeId} theme={theme} />
-        ))}
-      </ThemeGrid>
-    </Background>
-  );
-};
-
-export default PresentCategory;

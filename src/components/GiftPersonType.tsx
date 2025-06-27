@@ -1,5 +1,28 @@
 import styled from "@emotion/styled";
 
+type GiftPersonTypeProps = {
+  icon: string;
+  name: string;
+  selected: boolean;
+  onClick: () => void;
+};
+
+const GiftPersonType = ({
+  icon,
+  name,
+  selected,
+  onClick,
+}: GiftPersonTypeProps) => {
+  return (
+    <Flex onClick={onClick}>
+      <Icon selected={selected}>{icon}</Icon>
+      <Name selected={selected}>{name}</Name>
+    </Flex>
+  );
+};
+
+export default GiftPersonType;
+
 const Flex = styled.div`
   width: 58px;
   display: flex;
@@ -35,24 +58,3 @@ const Name = styled.p<{ selected: boolean }>`
     selected ? theme.colors.blue.blue700 : theme.colors.gray.gray700};
   margin: ${({ theme }) => theme.spacing.spacing0};
 `;
-
-const GiftPersonType = ({
-  icon,
-  name,
-  selected,
-  onClick,
-}: {
-  icon: string;
-  name: string;
-  selected: boolean;
-  onClick: () => void;
-}) => {
-  return (
-    <Flex onClick={onClick}>
-      <Icon selected={selected}>{icon}</Icon>
-      <Name selected={selected}>{name}</Name>
-    </Flex>
-  );
-};
-
-export default GiftPersonType;
