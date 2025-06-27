@@ -1,11 +1,32 @@
 import { useState } from 'react';
 import styled from '@emotion/styled';
 import { theme } from '@/styles/theme';
-import type { Product, AgeFilter, SortType } from '@/types';
+import type { Product, TargetFilter, CategoryFilter } from '@/types';
 
 interface RealTimeRankingProps {
   products: Product[];
 }
+
+const INITIAL_PRODUCT_COUNT = 6;
+
+const formatPrice = (price: number) => {
+  return `${price} 원`;
+};
+
+const getProfileIconText = (filter: TargetFilter) => {
+  switch (filter) {
+    case '전체':
+      return 'ALL';
+    case '여성이':
+      return '👩🏻';
+    case '남성이':
+      return '👨🏻';
+    case '청소년이':
+      return '👦🏻';
+    default:
+      return 'ALL';
+  }
+};
 
 const Container = styled.div`
   padding: ${theme.spacing.spacing4};
@@ -53,7 +74,7 @@ const ProfileIcon = styled.div<{ isActive: boolean }>`
   justify-content: center;
   font-size: 16px;
   font-weight: bold;
-  color: ${props => (props.isActive ? 'white' : theme.colors.gray700)};
+  color: ${props => (props.isActive ? 'white' : theme.colors.blue500)};
   position: relative;
 `;
 
@@ -146,7 +167,6 @@ const BrandName = styled.div`
   margin-bottom: ${theme.spacing.spacing1};
 `;
 
-// 새로운 Styled Component 추가: 두 번째 BrandName을 위한 더 진한 색상
 const StrongBrandName = styled(BrandName)`
   color: ${theme.colors
     .gray1000}; /* 더 진한 색상으로 변경, 예: theme.colors.gray1000 */
@@ -182,37 +202,25 @@ const MoreButton = styled.button`
   }
 `;
 
-const ageFilters: AgeFilter[] = ['전체', '여성이', '남성이', '청소년이'];
-const sortTypes: SortType[] = ['받고 싶어한', '많이 선물한', '위시로 받은'];
+const targetFilters: TargetFilter[] = ['전체', '여성이', '남성이', '청소년이'];
+const categoryFilter: CategoryFilter[] = [
+  '받고 싶어한',
+  '많이 선물한',
+  '위시로 받은',
+];
 
 export function RealTimeRanking({ products }: RealTimeRankingProps) {
-  const [selectedAge, setSelectedAge] = useState<AgeFilter>('남성이');
-  const [selectedSort, setSelectedSort] = useState<SortType>('받고 싶어한');
+  const [selectedTarget, setSelectedTarget] = useState<TargetFilter>('전체');
+  const [selectedCategory, setSelectedCategory] =
+    useState<CategoryFilter>('받고 싶어한');
   const [showAll, setShowAll] = useState(false);
 
-  const displayedProducts = showAll ? products : products.slice(0, 6);
+  const displayedProducts = showAll
+    ? products
+    : products.slice(0, INITIAL_PRODUCT_COUNT);
 
   const handleProductClick = (product: Product) => {
     console.log('상품 클릭:', product.name);
-  };
-
-  const formatPrice = (price: number) => {
-    return `${price} 원`;
-  };
-
-  const getProfileIconText = (filter: AgeFilter) => {
-    switch (filter) {
-      case '전체':
-        return 'ALL';
-      case '여성이':
-        return '👩';
-      case '남성이':
-        return '👨';
-      case '청소년이':
-        return '👦';
-      default:
-        return 'ALL';
-    }
   };
 
   return (
@@ -220,16 +228,16 @@ export function RealTimeRanking({ products }: RealTimeRankingProps) {
       <SectionTitle>실시간 급상승 선물랭킹</SectionTitle>
 
       <FilterContainer>
-        {ageFilters.map(filter => (
+        {targetFilters.map(filter => (
           <FilterTab
             key={filter}
-            isActive={selectedAge === filter}
-            onClick={() => setSelectedAge(filter)}
+            isActive={selectedTarget === filter}
+            onClick={() => setSelectedTarget(filter)}
           >
-            <ProfileIcon isActive={selectedAge === filter}>
+            <ProfileIcon isActive={selectedTarget === filter}>
               {getProfileIconText(filter)}
             </ProfileIcon>
-            <FilterLabel isActive={selectedAge === filter}>
+            <FilterLabel isActive={selectedTarget === filter}>
               {filter}
             </FilterLabel>
           </FilterTab>
@@ -237,13 +245,13 @@ export function RealTimeRanking({ products }: RealTimeRankingProps) {
       </FilterContainer>
 
       <SortContainer>
-        {sortTypes.map(sort => (
+        {categoryFilter.map(category => (
           <SortButton
-            key={sort}
-            isActive={selectedSort === sort}
-            onClick={() => setSelectedSort(sort)}
+            key={category}
+            isActive={selectedCategory === category}
+            onClick={() => setSelectedCategory(category)}
           >
-            {sort}
+            {category}
           </SortButton>
         ))}
       </SortContainer>
