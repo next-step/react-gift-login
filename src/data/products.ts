@@ -7,7 +7,7 @@ export const products = [
     price: {
       basicPrice: 29000,
       discountRate: 0,
-      sellingPrice: 29000,
+      sellingPrice: 29_000,
     },
     brandInfo: {
       id: 2088,
@@ -26,7 +26,7 @@ export const products = [
     price: {
       basicPrice: 28000,
       discountRate: 0,
-      sellingPrice: 28000,
+      sellingPrice: 28_000,
     },
     brandInfo: {
       id: 2088,
@@ -45,7 +45,7 @@ export const products = [
     price: {
       basicPrice: 27000,
       discountRate: 0,
-      sellingPrice: 27000,
+      sellingPrice: 27_000,
     },
     brandInfo: {
       id: 2088,
@@ -64,7 +64,7 @@ export const products = [
     price: {
       basicPrice: 27000,
       discountRate: 0,
-      sellingPrice: 27000,
+      sellingPrice: 27_000,
     },
     brandInfo: {
       id: 2088,
@@ -83,7 +83,7 @@ export const products = [
     price: {
       basicPrice: 27000,
       discountRate: 0,
-      sellingPrice: 27000,
+      sellingPrice: 27_000,
     },
     brandInfo: {
       id: 2088,
@@ -102,7 +102,7 @@ export const products = [
     price: {
       basicPrice: 27000,
       discountRate: 0,
-      sellingPrice: 27000,
+      sellingPrice: 27_000,
     },
     brandInfo: {
       id: 2088,
@@ -121,7 +121,7 @@ export const products = [
     price: {
       basicPrice: 27000,
       discountRate: 0,
-      sellingPrice: 27000,
+      sellingPrice: 27_000,
     },
     brandInfo: {
       id: 2088,
@@ -140,7 +140,7 @@ export const products = [
     price: {
       basicPrice: 27000,
       discountRate: 0,
-      sellingPrice: 27000,
+      sellingPrice: 27_000,
     },
     brandInfo: {
       id: 2088,
@@ -159,7 +159,7 @@ export const products = [
     price: {
       basicPrice: 27000,
       discountRate: 0,
-      sellingPrice: 27000,
+      sellingPrice: 27_000,
     },
     brandInfo: {
       id: 2088,
@@ -178,7 +178,7 @@ export const products = [
     price: {
       basicPrice: 27000,
       discountRate: 0,
-      sellingPrice: 27000,
+      sellingPrice: 27_000,
     },
     brandInfo: {
       id: 2088,
@@ -197,7 +197,7 @@ export const products = [
     price: {
       basicPrice: 27000,
       discountRate: 0,
-      sellingPrice: 27000,
+      sellingPrice: 27_000,
     },
     brandInfo: {
       id: 2088,
@@ -216,7 +216,7 @@ export const products = [
     price: {
       basicPrice: 27000,
       discountRate: 0,
-      sellingPrice: 27000,
+      sellingPrice: 27_000,
     },
     brandInfo: {
       id: 2088,
@@ -235,7 +235,7 @@ export const products = [
     price: {
       basicPrice: 27000,
       discountRate: 0,
-      sellingPrice: 27000,
+      sellingPrice: 27_000,
     },
     brandInfo: {
       id: 2088,
@@ -254,7 +254,7 @@ export const products = [
     price: {
       basicPrice: 27000,
       discountRate: 0,
-      sellingPrice: 27000,
+      sellingPrice: 27_000,
     },
     brandInfo: {
       id: 2088,
@@ -273,7 +273,7 @@ export const products = [
     price: {
       basicPrice: 27000,
       discountRate: 0,
-      sellingPrice: 27000,
+      sellingPrice: 27_000,
     },
     brandInfo: {
       id: 2088,
@@ -292,7 +292,7 @@ export const products = [
     price: {
       basicPrice: 27000,
       discountRate: 0,
-      sellingPrice: 27000,
+      sellingPrice: 27_000,
     },
     brandInfo: {
       id: 2088,
@@ -311,7 +311,7 @@ export const products = [
     price: {
       basicPrice: 27000,
       discountRate: 0,
-      sellingPrice: 27000,
+      sellingPrice: 27_000,
     },
     brandInfo: {
       id: 2088,
@@ -330,7 +330,7 @@ export const products = [
     price: {
       basicPrice: 27000,
       discountRate: 0,
-      sellingPrice: 27000,
+      sellingPrice: 27_000,
     },
     brandInfo: {
       id: 2088,
