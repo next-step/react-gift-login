@@ -9,7 +9,10 @@ const Category = () => {
   return (
     <div css={categoryStyle(theme)}>
       {categoryData.map((category) => (
-        <div key={category.themeId} className="category-item">
+        <div
+          css={categoryItemStyle(theme)}
+          key={category.themeId}
+          className="category-item">
           <img
             src={category.image}
             alt={category.name}
@@ -36,9 +39,16 @@ const categoryStyle = (theme: Theme) => css`
   border-bottom: 1px solid ${theme.colors.semantic.border.default};
 `;
 
+const categoryItemStyle = (theme: Theme) => css`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: ${theme.colors.semantic.text.default};
+`;
+
 const imageStyle = () => css`
-  width: 100%;
-  max-width: 120px;
+  width: 80%;
+  max-width: 100px;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   display: block;
