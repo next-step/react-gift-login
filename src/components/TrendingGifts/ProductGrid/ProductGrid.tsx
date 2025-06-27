@@ -1,0 +1,27 @@
+import styled from '@emotion/styled';
+import type { TrendingGiftsType } from '@/data/trendingGfitsMockData';
+import ProductCard from '../ProductCard/ProductCard';
+
+const ProductGridContainer = styled.div`
+  width: ${({ theme }) => theme.components.trendingGifts.contentWidth};
+  display: grid;
+  grid-template-columns: ${({ theme }) => theme.layout.grid.columns.fixed3};
+  gap: ${({ theme }) => theme.spacing[2]};
+  margin-top: ${({ theme }) => theme.spacing[4]};
+`;
+
+interface ProductGridPropsType {
+  products: TrendingGiftsType[];
+}
+
+function ProductGrid({ products }: ProductGridPropsType) {
+  return (
+    <ProductGridContainer>
+      {products.map((product, idx) => (
+        <ProductCard key={idx} product={product} index={idx} />
+      ))}
+    </ProductGridContainer>
+  );
+}
+
+export default ProductGrid;
