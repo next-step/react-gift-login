@@ -8,15 +8,25 @@ import ProductList from '@/components/ProductList';
 
 const Container = styled.div`
   max-width: 720px;
-  background: green;
-  min-height: 100vh;
+  min-height: 180vh;
+  background-color: white;
+
+  padding-bottom: 20px;
+`;
+
+const PageBackground = styled.div`
+  min-height: 11vh;
+  background: #f5f6fa; // 연한 회색
+  padding: 0;
 `;
 
 function MainPage() {
   return (
     <Container>
-      <Header />
-      <FriendSelectBox />
+      <PageBackground>
+        <Header />
+        <FriendSelectBox />
+      </PageBackground>
       <CategoryList />
       <NoticeBanner />
       <RankingFilter />

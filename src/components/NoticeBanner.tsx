@@ -5,9 +5,10 @@ const Banner = styled.div`
   align-items: center;
   border-radius: 10px;
 
-  margin: 10px 20px;
-  padding: 20px 20px;
+  margin: 0 20px;
   background-color: #ffe713;
+
+  height: 65px;
 `;
 
 function NoticeBanner() {

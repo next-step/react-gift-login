@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 const Box = styled.div`
   height: 43px;
-  margin: 15px 20px;
+  margin: 60px 10px 0;
   padding: 15px;
   border-radius: 20px;
   background-color: white;
@@ -18,7 +18,7 @@ const Box = styled.div`
 const Plus = styled.span`
   background-color: #ffe713;
   height: 30px;
-  weight: 30px;
+  width: 12px;
   border-radius: 20px;
 
   font-size: 20px;
