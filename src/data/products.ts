@@ -1,18 +1,4 @@
-export interface Product {
-  id: number;
-  name: string;
-  imageURL: string;
-  price: {
-    basicPrice: number;
-    discountRate: number;
-    sellingPrice: number;
-  };
-  brandInfo: {
-    id: number;
-    name: string;
-    imageURL: string;
-  };
-}
+import type { Product } from '@/types/product';
 
 export const mockProducts: Product[] = Array.from({ length: 21 }, (_, i) => ({
   id: 1000 + i,

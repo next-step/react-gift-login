@@ -1,8 +1,4 @@
-export interface Category {
-  themeId: number;
-  name: string;
-  image: string;
-}
+import type { Category } from '@/types/category';
 
 export const mockCategories: Category[] = [
   {
