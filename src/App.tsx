@@ -1,16 +1,27 @@
-import Logo from '@/assets/logo.png';
+import GlobalStyle from '@/styles/GlobalStyle';
+import Header from '@/components/Header';
+import Hero from '@/components/Hero';
+import CategoryList from '@/components/CategoryList';
+import FeaturedGifts from '@/components/FeaturedGifts';
+import SupportBanner from '@/components/SupportBanner';
+import LiveRanking from '@/components/LiveRanking';
+import Footer from '@/components/Footer';
+import { Container } from '@/styles/Container';
+
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
+    <>
+      <Container>
+        <GlobalStyle />
 
-      <>
-      <GlobalStyle />
-      <div>
-        <h2>불필요한 코드 삭제 후 App 화면</h2>
-        <h2>Complete!</h2>
-        <img src={Logo} alt="로고" width={100} />
-      </div>
+        <Header />
+        <Hero />
+        <CategoryList />
+        <FeaturedGifts />
+        <SupportBanner />
+        <LiveRanking />
+        <Footer />
+      </Container>
     </>
   );
 }

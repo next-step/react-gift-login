@@ -1,7 +1,6 @@
-/** @jsxImportSource @emotion/react */
 import { Global, css } from '@emotion/react';
 
-const GlobalStyle = () => (
+const GlobalStyle = () =>
   <Global
     styles={css`
       // reset css 역할
@@ -14,7 +13,7 @@ const GlobalStyle = () => (
       body {
         font-family: 'Pretendard', sans-serif;
         background-color: #fff;
-        color: #9631ac;
+        color:rgb(192, 48, 236);
         line-height: 2;
       }
       h2 {
@@ -29,3 +28,6 @@ const GlobalStyle = () => (
       }
     `}
   />
+
+export default GlobalStyle;
+
