@@ -157,7 +157,7 @@ const ProductImage = styled.img`
 
 const ProductInfo = styled.div`
   padding: ${theme.spacing.spacing2} ${theme.spacing.spacing3}
-    ${theme.spacing.spacing3};
+    ${theme.spacing.spacing3} 0;
 `;
 
 const BrandName = styled.div`
@@ -265,6 +265,7 @@ export function RealTimeRanking({ products }: RealTimeRankingProps) {
             <RankBadge>{index + 1}</RankBadge>
             <ProductImage src={product.imageURL} alt={product.name} />
             <ProductInfo>
+              <BrandName>{product.brandInfo.name}</BrandName>
               <StrongBrandName>{product.brandInfo.name}</StrongBrandName>
               <Price>{formatPrice(product.price.sellingPrice)}</Price>
             </ProductInfo>
