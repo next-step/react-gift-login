@@ -149,6 +149,13 @@ const GlobalStyle = () => (
         height: auto;
       }
 
+      button {
+        background: none;
+        border: none;
+        outline: none;
+        appearance: none;
+      }
+
       * {
         box-sizing: border-box;
       }

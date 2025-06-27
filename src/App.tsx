@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 import { ThemeProvider } from '@emotion/react';
 import { theme } from './theme/theme';
 import NavigationBar from '@components/NavigationBar';
+import ReceiverSelection from '@components/ReceiverSelection';
 
 const Warpper = styled.div`
   width: 100%;
@@ -46,7 +47,11 @@ const App = () => {
           <TopArea>
             <NavigationBar />
           </TopArea>
-          <MainArea>메인</MainArea>
+          <MainArea>
+            <main>
+              <ReceiverSelection />
+            </main>
+          </MainArea>
         </Warpper>
       </ThemeProvider>
     </>
