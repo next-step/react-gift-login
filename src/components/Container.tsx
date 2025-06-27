@@ -1,14 +1,19 @@
 import styled from "@emotion/styled";
+import type React from "react";
 
-const Container = ({ children }: any) => {
+type ContainerProps = {
+  children: React.ReactNode;
+};
+
+const Container = ({ children }: ContainerProps) => {
   return (
-    <ContainerDiv>
-      <ContentDiv>{children}</ContentDiv>
-    </ContainerDiv>
+    <Style>
+      <Content>{children}</Content>
+    </Style>
   );
 };
 
-const ContainerDiv = styled.div`
+const Style = styled.div`
   background-color: ${({ theme }) => theme.color.backgroundColor.fill};
   width: 100%;
   height: 100%;
@@ -16,7 +21,7 @@ const ContainerDiv = styled.div`
   flex-direction: column;
   align-items: center;
 `;
-const ContentDiv = styled.div`
+const Content = styled.div`
   max-width: 720px;
   width: 100%;
 `;

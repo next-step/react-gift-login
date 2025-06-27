@@ -1,10 +1,10 @@
 import styled from "@emotion/styled";
 
 const Divider = () => {
-  return <Container />;
+  return <Style />;
 };
 
-const Container = styled.div`
+const Style = styled.div`
   width: 100%;
   height: 30px;
   background-color: ${({ theme }) => theme.color.backgroundColor.default};

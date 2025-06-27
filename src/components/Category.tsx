@@ -6,15 +6,15 @@ const Category = () => {
   const categoryList: CategoryType[] = categoryMock;
   return (
     <Container>
-      <TitleDiv>선물 테마</TitleDiv>
-      <CategoryListDiv>
+      <Title>선물 테마</Title>
+      <List>
         {categoryList.map((category) => (
-          <CategoryDiv key={category.themeId}>
-            <CategoryImg src={category.image} alt={category.name} />
-            <CategoryName>{category.name}</CategoryName>
-          </CategoryDiv>
+          <Item key={category.themeId}>
+            <Img src={category.image} alt={category.name} />
+            <Name>{category.name}</Name>
+          </Item>
         ))}
-      </CategoryListDiv>
+      </List>
     </Container>
   );
 };
@@ -26,7 +26,7 @@ const Container = styled.section`
   padding: ${({ theme }) => theme.spacing.spacing1};
   background-color: ${({ theme }) => theme.color.backgroundColor.default};
 `;
-const TitleDiv = styled.div`
+const Title = styled.div`
   padding-left: ${({ theme }) => theme.spacing.spacing2};
   padding-top: 0;
   padding-right: ${({ theme }) => theme.spacing.spacing2};
@@ -34,13 +34,13 @@ const TitleDiv = styled.div`
   margin-right: auto;
   font: ${({ theme }) => theme.typography.title1Bold};
 `;
-const CategoryListDiv = styled.div`
+const List = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: ${({ theme }) => theme.spacing.spacing5} ${({ theme }) => theme.spacing.spacing2};
 `;
-const CategoryDiv = styled.div`
+const Item = styled.div`
   width: 100%;
   height: 100;
   display: flex;
@@ -50,7 +50,7 @@ const CategoryDiv = styled.div`
   gap: 0.25;
   cursor: pointer;
 `;
-const CategoryImg = styled.img`
+const Img = styled.img`
   max-width: 3.125rem;
   max-height: 3.125rem;
   width: 100%;
@@ -58,7 +58,7 @@ const CategoryImg = styled.img`
   object-fit: cover;
   overflow: hidden;
 `;
-const CategoryName = styled.p`
+const Name = styled.p`
   font: ${({ theme }) => theme.typography.label2Regular};
   color: ${({ theme }) => theme.color.textColor.default};
 `;

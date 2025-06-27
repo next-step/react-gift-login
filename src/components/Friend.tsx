@@ -1,25 +1,13 @@
 import styled from "@emotion/styled";
+import Plus from "@/components/icons/Plus";
 
 const Friend = () => {
   return (
     <Container>
       <Content>
-        <PlusDiv>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="#2a3038"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M5 12h14"></path>
-            <path d="M12 5v14"></path>
-          </svg>
-        </PlusDiv>
+        <PlusWrapper>
+          <Plus />
+        </PlusWrapper>
         <Msg>선물할 친구를 선택해 주세요.</Msg>
       </Content>
     </Container>
@@ -43,7 +31,7 @@ const Content = styled.button`
   justify-content: center;
   cursor: pointer;
 `;
-const PlusDiv = styled.div`
+const PlusWrapper = styled.div`
   width: 2.6rem;
   height: 2.6rem;
   display: flex;

@@ -1,6 +1,6 @@
-import type { RankingCategoryTargetType } from "@/types/RankingCategoryTargetType";
+import type { RankingTargetCategoryType } from "@/types/RankingTargetCategoryType";
 
-export const rankingCategoryTarget: RankingCategoryTargetType[] = [
+export const rankingTargetCategory: RankingTargetCategoryType[] = [
   {
     image: "ALL",
     name: "전체",

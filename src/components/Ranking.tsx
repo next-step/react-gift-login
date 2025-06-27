@@ -3,55 +3,58 @@ import { useTheme } from "@emotion/react";
 import styled from "@emotion/styled";
 import { useState } from "react";
 import RankingList from "@/components/RankingList";
-import type { RankingCategoryTargetType } from "@/types/RankingCategoryTargetType";
-import { rankingCategoryTarget } from "@/assets/rankingCategoryTarget";
+import type { RankingTargetCategoryType } from "@/types/RankingTargetCategoryType";
+import { rankingTargetCategory } from "@/assets/rankingTargetCategory";
 
-const rankingCategoryTargetList: RankingCategoryTargetType[] = rankingCategoryTarget;
-const rankingCategoryRankList = {
+const rankingTargetCategoryList: RankingTargetCategoryType[] = rankingTargetCategory;
+const rankingRankCategoryList = {
   MANY_WISH: "받고 싶어한",
   MANY_RECEIVE: "많이 선물한",
   MANY_WISH_RECEIVE: "위시로 받은",
 } as const;
 
 const Ranking = () => {
-  const [category, setCategory] = useState(0);
-  const [wishCategory, setWishCategory] = useState(0);
+  const [selectedTargetCategory, setSelectedTargetCategory] = useState(rankingTargetCategoryList[0].targetType);
+  const [selectedRankCategory, setSelectedRankCategory] = useState(Object.keys(rankingRankCategoryList)[0]);
   const theme = useTheme();
+  const isSelected = (element: string, selected: string) => {
+    return element === selected;
+  };
   return (
     <Container>
       <Title>실시간 급상승 선물랭킹</Title>
       <NavBar>
-        <CategoryList>
-          {rankingCategoryTargetList.map((e, index) => (
-            <Category
-              key={index}
+        <TargetCategoryList>
+          {rankingTargetCategoryList.map((e) => (
+            <TargetCategory
+              key={e.targetType}
               onClick={() => {
-                setCategory(index);
+                setSelectedTargetCategory(e.targetType);
               }}
             >
-              <CategoryImg selected={category == index ? true : false} theme={theme}>
+              <TargetCategoryImg selected={isSelected(e.targetType, selectedTargetCategory)} theme={theme}>
                 {e.image}
-              </CategoryImg>
-              <CategoryName selected={category == index ? true : false} theme={theme}>
+              </TargetCategoryImg>
+              <TargetCategoryName selected={isSelected(e.targetType, selectedTargetCategory)} theme={theme}>
                 {e.name}
-              </CategoryName>
-            </Category>
+              </TargetCategoryName>
+            </TargetCategory>
           ))}
-        </CategoryList>
-        <WishCategoryList>
-          {Object.entries(rankingCategoryRankList).map((e, index) => (
-            <WishCategory
-              key={index}
-              selected={wishCategory == index ? true : false}
+        </TargetCategoryList>
+        <RankCategoryList>
+          {Object.entries(rankingRankCategoryList).map(([keyword, value]) => (
+            <RankCategory
+              key={keyword}
+              selected={isSelected(keyword, selectedRankCategory)}
               theme={theme}
               onClick={() => {
-                setWishCategory(index);
+                setSelectedRankCategory(keyword);
               }}
             >
-              {e}
-            </WishCategory>
+              {value}
+            </RankCategory>
           ))}
-        </WishCategoryList>
+        </RankCategoryList>
       </NavBar>
       <RankingList />
     </Container>
@@ -74,13 +77,13 @@ const NavBar = styled.div`
   align-items: center;
   justify-content: center;
 `;
-const CategoryList = styled.div`
+const TargetCategoryList = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
   margin-bottom: ${({ theme }) => theme.spacing.spacing5};
 `;
-const Category = styled.button`
+const TargetCategory = styled.button`
   width: 3.625rem;
   padding: 0;
   display: flex;
@@ -96,7 +99,7 @@ type SelectedAndTheme = {
   selected: boolean;
   theme: ThemeType;
 };
-const CategoryImg = styled.div<SelectedAndTheme>`
+const TargetCategoryImg = styled.div<SelectedAndTheme>`
   width: 2.75rem;
   height: 2.75rem;
   display: flex;
@@ -108,11 +111,11 @@ const CategoryImg = styled.div<SelectedAndTheme>`
   color: ${(props) => (props.selected ? props.theme.color.gray00 : props.theme.color.gray500)};
   font-weight: bold;
 `;
-const CategoryName = styled.p<SelectedAndTheme>`
+const TargetCategoryName = styled.p<SelectedAndTheme>`
   font: ${({ theme }) => theme.typography.label1Bold};
   color: ${(props) => (props.selected ? props.theme.color.blue600 : props.theme.color.gray500)};
 `;
-const WishCategoryList = styled.div`
+const RankCategoryList = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
@@ -122,7 +125,7 @@ const WishCategoryList = styled.div`
   padding: 12px 16px;
   margin-bottom: 20px;
 `;
-const WishCategory = styled.button<SelectedAndTheme>`
+const RankCategory = styled.button<SelectedAndTheme>`
   width: 100%;
   font: ${(props) => (props.selected ? props.theme.typography.label1Bold : props.theme.typography.label1Regular)};
   align-items: center;

@@ -6,17 +6,17 @@ import type { ThemeType } from "@/types/ThemeType";
 import { useTheme } from "@emotion/react";
 import type { RankingItemType } from "@/types/RankingItemType";
 
-const rankingListViewCount = 6;
+const rankingListItemViewCount = 6;
 
 const RankingList = () => {
-  const [viewCount, setViewCount] = useState(rankingListViewCount);
+  const [viewCount, setViewCount] = useState(rankingListItemViewCount);
   const theme = useTheme();
   const rankingItem: RankingItemType[] = rankingItemMock;
   return (
     <Container>
       <Content>
         {rankingItem.slice(0, viewCount).map((item, index) => (
-          <Item key={index + 1}>
+          <Item key={item.id}>
             <ItemRank ranking={index + 1} theme={theme}>
               {index + 1}
             </ItemRank>
@@ -36,10 +36,12 @@ const RankingList = () => {
       <ItemContent>
         <MoreBtn
           onClick={() => {
-            viewCount == rankingListViewCount ? setViewCount(rankingItemMock.length) : setViewCount(6);
+            viewCount === rankingListItemViewCount
+              ? setViewCount(rankingItemMock.length)
+              : setViewCount(rankingListItemViewCount);
           }}
         >
-          {viewCount == rankingListViewCount ? "더보기" : "접기"}
+          {viewCount === rankingListItemViewCount ? "더보기" : "접기"}
         </MoreBtn>
       </ItemContent>
       <Divider />
