@@ -143,6 +143,12 @@ const GlobalStyle = () => (
         font-family: 'Pretendard Variable', sans-serif;
       }
 
+      img,
+      svg {
+        display: block;
+        height: auto;
+      }
+
       * {
         box-sizing: border-box;
       }

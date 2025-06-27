@@ -3,6 +3,7 @@ import GlobalStyle from './styles/global';
 import styled from '@emotion/styled';
 import { ThemeProvider } from '@emotion/react';
 import { theme } from './theme/theme';
+import NavigationBar from '@components/NavigationBar';
 
 const Warpper = styled.div`
   width: 100%;
@@ -42,7 +43,9 @@ const App = () => {
       <GlobalStyle />
       <ThemeProvider theme={theme}>
         <Warpper>
-          <TopArea>상단</TopArea>
+          <TopArea>
+            <NavigationBar />
+          </TopArea>
           <MainArea>메인</MainArea>
         </Warpper>
       </ThemeProvider>
