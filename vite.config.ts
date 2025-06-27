@@ -3,7 +3,15 @@ import react from "@vitejs/plugin-react";
 import path from "path"; // ✅ Node.js path 모듈 사용
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(
+    {
+      babel: {
+        plugins: [
+          ["@emotion/babel-plugin"],
+        ],
+      },
+    }
+  )],
   resolve: {
     alias: [
       {
