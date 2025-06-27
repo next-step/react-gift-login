@@ -344,16 +344,23 @@ const ExtraBtn = styled.button`
   cursor: pointer;
 `
 
-
-
 function App() {
   const [selectedGroup, setSelectedGroup] = useState(''); // 전체, 여성이, 남성이, 청소년이중 하나를 선택했다는 것을 저장하기 위한 state
   const [selectRankingType, setSelectRankingType] = useState(''); // 받고 싶어한, 많이 선물한, 위시로 받은중 하나를 선택했다는 것을 저장하기 위한 state
-  const [iscollapsed, setIsCollapsed] = useState(true); // 실시간 급상승 선물랭킹을 더보기 줄이기 할 수 있는 버튼의 상태를 저장하기 위한 state
+  const [isCollapsed, setIsCollapsed] = useState(true); // 실시간 급상승 선물랭킹을 더보기 줄이기 할 수 있는 버튼의 상태를 저장하기 위한 state
 
-  const toggleCollapse = () => {
-    setIsCollapsed(!iscollapsed);
-  };
+  const rankTypes = [
+    { type: 'WANT', label: '받고 싶어한' },
+    { type: 'MANY', label: '많이 선물한' },
+    { type: 'WISH', label: '위시로 받은' },
+  ];
+
+  const rankGroup = [
+    { group: 'ALL', label: 'ALL', text: '전체' },
+    { group: 'FEMALE', label: '👩🏻', text: '여성이'},
+    { group: 'MALE', label: '👨🏻', text: '남성이' },
+    { group: 'TEEN', label: '👦🏻', text: '청소년이' },
+  ]
 
   return (
     <>
@@ -384,42 +391,34 @@ function App() {
           <RealtimeRankWrapper>
             <RealtimeRankTitle>실시간 급상승 선물랭킹</RealtimeRankTitle>
             <RealtimeRankNavWrapper>
-              <RealtimeRankNavBtnTitleWrapper>
-                <RealtimeRankNavBtn onClick={() => setSelectedGroup('ALL')} isSelected={selectedGroup === 'ALL'}>ALL</RealtimeRankNavBtn>
+              {rankGroup.map(({ group, label }) => (
+                <RealtimeRankNavBtnTitleWrapper>
+                <RealtimeRankNavBtn onClick={() => setSelectedGroup(group)} isSelected={selectedGroup === group}>{label}</RealtimeRankNavBtn>
                 <RealtimeRankNavTitle>전체</RealtimeRankNavTitle>
-              </RealtimeRankNavBtnTitleWrapper>
-              <RealtimeRankNavBtnTitleWrapper>
-                <RealtimeRankNavBtn onClick={() => setSelectedGroup('FEMALE')} isSelected={selectedGroup === 'FEMALE'}>👩🏻</RealtimeRankNavBtn>
-                <RealtimeRankNavTitle>여성이</RealtimeRankNavTitle>
-              </RealtimeRankNavBtnTitleWrapper>
-              <RealtimeRankNavBtnTitleWrapper>
-                <RealtimeRankNavBtn onClick={() => setSelectedGroup('MALE')} isSelected={selectedGroup === 'MALE'}>👨🏻</RealtimeRankNavBtn>
-                <RealtimeRankNavTitle>남성이</RealtimeRankNavTitle>
-              </RealtimeRankNavBtnTitleWrapper>
-              <RealtimeRankNavBtnTitleWrapper>
-                <RealtimeRankNavBtn onClick={() => setSelectedGroup('TEEN')} isSelected={selectedGroup === 'TEEN'}>👦🏻</RealtimeRankNavBtn>
-                <RealtimeRankNavTitle>청소년이</RealtimeRankNavTitle>
-              </RealtimeRankNavBtnTitleWrapper>
+                </RealtimeRankNavBtnTitleWrapper>
+              ))}
             </RealtimeRankNavWrapper>
             <RealtimeRankNav2Wrapper>
-              <RealtimeRankNav2Btn onClick={() => setSelectRankingType('WANT')} isSelected={selectRankingType === 'WANT'}>받고 싶어한</RealtimeRankNav2Btn>
-              <RealtimeRankNav2Btn onClick={() => setSelectRankingType('MANY')} isSelected={selectRankingType === 'MANY'}>많이 선물한</RealtimeRankNav2Btn>
-              <RealtimeRankNav2Btn onClick={() => setSelectRankingType('WISH')} isSelected={selectRankingType === 'WISH'}>위시로 받은</RealtimeRankNav2Btn>
+              {rankTypes.map(({ type, label }) => (
+                <RealtimeRankNav2Btn key={type} onClick={() => setSelectRankingType(type)} isSelected={selectRankingType === type}>
+                  {label}
+                </RealtimeRankNav2Btn>
+              ))}
             </RealtimeRankNav2Wrapper>
             <RealtimeRankItemWrapper>
-              <RealtimeRankItemList collapsed={iscollapsed}>
+              <RealtimeRankItemList collapsed={isCollapsed}>
               </RealtimeRankItemList>
             </RealtimeRankItemWrapper>
           </RealtimeRankWrapper>
           <ExtraBtnWrapper>
-            <ExtraBtn onClick={toggleCollapse}>{iscollapsed ? '더보기' : '접기'}</ExtraBtn>
+            <ExtraBtn onClick={() => {setIsCollapsed(!isCollapsed);}}>{isCollapsed ? '더보기' : '접기'}</ExtraBtn>
           </ExtraBtnWrapper>
         </Main>
       </Layout>
     </ThemeProvider>
-
     </>
   )
 }
+
 
 export default App
