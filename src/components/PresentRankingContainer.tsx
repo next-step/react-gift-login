@@ -10,6 +10,7 @@ const StyledPresentRankingContainer = styled.div`
 const StyledPrsentRankingDiv = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
 `;
 const StyledPresenetRankingAddItemBtnDiv = styled.div`
   display: flex;
