@@ -1,3 +1,4 @@
+const FILTER_LABELS = ['전체', '여성', '남성', '청소년이'];
 import type { Theme } from '@emotion/react';
 import { css, useTheme } from '@emotion/react';
 
@@ -24,10 +25,11 @@ export default function RankingFilterTabs() {
 
   return (
     <div css={tabsWrapper(theme)}>
-      <div css={tabItem(theme)}>전체</div>
-      <div css={tabItem(theme)}>여성</div>
-      <div css={tabItem(theme)}>남성</div>
-      <div css={tabItem(theme)}>청소년이</div>
+      {FILTER_LABELS.map((label) => (
+        <div key={label} css={tabItem(theme)}>
+          {label}
+        </div>
+      ))}
     </div>
   );
 }
