@@ -1,5 +1,13 @@
+import React, { useState } from 'react'
 import styled from '@emotion/styled'
 import PersonIcon from '@mui/icons-material/Person'
+
+const filters = [
+  { key: 'all', label: '전체', icon: null },
+  { key: 'female', label: '여성', icon: <PersonIcon style={{fontSize: 28}} /> },
+  { key: 'male', label: '남성', icon: <PersonIcon style={{fontSize: 28}} /> },
+  { key: 'teen', label: '청소년', icon: <PersonIcon style={{fontSize: 28}} /> },
+]
 
 const rankingData = Array(3).fill({
   id: 123,
@@ -177,14 +185,22 @@ const MoreBtn = styled.button`
 `
 
 const RankingSection = () => {
+  const [selected, setSelected] = useState('all')
+
   return (
     <Section>
       <Title>실시간 급상승 선물랭킹</Title>
       <FilterRow>
-        <FilterBtn active>ALL</FilterBtn>
-        <FilterBtn><PersonIcon style={{fontSize: 28}} /><FilterLabel>여성</FilterLabel></FilterBtn>
-        <FilterBtn><PersonIcon style={{fontSize: 28}} /><FilterLabel>남성</FilterLabel></FilterBtn>
-        <FilterBtn><PersonIcon style={{fontSize: 28}} /><FilterLabel>청소년</FilterLabel></FilterBtn>
+        {filters.map(f => (
+          <FilterBtn
+            key={f.key}
+            active={selected === f.key}
+            onClick={() => setSelected(f.key)}
+          >
+            {f.icon}
+            <FilterLabel>{f.label}</FilterLabel>
+          </FilterBtn>
+        ))}
       </FilterRow>
       <TabRow>
         <TabBtn active>받고 싶어한</TabBtn>
@@ -194,7 +210,7 @@ const RankingSection = () => {
       <Grid>
         {rankingData.map((item) => (
           <Card key={item.id}>
-            <RankBadge>{item.id + 1}</RankBadge>
+            <RankBadge>{item.id}</RankBadge>
             <ProductImg src={item.imageURL} alt={item.name} />
             <Brand>{item.brandInfo.name}</Brand>
             <ProductName>{item.name}</ProductName>
