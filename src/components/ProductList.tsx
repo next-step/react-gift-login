@@ -17,24 +17,6 @@ const Item = styled.li`
   text-align: center;
 `;
 
-const Img = styled.img`
-  width: 100%;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 8px;
-`;
-
-const Name = styled.div`
-  font-size: 15px;
-  margin-bottom: 4px;
-`;
-
-const Price = styled.div`
-  font-weight: bold;
-  color: #222;
-`;
-
 const MoreButton = styled.button`
   margin: 30px auto 20px auto;
   padding: 16px 0;
