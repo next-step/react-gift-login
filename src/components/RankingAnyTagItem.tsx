@@ -3,14 +3,11 @@ import styled from '@emotion/styled';
 const anyTagItemlist = ['받고 싶어한', '많이 선물한', '위시로 받은'];
 
 const StyledRankingAnyTagItem = styled.div`
-  width: 300px;
-  height: 50px;
-  background-color: ${({ theme }) => theme.palette.blue200};
-  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 5px;
+  padding: ${({ theme }) => theme.spacing.spacing4};
+  color: ${({ theme }) => theme.palette.blue600};
 `;
 
 const RankingAnyTagItem = () => {

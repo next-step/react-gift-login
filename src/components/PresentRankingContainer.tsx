@@ -23,6 +23,12 @@ const StyledPresenetRankingAddItemBtn = styled.button`
   width: 80%;
   height: 80%;
   padding: ${({ theme }) => theme.spacing.spacing5};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${({ theme }) => theme.symenticPalette.backgroundDefault};
+  border-radius: 3px;
+  border: 1px solid ${({ theme }) => theme.palette.gray500};
 `;
 
 const PresentRankingContainer = () => {

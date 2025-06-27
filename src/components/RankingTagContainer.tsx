@@ -13,9 +13,11 @@ const StyledRankingSexTagContainer = styled.div`
   justify-content: space-between;
 `;
 const StyledRankingAnyTagItem = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: ${({ theme }) => theme.palette.blue100};
+  border-radius: 10px;
+  width: 100%;
 `;
 
 const RankingTag = () => {
