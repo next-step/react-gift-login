@@ -1,13 +1,13 @@
 import { useState } from "react";
 
-type stateHook = {
-  value: string;
-  setter: (value: string) => void;
+type StateHook<T> = {
+  value: T;
+  setValue: (value: T) => void;
 };
 
 export type UserInfoHook = {
-  email: stateHook;
-  password: stateHook;
+  email: StateHook<string>;
+  password: StateHook<string>;
 };
 
 export default function useUserInfo() {
