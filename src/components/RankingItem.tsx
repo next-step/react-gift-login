@@ -1,4 +1,3 @@
-/** @jsxImportSource @emotion/react */
 import styled from '@emotion/styled';
 import type { Product } from '@/types/Product';
 
@@ -14,13 +13,11 @@ const Card = styled.li`
 
 const ItemImage = styled.div`
   position: relative;
-  border-radius: 4px;
   overflow: hidden;
 
   img {
     width: 100%;
-    aspect-ratio: 1/1;
-    object-fit: cover;
+    border-radius: 4px;
   }
 `;
 
@@ -33,8 +30,7 @@ const RankBadge = styled.span<{ top3: boolean }>`
   justify-content: center;
   min-width: 20px;
   height: 20px;
-  background: ${({ top3, theme }) =>
-    top3 ? theme.colors.red[600] : theme.colors.gray[600]};
+  background: ${({ top3, theme }) => (top3 ? theme.colors.red[600] : theme.colors.gray[600])};
   border-radius: 4px;
   ${({ theme }) => theme.typography.label2Bold};
   color: #fff;

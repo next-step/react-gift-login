@@ -1,7 +1,6 @@
-/** @jsxImportSource @emotion/react */
 import styled from '@emotion/styled';
 import { IoIosArrowBack } from 'react-icons/io';
-import { GoPerson } from "react-icons/go";
+import { GoPerson } from 'react-icons/go';
 
 const Nav = styled.header`
   position: sticky;
