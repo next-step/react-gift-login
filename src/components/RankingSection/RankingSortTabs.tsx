@@ -17,9 +17,10 @@ const Tab = styled.button`
 export const RankingSortTabs = () => {
   return (
     <TabWrapper>
-      {tabs.map((label, i) => (
-        <Tab key={i}>{label}</Tab>
+      {tabs.map((label) => (
+        <Tab key={label}>{label}</Tab>
       ))}
+
     </TabWrapper>
   )
 }

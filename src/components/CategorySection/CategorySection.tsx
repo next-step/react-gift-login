@@ -1,13 +1,11 @@
-
 import styled from '@emotion/styled'
 import { categories } from '@/data/categories'
 
 const Section = styled.section`
-  background-color: white;
-  border-radius: 12px;
+  background-color: ${({ theme }) => theme.colors.background.default};
+  border-radius: 12px; 
   padding: ${({ theme }) => theme.spacing.spacing5};
   margin-top: ${({ theme }) => theme.spacing.spacing6};
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04); 
 `
 
 const Title = styled.h3`
@@ -18,10 +16,9 @@ const Title = styled.h3`
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(5, 1fr);  /* ✅ 5열 고정 */
+  grid-template-columns: repeat(5, 1fr);
   gap: ${({ theme }) => theme.spacing.spacing4};
 `
-
 
 const Item = styled.button`
   display: flex;
@@ -29,28 +26,25 @@ const Item = styled.button`
   align-items: center;
   text-align: center;
   border: none;
-  outline: none;       
+  outline: none;
   background: none;
   cursor: pointer;
   padding: 0;
   transition: opacity 0.2s;
 
   &:focus {
-    outline: none;       
+    outline: none;
   }
 
   &:active {
     outline: none;
   }
-
-  
 `
 
-
 const Image = styled.img`
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
+  width: ${({ theme }) => theme.spacing.spacing14};  // 56px
+  height: ${({ theme }) => theme.spacing.spacing14};
+  border-radius: 50%;  
 `
 
 const Label = styled.p`
@@ -60,17 +54,17 @@ const Label = styled.p`
 `
 
 export const CategorySection = () => {
-    return (
-        <Section>
-            <Title>선물 테마</Title>
-            <Grid>
-                {categories.map(({ themeId, name, image }) => (
-                    <Item key={themeId} onClick={() => { /* 나중에 구현 예정 */ }}>
-                        <Image src={image} alt={name} />
-                        <Label>{name}</Label>
-                    </Item>
-                ))}
-            </Grid>
-        </Section>
-    )
+  return (
+    <Section>
+      <Title>선물 테마</Title>
+      <Grid>
+        {categories.map(({ themeId, name, image }) => (
+          <Item key={themeId} onClick={() => { /* 나중에 구현 예정 */ }}>
+            <Image src={image} alt={name} />
+            <Label>{name}</Label>
+          </Item>
+        ))}
+      </Grid>
+    </Section>
+  )
 }
