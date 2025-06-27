@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -21,5 +21,7 @@ export const BarButton = styled.button<{ active: boolean }>`
   font-weight: ${({ active }) => (active ? 700 : 400)};
   font-size: ${({ theme }) => theme.typography.body1Regular.fontSize};
   cursor: pointer;
-  transition: color 0.2s, font-weight 0.2s;
+  transition:
+    color 0.2s,
+    font-weight 0.2s;
 `;

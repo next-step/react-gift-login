@@ -1,4 +1,4 @@
-import styled from '@emotion/styled'
+import styled from "@emotion/styled";
 
 export const NavBar = styled.div`
   width: 100%;
@@ -7,7 +7,7 @@ export const NavBar = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-`
+`;
 
 export const IconButton = styled.button`
   background: none;
@@ -16,7 +16,7 @@ export const IconButton = styled.button`
   display: flex;
   align-items: center;
   cursor: pointer;
-`
+`;
 
 export const Title = styled.h1`
   ${({ theme }) => `
@@ -25,4 +25,4 @@ export const Title = styled.h1`
     font-weight: ${theme.typography.title1Bold.fontWeight};
     line-height: ${theme.typography.title1Bold.lineHeight};
   `}
-`
+`;

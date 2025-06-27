@@ -1,14 +1,14 @@
-import { Grid } from '@/components/CardList/CardList.style'
-import Card from '@/components/Card/Card'
+import { Grid } from "@/components/CardList/CardList.style";
+import Card from "@/components/Card/Card";
 
 export interface CardListProps {
   cards: {
-    id: number
-    imageUrl: string
-    brand: string
-    name: string
-    price: number
-  }[]
+    id: number;
+    imageUrl: string;
+    brand: string;
+    name: string;
+    price: number;
+  }[];
 }
 
 export default function CardList({ cards }: CardListProps) {
@@ -25,5 +25,5 @@ export default function CardList({ cards }: CardListProps) {
         />
       ))}
     </Grid>
-  )
+  );
 }

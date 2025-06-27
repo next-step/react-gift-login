@@ -1,4 +1,7 @@
-import { Wrapper, BarButton } from "@/components/RankSelectionBar/RankSelectionBar.style"
+import {
+  Wrapper,
+  BarButton,
+} from "@/components/RankSelectionBar/RankSelectionBar.style";
 
 interface RankSelectionBarProps {
   tabs: { rankType: string; label: string }[];

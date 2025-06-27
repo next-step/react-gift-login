@@ -6,14 +6,14 @@ import {
   Brand,
   Name,
   Price,
-} from '@/components/Card/Card.style'
+} from "@/components/Card/Card.style";
 
 export interface CardProps {
-  rank: number
-  imageUrl: string
-  brand: string
-  name: string
-  price: number
+  rank: number;
+  imageUrl: string;
+  brand: string;
+  name: string;
+  price: number;
 }
 
 export default function Card({
@@ -31,10 +31,10 @@ export default function Card({
         <Brand>{brand}</Brand>
         <Name>{name}</Name>
         <Price>
-          {price.toLocaleString()}{' '}
-          <span style={{ fontWeight: 500, fontSize: '1rem' }}>원</span>
+          {price.toLocaleString()}{" "}
+          <span style={{ fontWeight: 500, fontSize: "1rem" }}>원</span>
         </Price>
       </Info>
     </CardWrapper>
-  )
+  );
 }

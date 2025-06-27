@@ -1,11 +1,11 @@
-import styled from '@emotion/styled'
+import styled from "@emotion/styled";
 
 export const ButtonWrapper = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
   gap: 4px;
-`
+`;
 
 export const Button = styled.button<{ selected?: boolean }>`
   width: 60px;
@@ -22,12 +22,12 @@ export const Button = styled.button<{ selected?: boolean }>`
 
   cursor: pointer;
   transition: background 0.2s;
-`
+`;
 
 export const Emoji = styled.span`
   font-size: ${({ theme }) => theme.typography.title1Bold.fontSize};
   margin-bottom: 4px;
-`
+`;
 
 export const Label = styled.span<{ selected?: boolean }>`
   font-size: ${({ theme }) => theme.typography.body1Bold.fontSize};
@@ -37,4 +37,4 @@ export const Label = styled.span<{ selected?: boolean }>`
       : theme.typography.body2Regular.fontWeight};
   color: ${({ selected, theme }) =>
     selected ? theme.colors.blue700 : theme.colors.gray700};
-`
+`;

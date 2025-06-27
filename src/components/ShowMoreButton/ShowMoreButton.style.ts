@@ -1,4 +1,4 @@
-import styled from '@emotion/styled'
+import styled from "@emotion/styled";
 
 export const Button = styled.button`
   width: 100%;
@@ -8,4 +8,4 @@ export const Button = styled.button`
   border-radius: 12px;
   cursor: pointer;
   transition: background 0.2s;
-`
+`;

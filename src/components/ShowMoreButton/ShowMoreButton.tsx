@@ -1,13 +1,13 @@
-import { Button } from "@/components/ShowMoreButton/ShowMoreButton.style"
+import { Button } from "@/components/ShowMoreButton/ShowMoreButton.style";
 
 export interface ShowMoreButtonProps {
-  children: React.ReactNode
-  onClick: () => void
+  children: React.ReactNode;
+  onClick: () => void;
 }
 
 export default function ShowMoreButton({
   children,
   onClick,
 }: ShowMoreButtonProps) {
-  return <Button onClick={onClick}>{children}</Button>
+  return <Button onClick={onClick}>{children}</Button>;
 }

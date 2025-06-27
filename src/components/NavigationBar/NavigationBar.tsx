@@ -1,6 +1,10 @@
-import { FiChevronLeft } from 'react-icons/fi'
-import { GoPerson } from 'react-icons/go'
-import { NavBar, IconButton, Title } from '@/components/NavigationBar/NavigationBar.style'
+import { FiChevronLeft } from "react-icons/fi";
+import { GoPerson } from "react-icons/go";
+import {
+  NavBar,
+  IconButton,
+  Title,
+} from "@/components/NavigationBar/NavigationBar.style";
 
 export default function NavigationBar() {
   return (
@@ -13,5 +17,5 @@ export default function NavigationBar() {
         <GoPerson size={30} />
       </IconButton>
     </NavBar>
-  )
+  );
 }

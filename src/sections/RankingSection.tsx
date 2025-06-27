@@ -1,9 +1,9 @@
-import styled from '@emotion/styled';
+import styled from "@emotion/styled";
 import AgeSelectionButton from "@/components/AgeSelectionButton/AgeSelectionButton";
 import RankSelectionBar from "@/components/RankSelectionBar/RankSelectionBar";
-import ShowMoreButton from '@/components/ShowMoreButton/ShowMoreButton';
-import CardList from '@/components/CardList/CardList';
-import { cardData } from '@/mockdata/cardData.ts';
+import ShowMoreButton from "@/components/ShowMoreButton/ShowMoreButton";
+import CardList from "@/components/CardList/CardList";
+import { cardData } from "@/mockdata/cardData.ts";
 import { useState } from "react";
 
 const Wrapper = styled.section`
@@ -27,24 +27,23 @@ const ButtonGroup = styled.div`
   align-items: center;
   gap: 16px;
 `;
-const CardListSection = styled.section`
-`
+const CardListSection = styled.section``;
 
 const AGE_BUTTONS = [
-  { ageType: 'ALL', label: '전체', emoji: '😊' },
-  { ageType: 'FEMALE', label: '여성이', emoji: '👧🏻' },
-  { ageType: 'MALE', label: '남성이', emoji: '🧑🏻' },
-  { ageType: 'YOUTH', label: '청소년이', emoji: '👦🏻' },
+  { ageType: "ALL", label: "전체", emoji: "😊" },
+  { ageType: "FEMALE", label: "여성이", emoji: "👧🏻" },
+  { ageType: "MALE", label: "남성이", emoji: "🧑🏻" },
+  { ageType: "YOUTH", label: "청소년이", emoji: "👦🏻" },
 ];
 const TABS = [
-  { rankType: 'MANY_WISH', label: '받고 싶어한' },
-  { rankType: 'MANY_RECEIVE', label: '많이 선물한' },
-  { rankType: 'MANY_WISH_RECEIVE', label: '위시로 받은' },
+  { rankType: "MANY_WISH", label: "받고 싶어한" },
+  { rankType: "MANY_RECEIVE", label: "많이 선물한" },
+  { rankType: "MANY_WISH_RECEIVE", label: "위시로 받은" },
 ];
 
 const RankingSection = () => {
-  const [selectedAge, setSelectedAge] = useState('ALL');
-  const [selectedTab, setSelectedTab] = useState('MANY_WISH');
+  const [selectedAge, setSelectedAge] = useState("ALL");
+  const [selectedTab, setSelectedTab] = useState("MANY_WISH");
   const [showAll, setShowAll] = useState(false);
 
   const cards = cardData.map((item) => ({
@@ -80,10 +79,14 @@ const RankingSection = () => {
       <CardListSection>
         <CardList cards={visibleCards} />
         {!showAll && cards.length > 6 && (
-          <ShowMoreButton onClick={() => setShowAll(true)}>더보기</ShowMoreButton>
+          <ShowMoreButton onClick={() => setShowAll(true)}>
+            더보기
+          </ShowMoreButton>
         )}
         {showAll && (
-          <ShowMoreButton onClick={() => setShowAll(false)}>접기</ShowMoreButton>
+          <ShowMoreButton onClick={() => setShowAll(false)}>
+            접기
+          </ShowMoreButton>
         )}
       </CardListSection>
     </Wrapper>

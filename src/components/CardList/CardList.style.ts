@@ -1,4 +1,4 @@
-import styled from '@emotion/styled'
+import styled from "@emotion/styled";
 
 export const Grid = styled.div`
   display: grid;
@@ -6,4 +6,4 @@ export const Grid = styled.div`
   gap: 12px;
   width: 100%;
   justify-items: center;
-`
+`;

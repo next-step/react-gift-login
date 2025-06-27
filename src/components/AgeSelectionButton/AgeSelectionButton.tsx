@@ -1,11 +1,16 @@
-import { ButtonWrapper, Button, Emoji, Label } from '@/components/AgeSelectionButton/AgeSelectionButton.style'
+import {
+  ButtonWrapper,
+  Button,
+  Emoji,
+  Label,
+} from "@/components/AgeSelectionButton/AgeSelectionButton.style";
 
 export interface AgeSelectButtonProps {
-  ageType: string
-  label: string
-  emoji: string
-  selected?: boolean
-  onClick: (ageType: string) => void
+  ageType: string;
+  label: string;
+  emoji: string;
+  selected?: boolean;
+  onClick: (ageType: string) => void;
 }
 
 export default function AgeSelectButton({
@@ -22,5 +27,5 @@ export default function AgeSelectButton({
       </Button>
       <Label selected={selected}>{label}</Label>
     </ButtonWrapper>
-  )
+  );
 }
