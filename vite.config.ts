@@ -4,7 +4,9 @@ import * as path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react({
+    jsxImportSource: '@emotion/react',
+  })],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
