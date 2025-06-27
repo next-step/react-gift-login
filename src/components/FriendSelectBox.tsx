@@ -11,29 +11,29 @@ const boxStyle = (theme: Theme) => css`
   margin-bottom: ${theme.spacing.spacing6};
 `;
 
-const plusIconStyle = css`
-  background-color: #fff;
-  color: #000;
+const plusIconStyle = (theme: Theme) => css`
+  background-color: ${theme.colors.gray.gray00};
+  color: ${theme.colors.gray.gray1000};
   border-radius: 50%;
   width: 28px;
   height: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
-  margin-right: 12px;
+  font-size: ${theme.typography.body1Bold.fontSize};
+  margin-right: ${theme.spacing.spacing3};
 `;
 
 const textStyle = (theme: Theme) => css`
-  font-size: ${theme.fontSizes.body1Bold};
-  font-weight: 700;
+  font-size: ${theme.typography.body1Bold.fontSize};
+  font-weight: ${theme.typography.body1Bold.fontWeight};
 `;
 
 export default function FriendSelectBox() {
   const theme = useTheme();
   return (
     <div css={boxStyle(theme)}>
-      <div css={plusIconStyle}>
+      <div css={plusIconStyle(theme)}>
         <FiPlus />
       </div>
       <span css={textStyle(theme)}>선물할 친구를 선택해 주세요.</span>
