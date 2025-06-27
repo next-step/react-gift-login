@@ -32,7 +32,7 @@ const GiftItem = ({ gift, rank, isClickable }: GiftItemProps) => {
       <RankDiv rank={rank}>{rank}</RankDiv>
       <Img src={gift.imageURL} alt={gift.name} />
       <BrandP>{gift.brandInfo.name}</BrandP>
-      <NameP>{gift.brandInfo.name}</NameP>
+      <NameP>{gift.name}</NameP>
       <PriceP>
         {gift.price.sellingPrice}
         <WonSpan> 원</WonSpan>
