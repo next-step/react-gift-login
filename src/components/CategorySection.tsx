@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
-import giftThemes from '../data/giftCategory.json';
-
+import giftThemes from '@data/giftCategory.json';
 interface GiftTheme {
   themeId: number;
   name: string;
