@@ -1,34 +1,25 @@
 import styled from '@emotion/styled';
 
-export default function Choose_Friend() {
-  return (
-    <Wrapper>
-      <PlusButton>+</PlusButton>
-      <Message>선물한 친구를 선택해 주세요.</Message>
-    </Wrapper>
-  );
-}
-
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 16px;
-    background-color: #FFFFFFFF;
-    margin: 20px;
+    gap: ${({ theme }) => theme.spacing.spacing3};
+    padding: ${({ theme }) => theme.spacing.spacing4};
+    background-color: ${({ theme }) => theme.colors.gray00};
+    margin: ${({ theme }) => theme.spacing.spacing7};
     border-radius: 18px;
     cursor: pointer;
 `;
 
-const PlusButton = styled.button`
-    background-color: #fee500;
+export const PlusButton = styled.button`
+    background-color: ${({ theme }) => theme.colors.semantic.brand.kakaoYellow};
     border: none;
     border-radius: 16px;
     width: 40px;
     height: 40px;
     font-size: 24px;
     font-weight: bold;
-    color: #000;
+    color: ${({ theme }) => theme.colors.gray1000};
     cursor: pointer;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   
@@ -43,8 +34,8 @@ const PlusButton = styled.button`
   }
 `;
 
-const Message = styled.div`
+export const Message = styled.div`
     font-size: 16px;
     font-weight: bold;
-    color: #333;
+    color: ${({ theme }) => theme.colors.gray800};
 `;

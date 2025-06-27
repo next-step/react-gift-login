@@ -1,8 +1,8 @@
 import { JSX } from 'react';
-import Gift_Thema from '@/components/Gift_Thema.tsx';
-import Gift_Ranking from '@/components/Gift_Ranking.tsx';
-import Header from '@/components/Header.tsx';
-import Choose_Friend from '@/components/Choose_Friend.tsx';
+import Gift_Thema from '@/components/GiftThema/Gift_Thema.tsx';
+import Gift_Ranking from '@/components/GiftRanking/Gift_Ranking.tsx';
+import Header from '@/components/Header/Header.tsx';
+import Choose_Friend from '@/components/ChooseFriend/Choose_Friend.tsx';
 
 const Home = (): JSX.Element => {
 

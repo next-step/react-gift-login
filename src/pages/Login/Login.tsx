@@ -1,7 +1,7 @@
 import { JSX } from 'react';
 import { Link } from 'react-router-dom';
-import styled from '@emotion/styled';
-import Header from '@/components/Header.tsx';
+import Header from '@/components/Header/Header.tsx';
+import { Container, InputWrapper, LoginButton, LogoImg, StyledInput } from '@/pages/Login/Login.styles.ts';
 
 const Login = (): JSX.Element => {
   return (
@@ -25,67 +25,3 @@ const Login = (): JSX.Element => {
 };
 
 export default Login;
-
-const Container = styled.div`
-    min-height: calc(100vh - 60px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #ffffff;
-    padding: 0 20px;
-`;
-
-const LogoImg = styled.img`
-    width: 100px;
-    margin-bottom: 32px;
-`;
-
-const InputWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 24px;
-    width: 420px;
-`;
-
-const StyledInput = styled.input`
-    height: 44px;
-    padding: 0 12px;
-    font-size: 15px;
-    border: none;
-    border-bottom: 1px solid #dcdedf;
-    outline: none;
-
-    &:focus {
-        border-color: #bbbbbb;
-        background-color: #fff;
-    }
-
-    &::placeholder {
-        color: #bbb;
-    }
-`;
-
-const LoginButton = styled.button`
-    width: 420px;
-    border: none;
-    border-radius: 6px;
-    background-color: #fee500;
-    font-weight: bold;
-    font-size: 15px;
-    cursor: pointer;
-
-  a {
-    text-decoration: none;
-    color: #000;
-    display: block;
-    width: 100%;
-    height: 100%;
-    line-height: 44px;
-  }
-
-  &:hover {
-    background-color: #fada00;
-  }
-`;

@@ -3,10 +3,10 @@ import { Global, ThemeProvider } from '@emotion/react';
 import { JSX } from 'react';
 
 import Home from '@/pages/Home';
-import Login from '@/pages/Login';
+import Login from '@/pages/Login/Login.tsx';
 
 import globalStyle from '@/styles/global';
-import { theme } from '@/styles/theme'; // theme 객체 import
+import { theme } from '@/styles/theme';
 
 const App: () => JSX.Element = () => {
   return (
