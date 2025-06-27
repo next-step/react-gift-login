@@ -14,14 +14,15 @@ export const Title = styled.h1`
     line-height: ${theme.typography.title1Bold.lineHeight};
   `}
   align-self: flex-start;
-  margin-left: ${({ theme }) => theme.spacing.spacing5};;
+  margin-left: ${({ theme }) => theme.spacing.spacing5};
 `;
 export const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  gap: ${({ theme }) => theme.spacing.spacing2} ${({ theme }) => theme.spacing.spacing10};
-`
+  gap: ${({ theme }) => theme.spacing.spacing2}
+    ${({ theme }) => theme.spacing.spacing10};
+`;
 export const CategoryItem = styled.div`
   display: flex;
   flex-direction: column;

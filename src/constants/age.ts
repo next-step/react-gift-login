@@ -5,5 +5,5 @@ export const AGE_SELECT = [
   { ageType: "YOUTH", label: "청소년이", emoji: "👦🏻" },
 ];
 
-export type AgeTypeTemp = typeof AGE_SELECT[number]
-export type AgeType = AgeTypeTemp['ageType']
+export type AgeTypeTemp = (typeof AGE_SELECT)[number];
+export type AgeType = AgeTypeTemp["ageType"];

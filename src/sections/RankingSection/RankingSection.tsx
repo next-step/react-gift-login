@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { 
+import {
   Wrapper,
   Title,
-  ButtonGroup } from "@/sections/RankingSection/RankingSection.style";
+  ButtonGroup,
+} from "@/sections/RankingSection/RankingSection.style";
 import AgeSelectionButton from "@/components/AgeSelectionButton/AgeSelectionButton";
 import RankSelectionBar from "@/components/RankSelectionBar/RankSelectionBar";
 import ShowMoreButton from "@/components/ShowMoreButton/ShowMoreButton";

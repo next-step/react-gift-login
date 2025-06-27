@@ -10,8 +10,8 @@ export const CardWrapper = styled.div`
 
 export const RankNumber = styled.div`
   position: absolute;
-  top: ${({ theme }) => theme.spacing.spacing2};;
-  left: ${({ theme }) => theme.spacing.spacing2};;
+  top: ${({ theme }) => theme.spacing.spacing2};
+  left: ${({ theme }) => theme.spacing.spacing2};
   background: ${({ theme }) => theme.colors.gray600};
   color: ${({ theme }) => theme.colors.gray00};
   border-radius: 8px;

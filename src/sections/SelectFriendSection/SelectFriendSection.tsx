@@ -1,5 +1,10 @@
 import { FiPlus } from "react-icons/fi";
-import { Wrapper, Container, PlusButton, Title } from "@/sections/SelectFriendSection/SelectFriendSection.style"
+import {
+  Wrapper,
+  Container,
+  PlusButton,
+  Title,
+} from "@/sections/SelectFriendSection/SelectFriendSection.style";
 
 const SelectFriendSection = () => {
   return (

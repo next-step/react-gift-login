@@ -1,5 +1,8 @@
-import type {RankTypeTemp, RankType } from '@/constants/tabs'
-import { Wrapper, BarButton } from "@/components/RankSelectionBar/RankSelectionBar.style"
+import type { RankTypeTemp, RankType } from "@/constants/tabs";
+import {
+  Wrapper,
+  BarButton,
+} from "@/components/RankSelectionBar/RankSelectionBar.style";
 
 export interface RankSelectionBarProps {
   tabs: readonly RankTypeTemp[];

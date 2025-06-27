@@ -1,5 +1,11 @@
 import { categoryList } from "@/mockdata/categoryList";
-import { Container, Title, Grid, CategoryItem, CategoryImage} from "@/sections/CategorySection/CategorySection.style"
+import {
+  Container,
+  Title,
+  Grid,
+  CategoryItem,
+  CategoryImage,
+} from "@/sections/CategorySection/CategorySection.style";
 
 const CategorySection = () => {
   return (

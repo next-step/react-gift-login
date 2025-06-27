@@ -26,7 +26,7 @@ export const Button = styled.button<{ selected?: boolean }>`
 
 export const Emoji = styled.span`
   font-size: ${({ theme }) => theme.typography.title1Bold.fontSize};
-  margin-bottom: ${({ theme }) => theme.spacing.spacing1};;
+  margin-bottom: ${({ theme }) => theme.spacing.spacing1};
 `;
 
 export const Label = styled.span<{ selected?: boolean }>`

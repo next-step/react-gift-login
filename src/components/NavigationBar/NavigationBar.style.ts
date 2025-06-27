@@ -22,5 +22,5 @@ export const Title = styled.h1`
   color: ${({ theme }) => theme.colors.textDefault};
   font-size: ${({ theme }) => theme.typography.title1Bold.fontSize};
   font-weight: ${({ theme }) => theme.typography.title1Bold.fontWeight};
-    line-height: ${({ theme }) => theme.typography.title1Bold.lineHeight};
+  line-height: ${({ theme }) => theme.typography.title1Bold.lineHeight};
 `;
