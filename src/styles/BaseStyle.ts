@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import type { Theme } from '@/styles/theme';
 
-export const BaseStyle = (theme: Theme) => css`
+export const baseStyle = (theme: Theme) => css`
   body {
     font-family: 'Pretendard', sans-serif;
     background-color: ${theme.color.semantic.background.default};

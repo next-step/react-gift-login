@@ -1,11 +1,11 @@
 import { Global, css, useTheme } from '@emotion/react';
-import { ResetStyle } from '@/styles/ResetStyle';
-import { BaseStyle } from '@/styles/BaseStyle';
+import { resetStyle } from '@/styles/resetStyle';
+import { baseStyle } from '@/styles/baseStyle';
 
 const GlobalStyle = () => {
   const theme = useTheme();
 
-  return <Global styles={css([ResetStyle, BaseStyle(theme)])} />;
+  return <Global styles={css([resetStyle, baseStyle(theme)])} />;
 };
 
 export default GlobalStyle;
