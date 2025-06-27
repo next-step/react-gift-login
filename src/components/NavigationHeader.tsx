@@ -20,16 +20,16 @@ const HeaderContainer = styled.header(
 `
 );
 
-const SideContainer = styled.div`
+interface SideContainerProps {
+  position: 'left' | 'right';
+}
+
+const SideContainer = styled.div<SideContainerProps>`
   display: flex;
   align-items: center;
   width: 48px;
-  &.left {
-    justify-content: flex-start;
-  }
-  &.right {
-    justify-content: flex-end;
-  }
+  justify-content: ${({ position }) =>
+    position === 'left' ? 'flex-start' : 'flex-end'};
 `;
 
 const TitleContainer = styled.div`
@@ -86,7 +86,7 @@ export function NavigationHeader({
   return (
     <HeaderContainer>
       {/* Left side - Back button */}
-      <SideContainer className="left">
+      <SideContainer position="left">
         {showBackButton && (
           <IconButton onClick={onBackClick} type="button">
             <ChevronLeft />
@@ -98,7 +98,7 @@ export function NavigationHeader({
         <Title>{title}</Title>
       </TitleContainer>
       {/* Right side - Profile button */}
-      <SideContainer className="right">
+      <SideContainer position="right">
         {showProfileButton && (
           <IconButton onClick={onProfileClick} type="button">
             <User />
