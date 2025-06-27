@@ -1,27 +1,34 @@
 import styled from '@emotion/styled';
 import PresentThemeItem from './PresentThemeItem';
 
+const StyledPresentContainer = styled.div`
+  background-color: ${({ theme }) => theme.symenticPalette.backgroundDefault};
+  padding-top: ${({ theme }) => theme.spacing.spacing6};
+`;
+const StyledPresentP = styled.p`
+  ${({ theme }) => theme.typography.title1Bold};
+  margin: ${({ theme }) => theme.spacing.spacing3};
+`;
 const StyledPresentThemeDiv = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  background-color: green;
+  background-color: ${({ theme }) => theme.symenticPalette.backgroundDefault};
   width: 720px;
 `;
 
-const StyledPresentP = styled.p`
-  font-size: 20px;
-  margin: 5px;
-  font-weight: 700;
-`;
-const StyledPresentContainer = styled.div`
-  background-color: ${({ theme }) => theme.symenticPalette.backgroundDefault};
-`;
-
-const StyledPlusContainer = styled.div`
+const StyledExtraContainer = styled.div`
   background-color: ${({ theme }) => theme.symenticPalette.kakaoYellow};
-  margin: 10px;
-  border-radius: 20px;
-  padding: 20px;
+  margin: ${({ theme }) => theme.spacing.spacing3};
+  border-radius: ${({ theme }) => theme.spacing.spacing5};
+  padding: ${({ theme }) => theme.spacing.spacing4};
+`;
+const StyledExtraFristP = styled.div`
+  color: ${({ theme }) => theme.symenticPalette.textSub};
+  ${({ theme }) => theme.typography.label1Regular};
+`;
+const StyledExtraSecondP = styled.div`
+  color: ${({ theme }) => theme.symenticPalette.textDefault};
+  ${({ theme }) => theme.typography.label1Bold};
 `;
 
 const PresentThemeConatiner = () => {
@@ -31,12 +38,10 @@ const PresentThemeConatiner = () => {
       <StyledPresentThemeDiv>
         <PresentThemeItem></PresentThemeItem>
       </StyledPresentThemeDiv>
-      <div>
-        <StyledPlusContainer>
-          <p>카카오테크 캠퍼스 3기여러분</p>
-          <p>프론트엔드 2단계 과제 화이팅!</p>
-        </StyledPlusContainer>
-      </div>
+      <StyledExtraContainer>
+        <StyledExtraFristP>카카오테크 캠퍼스 3기여러분</StyledExtraFristP>
+        <StyledExtraSecondP>프론트엔드 2단계 과제 화이팅!</StyledExtraSecondP>
+      </StyledExtraContainer>
     </StyledPresentContainer>
   );
 };

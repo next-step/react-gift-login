@@ -30,7 +30,7 @@ const NavItem2 = styled.li`
   display: flex;
   align-items: center;
   padding: 13px 24px;
-  font: ${({ theme }) => theme.typography.body2Bold};
+  ${({ theme }) => theme.typography.title1Bold};
 `;
 
 const NavigationBar = () => {

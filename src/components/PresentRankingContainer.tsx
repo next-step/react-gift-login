@@ -17,12 +17,12 @@ const StyledPresenetRankingAddItemBtnDiv = styled.div`
   align-items: center;
   justify-content: center;
   height: 50px;
-  margin: 10px 0px 30px 0px;
+  margin: ${({ theme }) => theme.spacing.spacing2} 0px ${({ theme }) => theme.spacing.spacing10} 0px;
 `;
 const StyledPresenetRankingAddItemBtn = styled.button`
   width: 80%;
   height: 80%;
-  padding: 10px;
+  padding: ${({ theme }) => theme.spacing.spacing5};
 `;
 
 const PresentRankingContainer = () => {
