@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from '@emotion/styled'
 import PersonIcon from '@mui/icons-material/Person'
 
@@ -193,9 +192,9 @@ const RankingSection = () => {
         <TabBtn>위시로 받은</TabBtn>
       </TabRow>
       <Grid>
-        {rankingData.map((item, idx) => (
-          <Card key={idx}>
-            <RankBadge>{idx + 1}</RankBadge>
+        {rankingData.map((item) => (
+          <Card key={item.id}>
+            <RankBadge>{item.id + 1}</RankBadge>
             <ProductImg src={item.imageURL} alt={item.name} />
             <Brand>{item.brandInfo.name}</Brand>
             <ProductName>{item.name}</ProductName>
