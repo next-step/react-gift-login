@@ -6,18 +6,24 @@ interface LayoutProps {
   children: ReactNode
 }
 
+const Wrapper = styled.div`
+  width: 100%;
+  max-width: 720px;
+  min-height: 100vh;
+  margin: 0 auto;
+  box-sizing: border-box;
+  background: #fff;
+`
+
+const Content = styled.div`
+  padding: 0 16px;
+`
+
 export const Layout = ({ children }: LayoutProps) => {
   return (
     <Wrapper>
       <Header />
-      {children}
+      <Content>{children}</Content>
     </Wrapper>
   )
 }
-
-const Wrapper = styled.div`
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 0 16px;
-  box-sizing: border-box;
-`

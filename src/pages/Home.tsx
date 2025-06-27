@@ -1,11 +1,13 @@
 import { Layout } from '@/Components/layout/Layout'
-
+import CategorySection from '@/Components/CategorySection'
 
 const Home = () => {
   return (
     <Layout>
-      <h1>홈 화면</h1>
-      <p>Mobile First Design</p>
+      <CategorySection />
+      <div />
     </Layout>
   )
 }
+
+export default Home

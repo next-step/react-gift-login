@@ -1,51 +1,74 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react'
-import { Link } from 'react-router-dom'
+import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded'
+import PersonOutlineRoundedIcon from '@mui/icons-material/PersonOutlineRounded'
+
+const statusBarStyle = css`
+  width: 100%;
+  height: 8px;
+  background: #393939;
+  @media (min-width: 720px) {
+    display: none;
+  }
+`
 
 const headerStyle = css`
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  background-color: #fffef9; /* yellow00 */
-  padding: 12px 16px;
-
-  @media (min-width: 768px) {
-    padding: 16px 32px;
-  }
+  justify-content: space-between;
+  background: #fff;
+  height: 56px;
+  padding: 0 16px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
 `
 
-const logoStyle = css`
+const iconButtonStyle = css`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #222;
+  font-size: 1.8rem;
+`
+
+const titleStyle = css`
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 1.5rem;
   font-weight: 700;
-  color: #000;
-`
-
-const navStyle = css`
-  display: flex;
-  gap: 16px;
-
-  a {
-    text-decoration: none;
-    color: #2a3038; /* text default */
-    font-size: 0.875rem;
-    font-weight: 400;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
+  color: #222;
+  pointer-events: none;
+  font-family: 'Pretendard', 'Apple SD Gothic Neo', Arial, sans-serif;
 `
 
 const Header = () => {
   return (
-    <header css={headerStyle}>
-      <div css={logoStyle}>GIFT</div>
-      <nav css={navStyle}>
-        <Link to="/">홈</Link>
-        <Link to="/login">로그인</Link>
-        <Link to="/signup">회원가입</Link>
-      </nav>
-    </header>
+    <>
+      <div css={statusBarStyle} />
+      <header css={headerStyle}>
+        <button css={iconButtonStyle} aria-label="뒤로가기">
+          <ArrowBackIosNewRoundedIcon fontSize="inherit" />
+        </button>
+        <div css={titleStyle}>선물하기</div>
+        <button css={iconButtonStyle} aria-label="프로필">
+          <PersonOutlineRoundedIcon fontSize="inherit" />
+        </button>
+      </header>
+    </>
   )
 }
 
