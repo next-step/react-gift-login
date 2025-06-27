@@ -25,6 +25,7 @@ const IconCircle = styled.div(props => ({
   width: "42px",
   height: "42px",
   backgroundColor: `${props.theme.color.yellow[600]}`,
+  cursor: "pointer",
   borderRadius: "16px",
 }));
 

@@ -7,6 +7,7 @@ const ItemContainer = styled.div(props => ({
   alignItems: "center",
   justifyContent: "center",
   rowGap: `${props.theme.spacing1}`,
+  cursor: "pointer",
 }));
 
 const ItemImage = styled.img({
