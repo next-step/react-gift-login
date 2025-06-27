@@ -1,11 +1,14 @@
-import '@/App.css'
+import { Navbar } from '@/components/Navbar'
+import { CategorySection } from '@/components/CategorySection'
+import { ProductListSection } from '@/components/ProductListSection'
 
 function App() {
   return (
-    <div className="app-container">
-      <h1>Vite + React</h1>
-      <p>리액트 프로젝트가 실행되었습니다.</p>
-    </div>
+    <>
+      <Navbar />
+      <CategorySection />
+      <ProductListSection />
+    </>
   )
 }
 

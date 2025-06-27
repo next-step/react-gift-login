@@ -107,6 +107,9 @@ const reset = css`
   }
   body {
     line-height: 1;
+    font-family: 'Pretendard', sans-serif;
+    background-color: #fff;
+    color: #000;
   }
   ol,
   ul {
