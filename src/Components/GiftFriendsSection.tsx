@@ -55,4 +55,4 @@ const GiftFriendsSection = () => {
   )
 }
 
-export default GiftFriendsSection 
+export default GiftFriendsSection
