@@ -2,30 +2,42 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
-const Navbar = styled.nav`
+const Navbar = styled.div`
+  position: fixed;
+  min-width: 720px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #0d47a1;
-  padding: 12px 24px;
-  color: white;
+  background-color: ${({ theme }) => theme.symenticPalette.backgroundDefault};
 `;
 
 const NavItem = styled.li`
   a {
-    color: white;
+    color: black;
     text-decoration: none;
   }
   list-style: none;
   display: flex;
   align-items: center;
+  padding: 12px 30px;
+`;
+
+const NavItem2 = styled.li`
+  a {
+    color: black;
+  }
+  list-style: none;
+  display: flex;
+  align-items: center;
+  padding: 13px 24px;
+  font: ${({ theme }) => theme.typography.body2Bold};
 `;
 
 const NavigationBar = () => {
   return (
     <Navbar>
       <NavItem>홈</NavItem>
-      <NavItem>선물하기</NavItem>
+      <NavItem2>선물하기</NavItem2>
       <NavItem>
         <Link to='/login'>로그인</Link>
       </NavItem>
