@@ -7,7 +7,7 @@ export const globalReset = css`
     padding: 0;
   }
 
-  html, body {
+  html{
     height: 100%;
     font-family: 'Pretendard', sans-serif;
     background-color: #fff;
@@ -15,7 +15,14 @@ export const globalReset = css`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-
+  body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #fff;
+  font-family: 'Pretendard', sans-serif;
+  }
   a {
     color: inherit;
     text-decoration: none;
