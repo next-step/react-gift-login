@@ -89,7 +89,7 @@ export const themeMockData = [
     image:
       "https://img1.daumcdn.net/thumb/S104x104/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fgift%2Fhome%2Ftheme%2F370220241228_UPSAE.png"
   }
-];
+] as const;
 
 type BrandInfo = {
   id: number;
@@ -127,4 +127,4 @@ export const productMockData = {
     imageURL:
       "https://st.kakaocdn.net/product/gift/gift_brand/20220216170226_38ba26d8eedf450683200d6730757204.png"
   }
-};
+} as const;
