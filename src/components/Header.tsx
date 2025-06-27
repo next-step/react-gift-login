@@ -1,7 +1,8 @@
+import type { Theme } from '@emotion/react';
 import { css, useTheme } from '@emotion/react';
 import { FiChevronLeft, FiUser } from 'react-icons/fi';
 
-const headerWrapper = (theme: any) => css`
+const headerWrapper = (theme: Theme) => css`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -11,7 +12,7 @@ const headerWrapper = (theme: any) => css`
   border-bottom: 1px solid ${theme.colors.semantic.borderDefault};
 `;
 
-const titleStyle = (theme: any) => css`
+const titleStyle = (theme: Theme) => css`
   font-size: 18px;
   font-weight: bold;
   color: ${theme.colors.semantic.textDefault}; 

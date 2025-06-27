@@ -1,7 +1,8 @@
+import type { Theme } from '@emotion/react';
 import { css, useTheme } from '@emotion/react';
 import { FiPlus } from 'react-icons/fi';
 
-const boxStyle = (theme: any) => css`
+const boxStyle = (theme: Theme) => css`
   display: flex;
   align-items: center;
   background-color: ${theme.colors.semantic.kakaoYellow};
@@ -23,7 +24,7 @@ const plusIconStyle = css`
   margin-right: 12px;
 `;
 
-const textStyle = (theme: any) => css`
+const textStyle = (theme: Theme) => css`
   font-size: ${theme.fontSizes.body1Bold};
   font-weight: 700;
 `;

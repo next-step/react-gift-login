@@ -1,7 +1,8 @@
 import { css, useTheme } from '@emotion/react';
+import type { Theme } from '@emotion/react';
 import { mockProduct } from '@/mocks/productData';
 
-const gridStyle = (theme: any) => css`
+const gridStyle = (theme: Theme) => css`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: ${theme.spacing.spacing4};
@@ -15,7 +16,7 @@ const itemStyle = css`
   text-align: center;
 `;
 
-const rankStyle = (theme: any) => css`
+const rankStyle = (theme: Theme) => css`
   font-weight: bold;
   font-size: ${theme.fontSizes.label1Bold};
   background-color: ${theme.colors.gray.gray200};
@@ -36,7 +37,7 @@ const imageStyle = css`
   border-radius: 50%;
 `;
 
-const nameStyle = (theme: any) => css`
+const nameStyle = (theme: Theme) => css`
   font-size: ${theme.fontSizes.label1Regular};
 `;
 

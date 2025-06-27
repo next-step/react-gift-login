@@ -1,11 +1,12 @@
 import { css, useTheme } from '@emotion/react';
 import { categoryData } from '@/mocks/categoryData';
+import type { Theme } from '@emotion/react';
 
-const sectionStyle = (theme: any) => css`
+const sectionStyle = (theme: Theme) => css`
   padding: ${theme.spacing.spacing6} ${theme.spacing.spacing4};
 `;
 
-const titleStyle = (theme: any) => css`
+const titleStyle = (theme: Theme) => css`
   font-size: ${theme.fontSizes.title2Bold};
   font-weight: 700;
   margin-bottom: ${theme.spacing.spacing4};
@@ -33,7 +34,7 @@ const imageStyle = css`
   margin-bottom: 8px;
 `;
 
-const nameStyle = (theme: any) => css`
+const nameStyle = (theme: Theme) => css`
   font-size: ${theme.fontSizes.label2Regular};
   color: ${theme.colors.semantic.textDefault};
 `;

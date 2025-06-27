@@ -1,13 +1,14 @@
+import type { Theme } from '@emotion/react';
 import { css, useTheme } from '@emotion/react';
 
-const tabsWrapper = (theme: any) => css`
+const tabsWrapper = (theme: Theme) => css`
   display: flex;
   justify-content: space-around;
   padding: 0 ${theme.spacing.spacing4} ${theme.spacing.spacing3};
   font-size: ${theme.fontSizes.label1Regular};
 `;
 
-const tabItem = (theme: any) => css`
+const tabItem = (theme: Theme) => css`
   cursor: pointer;
   padding: 6px 8px;
   border-radius: 8px;

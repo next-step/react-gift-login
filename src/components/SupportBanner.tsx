@@ -1,6 +1,7 @@
+import type { Theme } from '@emotion/react';
 import { css, useTheme } from '@emotion/react';
 
-const bannerStyle = (theme: any) => css`
+const bannerStyle = (theme: Theme) => css`
   background-color: ${theme.colors.semantic.kakaoYellow};
   padding: ${theme.spacing.spacing4};
   border-radius: 12px;
