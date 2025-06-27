@@ -8,6 +8,7 @@ import NavigationBar from '@components/NavigationBar';
 import ReceiverSelection from '@components/ReceiverSelection';
 import PresentTheme from '@components/PresentTheme';
 import Fighting from '@components/Fighting';
+import PresentRanking from '@components/PresentRanking';
 
 const Warpper = styled.div`
   width: 100%;
@@ -63,6 +64,8 @@ const App = () => {
               <PresentTheme />
               <MarginBox />
               <Fighting />
+              <MarginBox />
+              <PresentRanking />
             </main>
           </MainArea>
         </Warpper>
