@@ -1,6 +1,7 @@
 import { css } from '@emotion/react';
+import type { Theme } from '@emotion/react';
 
-const reset = css`
+const reset = (theme: Theme) => css`
   @import url('pretendard/dist/web/static/pretendard.css');
   html,
   body,
@@ -129,6 +130,25 @@ const reset = css`
 
   body {
     font-family: 'Pretendard', sans-serif;
+    color: ${theme.colors.textDefault};
+    height: 100%;
+    background-color: ${theme.colors.gray100};
+  }
+
+  #root {
+    max-width: 720px;
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    boerder: 0;
   }
 `;
 
