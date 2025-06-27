@@ -4,24 +4,19 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa';
 import { MdFace2, MdFace, MdFace6 } from 'react-icons/md';
+
 import { mockItems } from '../../data/mockItems';
 
 import {
   sectionWrapper,
   tabRow,
-  tabButton,
-  iconStyle,
   subTabRow,
-  subTabButton,
   cardGrid,
-  card,
-  rankBadge,
-  image,
-  brand,
-  name,
-  price,
   moreButton,
 } from './RankingSection.style';
+
+import TabButton from '../Shared/TabButton'
+import RankingCard from '../Shared/RankingCard';
 
 const genderTabs = [
   { label: '전체', icon: <FaUser /> },
@@ -47,6 +42,7 @@ const RankingSection = () => {
     setSearchParams({ gender: newGender, giftType: newGiftType });
     setGender(newGender);
     setGiftType(newGiftType);
+    setIsExpanded(false);
   };
 
   useEffect(() => {
@@ -63,38 +59,41 @@ const RankingSection = () => {
 
       <div css={tabRow}>
         {genderTabs.map(({ label, icon }) => (
-          <button
+          <TabButton
             key={label}
+            active={gender === label}
+            theme={theme}
             onClick={() => updateFilters(label, giftType)}
-            css={tabButton(theme, gender === label)}
-          >
-            <span css={iconStyle}>{icon}</span>
-            {label}
-          </button>
+            icon={icon}
+            label={label}
+          />
         ))}
       </div>
 
       <div css={subTabRow}>
         {giftTabs.map((label) => (
-          <button
+          <TabButton
             key={label}
+            active={giftType === label}
+            theme={theme}
             onClick={() => updateFilters(gender, label)}
-            css={subTabButton(theme, giftType === label)}
-          >
-            {label}
-          </button>
+            label={label}
+            isSubTab
+          />
         ))}
       </div>
 
       <div css={cardGrid}>
         {visibleItems.map((item, i) => (
-          <div key={item.id} css={card}>
-            <div css={rankBadge(theme, i + 1)}>{i + 1}</div>
-            <img src={item.imageURL} alt={item.name} css={image} />
-            <p css={brand}>{item.brand}</p>
-            <p css={name}>{item.name}</p>
-            <p css={price}>{item.price.toLocaleString()}원</p>
-          </div>
+          <RankingCard
+            key={item.id}
+            rank={i + 1}
+            imageURL={item.imageURL}
+            brand={item.brand}
+            name={item.name}
+            price={item.price}
+            theme={theme}
+          />
         ))}
       </div>
 
