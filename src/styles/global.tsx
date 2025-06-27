@@ -12,7 +12,7 @@ const reset = css`
   html, body {
     height: 100%;
     font-family: 'Pretendard', sans-serif;
-    background-color: #fff;
+    background-color: #eeeff1;
     color: #000;
   }
 
