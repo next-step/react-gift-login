@@ -1,14 +1,16 @@
 import styled from '@emotion/styled';
 
 const Banner = styled.div`
-  display: flex;
-  align-items: center;
-  border-radius: 10px;
-
-  margin: 0 20px;
-  background-color: #ffe713;
-
-  height: 65px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw; // 브라우저 전체 너비
+  max-width: 690px; // 앱 전체 최대 너비(필요시)
+  background: #ffe600;
+  border-radius: 16px;
+  padding: 16px;
+  margin: 0;
+  box-sizing: border-box;
 `;
 
 function NoticeBanner() {

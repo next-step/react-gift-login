@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import Header from '@/components/Header';
 import FriendSelectBox from '@/components/FriendSelectBox';
 import CategoryList from '@/components/CategoryList';
 import NoticeBanner from '@/components/NoticeBanner';
@@ -24,7 +23,6 @@ function MainPage() {
   return (
     <Container>
       <PageBackground>
-        <Header />
         <FriendSelectBox />
       </PageBackground>
       <CategoryList />
