@@ -1,10 +1,10 @@
 import styled from '@emotion/styled'
-import type { ReactNode } from 'react'
+import type { PropsWithChildren } from 'react'
 
-export function MainLayout(props: { children: ReactNode }) {
+export function MainLayout({ children }: PropsWithChildren) {
   return (
     <Container>
-      {props.children}
+      {children}
     </Container>
   )
 }

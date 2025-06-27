@@ -9,10 +9,7 @@ export default function Category() {
         <Title>선물 테마</Title>
         <Grid>
           {categories.map((item) => (
-            <CategoryItem key={item.themeId}>
-              <Image src={item.image} alt={item.name} />
-              <Label>{item.name}</Label>
-            </CategoryItem>
+            <CategoryItem key={item.themeId} {...item} />
           ))}
         </Grid>
       </Section>
@@ -58,17 +55,17 @@ const CategoryItem = styled.div`
   cursor: pointer;
 `
 
-const Image = styled.img`
-  max-width: 50px;
-  max-height: 50px;
-  width: 100%;
-  border-radius: 18px;
-  object-fit: cover;
-  overflow: hidden;
-`
+// const Image = styled.img`
+//   max-width: 50px;
+//   max-height: 50px;
+//   width: 100%;
+//   border-radius: 18px;
+//   object-fit: cover;
+//   overflow: hidden;
+// `
 
-const Label = styled.span`
-  ${({ theme }) => theme.typography.label2Regular};
-  margin: 0px;
-  text-align: left;
-`
+// const Label = styled.span`
+//   ${({ theme }) => theme.typography.label2Regular};
+//   margin: 0px;
+//   text-align: left;
+// `

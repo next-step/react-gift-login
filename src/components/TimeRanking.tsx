@@ -2,6 +2,15 @@ import styled from '@emotion/styled'
 import { useState } from 'react'
 import { ranking } from '@/data/ranking'
 
+const genderOptions = [
+  { label: 'ALL', icon: 'ALL', value: 'ALL' },
+  { label: '여성이', icon: '👩🏻', value: '여성' },
+  { label: '남성이', icon: '👨🏻', value: '남성' },
+  { label: '청소년이', icon: '🧒🏻', value: '청소년' },
+]
+
+const rankTypeTabs = ['받고 싶어한', '많이 선물한', '위시로 받은']
+
 export default function TimeRanking() {
   const [selectedGender, setSelectedGender] = useState('ALL')
   const [selectedRankType, setSelectedRankType] = useState('받고 싶어한')
@@ -17,12 +26,7 @@ export default function TimeRanking() {
       <SmallBlock />
 
       <GenderBox>
-        {[
-          { label: 'ALL', icon: 'ALL', value: 'ALL' },
-          { label: '여성이', icon: '👩🏻', value: '여성' },
-          { label: '남성이', icon: '👨🏻', value: '남성' },
-          { label: '청소년이', icon: '🧒🏻', value: '청소년' },
-        ].map(({ label, icon, value }) => (
+        {genderOptions.map(({ label, icon, value }) => (
           <GenderTab key={value}>
             <GenderButton
               isSelected={selectedGender === value}
@@ -38,16 +42,19 @@ export default function TimeRanking() {
       <UndergenderandrankingBox />
 
       <RankingBox>
-        {['받고 싶어한', '많이 선물한', '위시로 받은'].map((tab) => (
+        {rankTypeTabs.map((tab) => (
           <RankingTab 
-          key={tab} 
-          isSelected={selectedRankType === tab}
-          onClick={() => setSelectedRankType(tab)}>
+            key={tab}
+            isSelected={selectedRankType === tab}
+            onClick={() => setSelectedRankType(tab)}
+          >
             {tab}
           </RankingTab>
         ))}
       </RankingBox>
+
       <UndergenderandrankingBox />
+
       <CardGrid>
         {filteredRanking.map((item, index) => (
           <Card key={item.id}>
@@ -63,6 +70,7 @@ export default function TimeRanking() {
     </Container>
   )
 }
+
 
 const Block = styled.div`
   width: 100%;
@@ -107,7 +115,7 @@ const GenderButton = styled.button<{ isSelected: boolean }>`
   border: none;
   cursor: pointer;
   color: ${({ theme, isSelected }) =>
-    isSelected ? theme.colors.gray['00'] : theme.colors.blue[400]};
+    isSelected ? theme.colors.gray.white : theme.colors.blue[400]};
   background-color: ${({ theme, isSelected }) =>
     isSelected ? theme.colors.blue[700] : theme.colors.blue[100]};
   ${({ theme }) => theme.typography.subtitle2Bold};
@@ -121,15 +129,16 @@ const GenderText = styled.p`
   display: block;
   unicode-bidi: isolate;
 `
+
 const UndergenderandrankingBox = styled.div`
   width: 100%;
   height: 16px;
   background-color: transparent;
 `
+
 const RankingBox = styled.div`
   width: 100%;
   display: flex;
-  -webkit-box-pack: center;
   justify-content: space-between;
   border: 1px solid rgba(70, 132, 233, 0.1);
   background-color: ${({ theme }) => theme.colors.blue[100]};
@@ -137,16 +146,15 @@ const RankingBox = styled.div`
   padding: 12px 16px;
 `
 
-const RankingTab = styled.button<{ isSelected: boolean}>`
+const RankingTab = styled.button<{ isSelected: boolean }>`
   width: 100%;
   flex: 1 1 0%;
   display: flex;
-  -webkit-box-align: center;
   justify-content: center;
   background-color: transparent;
-  border: 0px;
+  border: 0;
   cursor: pointer;
-  ${({ theme, isSelected }) => 
+  ${({ theme, isSelected }) =>
     isSelected ? theme.typography.label1Bold : theme.typography.label1Regular};
   color: ${({ theme, isSelected }) =>
     isSelected ? theme.colors.blue[700] : theme.colors.blue[400]};
@@ -168,14 +176,10 @@ const RankLabel = styled.div`
   position: absolute;
   z-index: 2;
   width: 20px;
-  min-width: 20px;
   height: 20px;
-  min-height: 20px;
   border-radius: 4px;
   display: flex;
-  -webkit-box-pack: center;
   justify-content: center;
-  -webkit-box-align: center;
   align-items: center;
   ${({ theme }) => theme.typography.label2Bold};
   top: 0.25rem;
@@ -189,17 +193,19 @@ const Image = styled.img`
   display: block;
   height: auto;
   object-fit: cover;
-  object-position: center center;
+  object-position: center;
   border-radius: 4px;
   overflow: hidden;
 `
+
 const UnderimageBox = styled.div`
   width: 100%;
   height: 12px;
   background-color: transparent;
 `
+
 const Brand = styled.p`
-  margin: 0px;
+  margin: 0;
   text-align: left;
   ${({ theme }) => theme.typography.label1Regular};
   color: ${({ theme }) => theme.colors.gray[600]};

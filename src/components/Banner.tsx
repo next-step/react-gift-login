@@ -11,20 +11,22 @@ export default function Banner() {
   );
 }
 
+const spacing = "16px";
+
 const Wrapper = styled.section`
   width: 100%;
   background-color: ${({ theme }) => theme.colors.background.default};
-  padding: 16px 0;
+  padding: ${spacing} 0;
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 0 ${spacing};
   box-sizing: border-box;
 `;
 
 
 const BannerBox = styled.div`
   background-color: ${({ theme }) => theme.colors.kakao.yellow.default};
-  border-radius: 16px;
-  padding: 16px;
+  border-radius: ${spacing};
+  padding: ${spacing};
 `;
 
 const TopText = styled.p`
