@@ -1,4 +1,6 @@
 import styled from '@emotion/styled';
+import { colors } from '../styles/tokens/color';
+import { typography } from '../styles/tokens/typography';
 
 const Banner = styled.div`
   position: relative;
@@ -6,7 +8,7 @@ const Banner = styled.div`
   transform: translateX(-50%);
   width: 100vw; // 브라우저 전체 너비
   max-width: 690px; // 앱 전체 최대 너비(필요시)
-  background: #ffe600;
+  background: ${colors.primary};
   border-radius: 16px;
   padding: 16px;
   margin: 0;
