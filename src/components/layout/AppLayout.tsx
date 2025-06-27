@@ -1,12 +1,9 @@
 import styled from "@emotion/styled";
-import MainPage from "@/pages/MainPage";
 
-function AppLayout() {
+function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <Background>
-      <Container>
-        <MainPage />
-      </Container>
+      <Container>{children}</Container>
     </Background>
   );
 }
