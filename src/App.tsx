@@ -12,7 +12,7 @@ import {Banner }from '@/components/Banner';
 import {RankingTabs} from '@/components/RankingTabs';
 import type { GenderFilter, SortFilter } from '@/components/RankingTabs';
 import {RankingGrid} from '@/components/RankingGrid';
-
+ㄴ
 import {
   rankingAll,
   rankingFemale,
@@ -56,3 +56,4 @@ const App = () => {
 };
 
 export default App;
+
