@@ -1,10 +1,9 @@
-import { JSX } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header/Header.tsx';
 import { Container, InputWrapper, LoginButton, LogoImg, StyledInput } from '@/pages/Login/Login.styles.ts';
 import { KAKAO_LOGO_SVG } from "@/assets/svg/kakaoLogo.ts";
 
-const Login = (): JSX.Element => {
+const Login = () => {
   return (
     <div>
       <Header />
