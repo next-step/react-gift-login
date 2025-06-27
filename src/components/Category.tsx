@@ -47,8 +47,8 @@ const categoryItemStyle = (theme: Theme) => css`
 `;
 
 const imageStyle = () => css`
-  width: 80%;
-  max-width: 100px;
+  width: 50%;
+  max-width: 50px;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   display: block;

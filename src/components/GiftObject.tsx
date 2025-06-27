@@ -2,8 +2,9 @@ import type { Theme } from "@emotion/react";
 import { css } from "@emotion/react";
 import { useTheme } from "@emotion/react";
 
-const GiftObject = (gift) => {
+const GiftObject = ({ gift }) => {
   const theme = useTheme();
+  console.log(gift);
   return (
     <div css={giftStyle(theme)}>
       <img src={gift.imageURL} css={imageStyle()} />
@@ -32,8 +33,8 @@ const giftStyle = (theme: Theme) => css`
 `;
 
 const imageStyle = () => css`
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
   border-radius: 8px;
 `;
