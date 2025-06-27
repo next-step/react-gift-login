@@ -2,20 +2,15 @@ import type { Theme } from "@emotion/react";
 import { css } from "@emotion/react";
 import GiftObject from "./GiftObject";
 import { useTheme } from "@emotion/react";
+import giftData from "@/data/giftData";
 
 const GiftRanking = () => {
   const theme = useTheme();
   return (
     <div css={giftRankingStyle(theme)}>
-      <GiftObject />
-      <GiftObject />
-      <GiftObject />
-      <GiftObject />
-      <GiftObject />
-      <GiftObject />
-      <GiftObject />
-      <GiftObject />
-      <GiftObject />
+      {giftData.map((gift) => (
+        <GiftObject key={gift.id} gift={gift} />
+      ))}
     </div>
   );
 };

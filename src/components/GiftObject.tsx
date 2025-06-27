@@ -1,18 +1,17 @@
-import giftData from "@/data/giftData";
 import type { Theme } from "@emotion/react";
 import { css } from "@emotion/react";
 import { useTheme } from "@emotion/react";
 
-const GiftObject = () => {
+const GiftObject = (gift) => {
   const theme = useTheme();
   return (
     <div css={giftStyle(theme)}>
-      <img src={giftData.imageURL} css={imageStyle()} />
+      <img src={gift.imageURL} css={imageStyle()} />
       <div css={textContainerStyle()}>
-        <p css={brandStyle(theme)}>{giftData.brandInfo.name}</p>
-        <h3 css={titleStyle(theme)}>{giftData.name}</h3>
+        <p css={brandStyle(theme)}>{gift.brandInfo.name}</p>
+        <h3 css={titleStyle(theme)}>{gift.name}</h3>
         <p css={priceStyle(theme)}>
-          {giftData.price.basicPrice.toLocaleString()}원
+          {gift.price.basicPrice.toLocaleString()}원
         </p>
       </div>
     </div>
