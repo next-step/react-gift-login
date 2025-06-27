@@ -3,6 +3,8 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { ThemeProvider } from '@emotion/react';
 import { theme } from '@/theme/theme';
+import ChevronLeftIcon from '@/assets/ChevronLeftIcon';
+import User from '@/assets/User';
 
 const Warpper = styled.nav`
   display: flex;
@@ -37,7 +39,7 @@ const MyPageSection = styled.div`
 
 const BackButton = styled.button`
   cursor: pointer;
-  background: black;
+  background: none;
   outline: none;
   border: none;
   appearance: none;
@@ -48,7 +50,9 @@ const NavigationBar = () => {
     <ThemeProvider theme={theme}>
       <Warpper>
         <BackButtonSection>
-          <BackButton />
+          <BackButton>
+            <ChevronLeftIcon />
+          </BackButton>
         </BackButtonSection>
         <CenterSection>
           <img
@@ -59,7 +63,9 @@ const NavigationBar = () => {
             `}
           ></img>
         </CenterSection>
-        <MyPageSection></MyPageSection>
+        <MyPageSection>
+          <User />
+        </MyPageSection>
       </Warpper>
     </ThemeProvider>
   );
