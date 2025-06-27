@@ -1,4 +1,4 @@
-export const MOCK_ITEM = {
+export const MOCK_PRICE_INFO = {
   id: 123,
   name: 'BBQ 양념치킨+크림치즈볼+콜라1.25L',
   imageURL:

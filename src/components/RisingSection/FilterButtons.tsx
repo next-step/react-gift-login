@@ -1,18 +1,28 @@
 /** @jsxImportSource @emotion/react */
 import styled from '@emotion/styled';
+
+type MainFilterOption = '전체' | '여성이' | '남성이' | '청소년이';
+type SubFilterOption = '받고 싶어한' | '많이 선물한' | '위시로 받은';
+
 import { useState } from 'react';
 
-const OPTIONS = [
+const OPTIONS: { icon: string; label: MainFilterOption }[] = [
   { icon: 'ALL', label: '전체' },
   { icon: '💁‍♀️', label: '여성이' },
   { icon: '🙋‍♂️', label: '남성이' },
   { icon: '🧒', label: '청소년이' },
 ];
 
+const SUB_OPTIONS: SubFilterOption[] = [
+  '받고 싶어한',
+  '많이 선물한',
+  '위시로 받은',
+];
+
 export default function FilterButtons() {
-  const [selected, setSelected] = useState('전체');
-  const SUB_OPTIONS = ['받고 싶어한', '많이 선물한', '위시로 받은'];
-  const [subSelected, setSubSelected] = useState('받고 싶어한');
+  const [selected, setSelected] = useState<MainFilterOption>('전체');
+  const [subSelected, setSubSelected] =
+    useState<SubFilterOption>('받고 싶어한');
 
   return (
     <>
@@ -85,4 +95,5 @@ const SubContainer = styled.div`
   margin-top: 12px;
   gap: 8px;
   border-radius: 25px;
+  margin-bottom: 16px;
 `;

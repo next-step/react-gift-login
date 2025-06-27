@@ -1,16 +1,18 @@
 /** @jsxImportSource @emotion/react */
 import styled from '@emotion/styled';
 import { useState } from 'react';
-import { MOCK_ITEM } from './mock';
+import { MOCK_PRICE_INFO } from './mock';
 import RisingItem from './RisingItem';
 
-export default function RisingList() {
-  const [visibleCount, setVisibleCount] = useState(6);
+const INITIAL_VISIBLE_COUNT = 6;
 
-  const items = Array.from({ length: 21 }, (_, i) => ({
-    ...MOCK_ITEM,
-    id: i + 1,
-  }));
+const items = Array.from({ length: 21 }, (_, i) => ({
+  ...MOCK_PRICE_INFO,
+  id: i + 1,
+}));
+
+export default function RisingList() {
+  const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE_COUNT);
 
   return (
     <Wrapper>

@@ -5,8 +5,8 @@ export default function Fighting() {
   return (
     <Wrapper>
       <Card>
-        <Text1>카카오테크 캠퍼스 3기여러분</Text1>
-        <Text2>프론트엔드 2단계 과제 화이팅! 🎉</Text2>
+        <Everyone>카카오테크 캠퍼스 3기여러분</Everyone>
+        <Cheering>프론트엔드 2단계 과제 화이팅! 🎉</Cheering>
       </Card>
     </Wrapper>
   );
@@ -25,7 +25,7 @@ const Card = styled.div`
   flex-direction: column;
 `;
 
-const Text1 = styled.p`
+const Everyone = styled.p`
   font-size: 13px;
   font-weight: ${({ theme }) => theme.typography.subtitle1Regular.fontWeight};
   color: ${({ theme }) => theme.colors.gray600};
@@ -33,7 +33,7 @@ const Text1 = styled.p`
   margin-bottom: 4px;
 `;
 
-const Text2 = styled.p`
+const Cheering = styled.p`
   font-size: ${({ theme }) => theme.typography.subtitle1Regular.fontSize};
   font-weight: ${({ theme }) => theme.typography.subtitle1Regular.fontWeight};
   color: ${({ theme }) => theme.colors.textDefault};

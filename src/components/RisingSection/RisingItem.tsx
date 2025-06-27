@@ -1,17 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import styled from '@emotion/styled';
-
-interface Price {
-  basicPrice: number;
-  discountRate: number;
-  sellingPrice: number;
-}
-
-interface BrandInfo {
-  id: number;
-  name: string;
-  imageURL: string;
-}
+import type { Price, BrandInfo } from './types';
 
 export interface RisingItemProps {
   id: number;

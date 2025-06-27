@@ -7,9 +7,7 @@ export default function RisingSection() {
   return (
     <Container>
       <Title>실시간 급상승 선물 랭킹</Title>
-      <div style={{ marginBottom: '16px' }}>
-        <FilterButtons />
-      </div>
+      <FilterButtons />
       <RisingList />
     </Container>
   );

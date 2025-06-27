@@ -6,7 +6,7 @@ import NavigationBar from '@/components/NavigationBar/NavigationBar';
 import CategorySection from '@/components/CategorySection/CategorySection';
 import AddFriend from '@/components/OtherSection/AddFriend';
 import Fighting from '@/components/OtherSection/Fighting';
-import RisingSection from '@/RisingSection/RisingSection';
+import RisingSection from '@/components/RisingSection/RisingSection';
 
 function App() {
   return (
@@ -17,7 +17,6 @@ function App() {
         <AddFriend />
         <CategorySection />
         <Fighting />
-        <div></div>
         <RisingSection />
       </Layout>
     </ThemeProvider>
