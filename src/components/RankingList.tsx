@@ -1,6 +1,6 @@
-import { ranking_item_mock } from "@/assets/ranking_item_mock";
+import { rankingItemMock } from "@/assets/rankingItemMock";
 import styled from "@emotion/styled";
-import DividerDiv from "@/components/DividerDiv";
+import Divider from "@/components/Divider";
 import { useState } from "react";
 import type { ThemeType } from "@/styles/theme/theme";
 import { useTheme } from "@emotion/react";
@@ -13,7 +13,7 @@ const RankingList = () => {
   return (
     <Container>
       <Content>
-        {ranking_item_mock.slice(0, viewCount).map((item, index) => (
+        {rankingItemMock.slice(0, viewCount).map((item, index) => (
           <Item key={index + 1}>
             <ItemRank ranking={index + 1} theme={theme}>
               {index + 1}
@@ -30,17 +30,17 @@ const RankingList = () => {
           </Item>
         ))}
       </Content>
-      <DividerDiv />
+      <Divider />
       <ItemContent>
         <MoreBtn
           onClick={() => {
-            viewCount == rankingListViewCount ? setViewCount(ranking_item_mock.length) : setViewCount(6);
+            viewCount == rankingListViewCount ? setViewCount(rankingItemMock.length) : setViewCount(6);
           }}
         >
           {viewCount == rankingListViewCount ? "더보기" : "접기"}
         </MoreBtn>
       </ItemContent>
-      <DividerDiv />
+      <Divider />
     </Container>
   );
 };

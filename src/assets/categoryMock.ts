@@ -4,7 +4,7 @@ export type TypeMock = {
   image: string;
 };
 
-export const category_mock: TypeMock[] = [
+export const categoryMock: TypeMock[] = [
   {
     themeId: 3715,
     name: "생일",

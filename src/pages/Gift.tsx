@@ -3,7 +3,7 @@ import Navigation from "@/components/Navigation";
 import Category from "@/components/Category";
 import Ranking from "@/components/Ranking";
 import Friend from "@/components/Friend";
-import DividerDiv from "@/components/DividerDiv";
+import Divider from "@/components/Divider";
 import Banner from "@/components/Banner";
 
 const Gift = () => {
@@ -11,11 +11,11 @@ const Gift = () => {
     <Container>
       <Navigation />
       <Friend />
-      <DividerDiv />
+      <Divider />
       <Category />
-      <DividerDiv />
+      <Divider />
       <Banner />
-      <DividerDiv />
+      <Divider />
       <Ranking />
     </Container>
   );

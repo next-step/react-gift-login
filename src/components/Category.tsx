@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
-import { category_mock } from "@/assets/category_mock";
+import { categoryMock } from "@/assets/categoryMock";
 
 const Category = () => {
-  const categoryList = category_mock;
+  const categoryList = categoryMock;
   return (
     <Container>
       <TitleDiv>선물 테마</TitleDiv>

@@ -1,4 +1,4 @@
-export const ranking_item_mock = [
+export const rankingItemMock = [
   {
     id: 123,
     name: "BBQ 양념치킨+크림치즈볼+콜라1.25L",
