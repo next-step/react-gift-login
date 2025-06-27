@@ -1,8 +1,9 @@
 import styled from "@emotion/styled";
 import { categoryMock } from "@/assets/categoryMock";
+import type { CategoryType } from "@/types/CategoryType";
 
 const Category = () => {
-  const categoryList = categoryMock;
+  const categoryList: CategoryType[] = categoryMock;
   return (
     <Container>
       <TitleDiv>선물 테마</TitleDiv>

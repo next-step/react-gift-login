@@ -8,5 +8,4 @@ const theme = {
   spacing,
 };
 
-export type ThemeType = typeof theme;
 export default theme;

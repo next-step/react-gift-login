@@ -2,18 +2,20 @@ import { rankingItemMock } from "@/assets/rankingItemMock";
 import styled from "@emotion/styled";
 import Divider from "@/components/Divider";
 import { useState } from "react";
-import type { ThemeType } from "@/styles/theme/theme";
+import type { ThemeType } from "@/types/ThemeType";
 import { useTheme } from "@emotion/react";
+import type { RankingItemType } from "@/types/RankingItemType";
 
 const rankingListViewCount = 6;
 
 const RankingList = () => {
   const [viewCount, setViewCount] = useState(rankingListViewCount);
   const theme = useTheme();
+  const rankingItem: RankingItemType[] = rankingItemMock;
   return (
     <Container>
       <Content>
-        {rankingItemMock.slice(0, viewCount).map((item, index) => (
+        {rankingItem.slice(0, viewCount).map((item, index) => (
           <Item key={index + 1}>
             <ItemRank ranking={index + 1} theme={theme}>
               {index + 1}

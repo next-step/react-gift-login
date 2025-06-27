@@ -1,10 +1,6 @@
-export type TypeMock = {
-  themeId: number;
-  name: string;
-  image: string;
-};
+import type { CategoryType } from "@/types/CategoryType";
 
-export const categoryMock: TypeMock[] = [
+export const categoryMock: CategoryType[] = [
   {
     themeId: 3715,
     name: "생일",

@@ -1,37 +1,17 @@
-import type { ThemeType } from "@/styles/theme/theme";
+import type { ThemeType } from "@/types/ThemeType";
 import { useTheme } from "@emotion/react";
 import styled from "@emotion/styled";
 import { useState } from "react";
 import RankingList from "@/components/RankingList";
+import type { RankingCategoryTargetType } from "@/types/RankingCategoryTargetType";
+import { rankingCategoryTarget } from "@/assets/rankingCategoryTarget";
 
-type TypeCategory = {
-  image: string;
-  name: string;
-  targetType: string;
-};
-
-const categoryList: TypeCategory[] = [
-  {
-    image: "ALL",
-    name: "전체",
-    targetType: "ALL",
-  },
-  {
-    image: "👩🏻",
-    name: "여성",
-    targetType: "FEMALE",
-  },
-  {
-    image: "👨🏻",
-    name: "남성",
-    targetType: "MALE",
-  },
-  {
-    image: "👦🏻",
-    name: "청소년",
-    targetType: "TEEN",
-  },
-];
+const rankingCategoryTargetList: RankingCategoryTargetType[] = rankingCategoryTarget;
+const rankingCategoryRankList = {
+  MANY_WISH: "받고 싶어한",
+  MANY_RECEIVE: "많이 선물한",
+  MANY_WISH_RECEIVE: "위시로 받은",
+} as const;
 
 const Ranking = () => {
   const [category, setCategory] = useState(0);
@@ -42,7 +22,7 @@ const Ranking = () => {
       <Title>실시간 급상승 선물랭킹</Title>
       <NavBar>
         <CategoryList>
-          {categoryList.map((e, index) => (
+          {rankingCategoryTargetList.map((e, index) => (
             <Category
               key={index}
               onClick={() => {
@@ -59,7 +39,7 @@ const Ranking = () => {
           ))}
         </CategoryList>
         <WishCategoryList>
-          {["받고 싶어한", "많이 선물한", "위시로 받은"].map((e, index) => (
+          {Object.entries(rankingCategoryRankList).map((e, index) => (
             <WishCategory
               key={index}
               selected={wishCategory == index ? true : false}
@@ -102,6 +82,7 @@ const CategoryList = styled.div`
 `;
 const Category = styled.button`
   width: 3.625rem;
+  padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
