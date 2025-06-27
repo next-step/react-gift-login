@@ -16,3 +16,4 @@ export const typography = {
   h1: { fontSize: '18px', fontWeight: 700, lineHeight: 1.4 },
   body: { fontSize: '14px', fontWeight: 400, lineHeight: 1.5 },
 };
+//
