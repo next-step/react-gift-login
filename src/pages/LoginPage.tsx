@@ -28,7 +28,7 @@ function LoginPage() {
           placeholder="이메일"
           value={userInfo.email.value}
           onChange={(e) => {
-            userInfo.email.setter(e.target.value);
+            userInfo.email.setValue(e.target.value);
           }}
         />
         <InputField
@@ -36,7 +36,7 @@ function LoginPage() {
           placeholder="비밀번호"
           value={userInfo.password.value}
           onChange={(e) => {
-            userInfo.password.setter(e.target.value);
+            userInfo.password.setValue(e.target.value);
           }}
         />
         <LoginButton
