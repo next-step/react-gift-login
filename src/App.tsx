@@ -347,14 +347,14 @@ const ExtraBtn = styled.button`
 
 
 function App() {
-  const [selected, setSelected] = useState('');
-  const [selected2, setSelected2] = useState('');
-  const [collapsed, setCollapsed] = useState(true);
+  const [selectedGroup, setSelectedGroup] = useState(''); // 전체, 여성이, 남성이, 청소년이중 하나를 선택했다는 것을 저장하기 위한 state
+  const [selectRankingType, setSelectRankingType] = useState(''); // 받고 싶어한, 많이 선물한, 위시로 받은중 하나를 선택했다는 것을 저장하기 위한 state
+  const [iscollapsed, setIsCollapsed] = useState(true); // 실시간 급상승 선물랭킹을 더보기 줄이기 할 수 있는 버튼의 상태를 저장하기 위한 state
 
   const toggleCollapse = () => {
-    setCollapsed(!collapsed);
+    setIsCollapsed(!iscollapsed);
   };
-  
+
   return (
     <>
     <ThemeProvider theme={theme}>
@@ -385,36 +385,35 @@ function App() {
             <RealtimeRankTitle>실시간 급상승 선물랭킹</RealtimeRankTitle>
             <RealtimeRankNavWrapper>
               <RealtimeRankNavBtnTitleWrapper>
-                <RealtimeRankNavBtn onClick={() => setSelected('ALL')} isSelected={selected === 'ALL'}>ALL</RealtimeRankNavBtn>
+                <RealtimeRankNavBtn onClick={() => setSelectedGroup('ALL')} isSelected={selectedGroup === 'ALL'}>ALL</RealtimeRankNavBtn>
                 <RealtimeRankNavTitle>전체</RealtimeRankNavTitle>
               </RealtimeRankNavBtnTitleWrapper>
               <RealtimeRankNavBtnTitleWrapper>
-                <RealtimeRankNavBtn onClick={() => setSelected('FEMALE')} isSelected={selected === 'FEMALE'}>👩🏻</RealtimeRankNavBtn>
+                <RealtimeRankNavBtn onClick={() => setSelectedGroup('FEMALE')} isSelected={selectedGroup === 'FEMALE'}>👩🏻</RealtimeRankNavBtn>
                 <RealtimeRankNavTitle>여성이</RealtimeRankNavTitle>
               </RealtimeRankNavBtnTitleWrapper>
               <RealtimeRankNavBtnTitleWrapper>
-                <RealtimeRankNavBtn onClick={() => setSelected('MALE')} isSelected={selected === 'MALE'}>👨🏻</RealtimeRankNavBtn>
+                <RealtimeRankNavBtn onClick={() => setSelectedGroup('MALE')} isSelected={selectedGroup === 'MALE'}>👨🏻</RealtimeRankNavBtn>
                 <RealtimeRankNavTitle>남성이</RealtimeRankNavTitle>
               </RealtimeRankNavBtnTitleWrapper>
               <RealtimeRankNavBtnTitleWrapper>
-                <RealtimeRankNavBtn onClick={() => setSelected('TEEN')} isSelected={selected === 'TEEN'}>👦🏻</RealtimeRankNavBtn>
+                <RealtimeRankNavBtn onClick={() => setSelectedGroup('TEEN')} isSelected={selectedGroup === 'TEEN'}>👦🏻</RealtimeRankNavBtn>
                 <RealtimeRankNavTitle>청소년이</RealtimeRankNavTitle>
               </RealtimeRankNavBtnTitleWrapper>
             </RealtimeRankNavWrapper>
             <RealtimeRankNav2Wrapper>
-              <RealtimeRankNav2Btn onClick={() => setSelected2('WANT')} isSelected={selected2 === 'WANT'}>받고 싶어한</RealtimeRankNav2Btn>
-              <RealtimeRankNav2Btn onClick={() => setSelected2('MANY')} isSelected={selected2 === 'MANY'}>많이 선물한</RealtimeRankNav2Btn>
-              <RealtimeRankNav2Btn onClick={() => setSelected2('WISH')} isSelected={selected2 === 'WISH'}>위시로 받은</RealtimeRankNav2Btn>
+              <RealtimeRankNav2Btn onClick={() => setSelectRankingType('WANT')} isSelected={selectRankingType === 'WANT'}>받고 싶어한</RealtimeRankNav2Btn>
+              <RealtimeRankNav2Btn onClick={() => setSelectRankingType('MANY')} isSelected={selectRankingType === 'MANY'}>많이 선물한</RealtimeRankNav2Btn>
+              <RealtimeRankNav2Btn onClick={() => setSelectRankingType('WISH')} isSelected={selectRankingType === 'WISH'}>위시로 받은</RealtimeRankNav2Btn>
             </RealtimeRankNav2Wrapper>
             <RealtimeRankItemWrapper>
-              <RealtimeRankItemList collapsed={collapsed}>
+              <RealtimeRankItemList collapsed={iscollapsed}>
               </RealtimeRankItemList>
             </RealtimeRankItemWrapper>
           </RealtimeRankWrapper>
           <ExtraBtnWrapper>
-            <ExtraBtn onClick={toggleCollapse}>{collapsed ? '더보기' : '접기'}</ExtraBtn>
+            <ExtraBtn onClick={toggleCollapse}>{iscollapsed ? '더보기' : '접기'}</ExtraBtn>
           </ExtraBtnWrapper>
-          
         </Main>
       </Layout>
     </ThemeProvider>
