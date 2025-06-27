@@ -139,10 +139,15 @@ interface ThemeSpacing {
   spacing16: string;
 }
 
+interface ThemeBreakpoints {
+  desktop: string;
+}
+
 export interface Theme {
   colors: ThemeColors;
   typography: ThemeTypography;
   spacing: ThemeSpacing;
+  breakpoints: ThemeBreakpoints;
 }
 
 export const theme: Theme = {
@@ -350,5 +355,9 @@ export const theme: Theme = {
     spacing14: '56px',
     spacing15: '60px',
     spacing16: '64px',
+  },
+
+  breakpoints: {
+    desktop: '721px',
   },
 };
