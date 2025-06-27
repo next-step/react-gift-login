@@ -1,13 +1,16 @@
 import { css } from "@emotion/react";
 import type { Theme } from "@emotion/react";
 import { IoAdd } from "react-icons/io5";
+import { useTheme } from "@emotion/react";
 
 const SelectFriend = () => {
+  const theme = useTheme();
+
   return (
-    <div css={(theme) => containerStyle(theme)}>
-      <div css={(theme) => contentsStyle(theme)}>
-        <IoAdd css={(theme: Theme) => buttonStyle(theme)} />
-        <span css={(theme) => textStyle(theme)}>선물할 친구를 선택하세요</span>
+    <div css={containerStyle(theme)}>
+      <div css={contentsStyle(theme)}>
+        <IoAdd css={buttonStyle(theme)} />
+        <span css={textStyle(theme)}>선물할 친구를 선택하세요</span>
       </div>
     </div>
   );

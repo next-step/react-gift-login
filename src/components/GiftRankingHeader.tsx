@@ -2,11 +2,12 @@ import { css } from "@emotion/react";
 import { Theme } from "@emotion/react";
 import { theme } from "@/styles/theme";
 import { IoAppsOutline, IoWomanOutline, IoManOutline } from "react-icons/io5";
+import { useTheme } from "@emotion/react";
 
 const GiftRankingHeader = () => {
   return (
     <>
-      <div css={(theme) => textStyle(theme)}>실시간 급상승 선물랭킹</div>
+      <div css={textStyle(theme)}>실시간 급상승 선물랭킹</div>
       <div css={containerStyle}>
         <IoAppsOutline css={iconStyle} />
         <IoWomanOutline css={iconStyle} />

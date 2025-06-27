@@ -1,10 +1,12 @@
 import type { Theme } from "@emotion/react";
 import { css } from "@emotion/react";
 import GiftObject from "./GiftObject";
+import { useTheme } from "@emotion/react";
 
 const GiftRanking = () => {
+  const theme = useTheme();
   return (
-    <div css={(theme) => giftRankingStyle(theme)}>
+    <div css={giftRankingStyle(theme)}>
       <GiftObject />
       <GiftObject />
       <GiftObject />

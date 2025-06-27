@@ -1,10 +1,13 @@
 import categoryData from "@/data/categoryData";
 import type { Theme } from "@emotion/react";
 import { css } from "@emotion/react";
+import { useTheme } from "@emotion/react";
 
 const Category = () => {
+  const theme = useTheme();
+
   return (
-    <div css={(theme: Theme) => categoryStyle(theme)}>
+    <div css={categoryStyle(theme)}>
       {categoryData.map((category) => (
         <div key={category.themeId} className="category-item">
           <img

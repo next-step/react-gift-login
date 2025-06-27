@@ -1,10 +1,12 @@
 import { css } from "@emotion/react";
 import type { Theme } from "@emotion/react";
+import { useTheme } from "@emotion/react";
 
 const Cheering = () => {
+  const theme = useTheme();
   return (
-    <div css={(theme) => containerStyle(theme)}>
-      <span css={(theme) => textStyle(theme)}>화이팅🎉</span>
+    <div css={containerStyle(theme)}>
+      <span css={textStyle(theme)}>화이팅🎉</span>
     </div>
   );
 };
@@ -20,6 +22,7 @@ const containerStyle = (theme: Theme) => css`
   background-color: ${theme.colors.semantic.kakaoYellow};
   border-radius: 16px;
 `;
+
 const textStyle = (theme: Theme) => css`
   font-size: ${theme.typography.body1Bold.size};
   font-weight: ${theme.typography.body1Bold.weight};

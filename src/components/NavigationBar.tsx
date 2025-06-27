@@ -1,21 +1,20 @@
 import { css } from "@emotion/react";
 import type { Theme } from "@emotion/react";
 import { IoArrowBackOutline, IoPersonOutline } from "react-icons/io5";
+import { useTheme } from "@emotion/react";
 
 const NavigationBar = () => {
+  const theme = useTheme();
+
   return (
-    <div css={(theme: Theme) => navigationBarStyles(theme)}>
-      <button
-        css={(theme: Theme) => iconButtonStyles(theme)}
-        aria-label="뒤로가기">
+    <div css={navigationBarStyles(theme)}>
+      <button css={iconButtonStyles(theme)} aria-label="뒤로가기">
         <IoArrowBackOutline />
       </button>
 
-      <h1 css={(theme: Theme) => titleStyles(theme)}>선물하기</h1>
+      <h1 css={titleStyles(theme)}>선물하기</h1>
 
-      <button
-        css={(theme: Theme) => iconButtonStyles(theme)}
-        aria-label="프로필">
+      <button css={iconButtonStyles(theme)} aria-label="프로필">
         <IoPersonOutline />
       </button>
     </div>
