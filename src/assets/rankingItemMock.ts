@@ -17,7 +17,7 @@ export const rankingItemMock: RankingItemType[] = [
     },
   },
   {
-    id: 123,
+    id: 124,
     name: "BBQ 양념치킨+크림치즈볼+콜라1.25L",
     imageURL: "https://st.kakaocdn.net/product/gift/product/20231030175450_53e90ee9708f45ffa45b3f7b4bc01c7c.jpg",
     price: {
@@ -32,7 +32,7 @@ export const rankingItemMock: RankingItemType[] = [
     },
   },
   {
-    id: 123,
+    id: 125,
     name: "BBQ 양념치킨+크림치즈볼+콜라1.25L",
     imageURL: "https://st.kakaocdn.net/product/gift/product/20231030175450_53e90ee9708f45ffa45b3f7b4bc01c7c.jpg",
     price: {
@@ -47,7 +47,7 @@ export const rankingItemMock: RankingItemType[] = [
     },
   },
   {
-    id: 123,
+    id: 126,
     name: "BBQ 양념치킨+크림치즈볼+콜라1.25L",
     imageURL: "https://st.kakaocdn.net/product/gift/product/20231030175450_53e90ee9708f45ffa45b3f7b4bc01c7c.jpg",
     price: {
@@ -62,7 +62,7 @@ export const rankingItemMock: RankingItemType[] = [
     },
   },
   {
-    id: 123,
+    id: 127,
     name: "BBQ 양념치킨+크림치즈볼+콜라1.25L",
     imageURL: "https://st.kakaocdn.net/product/gift/product/20231030175450_53e90ee9708f45ffa45b3f7b4bc01c7c.jpg",
     price: {
@@ -77,7 +77,7 @@ export const rankingItemMock: RankingItemType[] = [
     },
   },
   {
-    id: 123,
+    id: 128,
     name: "BBQ 양념치킨+크림치즈볼+콜라1.25L",
     imageURL: "https://st.kakaocdn.net/product/gift/product/20231030175450_53e90ee9708f45ffa45b3f7b4bc01c7c.jpg",
     price: {
@@ -92,7 +92,7 @@ export const rankingItemMock: RankingItemType[] = [
     },
   },
   {
-    id: 123,
+    id: 129,
     name: "BBQ 양념치킨+크림치즈볼+콜라1.25L",
     imageURL: "https://st.kakaocdn.net/product/gift/product/20231030175450_53e90ee9708f45ffa45b3f7b4bc01c7c.jpg",
     price: {
@@ -107,7 +107,7 @@ export const rankingItemMock: RankingItemType[] = [
     },
   },
   {
-    id: 123,
+    id: 130,
     name: "BBQ 양념치킨+크림치즈볼+콜라1.25L",
     imageURL: "https://st.kakaocdn.net/product/gift/product/20231030175450_53e90ee9708f45ffa45b3f7b4bc01c7c.jpg",
     price: {
@@ -122,7 +122,7 @@ export const rankingItemMock: RankingItemType[] = [
     },
   },
   {
-    id: 123,
+    id: 131,
     name: "BBQ 양념치킨+크림치즈볼+콜라1.25L",
     imageURL: "https://st.kakaocdn.net/product/gift/product/20231030175450_53e90ee9708f45ffa45b3f7b4bc01c7c.jpg",
     price: {
@@ -137,7 +137,7 @@ export const rankingItemMock: RankingItemType[] = [
     },
   },
   {
-    id: 123,
+    id: 132,
     name: "BBQ 양념치킨+크림치즈볼+콜라1.25L",
     imageURL: "https://st.kakaocdn.net/product/gift/product/20231030175450_53e90ee9708f45ffa45b3f7b4bc01c7c.jpg",
     price: {
@@ -152,7 +152,7 @@ export const rankingItemMock: RankingItemType[] = [
     },
   },
   {
-    id: 123,
+    id: 133,
     name: "BBQ 양념치킨+크림치즈볼+콜라1.25L",
     imageURL: "https://st.kakaocdn.net/product/gift/product/20231030175450_53e90ee9708f45ffa45b3f7b4bc01c7c.jpg",
     price: {
@@ -167,7 +167,7 @@ export const rankingItemMock: RankingItemType[] = [
     },
   },
   {
-    id: 123,
+    id: 134,
     name: "BBQ 양념치킨+크림치즈볼+콜라1.25L",
     imageURL: "https://st.kakaocdn.net/product/gift/product/20231030175450_53e90ee9708f45ffa45b3f7b4bc01c7c.jpg",
     price: {
@@ -182,7 +182,7 @@ export const rankingItemMock: RankingItemType[] = [
     },
   },
   {
-    id: 123,
+    id: 135,
     name: "BBQ 양념치킨+크림치즈볼+콜라1.25L",
     imageURL: "https://st.kakaocdn.net/product/gift/product/20231030175450_53e90ee9708f45ffa45b3f7b4bc01c7c.jpg",
     price: {
@@ -197,7 +197,7 @@ export const rankingItemMock: RankingItemType[] = [
     },
   },
   {
-    id: 123,
+    id: 136,
     name: "BBQ 양념치킨+크림치즈볼+콜라1.25L",
     imageURL: "https://st.kakaocdn.net/product/gift/product/20231030175450_53e90ee9708f45ffa45b3f7b4bc01c7c.jpg",
     price: {
@@ -212,7 +212,7 @@ export const rankingItemMock: RankingItemType[] = [
     },
   },
   {
-    id: 123,
+    id: 137,
     name: "BBQ 양념치킨+크림치즈볼+콜라1.25L",
     imageURL: "https://st.kakaocdn.net/product/gift/product/20231030175450_53e90ee9708f45ffa45b3f7b4bc01c7c.jpg",
     price: {
@@ -227,7 +227,7 @@ export const rankingItemMock: RankingItemType[] = [
     },
   },
   {
-    id: 123,
+    id: 138,
     name: "BBQ 양념치킨+크림치즈볼+콜라1.25L",
     imageURL: "https://st.kakaocdn.net/product/gift/product/20231030175450_53e90ee9708f45ffa45b3f7b4bc01c7c.jpg",
     price: {
@@ -242,7 +242,7 @@ export const rankingItemMock: RankingItemType[] = [
     },
   },
   {
-    id: 123,
+    id: 139,
     name: "BBQ 양념치킨+크림치즈볼+콜라1.25L",
     imageURL: "https://st.kakaocdn.net/product/gift/product/20231030175450_53e90ee9708f45ffa45b3f7b4bc01c7c.jpg",
     price: {
@@ -257,7 +257,7 @@ export const rankingItemMock: RankingItemType[] = [
     },
   },
   {
-    id: 123,
+    id: 140,
     name: "BBQ 양념치킨+크림치즈볼+콜라1.25L",
     imageURL: "https://st.kakaocdn.net/product/gift/product/20231030175450_53e90ee9708f45ffa45b3f7b4bc01c7c.jpg",
     price: {
@@ -272,7 +272,7 @@ export const rankingItemMock: RankingItemType[] = [
     },
   },
   {
-    id: 123,
+    id: 141,
     name: "BBQ 양념치킨+크림치즈볼+콜라1.25L",
     imageURL: "https://st.kakaocdn.net/product/gift/product/20231030175450_53e90ee9708f45ffa45b3f7b4bc01c7c.jpg",
     price: {
@@ -287,7 +287,7 @@ export const rankingItemMock: RankingItemType[] = [
     },
   },
   {
-    id: 123,
+    id: 142,
     name: "BBQ 양념치킨+크림치즈볼+콜라1.25L",
     imageURL: "https://st.kakaocdn.net/product/gift/product/20231030175450_53e90ee9708f45ffa45b3f7b4bc01c7c.jpg",
     price: {
@@ -302,7 +302,7 @@ export const rankingItemMock: RankingItemType[] = [
     },
   },
   {
-    id: 123,
+    id: 143,
     name: "BBQ 양념치킨+크림치즈볼+콜라1.25L",
     imageURL: "https://st.kakaocdn.net/product/gift/product/20231030175450_53e90ee9708f45ffa45b3f7b4bc01c7c.jpg",
     price: {

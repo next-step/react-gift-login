@@ -4,7 +4,7 @@ import Profile from "./icons/Profile";
 
 const Navigation = () => {
   return (
-    <ContainerDiv>
+    <Container>
       <Nav>
         <NavLeft>
           <LinkBtn href="/">
@@ -20,14 +20,24 @@ const Navigation = () => {
           </LinkBtn>
         </NavRight>
       </Nav>
-    </ContainerDiv>
+    </Container>
   );
 };
 
-const ContainerDiv = styled.div`
-  background-color: ${({ theme }) => theme.color.backgroundColor.default};
+const Container = styled.div`
+  display: flex;
+  z-index: 999;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
 `;
 const Nav = styled.nav`
+  background-color: ${({ theme }) => theme.color.backgroundColor.default};
+  max-width: 720px;
+  width: 100%;
   height: 45px;
   display: flex;
   justify-content: space-evenly;
