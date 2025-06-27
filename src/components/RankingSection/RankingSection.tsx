@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css, useTheme } from '@emotion/react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa';
 import { MdFace2, MdFace, MdFace6 } from 'react-icons/md';
 import { mockItems } from '../../data/mockItems';
@@ -33,12 +34,27 @@ const giftTabs = ['받고 싶어한', '많이 선물한', '위시로 받은'];
 
 const RankingSection = () => {
   const theme = useTheme();
-  const [gender, setGender] = useState('전체');
-  const [giftType, setGiftType] = useState('받고 싶어한');
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const initialGender = searchParams.get('gender') || '전체';
+  const initialGiftType = searchParams.get('giftType') || '받고 싶어한';
+
+  const [gender, setGender] = useState(initialGender);
+  const [giftType, setGiftType] = useState(initialGiftType);
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const visibleItems = isExpanded ? mockItems : mockItems.slice(0, 6);
+  const updateFilters = (newGender: string, newGiftType: string) => {
+    setSearchParams({ gender: newGender, giftType: newGiftType });
+    setGender(newGender);
+    setGiftType(newGiftType);
+  };
 
+  useEffect(() => {
+    setGender(initialGender);
+    setGiftType(initialGiftType);
+  }, [initialGender, initialGiftType]);
+
+  const visibleItems = isExpanded ? mockItems : mockItems.slice(0, 6);
   const toggleExpanded = () => setIsExpanded((prev) => !prev);
 
   return (
@@ -49,7 +65,7 @@ const RankingSection = () => {
         {genderTabs.map(({ label, icon }) => (
           <button
             key={label}
-            onClick={() => setGender(label)}
+            onClick={() => updateFilters(label, giftType)}
             css={tabButton(theme, gender === label)}
           >
             <span css={iconStyle}>{icon}</span>
@@ -62,7 +78,7 @@ const RankingSection = () => {
         {giftTabs.map((label) => (
           <button
             key={label}
-            onClick={() => setGiftType(label)}
+            onClick={() => updateFilters(gender, label)}
             css={subTabButton(theme, giftType === label)}
           >
             {label}
