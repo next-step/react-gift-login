@@ -30,9 +30,8 @@ export function CategorySection() {
 }
 
 const SectionWrapper = styled.section`
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 16px;
+  width: 100%;
+  margin-bottom: 40px;
 `
 
 const MessageBox = styled.div`

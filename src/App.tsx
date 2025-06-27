@@ -1,13 +1,16 @@
 import { Navbar } from '@/components/Navbar'
 import { CategorySection } from '@/components/CategorySection'
 import { ProductListSection } from '@/components/ProductListSection'
+import { Layout } from '@/components/Layout'
 
 function App() {
   return (
     <>
-      <Navbar />
-      <CategorySection />
-      <ProductListSection />
+      <Layout>
+        <Navbar />
+        <CategorySection />
+        <ProductListSection />
+      </Layout>
     </>
   )
 }

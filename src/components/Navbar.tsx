@@ -16,11 +16,11 @@ export function Navbar() {
 }
 
 const NavWrapper = styled.header`
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 56px;
-  padding: 0 16px;
   background-color: white;
   position: relative;
 `

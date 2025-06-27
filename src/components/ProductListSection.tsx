@@ -60,7 +60,7 @@ export function ProductListSection() {
 }
 
 const SectionWrapper = styled.section`
-  padding: 16px;
+  width: 100%;
 `
 
 const SectionTitle = styled.h2`
