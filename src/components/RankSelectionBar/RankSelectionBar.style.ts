@@ -1,12 +1,6 @@
 import styled from '@emotion/styled';
 
-interface RankSelectionBarProps {
-  tabs: { rankType: string; label: string }[];
-  selected: string;
-  onSelect: (rankType: string) => void;
-}
-
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -18,7 +12,7 @@ const Wrapper = styled.div`
   max-width: 800px;
 `;
 
-const BarButton = styled.button<{ active: boolean }>`
+export const BarButton = styled.button<{ active: boolean }>`
   flex: 1;
   background: none;
   border: none;
@@ -29,21 +23,3 @@ const BarButton = styled.button<{ active: boolean }>`
   cursor: pointer;
   transition: color 0.2s, font-weight 0.2s;
 `;
-
-function RankSelectionBar({ tabs, selected, onSelect }: RankSelectionBarProps) {
-  return (
-    <Wrapper>
-      {tabs.map((tab) => (
-        <BarButton
-          key={tab.rankType}
-          active={selected === tab.rankType}
-          onClick={() => onSelect(tab.rankType)}
-        >
-          {tab.label}
-        </BarButton>
-      ))}
-    </Wrapper>
-  );
-}
-
-export default RankSelectionBar;

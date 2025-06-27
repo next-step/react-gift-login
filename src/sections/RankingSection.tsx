@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
-import AgeSelectionButton from "@/components/AgeSelectionButton";
-import RankSelectionBar from "@/components/RankSelectionBar";
-import ShowMoreButton from '@/components/ShowMoreButton';
-import CardList from '@/components/CardList';
+import AgeSelectionButton from "@/components/AgeSelectionButton/AgeSelectionButton";
+import RankSelectionBar from "@/components/RankSelectionBar/RankSelectionBar";
+import ShowMoreButton from '@/components/ShowMoreButton/ShowMoreButton';
+import CardList from '@/components/CardList/CardList';
 import { cardData } from '@/mockdata/cardData.ts';
 import { useState } from "react";
 
