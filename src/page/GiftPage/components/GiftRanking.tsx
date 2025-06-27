@@ -156,46 +156,39 @@ const GiftRanking = () => {
     setActiveButton(id);
   };
 
+  const generations = [
+    { id: 'all', emoji: 'ALL', label: '전체' },
+    { id: 'female', emoji: '👩🏻', label: '여성이' },
+    { id: 'male', emoji: '👨🏻', label: '남성이' },
+    { id: 'teenager', emoji: '👦🏻', label: '청소년이' },
+  ];
+
+  const filters = [
+    { id: 'received', label: '받고 싶어한' },
+    { id: 'given', label: '많이 선물한' },
+    { id: 'wishlist', label: '위시로 받은' },
+  ];
+
   return (
     <Section>
       <Title>실시간 급상승 선물랭킹</Title>
 
       <CatContainer>
         <GenerationGroup>
-          <Button isActive={activeButton === 'all'} onClick={() => handleButtonClick('all')}>
-            <div>ALL</div>
-            <p>전체</p>
-          </Button>
-          <Button isActive={activeButton === 'female'} onClick={() => handleButtonClick('female')}>
-            <div>👩🏻</div>
-            <p>여성이</p>
-          </Button>
-          <Button isActive={activeButton === 'male'} onClick={() => handleButtonClick('male')}>
-            <div>👨🏻</div>
-            <p>남성이</p>
-          </Button>
-          <Button isActive={activeButton === 'teen'} onClick={() => handleButtonClick('teen')}>
-            <div>👦🏻</div>
-            <p>청소년이</p>
-          </Button>
+          {generations.map(({ id, emoji, label }) => (
+            <Button isActive={activeButton === id} onClick={() => handleButtonClick(id)}>
+              <div>{emoji}</div>
+              <p>{label}</p>
+            </Button>
+          ))}
         </GenerationGroup>
 
         <FilterGroup>
-          <Button
-            isActive={activeButton === 'received'}
-            onClick={() => handleButtonClick('received')}
-          >
-            받고 싶어한
-          </Button>
-          <Button isActive={activeButton === 'given'} onClick={() => handleButtonClick('given')}>
-            많이 선물한
-          </Button>
-          <Button
-            isActive={activeButton === 'wishlist'}
-            onClick={() => handleButtonClick('wishlist')}
-          >
-            위시로 받은
-          </Button>
+          {filters.map(({ id, label }) => (
+            <Button isActive={activeButton === id} onClick={() => handleButtonClick(id)}>
+              <p>{label}</p>
+            </Button>
+          ))}
         </FilterGroup>
       </CatContainer>
 
