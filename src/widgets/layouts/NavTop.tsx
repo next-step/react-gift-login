@@ -2,8 +2,9 @@ import { Link } from "react-router-dom";
 
 import { ChevronLeft, User } from "lucide-react";
 
+import kakaoGiftLogo from "@/app/assets/kakao-gift-logo.png";
+
 import * as Styles from "./NavTop.styled";
-import { KakaoGiftLogo } from "@/app/assets/KakaoGiftLogo";
 
 export const NavTop = () => {
     return (
@@ -16,7 +17,7 @@ export const NavTop = () => {
                 </Styles.Item>
 
                 <Styles.Item align="center">
-                    <KakaoGiftLogo height={44} />
+                    <img src={kakaoGiftLogo} alt="카카오 선물하기" height={44} />
                 </Styles.Item>
 
                 <Styles.Item align="right">

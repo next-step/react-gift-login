@@ -8,10 +8,12 @@
         "^react",
         "<THIRD_PARTY_MODULES>",
 
-        "^(@/components)(.*)$",
-        "^(@/hooks)(.*)$",
+        "^(@/app)(.*)$",
+        "^(@/entities)(.*)$",
+        "^(@/features)(.*)$",
         "^(@/pages)(.*)$",
-        "^(@/styles)(.*)$",
+        "^(@/shared)(.*)$",
+        "^(@/widgets)(.*)$",
 
         "^(.*)/(.*)$"
     ],
