@@ -7,6 +7,7 @@ import FriendSelector from './components/FriendSelector';
 import Banner from './components/Banner';
 import RankingSection from './components/RankingSection/RankingSection';
 import LoginPage from './pages/LoginPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 const Home = () => (
   <main>
@@ -24,6 +25,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<LoginPage />} />
+         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );

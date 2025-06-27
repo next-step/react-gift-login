@@ -1,7 +1,6 @@
 /** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react';
+import { css, useTheme, type Theme as ThemeType } from '@emotion/react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useTheme } from '@emotion/react';
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -30,13 +29,12 @@ const LoginPage = () => {
 
 export default LoginPage;
 
-// 스타일 정의
-const backgroundStyle = (theme: any) => css`
+const backgroundStyle = (theme: ThemeType) => css`
   background-color: ${theme.color.semantic.backgroundDefault};
   min-height: 100vh;
 `;
 
-const cardStyle = (theme: any) => css`
+const cardStyle = (theme: ThemeType) => css`
   max-width: 450px;
   margin: 48px auto;
   background-color: ${theme.color.semantic.backgroundDefault};
@@ -56,7 +54,7 @@ const logoStyle = css`
   margin-bottom: 24px;
 `;
 
-const inputStyle = (theme: any) => css`
+const inputStyle = (theme: ThemeType) => css`
   padding: 12px 16px;
   border: none;
   border-bottom: 1px solid ${theme.color.gray.gray400};
@@ -71,7 +69,7 @@ const inputStyle = (theme: any) => css`
   }
 `;
 
-const loginButtonStyle = (theme: any) => css`
+const loginButtonStyle = (theme: ThemeType) => css`
   margin-top: 16px;
   padding: 12px;
   background-color: ${theme.color.yellow.yellow600};
