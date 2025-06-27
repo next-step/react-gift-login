@@ -13,6 +13,8 @@ import { RANK_SELECT } from "@/constants/tabs";
 import type { AgeType } from "@/constants/age";
 import type { RankType } from "@/constants/tabs";
 
+const MIN_VISIBLE_CARDS = 6;
+
 const RankingSection = () => {
   const [selectedAge, setSelectedAge] = useState<AgeType>("ALL");
   const [selectedTab, setSelectedTab] = useState<RankType>("MANY_WISH");
@@ -26,7 +28,7 @@ const RankingSection = () => {
     price: item.price.sellingPrice,
   }));
 
-  const visibleCards = showAll ? cards : cards.slice(0, 6);
+  const visibleCards = showAll ? cards : cards.slice(0, MIN_VISIBLE_CARDS);
 
   return (
     <Wrapper>
@@ -50,7 +52,7 @@ const RankingSection = () => {
       />
       <section>
         <CardList cards={visibleCards} />
-        {!showAll && cards.length > 6 && (
+        {!showAll && cards.length > MIN_VISIBLE_CARDS && (
           <ShowMoreButton onClick={() => setShowAll(true)}>
             더보기
           </ShowMoreButton>
