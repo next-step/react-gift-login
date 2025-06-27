@@ -1,27 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 
-const Navigation = () => {
-  const navStyle = css`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: white;
-  `;
-
-  const iconButtonStyle = css`
-    border: none;
-    background: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  `;
-
-  const logoStyle = css`
-    height: 42px;
-  `;
-
+export const Navigation = () => {
   return (
     <nav css={navStyle}>
       <button css={iconButtonStyle}>
@@ -45,5 +25,23 @@ const Navigation = () => {
     </nav>
   );
 };
+// theme를 사용하지 않은 스타일을 컴포넌트 외부로 옮겼습니다.
+const navStyle = css`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+  `;
 
-export default Navigation; 
+  const iconButtonStyle = css`
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  `;
+
+  const logoStyle = css`
+    height: 42px;
+  `;

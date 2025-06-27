@@ -3,7 +3,7 @@ import { css } from '@emotion/react';
 import { useTheme } from '@emotion/react';
 import { categories } from '../data/categories';
 
-const CategorySection = () => {
+export const CategorySection = () => {
   const theme = useTheme();
   
   const sectionStyle = css`
@@ -22,13 +22,6 @@ const CategorySection = () => {
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(3, 1fr);
     row-gap: ${theme.spacing.spacing5};
-  `;
-
-  const itemStyle = css`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
   `;
 
   const imageStyle = css`
@@ -61,5 +54,10 @@ const CategorySection = () => {
     </section>
   );
 };
-
-export default CategorySection; 
+// theme를 사용하지 않은 스타일을 컴포넌트 외부로 옮겼습니다. 
+const itemStyle = css` 
+display: flex;
+flex-direction: column;
+align-items: center;
+cursor: pointer;
+`;

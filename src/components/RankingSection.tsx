@@ -4,7 +4,7 @@ import { useTheme } from '@emotion/react';
 import { useState } from 'react';
 import { rankingItems } from '../data/ranking';
 
-const RankingSection = () => {
+export const RankingSection = () => {
   const theme = useTheme();
   const [isExpanded, setIsExpanded] = useState(false);
   const [selectedGender, setSelectedGender] = useState('ALL');
@@ -27,14 +27,6 @@ const RankingSection = () => {
     ${theme.typography.title1Bold}
     color: ${theme.semantic.text.default};
     margin-bottom: ${theme.spacing.spacing4};
-  `;
-
-  // 공통 버튼 스타일 분리 
-  const baseButtonStyle = css`
-    border: none;
-    background: none;
-    padding: 0;
-    cursor: pointer;
   `;
 
   const genderFilterStyle = css`
@@ -92,13 +84,6 @@ const RankingSection = () => {
     column-gap: ${theme.spacing.spacing2};
     row-gap: ${theme.spacing.spacing7};
     margin-bottom: ${theme.spacing.spacing4};
-  `;
-
-  const itemStyle = css`
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-    position: relative;
   `;
 
   const rankBadgeStyle = (rank: number) => css`
@@ -208,5 +193,17 @@ const RankingSection = () => {
     </section>
   );
 };
+  // theme를 사용하지 않은 스타일을 컴포넌트 외부로 옮겼습니다. 
+  const baseButtonStyle = css`
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+  `;
 
-export default RankingSection; 
+  const itemStyle = css`
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    position: relative;
+  `;
