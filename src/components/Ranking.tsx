@@ -1,4 +1,4 @@
-import type { ThemeType } from "@/styles/theme";
+import type { ThemeType } from "@/styles/theme/theme";
 import { useTheme } from "@emotion/react";
 import styled from "@emotion/styled";
 import { useState } from "react";
@@ -49,16 +49,10 @@ const Ranking = () => {
                 setCategory(index);
               }}
             >
-              <CategoryImg
-                selected={category == index ? true : false}
-                theme={theme}
-              >
+              <CategoryImg selected={category == index ? true : false} theme={theme}>
                 {e.image}
               </CategoryImg>
-              <CategoryName
-                selected={category == index ? true : false}
-                theme={theme}
-              >
+              <CategoryName selected={category == index ? true : false} theme={theme}>
                 {e.name}
               </CategoryName>
             </Category>
@@ -86,12 +80,12 @@ const Ranking = () => {
 
 const Container = styled.section`
   width: 100%;
-  padding: 0 16px;
-  background-color: ${({ theme }) => theme.background_color.default};
+  padding: 0 ${({ theme }) => theme.spacing.spacing4};
+  background-color: ${({ theme }) => theme.color.backgroundColor.default};
 `;
 const Title = styled.h3`
   font: ${({ theme }) => theme.typography.title1Bold};
-  margin-bottom: 20px;
+  margin-bottom: ${({ theme }) => theme.spacing.spacing5};
 `;
 const NavBar = styled.div`
   width: 100%;
@@ -104,7 +98,7 @@ const CategoryList = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: ${({ theme }) => theme.spacing.spacing5};
 `;
 const Category = styled.button`
   width: 3.625rem;
@@ -112,7 +106,7 @@ const Category = styled.button`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 4px;
+  gap: ${({ theme }) => theme.spacing.spacing1};
   border: none;
   background-color: transparent;
   cursor: pointer;
@@ -129,39 +123,32 @@ const CategoryImg = styled.div<SelectedAndTheme>`
   align-items: center;
   justify-content: center;
   border-radius: 1rem;
-  background-color: ${(props) =>
-    props.selected ? props.theme.colors.blue600 : props.theme.colors.blue200};
-  color: ${(props) =>
-    props.selected ? props.theme.colors.gray00 : props.theme.colors.gray500};
+  background-color: ${(props) => (props.selected ? props.theme.color.blue600 : props.theme.color.blue200)};
+  color: ${(props) => (props.selected ? props.theme.color.gray00 : props.theme.color.gray500)};
   font-weight: bold;
 `;
 const CategoryName = styled.p<SelectedAndTheme>`
   font: ${({ theme }) => theme.typography.label1Bold};
-  color: ${(props) =>
-    props.selected ? props.theme.colors.blue600 : props.theme.colors.gray500};
+  color: ${(props) => (props.selected ? props.theme.color.blue600 : props.theme.color.gray500)};
 `;
 const WishCategoryList = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  background-color: ${({ theme }) => theme.colors.blue200};
-  border: 1px solid ${({ theme }) => theme.colors.blue300};
+  background-color: ${({ theme }) => theme.color.blue200};
+  border: 1px solid ${({ theme }) => theme.color.blue300};
   border-radius: 15px;
   padding: 12px 16px;
   margin-bottom: 20px;
 `;
 const WishCategory = styled.button<SelectedAndTheme>`
   width: 100%;
-  font: ${(props) =>
-    props.selected
-      ? props.theme.typography.label1Bold
-      : props.theme.typography.label1Regular};
+  font: ${(props) => (props.selected ? props.theme.typography.label1Bold : props.theme.typography.label1Regular)};
   align-items: center;
   justify-content: center;
   background-color: transparent;
   border: none;
-  color: ${(props) =>
-    props.selected ? props.theme.colors.blue600 : props.theme.colors.blue400};
+  color: ${(props) => (props.selected ? props.theme.color.blue600 : props.theme.color.blue400)};
   cursor: pointer;
 `;
 

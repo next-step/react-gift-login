@@ -22,11 +22,14 @@ const Container = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 5px;
-  background-color: ${({ theme }) => theme.background_color.default};
+  padding: ${({ theme }) => theme.spacing.spacing1};
+  background-color: ${({ theme }) => theme.color.backgroundColor.default};
 `;
 const TitleDiv = styled.div`
-  padding: 0 8px 20px;
+  padding-left: ${({ theme }) => theme.spacing.spacing2};
+  padding-top: 0;
+  padding-right: ${({ theme }) => theme.spacing.spacing2};
+  padding-bottom: ${({ theme }) => theme.spacing.spacing5};
   margin-right: auto;
   font: ${({ theme }) => theme.typography.title1Bold};
 `;
@@ -34,7 +37,7 @@ const CategoryListDiv = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 20px 4px;
+  gap: ${({ theme }) => theme.spacing.spacing5} ${({ theme }) => theme.spacing.spacing2};
 `;
 const CategoryDiv = styled.div`
   width: 100%;
@@ -56,7 +59,7 @@ const CategoryImg = styled.img`
 `;
 const CategoryName = styled.p`
   font: ${({ theme }) => theme.typography.label2Regular};
-  color: ${({ theme }) => theme.text_color.default};
+  color: ${({ theme }) => theme.color.textColor.default};
 `;
 
 export default Category;

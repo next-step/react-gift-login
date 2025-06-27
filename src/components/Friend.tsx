@@ -35,9 +35,9 @@ const Content = styled.button`
   border: none;
   width: 100%;
   height: 100%;
-  background-color: ${({ theme }) => theme.background_color.default};
-  padding: 15px;
-  gap: 12px;
+  background-color: ${({ theme }) => theme.color.backgroundColor.default};
+  padding: ${({ theme }) => theme.spacing.spacing4};
+  gap: ${({ theme }) => theme.spacing.spacing3};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -50,7 +50,7 @@ const PlusDiv = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 16px;
-  background-color: ${({ theme }) => theme.semantic_color.kakaoYellow};
+  background-color: ${({ theme }) => theme.color.kakaoYellow};
 `;
 const Msg = styled.p`
   width: 100%;

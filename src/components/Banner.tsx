@@ -12,25 +12,25 @@ const Banner = () => {
 };
 
 const Container = styled.section`
-  padding: 0 16px;
-  background-color: ${({ theme }) => theme.background_color.default};
+  padding: 0 ${({ theme }) => theme.spacing.spacing4};
+  background-color: ${({ theme }) => theme.color.backgroundColor.default};
   display: block;
 `;
 const Content = styled.div`
   width: 100%;
   height: 100%;
   border-radius: 1rem;
-  background-color: ${({ theme }) => theme.semantic_color.kakaoYellow};
-  padding: 16px;
+  background-color: ${({ theme }) => theme.color.kakaoYellow};
+  padding: ${({ theme }) => theme.spacing.spacing4};
   display: flex;
   flex-direction: column;
 `;
 const Label = styled.p`
   font: ${({ theme }) => theme.typography.label2Regular};
-  color: ${({ theme }) => theme.text_color.sub};
+  color: ${({ theme }) => theme.color.textColor.sub};
 `;
 const Msg = styled.p`
   font: ${({ theme }) => theme.typography.label1Bold};
-  color: ${({ theme }) => theme.text_color.default};
+  color: ${({ theme }) => theme.color.textColor.default};
 `;
 export default Banner;

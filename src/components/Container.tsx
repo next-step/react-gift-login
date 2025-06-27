@@ -9,7 +9,7 @@ const Container = ({ children }: any) => {
 };
 
 const ContainerDiv = styled.div`
-  background-color: ${({ theme }) => theme.background_color.fill};
+  background-color: ${({ theme }) => theme.color.backgroundColor.fill};
   width: 100%;
   height: 100%;
   display: flex;

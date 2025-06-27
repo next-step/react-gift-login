@@ -23,15 +23,15 @@ const Navigation = () => {
 };
 
 const ContainerDiv = styled.div`
-  background-color: ${({ theme }) => theme.background_color.default};
+  background-color: ${({ theme }) => theme.color.backgroundColor.default};
 `;
 const NavDiv = styled.nav`
   height: 45px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  gap: ${({ theme }) => theme.typography.spacing1};
-  padding: 0 5px;
+  gap: ${({ theme }) => theme.spacing.spacing1};
+  padding: 0 ${({ theme }) => theme.spacing.spacing1};
 `;
 const NavLeftDiv = styled.div`
   margin-right: auto;
@@ -45,7 +45,7 @@ const NavRightDiv = styled.div`
 `;
 const LinkA = styled.a`
   text-decoration: none;
-  color: ${({ theme }) => theme.text_color.default};
+  color: ${({ theme }) => theme.color.textColor.default};
 `;
 const LeftArrow = () => {
   return (
