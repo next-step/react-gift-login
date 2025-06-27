@@ -54,7 +54,7 @@ const tabContainerStyle = css`
   display: flex;
   justify-content: space-between;
   border-radius: 8px;
-  padding: px;
+  padding: 10px;
   width: 100%;
 `;
 
