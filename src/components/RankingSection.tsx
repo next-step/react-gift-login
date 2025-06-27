@@ -3,16 +3,18 @@ import { css, useTheme } from '@emotion/react';
 import { useState } from 'react';
 import { mockProducts } from '@/data/products';
 
+const INITIAL_VISIBLE_COUNT = 6;
+
 const RankingSection = () => {
   const theme = useTheme();
-  const [visibleCount, setVisibleCount] = useState(6);
+  const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE_COUNT);
   const isExpanded = visibleCount === mockProducts.length;
 
   const [selectedFilter, setSelectedFilter] = useState('전체');
   const [selectedSort, setSelectedSort] = useState('받고 싶어한');
 
   const toggleVisibleCount = () => {
-    setVisibleCount(isExpanded ? 6 : mockProducts.length);
+    setVisibleCount(isExpanded ? INITIAL_VISIBLE_COUNT : mockProducts.length);
   };
 
   const sectionStyle = css`
