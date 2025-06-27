@@ -4,7 +4,7 @@ export const ButtonWrapper = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
-  gap: 4px;
+  gap: ${({ theme }) => theme.spacing.spacing1};
 `;
 
 export const Button = styled.button<{ selected?: boolean }>`
@@ -26,7 +26,7 @@ export const Button = styled.button<{ selected?: boolean }>`
 
 export const Emoji = styled.span`
   font-size: ${({ theme }) => theme.typography.title1Bold.fontSize};
-  margin-bottom: 4px;
+  margin-bottom: ${({ theme }) => theme.spacing.spacing1};;
 `;
 
 export const Label = styled.span<{ selected?: boolean }>`

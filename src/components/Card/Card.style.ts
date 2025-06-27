@@ -10,8 +10,8 @@ export const CardWrapper = styled.div`
 
 export const RankNumber = styled.div`
   position: absolute;
-  top: 8px;
-  left: 8px;
+  top: ${({ theme }) => theme.spacing.spacing2};;
+  left: ${({ theme }) => theme.spacing.spacing2};;
   background: ${({ theme }) => theme.colors.gray600};
   color: ${({ theme }) => theme.colors.gray00};
   border-radius: 8px;
@@ -34,18 +34,18 @@ export const Info = styled.div`
 export const Brand = styled.div`
   color: ${({ theme }) => theme.colors.gray700};
   font-size: ${({ theme }) => theme.typography.body2Bold.fontSize};
-  margin-bottom: 2px;
+  margin-bottom: ${({ theme }) => theme.spacing.spacing1};
 `;
 
 export const Name = styled.div`
   color: ${({ theme }) => theme.colors.gray1000};
   font-size: ${({ theme }) => theme.typography.body1Bold.fontSize};
-  margin-bottom: 8px;
+  margin-bottom: ${({ theme }) => theme.spacing.spacing2};
 `;
 
 export const Price = styled.div`
   color: ${({ theme }) => theme.colors.gray1000};
   font-size: ${({ theme }) => theme.typography.body1Bold.fontSize};
   font-weight: ${({ theme }) => theme.typography.body1Bold.fontWeight};
-  margin-top: 4px;
+  margin-top: ${({ theme }) => theme.spacing.spacing1};
 `;

@@ -15,14 +15,14 @@ const Title = styled.h1`
     line-height: ${theme.typography.title1Bold.lineHeight};
   `}
   align-self: flex-start;
-  margin-left: 20px;
+  margin-left: ${({ theme }) => theme.spacing.spacing5};;
 `;
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  gap: 10px 40px;
-`;
+  gap: ${({ theme }) => theme.spacing.spacing2} ${({ theme }) => theme.spacing.spacing10};
+`
 const CategoryItem = styled.div`
   display: flex;
   flex-direction: column;

@@ -13,8 +13,8 @@ const Container = styled.div`
   `}
   display: flex;
   align-items: center;
-  gap: 20px;
-  padding: 16px;
+  gap: ${({ theme }) => theme.spacing.spacing5};
+  padding: ${({ theme }) => theme.spacing.spacing4};;
   border-radius: 20px;
 `;
 const PlusButton = styled.button`
@@ -23,7 +23,7 @@ const PlusButton = styled.button`
   `}
   border: none;
   border-radius: 20px;
-  padding: 12px;
+  padding: ${({ theme }) => theme.spacing.spacing3};
   cursor: pointer;
 `;
 const Title = styled.h1`
