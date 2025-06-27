@@ -30,7 +30,6 @@ const textStyle = (theme: Theme) => css`
   font-weight: ${theme.typography.subtitle1Bold.weight};
   line-height: ${theme.typography.subtitle1Bold.lineHeight};
   color: ${theme.colors.semantic.text.default};
-  border-radius: 16px;
   height: 30px;
   text-align: left;
 `;
