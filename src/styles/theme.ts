@@ -228,3 +228,5 @@ export const theme = {
     spacing16: "64px", // 최대 간격
   },
 };
+
+export type EmotionTheme = typeof theme;
