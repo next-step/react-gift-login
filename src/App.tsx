@@ -1,10 +1,12 @@
 import React from 'react';
+import { css } from '@emotion/react';
 import GlobalStyle from './styles/global';
 import styled from '@emotion/styled';
 import { ThemeProvider } from '@emotion/react';
 import { theme } from './theme/theme';
 import NavigationBar from '@components/NavigationBar';
 import ReceiverSelection from '@components/ReceiverSelection';
+import PresentTheme from '@components/PresentTheme';
 
 const Warpper = styled.div`
   width: 100%;
@@ -38,6 +40,12 @@ const MainArea = styled.div`
   padding-top: 2.75rem;
 `;
 
+const MarginBox = styled.div`
+  width: 100%;
+  height: 24px;
+  background-color: transparent;
+`;
+
 const App = () => {
   return (
     <>
@@ -50,6 +58,8 @@ const App = () => {
           <MainArea>
             <main>
               <ReceiverSelection />
+              <MarginBox />
+              <PresentTheme />
             </main>
           </MainArea>
         </Warpper>
