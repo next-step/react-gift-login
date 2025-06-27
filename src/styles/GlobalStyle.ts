@@ -1,13 +1,12 @@
-// GlobalStyle.ts
 import { css } from '@emotion/react'
-import type { ThemeType } from '@/styles/theme'
+import { theme } from '@/theme'
 
-export const globalStyle = (theme: ThemeType) => css`
+export const globalStyle = css`
   html,
   body {
     margin: 0;
     padding: 0;
-    font-family: 'Pretendard', sans-serif;
+    font-family: 'Pretendard Variable', sans-serif;
     background-color: ${theme.colors.semanticColor.backgroundColor.default};
     color: ${theme.colors.semanticColor.textColor.default};
   }
