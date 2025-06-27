@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import NavigationBar from "@/components/NavigationBar/NavigationBar";
 import SelectFriendSection from "@/sections/SelectFriendSection";
 import CategorySection from "@/sections/CategorySection";
-import RankingSection from "@/sections/RankingSection";
+import RankingSection from "@/sections/RankingSection/RankingSection";
 
 const Container = styled.div`
   ${({ theme }) => `

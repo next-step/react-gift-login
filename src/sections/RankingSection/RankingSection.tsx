@@ -1,49 +1,21 @@
-import styled from "@emotion/styled";
+import { useState } from "react";
+import { 
+  Wrapper,
+  Title,
+  ButtonGroup } from "@/sections/RankingSection/RankingSection.style";
 import AgeSelectionButton from "@/components/AgeSelectionButton/AgeSelectionButton";
 import RankSelectionBar from "@/components/RankSelectionBar/RankSelectionBar";
 import ShowMoreButton from "@/components/ShowMoreButton/ShowMoreButton";
 import CardList from "@/components/CardList/CardList";
 import { cardData } from "@/mockdata/cardData.ts";
-import { useState } from "react";
-
-const Wrapper = styled.section`
-  padding: 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-`;
-const Title = styled.h1`
-  ${({ theme }) => `
-    color: ${theme.colors.textDefault};
-    font-size: ${theme.typography.title1Bold.fontSize};
-    font-weight: ${theme.typography.title1Bold.fontWeight};
-    line-height: ${theme.typography.title1Bold.lineHeight};
-  `}
-`;
-const ButtonGroup = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-`;
-const CardListSection = styled.section``;
-
-const AGE_BUTTONS = [
-  { ageType: "ALL", label: "전체", emoji: "😊" },
-  { ageType: "FEMALE", label: "여성이", emoji: "👧🏻" },
-  { ageType: "MALE", label: "남성이", emoji: "🧑🏻" },
-  { ageType: "YOUTH", label: "청소년이", emoji: "👦🏻" },
-];
-const TABS = [
-  { rankType: "MANY_WISH", label: "받고 싶어한" },
-  { rankType: "MANY_RECEIVE", label: "많이 선물한" },
-  { rankType: "MANY_WISH_RECEIVE", label: "위시로 받은" },
-];
+import { AGE_SELECT } from "@/constants/age";
+import { RANK_SELECT } from "@/constants/tabs";
+import type { AgeType } from "@/constants/age";
+import type { RankType } from "@/constants/tabs";
 
 const RankingSection = () => {
-  const [selectedAge, setSelectedAge] = useState("ALL");
-  const [selectedTab, setSelectedTab] = useState("MANY_WISH");
+  const [selectedAge, setSelectedAge] = useState<AgeType>("ALL");
+  const [selectedTab, setSelectedTab] = useState<RankType>("MANY_WISH");
   const [showAll, setShowAll] = useState(false);
 
   const cards = cardData.map((item) => ({
@@ -60,7 +32,7 @@ const RankingSection = () => {
     <Wrapper>
       <Title>실시간 급상승 선물랭킹</Title>
       <ButtonGroup>
-        {AGE_BUTTONS.map((btn) => (
+        {AGE_SELECT.map((btn) => (
           <AgeSelectionButton
             key={btn.ageType}
             ageType={btn.ageType}
@@ -72,11 +44,11 @@ const RankingSection = () => {
         ))}
       </ButtonGroup>
       <RankSelectionBar
-        tabs={TABS}
+        tabs={RANK_SELECT}
         selected={selectedTab}
         onSelect={setSelectedTab}
       />
-      <CardListSection>
+      <section>
         <CardList cards={visibleCards} />
         {!showAll && cards.length > 6 && (
           <ShowMoreButton onClick={() => setShowAll(true)}>
@@ -88,7 +60,7 @@ const RankingSection = () => {
             접기
           </ShowMoreButton>
         )}
-      </CardListSection>
+      </section>
     </Wrapper>
   );
 };

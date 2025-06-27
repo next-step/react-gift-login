@@ -1,12 +1,10 @@
-import {
-  Wrapper,
-  BarButton,
-} from "@/components/RankSelectionBar/RankSelectionBar.style";
+import type {RankTypeTemp, RankType } from '@/constants/tabs'
+import { Wrapper, BarButton } from "@/components/RankSelectionBar/RankSelectionBar.style"
 
-interface RankSelectionBarProps {
-  tabs: { rankType: string; label: string }[];
-  selected: string;
-  onSelect: (rankType: string) => void;
+export interface RankSelectionBarProps {
+  tabs: readonly RankTypeTemp[];
+  selected: RankType;
+  onSelect: (rankType: RankType) => void;
 }
 
 function RankSelectionBar({ tabs, selected, onSelect }: RankSelectionBarProps) {

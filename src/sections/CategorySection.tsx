@@ -33,7 +33,6 @@ const CategoryItem = styled.div`
 const CategoryImage = styled.img`
   width: 60%;
 `;
-const CategoryName = styled.span``;
 
 const CategorySection = () => {
   return (
@@ -43,7 +42,7 @@ const CategorySection = () => {
         {categoryList.map((category) => (
           <CategoryItem key={category.themeId}>
             <CategoryImage src={category.image} />
-            <CategoryName>{category.name}</CategoryName>
+            <span>{category.name}</span>
           </CategoryItem>
         ))}
       </Grid>
