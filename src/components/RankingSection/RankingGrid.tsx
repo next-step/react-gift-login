@@ -1,5 +1,5 @@
 import { css, useTheme } from '@emotion/react';
-import { categoryData } from '@/mocks/categoryData';
+import { mockProduct } from '@/mocks/productData';
 
 const gridStyle = (theme: any) => css`
   display: grid;
@@ -45,10 +45,10 @@ export default function RankingGrid() {
 
   return (
     <div css={gridStyle(theme)}>
-      {categoryData.slice(0, 6).map((item, index) => (
-        <div key={item.themeId} css={itemStyle}>
+      {mockProduct.map((item, index) => (
+        <div key={item.id} css={itemStyle}>
           <div css={rankStyle(theme)}>{index + 1}</div>
-          <img src={item.image} alt={item.name} css={imageStyle} />
+          <img src={item.imageURL} alt={item.name} css={imageStyle} />
           <div css={nameStyle(theme)}>{item.name}</div>
         </div>
       ))}
