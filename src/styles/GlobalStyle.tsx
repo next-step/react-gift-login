@@ -1,4 +1,3 @@
-// src/styles/GlobalStyle.tsx
 import { Global, css } from '@emotion/react'
 
 const GlobalStyle = () => (
