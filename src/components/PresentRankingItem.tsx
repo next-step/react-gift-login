@@ -2,26 +2,28 @@ import { GOODS_DATA } from '@assets/GOODS_DATA';
 import type { Goods } from '@assets/GOODS_DATA';
 import styled from '@emotion/styled';
 
-const StyledPresentItemImage = styled.img`
+const StyledPresentRankingItemImage = styled.img`
   width: 100px;
   height: 100px;
   margin: 4px;
 `;
-const StyledPresentItemDiv = styled.div`
+const StyledPresentRankingItemDiv = styled.div`
   display: flex;
   flex-direction: column;
 `;
-const PresentItem = () => {
+const PresentItem = ({ isVisible }: { isVisible: boolean }) => {
+  const repeatCnt = isVisible ? 6 : 18;
+  const repeatItems = Array.from({ length: repeatCnt }, (_, i) => GOODS_DATA[i % GOODS_DATA.length]);
   return (
     <>
-      {GOODS_DATA.map((item: Goods) => (
-        <div key={item.id}>
-          <StyledPresentItemDiv>
-            <StyledPresentItemImage src={item.imageURL} alt='' />
+      {repeatItems.map((item: Goods, index: number) => (
+        <div key={index}>
+          <StyledPresentRankingItemDiv>
+            <StyledPresentRankingItemImage src={item.imageURL} alt='' />
             <p className='brand_name'>{item.brandInfo.name}</p>
             <p className='goods_name'>{item.name}</p>
             <p className='goods_price'>{item.price.sellingPrice.toLocaleString()}원</p>
-          </StyledPresentItemDiv>
+          </StyledPresentRankingItemDiv>
         </div>
       ))}
     </>
