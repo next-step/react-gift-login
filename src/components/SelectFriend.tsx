@@ -24,7 +24,7 @@ const containerStyle = (theme: Theme) => css`
   cursor: pointer;
 `;
 const buttonStyle = (theme: Theme) => css`
-  color: black;
+  color: ${theme.colors.semantic.kakaoBrown};
   background-color: ${theme.colors.semantic.kakaoYellow};
   font-size: 32px;
   margin-right: 8px;
