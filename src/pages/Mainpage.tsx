@@ -14,8 +14,7 @@ const AppContainer = styled.div`
   display: flex;
   justify-content: center;
 
-  /* PC에서만 좌우 여백 */
-  @media (min-width: 721px) {
+  @media (min-width: ${theme.breakpoints.desktop}) {
     padding: 0 24px;
   }
 `;
@@ -27,8 +26,7 @@ const MobileViewport = styled.div`
   background: ${theme.colors.fill};
   position: relative;
 
-  /* PC에서만 그림자, border-radius */
-  @media (min-width: 721px) {
+  @media (min-width: ${theme.breakpoints.desktop}) {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     border-radius: 16px;
   }
