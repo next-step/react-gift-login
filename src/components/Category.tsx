@@ -1,4 +1,3 @@
-/** @jsxImportSource @emotion/react */
 import categoryData from "@/data/categoryData";
 import type { Theme } from "@emotion/react";
 import { css } from "@emotion/react";

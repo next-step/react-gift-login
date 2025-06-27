@@ -1,4 +1,3 @@
-/** @jsxImportSource @emotion/react */
 import type { Theme } from "@emotion/react";
 import { css } from "@emotion/react";
 import giftData from "@/data/giftData";

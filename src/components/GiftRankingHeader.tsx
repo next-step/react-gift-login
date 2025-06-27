@@ -1,6 +1,6 @@
-/** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import type { Theme } from "@emotion/react";
+import { Theme } from "@emotion/react";
+import { theme } from "@/styles/theme";
 import { IoAppsOutline, IoWomanOutline, IoManOutline } from "react-icons/io5";
 
 const GiftRankingHeader = () => {

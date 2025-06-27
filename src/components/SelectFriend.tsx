@@ -1,4 +1,3 @@
-/** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import type { Theme } from "@emotion/react";
 import { IoAdd } from "react-icons/io5";

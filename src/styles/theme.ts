@@ -1,6 +1,6 @@
 
 
-const theme = {
+export const theme = {
   colors: {
     gray: {
       gray00: '#ffffff',
