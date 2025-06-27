@@ -2,21 +2,13 @@
 import { css } from '@emotion/react';
 import { useTheme } from '@emotion/react';
 import { useState } from 'react';
-import { rankingItems } from '../data/ranking';
+import { rankingItems, genderItems, actionItems } from '../data/ranking';
 
 export const RankingSection = () => {
   const theme = useTheme();
   const [isExpanded, setIsExpanded] = useState(false);
   const [selectedGender, setSelectedGender] = useState('ALL');
   const [selectedAction, setSelectedAction] = useState('받고 싶어한');
-  // 고정인 데이터들을 배열로 만듦
-  const genderOptions = [
-    { key: 'ALL', icon: 'ALL', label: '전체' },
-    { key: '여성이', icon: '👩🏻', label: '여성이' },
-    { key: '남성이', icon: '👨🏻', label: '남성이' },
-    { key: '청소년이', icon: '👦🏻', label: '청소년이' }
-  ];
-  const actionOptions = ['받고 싶어한', '많이 선물한', '위시로 받은'];
   
   const sectionStyle = css`
     padding: ${theme.spacing.spacing4};
@@ -158,7 +150,7 @@ export const RankingSection = () => {
       
       <div css={css`margin-bottom: ${theme.spacing.spacing4};`}>
         <div css={genderFilterStyle}>
-          {genderOptions.map(option => (
+          {genderItems.map(option => (
             <button key={option.key} css={genderButtonStyle} onClick={() => setSelectedGender(option.key)}>
               <div css={genderIconContainerStyle(selectedGender === option.key)}>{option.icon}</div>
               <p css={genderTextStyle(selectedGender === option.key)}>{option.label}</p>
@@ -167,7 +159,7 @@ export const RankingSection = () => {
         </div>
         
         <div css={actionFilterStyle}>
-          {actionOptions.map(action => (
+          {actionItems.map(action => (
             <button key={action} css={actionButtonStyle(selectedAction === action)} onClick={() => setSelectedAction(action)}>
               {action}
             </button>
