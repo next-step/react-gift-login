@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
-import { css, useTheme } from '@emotion/react';
+import { css, useTheme, type Theme as ThemeType } from '@emotion/react';
 
-const bannerStyle = (theme: any) => css`
+const bannerStyle = (theme: ThemeType) => css`
   background-color: ${theme.color.semantic.kakaoYellow};
   color: ${theme.color.semantic.kakaoBrown};
   padding: 12px 16px;
@@ -29,5 +29,3 @@ const Banner = () => {
 };
 
 export default Banner;
-
-

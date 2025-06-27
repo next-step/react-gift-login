@@ -2,12 +2,17 @@
 import { css } from '@emotion/react';
 import { FiArrowLeft, FiUser } from 'react-icons/fi';
 
+const iconProps = {
+  size: 24,
+  color: '#000',
+};
+
 const NavBar = () => {
   return (
     <nav css={navStyle}>
-      <FiArrowLeft size={24} color="#000" />
+      <FiArrowLeft {...iconProps} />
       <h1 css={titleStyle}>선물하기</h1>
-      <FiUser size={24} color="#000"/>
+      <FiUser {...iconProps} />
     </nav>
   );
 };

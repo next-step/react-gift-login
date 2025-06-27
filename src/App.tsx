@@ -6,7 +6,7 @@ import theme from './styles/theme';
 import { categories } from './data/categories';
 import FriendSelector from './components/FriendSelector';
 import Banner from './components/Banner';
-import RankingSection from './components/RankingSection';
+import RankingSection from './components/RankingSection/RankingSection';
 
 function App() {
   return (
