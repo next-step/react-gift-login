@@ -1,16 +1,17 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import * as path from 'path'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import * as path from "path";
 
 export default defineConfig({
-// https://vite.dev/config/
-  plugins: [react({
-    jsxImportSource: '@emotion/react',
-  })],
+  // https://vite.dev/config/
+  plugins: [
+    react({
+      jsxImportSource: "@emotion/react",
+    }),
+  ],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
+      "@": path.resolve(__dirname, "./src"),
     },
   },
 });
-

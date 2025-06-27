@@ -8,12 +8,9 @@
     "skipLibCheck": true,
     "baseUrl": "./src",
     "paths": {
-    "@/*": ["*"]
+      "@/*": ["*"]
     },
-    
-    
-    
-  
+
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
@@ -30,11 +27,7 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  
 
   "include": ["src"],
-  "extends": "./tsconfig.json",
-
-  
-  
+  "extends": "./tsconfig.json"
 }
