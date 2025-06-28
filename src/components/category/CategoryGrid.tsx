@@ -8,9 +8,15 @@ const GridWrapper = styled.div`
   gap: ${(props) => props.theme.spacing.spacing2};
   width: 100%;
 
-  /* 작은 화면에서 간격 조정 */
+  /* 모바일에서 4열로 변경하여 화면 넘침 방지 */
   @media (max-width: 480px) {
+    grid-template-columns: repeat(4, 1fr);
     gap: ${(props) => props.theme.spacing.spacing1};
+  }
+
+  /* 더 작은 화면에서는 3열로 */
+  @media (max-width: 360px) {
+    grid-template-columns: repeat(3, 1fr);
   }
 `;
 
