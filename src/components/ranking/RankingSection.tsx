@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Section } from '@/components/layout';
 import FilterButtonGroup from './FilterButtonGroup';
 import ProductGrid from './ProductGrid';
@@ -42,7 +42,7 @@ const generateRankingProducts = (): Product[] => {
   }));
 };
 
-const RankingSection: React.FC = () => {
+const RankingSection = () => {
   const [targetType, setTargetType] = useState<TargetType>('ALL');
   const [rankType, setRankType] = useState<RankType>('MANY_WISH');
   const [showMore, setShowMore] = useState(false);

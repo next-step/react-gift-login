@@ -43,12 +43,12 @@ interface SectionProps {
   children: React.ReactNode;
 }
 
-const Section: React.FC<SectionProps> = ({ 
+const Section = ({ 
   title, 
   subtitle, 
   spacing = 'md', 
   children 
-}) => {
+}: SectionProps) => {
   return (
     <SectionWrapper spacing={spacing}>
       {(title || subtitle) && (

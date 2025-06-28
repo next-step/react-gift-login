@@ -16,7 +16,7 @@ interface MainProps {
   children: React.ReactNode;
 }
 
-const Main: React.FC<MainProps> = ({ children }) => {
+const Main = ({ children }: MainProps) => {
   return (
     <MainWrapper>
       <MainContent>

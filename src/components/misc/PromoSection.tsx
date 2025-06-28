@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from '@emotion/styled';
 
 const PromoWrapper = styled.div`
@@ -32,7 +31,7 @@ interface PromoSectionProps {
   subtitle: string;
 }
 
-const PromoSection: React.FC<PromoSectionProps> = ({ title, subtitle }) => {
+const PromoSection = ({ title, subtitle }: PromoSectionProps) => {
   return (
     <PromoWrapper>
       <PromoTitle>{title}</PromoTitle>

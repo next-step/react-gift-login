@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from '@emotion/styled';
 
 const ItemWrapper = styled.button`
@@ -66,7 +65,7 @@ interface CategoryItemProps {
   onClick?: () => void;
 }
 
-const CategoryItem: React.FC<CategoryItemProps> = ({ icon, label, onClick }) => {
+const CategoryItem = ({ icon, label, onClick }: CategoryItemProps) => {
   // 이미지 URL인지 이모지인지 판단
   const isImageUrl = icon.startsWith('http');
 

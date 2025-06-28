@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from '@emotion/styled';
 
 interface FilterOption {
@@ -42,11 +41,11 @@ const FilterButton = styled.button<{ isActive: boolean }>`
   }
 `;
 
-const FilterButtonGroup: React.FC<FilterButtonGroupProps> = ({
+const FilterButtonGroup = ({
   options, 
   selected, 
   onChange 
-}) => {
+}: FilterButtonGroupProps) => {
   return (
     <FilterContainer>
       {options.map((option) => (

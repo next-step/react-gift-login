@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from '@emotion/styled';
 
 const ProfileButtonWrapper = styled.button`
@@ -33,7 +32,7 @@ interface ProfileButtonProps {
   onClick?: () => void;
 }
 
-const ProfileButton: React.FC<ProfileButtonProps> = ({ onClick }) => {
+const ProfileButton = ({ onClick }: ProfileButtonProps) => {
   return (
     <ProfileButtonWrapper onClick={onClick} aria-label="프로필">
       <ProfileIcon>👤</ProfileIcon>

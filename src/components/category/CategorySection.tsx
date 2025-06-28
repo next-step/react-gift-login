@@ -1,4 +1,3 @@
-import React from 'react';
 import { Section } from '@/components/layout';
 import CategoryGrid, { type CategoryData } from './CategoryGrid';
 
@@ -7,10 +6,10 @@ interface CategorySectionProps {
   onCategoryClick?: (category: CategoryData) => void;
 }
 
-const CategorySection: React.FC<CategorySectionProps> = ({ 
+const CategorySection = ({ 
   categories, 
   onCategoryClick 
-}) => {
+}: CategorySectionProps) => {
   return (
     <Section 
       title="선물 테마" 

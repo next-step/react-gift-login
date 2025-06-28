@@ -22,7 +22,7 @@ interface ContainerProps {
   fullWidth?: boolean;
 }
 
-const Container: React.FC<ContainerProps> = ({ children, fullWidth = false }) => {
+const Container = ({ children, fullWidth = false }: ContainerProps) => {
   return (
     <ContainerWrapper fullWidth={fullWidth}>
       {children}

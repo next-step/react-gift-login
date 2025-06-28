@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from '@emotion/styled';
 
 interface Product {
@@ -80,7 +79,7 @@ const Price = styled.div`
   font-family: 'Pretendard', sans-serif;
 `;
 
-const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+const ProductCard = ({ product }: ProductCardProps) => {
   return (
     <CardContainer>
       <ImageContainer>

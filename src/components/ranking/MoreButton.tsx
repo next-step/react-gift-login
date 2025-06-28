@@ -31,7 +31,7 @@ const Button = styled.button`
   }
 `;
 
-const MoreButton: React.FC<MoreButtonProps> = ({ onClick, children }) => {
+const MoreButton = ({ onClick, children }: MoreButtonProps) => {
   return (
     <Button onClick={onClick}>
       {children}

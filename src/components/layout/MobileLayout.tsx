@@ -24,7 +24,7 @@ interface MobileLayoutProps {
   children: React.ReactNode;
 }
 
-const MobileLayout: React.FC<MobileLayoutProps> = ({ children }) => {
+const MobileLayout = ({ children }: MobileLayoutProps) => {
   return (
     <LayoutWrapper>
       <LayoutContainer>

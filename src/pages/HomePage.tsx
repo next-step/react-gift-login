@@ -1,11 +1,10 @@
-import React from 'react'
 import { Main, Section } from '@/components/layout'
 import { CategorySection } from '@/components/category'
 import { FriendSelectSection, PromoSection } from '@/components/misc'
 import { RankingSection } from '@/components/ranking'
 import { categories } from '@/data'
 
-const HomePage: React.FC = () => {
+const HomePage = () => {
   const handleSelectFriend = () => {
     console.log('친구 선택 클릭');
   };

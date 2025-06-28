@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from '@emotion/styled';
 import CategoryItem from './CategoryItem';
 
@@ -26,10 +25,10 @@ interface CategoryGridProps {
   onCategoryClick?: (category: CategoryData) => void;
 }
 
-const CategoryGrid: React.FC<CategoryGridProps> = ({ 
+const CategoryGrid = ({ 
   categories, 
   onCategoryClick 
-}) => {
+}: CategoryGridProps) => {
   // 15개 아이템으로 제한 (5x3 그리드에 맞춤)
   const displayCategories = categories.slice(0, 15);
 

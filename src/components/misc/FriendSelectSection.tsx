@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from '@emotion/styled';
 
 const SectionWrapper = styled.div`
@@ -54,7 +53,7 @@ interface FriendSelectSectionProps {
   onSelectFriend?: () => void;
 }
 
-const FriendSelectSection: React.FC<FriendSelectSectionProps> = ({ onSelectFriend }) => {
+const FriendSelectSection = ({ onSelectFriend }: FriendSelectSectionProps) => {
   return (
     <SectionWrapper>
       <ContentContainer>

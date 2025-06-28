@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from '@emotion/styled';
 import ProductCard, { type Product } from './ProductCard';
 
@@ -15,7 +14,7 @@ const GridContainer = styled.div<{ showMore: boolean }>`
   margin-bottom: ${props => props.theme.spacing.spacing4};
 `;
 
-const ProductGrid: React.FC<ProductGridProps> = ({ products, showMore }) => {
+const ProductGrid = ({ products, showMore }: ProductGridProps) => {
   const displayProducts = showMore ? products.slice(0, 21) : products.slice(0, 6);
 
   return (

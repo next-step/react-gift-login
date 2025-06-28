@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from '@emotion/styled';
 
 const BackButtonWrapper = styled.button`
@@ -33,7 +32,7 @@ interface BackButtonProps {
   onClick?: () => void;
 }
 
-const BackButton: React.FC<BackButtonProps> = ({ onClick }) => {
+const BackButton = ({ onClick }: BackButtonProps) => {
   return (
     <BackButtonWrapper onClick={onClick} aria-label="뒤로가기">
       <BackIcon>&lt;</BackIcon>

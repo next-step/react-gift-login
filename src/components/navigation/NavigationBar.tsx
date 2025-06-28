@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from '@emotion/styled';
 import BackButton from './BackButton';
 import ProfileButton from './ProfileButton';
@@ -51,13 +50,13 @@ interface NavigationBarProps {
   onProfileClick?: () => void;
 }
 
-const NavigationBar: React.FC<NavigationBarProps> = ({
+const NavigationBar = ({
   title,
   showBackButton = true,
   showProfileButton = true,
   onBackClick,
   onProfileClick
-}) => {
+}: NavigationBarProps) => {
   const handleBackClick = () => {
     if (onBackClick) {
       onBackClick();

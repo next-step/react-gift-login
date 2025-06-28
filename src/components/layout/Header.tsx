@@ -33,7 +33,7 @@ interface HeaderProps {
   children?: React.ReactNode;
 }
 
-const Header: React.FC<HeaderProps> = ({ title = "카카오 선물하기", children }) => {
+const Header = ({ title = "카카오 선물하기", children }: HeaderProps) => {
   return (
     <HeaderWrapper>
       <HeaderContent>
