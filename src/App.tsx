@@ -1,12 +1,10 @@
 import { Global, ThemeProvider, css } from '@emotion/react';
+import { Routes, Route } from 'react-router-dom';
 import resetStyles from '@/reset';
 import theme from './styles/theme';
-import NavigationBar from './components/NavigationBar/NavigationBar';
-import GiftBanner from './components/GiftBanner/GiftBanner';
-import Category from './components/Category/Category';
-import EventBanner from './components/EventBanner/EventBanner';
-import TrendingGifts from './components/TrendingGifts/TrendingGifts';
-import { AppFrame, Content, ViewportContainer } from './App.styles';
+import Home from './components/Home/Home';
+import Login from './components/Login/Login';
+import { ViewportContainer } from './App.styles';
 
 const globalStyles = css`
   body {
@@ -19,17 +17,10 @@ function App() {
     <ThemeProvider theme={theme}>
       <Global styles={[resetStyles, globalStyles]} />
       <ViewportContainer>
-        <AppFrame>
-          <NavigationBar />
-          <main>
-            <GiftBanner />
-            <Content>
-              <Category />
-              <EventBanner />
-              <TrendingGifts />
-            </Content>
-          </main>
-        </AppFrame>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
       </ViewportContainer>
     </ThemeProvider>
   );
