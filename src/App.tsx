@@ -12,21 +12,22 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <Routes>
-        <Route path="/" element={
-          <Layout>
-            <Header />
-            <FriendSelectBanner />
-            <CategorySection />
-            <CampaignBanner />
-            <GiftRankingSection />
-          </Layout>
-        } />
-        <Route path="/login" element={
-          <LoginPage />
-        } />
-      </Routes>
-
+      <Layout>
+        <Header />
+        <Routes>
+          <Route path="/" element={
+            <>
+              <FriendSelectBanner />
+              <CategorySection />
+              <CampaignBanner />
+              <GiftRankingSection />
+            </>
+          } />
+          <Route path="/login" element={
+            <LoginPage />
+          } />
+        </Routes>
+      </Layout>
     </>
   );
 }
