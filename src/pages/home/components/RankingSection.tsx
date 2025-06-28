@@ -7,7 +7,7 @@ import {
   type GenderType,
   RANKING_TABS,
   type TabType,
-} from "../constants/ranking";
+} from "../../../constants/ranking";
 
 export const RankingSection = () => {
   const [gender, setGender] = useState<GenderType>("ALL");

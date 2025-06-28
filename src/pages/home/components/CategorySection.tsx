@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 import { CategoryCard } from "./CategoryCard";
-import { mockCategoryData } from "../mock/mockData";
+import { mockCategoryData } from "../../../mock/mockData";
 
 export const CategorySection = () => {
   return (

@@ -1,5 +1,5 @@
 import { css, useTheme } from "@emotion/react";
-import { GENDER_FILTERS, type GenderType } from "../constants/ranking";
+import { GENDER_FILTERS, type GenderType } from "../../../constants/ranking";
 import type { Theme } from "@emotion/react";
 
 type RankingFilterProps = {

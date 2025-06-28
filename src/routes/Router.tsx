@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "@/pages/home";
 import LoginPage from "@/pages/login";
 import NotFoundPage from "@/pages/404";
-import { NavigationBar } from "@/components/NavigationBar";
+import { NavigationBar } from "@/pages/home/components/NavigationBar";
 
 export default function Router() {
   return (

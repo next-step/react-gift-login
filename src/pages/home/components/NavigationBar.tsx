@@ -1,15 +1,27 @@
 import { css } from "@emotion/react";
 import { FiArrowLeft, FiUser } from "react-icons/fi";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export const NavigationBar = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const isHomePage = location.pathname === "/";
+
   return (
     <nav css={navStyle}>
       <div css={leftStyle}>
-        <FiArrowLeft size={24} />
+        {!isHomePage && (
+          <button onClick={() => navigate(-1)} css={iconButtonCss}>
+            <FiArrowLeft size={24} />
+          </button>
+        )}
       </div>
       <div css={centerStyle}>선물하기</div>
       <div css={rightStyle}>
-        <FiUser size={24} />
+        <button onClick={() => navigate("/login")} css={iconButtonCss}>
+          <FiUser size={24} />
+        </button>
       </div>
     </nav>
   );
@@ -27,6 +39,7 @@ const navStyle = css`
 const leftStyle = css`
   display: flex;
   align-items: center;
+  width: 24px;
 `;
 
 const centerStyle = css`
@@ -37,4 +50,11 @@ const centerStyle = css`
 const rightStyle = css`
   display: flex;
   align-items: center;
+`;
+
+const iconButtonCss = css`
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
 `;

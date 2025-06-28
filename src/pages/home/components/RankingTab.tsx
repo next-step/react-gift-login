@@ -1,5 +1,5 @@
 import { css, useTheme } from "@emotion/react";
-import { RANKING_TABS, type TabType } from "../constants/ranking";
+import { RANKING_TABS, type TabType } from "../../../constants/ranking";
 import type { Theme } from "@emotion/react";
 
 type RankingTabProps = {

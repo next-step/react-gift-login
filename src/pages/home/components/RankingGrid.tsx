@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
 import { useState } from "react";
 import { RankingCard } from "./RankingCard";
-import { type GenderType, type TabType } from "../constants/ranking";
+import { type GenderType, type TabType } from "../../../constants/ranking";
 import { mockRankingData } from "@/mock/mockData";
 
 type RankingGridProps = {
