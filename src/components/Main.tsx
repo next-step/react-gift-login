@@ -1,6 +1,5 @@
 import Layout from "@/styles/Layout";
 import GlobalStyle from "@/styles/GlobalStyle";
-import NavigationBar from "@/components/NavigationBar";
 import Category from "@/components/Category";
 import SelectFriend from "@/components/SelectFriend";
 import Cheering from "@/components/Cheering";
@@ -12,7 +11,6 @@ const Main = () => {
     <>
       <GlobalStyle />
       <Layout>
-        <NavigationBar />
         <SelectFriend />
         <Category />
         <Cheering />
