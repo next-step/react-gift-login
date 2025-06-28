@@ -7,8 +7,8 @@ export const GiftBannerSection = styled.section`
 
   max-width: ${({ theme }) => theme.layout.width.container};
   width: 100%;
-  height: ${({ theme }) => theme.components.giftBanner.height};
-  margin-top: ${({ theme }) => theme.components.navigationBar.height};
+  height: 7rem;
+  margin-top: 3rem;
 
   background-color: ${({ theme }) => theme.colors.background.disabled};
 `;
@@ -16,7 +16,7 @@ export const GiftBannerSection = styled.section`
 export const BannerCard = styled.button`
   display: flex;
   align-items: center;
-  width: ${({ theme }) => theme.components.giftBanner.width};
+  width: 95%;
   padding: ${({ theme }) => theme.spacing[4]};
 
   cursor: pointer;
@@ -41,8 +41,8 @@ export const AddIconWrapper = styled.div`
 `;
 
 export const AddIcon = styled.img`
-  width: ${({ theme }) => theme.components.giftBanner.AddIconSize};
-  height: ${({ theme }) => theme.components.giftBanner.AddIconSize};
+  width: 20px;
+  height: 20px;
 `;
 
 export const BannerMessage = styled.p`

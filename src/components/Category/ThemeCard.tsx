@@ -11,15 +11,15 @@ const ThemeCardContainer = styled.div`
   padding-bottom: ${({ theme }) => theme.spacing[2]};
   box-sizing: border-box;
 
-  width: ${({ theme }) => theme.components.category.themeCardWidth};
-  height: ${({ theme }) => theme.components.category.themeCardHeight};
+  width: 8rem;
+  height: 5rem;
 
   cursor: pointer;
 `;
 
 const ThemeImage = styled.img`
-  width: ${({ theme }) => theme.components.category.themeCardImageSize};
-  height: ${({ theme }) => theme.components.category.themeCardImageSize};
+  width: 50px;
+  height: 50px;
 `;
 
 const ThemeName = styled.p`

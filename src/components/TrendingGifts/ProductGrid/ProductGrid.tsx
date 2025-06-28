@@ -3,7 +3,7 @@ import type { TrendingGiftsType } from '@/data/trendingGfitsMockData';
 import ProductCard from '../ProductCard/ProductCard';
 
 const ProductGridContainer = styled.div`
-  width: ${({ theme }) => theme.components.trendingGifts.contentWidth};
+  width: 95%;
   display: grid;
   grid-template-columns: ${({ theme }) => theme.layout.grid.columns.fixed3};
   gap: ${({ theme }) => theme.spacing[2]};

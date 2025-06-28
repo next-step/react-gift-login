@@ -2,12 +2,11 @@ import styled from '@emotion/styled';
 
 const SubTabContainer = styled.div`
   display: flex;
-  width: ${({ theme }) => theme.components.trendingGifts.contentWidth};
+  width: 95%;
   justify-content: space-around;
   align-items: center;
   background-color: ${({ theme }) => theme.colors.blue[100]};
-  border: ${({ theme }) => theme.components.trendingGifts.subTab.borderWidth} solid
-    ${({ theme }) => theme.colors.blue[300]};
+  border: 1px solid ${({ theme }) => theme.colors.blue[300]};
   box-sizing: border-box;
   padding: ${({ theme }) => theme.spacing[3]};
   border-radius: ${({ theme }) => theme.borderRadius.xs};

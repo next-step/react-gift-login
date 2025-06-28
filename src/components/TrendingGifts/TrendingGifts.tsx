@@ -16,7 +16,7 @@ const TitleWarpper = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  width: ${({ theme }) => theme.components.trendingGifts.contentWidth};
+  width: 95%;
 `;
 
 const SectionTitle = styled.h2`
@@ -29,7 +29,7 @@ const TabsWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  width: ${({ theme }) => theme.components.trendingGifts.contentWidth};
+  width: 95%;
   box-sizing: border-box;
   padding-top: ${({ theme }) => theme.spacing[6]};
   padding-bottom: ${({ theme }) => theme.spacing[3]};
@@ -40,11 +40,10 @@ const MoreInfoWrapper = styled.div`
   justify-content: center;
   align-items: center;
 
-  width: ${({ theme }) => theme.components.trendingGifts.moreInfoWidth};
+  width: 65%;
   margin-top: ${({ theme }) => theme.spacing[5]};
   padding: ${({ theme }) => theme.spacing[4]};
-  border: ${({ theme }) => theme.components.trendingGifts.subTab.borderWidth} solid
-    ${({ theme }) => theme.colors.gray[400]};
+  border: 1px solid ${({ theme }) => theme.colors.gray[400]};
   border-radius: ${({ theme }) => theme.borderRadius.xs};
 `;
 
