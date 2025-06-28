@@ -6,7 +6,8 @@ import {
   Price,
   ProductImage,
   ProductName, RankBadge, SortOptions, SortSpan,
-} from '@/components/GiftRanking/GiftRanking.styles.ts';
+} from '@/components/GiftRanking/GiftRanking.styles';
+import { categories } from "@/constants/RankingCategories";
 
 export default function GiftRanking() {
   const [showCount, setShowCount] = useState(6); // 초기에 6개 보여줌
@@ -18,13 +19,6 @@ export default function GiftRanking() {
   };
 
   const expandedList = Array(21).fill(productList[0]);
-
-  const categories = [
-    { label: '전체', icon: 'ALL' },
-    { label: '여성이', icon: '👩🏻' },
-    { label: '남성이', icon: '👨🏻' },
-    { label: '청소년이', icon: '👦🏻' },
-  ];
 
   const sorts = ['받고 싶어한', '많이 선물한', '위시로 받은'];
 
