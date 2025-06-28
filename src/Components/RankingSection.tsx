@@ -110,7 +110,7 @@ const Grid = styled.div`
   }
 `
 
-const Card = styled.div`
+const Card = styled.article`
   background: ${({ theme }) => theme.colors.gray.gray00};
   border-radius: 16px;
   box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04);
@@ -121,7 +121,7 @@ const Card = styled.div`
   position: relative;
 `
 
-const RankBadge = styled.div`
+const RankBadge = styled.span`
   position: absolute;
   top: 12px;
   left: 12px;
@@ -143,14 +143,14 @@ const ProductImg = styled.img`
   margin-bottom: 14px;
 `
 
-const Brand = styled.div`
-  font-size: 0.95rem;
+const Brand = styled.span`
+  ${({ theme }) => theme.typography.label1Bold};
   color: ${({ theme }) => theme.colors.gray.gray600};
-  font-weight: 700;
   margin-bottom: 2px;
+  display: block;
 `
 
-const ProductName = styled.div`
+const ProductName = styled.p`
   ${({ theme }) => theme.typography.body1Bold};
   color: ${({ theme }) => theme.colors.gray.gray900};
   line-height: 1.3;
@@ -158,11 +158,11 @@ const ProductName = styled.div`
   word-break: keep-all;
 `
 
-const Price = styled.div`
-  font-size: 1.2rem;
-  font-weight: 700;
+const Price = styled.span`
+  ${({ theme }) => theme.typography.title2Bold};
   color: ${({ theme }) => theme.colors.gray.gray900};
   margin-top: 2px;
+  display: block;
 `
 
 const MoreBtn = styled.button`
