@@ -1,8 +1,8 @@
-import Navigation from './components/Navigation';
-import FriendSelector from './components/FriendSelector';
-import CategorySection from './components/CategorySection';
-import MessageSection from './components/MessageSection';
-import RankingSection from './components/RankingSection';
+import Navigation from './components/Navigation/Navigation';
+import FriendSelector from './components/FriendSelector/FriendSelector';
+import CategorySection from './components/CategorySection/CategorySection';
+import MessageSection from './components/MessageSection/MessageSection';
+import RankingSection from './components/RankingSection/RankingSection';
 
 function App() {
   return (
