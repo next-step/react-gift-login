@@ -16,7 +16,11 @@ const Login = () => {
       </div>
       <button
         onClick={() => {
-          navigate(-1);
+          if (window.history.length) {
+            navigate(-1);
+          } else {
+            navigate("/");
+          }
         }}
         css={buttonSytle(theme)}>
         로그인
