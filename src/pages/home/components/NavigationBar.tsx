@@ -19,7 +19,10 @@ export const NavigationBar = () => {
       </div>
       <div css={centerStyle}>선물하기</div>
       <div css={rightStyle}>
-        <button onClick={() => navigate("/login")} css={iconButtonCss}>
+        <button
+          onClick={() => navigate("/login", { state: { from: location } })}
+          css={iconButtonCss}
+        >
           <FiUser size={24} />
         </button>
       </div>

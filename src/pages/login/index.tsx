@@ -1,7 +1,16 @@
 import { css, useTheme } from "@emotion/react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
   const theme = useTheme();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
+
+  const handleLogin = () => {
+    navigate(from, { replace: true });
+  };
 
   return (
     <div css={wrapperCss}>
@@ -14,7 +23,9 @@ export default function LoginPage() {
         <label css={labelCss(theme)}>비밀번호</label>
         <input css={inputCss(theme)} type="password" placeholder="비밀번호" />
 
-        <button css={buttonCss(theme)}>로그인</button>
+        <button css={buttonCss(theme)} onClick={handleLogin}>
+          로그인
+        </button>
       </form>
     </div>
   );
