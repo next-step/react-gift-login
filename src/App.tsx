@@ -7,6 +7,7 @@ import Login from '@/pages/Login/Login.tsx';
 
 import globalStyle from '@/styles/global';
 import { theme } from '@/styles/theme';
+import NotFound from '@/pages/NotFound/NotFound.tsx';
 
 const App: () => JSX.Element = () => {
   return (
@@ -17,6 +18,8 @@ const App: () => JSX.Element = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
+
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
       </ThemeProvider>
