@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router';
 import styled from '@emotion/styled';
 
 const HeaderContainer = styled.header`
@@ -63,9 +64,11 @@ const UserIcon = () => (
 );
 
 export default function Header() {
+    const navigate = useNavigate();
+
     return (
         <HeaderContainer>
-            <IconButton aria-label="뒤로가기">
+            <IconButton aria-label="뒤로가기" onClick={() => navigate(-1)}>
                 <LeftIcon />
             </IconButton>
 
@@ -73,7 +76,7 @@ export default function Header() {
                 선물하기
             </TitleLink>
 
-            <IconButton aria-label="로그인">
+            <IconButton aria-label="로그인" onClick={() => navigate("/login")}>
                 <UserIcon />
             </IconButton>
         </HeaderContainer>
