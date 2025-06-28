@@ -1,15 +1,16 @@
+import React from 'react'
 import styled from '@emotion/styled'
 import AddIcon from '@mui/icons-material/Add'
 
 const Section = styled.section`
   width: 100%;
-  background: #f5f6f7;
+  background: ${({ theme }) => theme.colors.gray.gray100};
   padding: 32px 0 0 0;
 `
 
 const Card = styled.div`
   width: 100%;
-  background: #fff;
+  background: ${({ theme }) => theme.colors.gray.gray00};
   border-radius: 32px;
   display: flex;
   align-items: center;
@@ -23,21 +24,20 @@ const AddCircle = styled.div`
   width: 64px;
   height: 64px;
   border-radius: 20px;
-  background: #ffe066;
+  background: ${({ theme }) => theme.colors.yellow.yellow400};
   display: flex;
   align-items: center;
   justify-content: center;
 `
 
 const PlusIcon = styled(AddIcon)`
-  color: #393939;
+  color: ${({ theme }) => theme.colors.gray.gray900};
   font-size: 2.5rem;
 `
 
 const GuideText = styled.div`
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #393939;
+  ${({ theme }) => theme.typography.title1Bold};
+  color: ${({ theme }) => theme.colors.gray.gray900};
   margin-left: 8px;
 `
 

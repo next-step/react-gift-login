@@ -100,9 +100,8 @@ const SectionWrapper = styled.div`
 `
 
 const Title = styled.h2`
-  font-size: 2rem;
-  font-weight: 700;
-  color: #222;
+  ${({ theme }) => theme.typography.title1Bold};
+  color: ${({ theme }) => theme.colors.gray.gray900};
   margin-bottom: 24px;
   letter-spacing: -1px;
 `
@@ -131,15 +130,14 @@ const CategoryImage = styled.img`
   height: 72px;
   border-radius: 16px;
   object-fit: cover;
-  background: #f6f6f6;
+  background: ${({ theme }) => theme.colors.gray.gray100};
   margin-bottom: 10px;
   border: none;
 `
 
 const CategoryName = styled.div`
-  font-size: 1.1rem;
-  color: #222;
-  font-weight: 500;
+  ${({ theme }) => theme.typography.body1Bold};
+  color: ${({ theme }) => theme.colors.gray.gray900};
   text-align: center;
   letter-spacing: -0.2px;
   white-space: nowrap;

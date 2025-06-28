@@ -8,7 +8,7 @@ const Section = styled.section`
 
 const Banner = styled.div`
   width: 100%;
-  background: linear-gradient(90deg, #ffe066 0%, #ffd700 100%);
+  background: linear-gradient(90deg, ${({ theme }) => theme.colors.yellow.yellow200} 0%, ${({ theme }) => theme.colors.yellow.yellow400} 100%);
   border-radius: 16px;
   display: flex;
   align-items: center;
@@ -22,13 +22,12 @@ const CheerImg = styled.img`
   height: 56px;
   border-radius: 12px;
   object-fit: cover;
-  background: #fffbe6;
+  background: ${({ theme }) => theme.colors.yellow.yellow100};
 `
 
 const CheerText = styled.div`
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: #3c1e1e;
+  ${({ theme }) => theme.typography.title2Bold};
+  color: ${({ theme }) => theme.colors.brown.brown800};
   line-height: 1.4;
 `
 

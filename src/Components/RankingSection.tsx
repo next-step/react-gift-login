@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import styled from '@emotion/styled'
 import PersonIcon from '@mui/icons-material/Person'
 
@@ -33,9 +33,8 @@ const Section = styled.section`
 `
 
 const Title = styled.h2`
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: #222;
+  ${({ theme }) => theme.typography.title1Bold};
+  color: ${({ theme }) => theme.colors.gray.gray900};
   margin-bottom: 18px;
   text-align: left;
 `
@@ -53,8 +52,8 @@ const FilterBtn = styled.button<{active?: boolean}>`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: ${({active}) => active ? '#4b6cff' : '#f5f6fa'};
-  color: ${({active}) => active ? '#fff' : '#222'};
+  background: ${({active, theme}) => active ? theme.colors.blue.blue700 : theme.colors.gray.gray100};
+  color: ${({active, theme}) => active ? theme.colors.gray.gray00 : theme.colors.gray.gray900};
   border: none;
   border-radius: 50%;
   width: 56px;
@@ -64,11 +63,12 @@ const FilterBtn = styled.button<{active?: boolean}>`
   cursor: pointer;
   box-shadow: none;
   margin-bottom: 4px;
+  transition: background 0.2s;
 `
 
 const FilterLabel = styled.span`
   font-size: 0.95rem;
-  color: #222;
+  color: ${({ theme }) => theme.colors.gray.gray900};
   margin-top: 2px;
 `
 
@@ -76,7 +76,7 @@ const TabRow = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #f5f7fb;
+  background: ${({ theme }) => theme.colors.blue.blue00};
   border-radius: 12px;
   margin-bottom: 24px;
   padding: 0 0;
@@ -87,8 +87,8 @@ const TabRow = styled.div`
 const TabBtn = styled.button<{active?: boolean}>`
   flex: 1;
   height: 100%;
-  background: ${({active}) => active ? '#eaf0ff' : 'transparent'};
-  color: ${({active}) => active ? '#4b6cff' : '#b0b8c1'};
+  background: ${({active, theme}) => active ? theme.colors.blue.blue200 : 'transparent'};
+  color: ${({active, theme}) => active ? theme.colors.blue.blue700 : theme.colors.gray.gray600};
   border: none;
   font-size: 1.08rem;
   font-weight: 700;
@@ -111,7 +111,7 @@ const Grid = styled.div`
 `
 
 const Card = styled.div`
-  background: #fff;
+  background: ${({ theme }) => theme.colors.gray.gray00};
   border-radius: 16px;
   box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04);
   padding: 18px 16px 16px 16px;
@@ -125,8 +125,8 @@ const RankBadge = styled.div`
   position: absolute;
   top: 12px;
   left: 12px;
-  background: #ff6f61;
-  color: #fff;
+  background: ${({ theme }) => theme.colors.red.red600};
+  color: ${({ theme }) => theme.colors.gray.gray00};
   font-weight: 700;
   font-size: 1.1rem;
   border-radius: 8px;
@@ -139,21 +139,20 @@ const ProductImg = styled.img`
   aspect-ratio: 1/1;
   border-radius: 12px;
   object-fit: cover;
-  background: #f6f6f6;
+  background: ${({ theme }) => theme.colors.gray.gray200};
   margin-bottom: 14px;
 `
 
 const Brand = styled.div`
   font-size: 0.95rem;
-  color: #b0b8c1;
+  color: ${({ theme }) => theme.colors.gray.gray600};
   font-weight: 700;
   margin-bottom: 2px;
 `
 
 const ProductName = styled.div`
-  font-size: 1.08rem;
-  font-weight: 600;
-  color: #222;
+  ${({ theme }) => theme.typography.body1Bold};
+  color: ${({ theme }) => theme.colors.gray.gray900};
   line-height: 1.3;
   margin-bottom: 6px;
   word-break: keep-all;
@@ -162,15 +161,15 @@ const ProductName = styled.div`
 const Price = styled.div`
   font-size: 1.2rem;
   font-weight: 700;
-  color: #222;
+  color: ${({ theme }) => theme.colors.gray.gray900};
   margin-top: 2px;
 `
 
 const MoreBtn = styled.button`
   display: block;
   margin: 0 auto 0 auto;
-  background: #f5f6fa;
-  color: #4b6cff;
+  background: ${({ theme }) => theme.colors.gray.gray100};
+  color: ${({ theme }) => theme.colors.blue.blue700};
   border: none;
   border-radius: 24px;
   font-size: 1.1rem;
@@ -180,7 +179,7 @@ const MoreBtn = styled.button`
   box-shadow: none;
   transition: background 0.2s;
   &:hover {
-    background: #eaf0ff;
+    background: ${({ theme }) => theme.colors.blue.blue100};
   }
 `
 

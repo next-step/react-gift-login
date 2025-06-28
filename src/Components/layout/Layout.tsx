@@ -12,11 +12,11 @@ const Wrapper = styled.div`
   min-height: 100vh;
   margin: 0 auto;
   box-sizing: border-box;
-  background: #fff;
+  background: ${({ theme }) => theme.colors.gray.gray00};
 `
 
 const Content = styled.div`
-  padding: 0 16px;
+  padding: 0 ${({ theme }) => theme.typography.body1Bold.fontSize};
 `
 
 export const Layout = ({ children }: LayoutProps) => {
