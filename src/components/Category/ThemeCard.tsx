@@ -27,9 +27,7 @@ const ThemeName = styled.p`
   font-weight: ${({ theme }) => theme.typography.label.label2Regular.fontWeight};
 `;
 
-function ThemeCard({ theme }: { theme: GiftThemeType }) {
-  const { name, image } = theme;
-
+function ThemeCard({ name, image }: GiftThemeType) {
   return (
     <ThemeCardContainer>
       <ThemeImage src={image} alt={name} />
