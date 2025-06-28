@@ -1,6 +1,6 @@
-import { productListMock } from '@/data/productListMock'
 import { theme } from '@/styles/theme'
 import styled from '@emotion/styled'
+import type { Product } from './types'
 
 // * 실시간 급상승 상품 아이템 컨테이너
 const ProductItemContainer = styled.div`
@@ -110,13 +110,7 @@ const ProductBasicPrice = styled.span``
 const ProductSellingPrice = styled.span``
 
 // * 실시간 급상승 상품 아이템 컴포넌트
-export const ProductItem = ({
-  product,
-  index,
-}: {
-  product: (typeof productListMock)[number]
-  index: number
-}) => {
+export const ProductItem = ({ product, index }: { product: Product; index: number }) => {
   return (
     <ProductItemContainer>
       <ProductRank rank={index + 1}>{index + 1}</ProductRank>

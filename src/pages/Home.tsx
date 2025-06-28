@@ -28,8 +28,6 @@ const Container = styled.div`
 
 // * 메인
 export const Home = () => {
-  const theme = useTheme()
-
   return (
     <Container>
       {/* 네비게이션 */}
