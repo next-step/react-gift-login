@@ -7,28 +7,28 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: #fefefe;
+    background: ${({ theme }) => theme.colors.gray200};
     text-align: center;
-    padding: 20px;
+    padding: ${({ theme }) => theme.spacing.spacing5};
     
     h1, p {
-        margin: 20px 0 20px 0;
+        margin: ${({ theme }) => `${theme.spacing.spacing5} ${theme.spacing.spacing0} ${theme.spacing.spacing5} ${theme.spacing.spacing0}`};
     }
 `;
 
 export const StyledLink = styled(Link)`
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #fada0a;
-    border-radius: 8px;
-    color: #000;
+    margin-top: ${({ theme }) => theme.spacing.spacing5};
+    padding: ${({ theme }) => `${theme.spacing.spacing3} ${theme.spacing.spacing5}`};
+    background-color: ${({ theme }) => theme.colors.yellow600};
+    border-radius: ${({ theme }) => theme.spacing.spacing2};
+    color: ${({ theme }) => theme.colors.gray1000};
     font-weight: bold;
     text-decoration: none;
     transition: background-color 0.2s ease;
-    width: 300px;
-    height: 40px;
+    width: ${({ theme }) => theme.spacing.spacing17};
+    height: ${({ theme }) => theme.spacing.spacing10};
 
     &:hover {
-        background-color: #ffe74a;
+        background-color: ${({ theme }) => theme.colors.yellow400};
     }
 `

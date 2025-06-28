@@ -6,3 +6,5 @@ export const categories = [
 ];
 
 export const INITIAL_VISIBLE_GIFT_COUNT = 6;
+
+export const sorts = ['받고 싶어한', '많이 선물한', '위시로 받은'];
