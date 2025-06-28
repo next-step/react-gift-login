@@ -2,9 +2,9 @@ import NavigationBar from "@/components/NavigationBar/NavigationBar";
 import SelectFriendSection from "@/sections/SelectFriendSection/SelectFriendSection";
 import CategorySection from "@/sections/CategorySection/CategorySection";
 import RankingSection from "@/sections/RankingSection/RankingSection";
-import { Container, Line1 } from "@/pages/MainPage/MainPage.style";
+import { Container, Line1 } from "@/pages/Home/Home.style";
 
-const MainPage = () => {
+const HomePage = () => {
   return (
     <>
       <NavigationBar />
@@ -19,4 +19,4 @@ const MainPage = () => {
   );
 };
 
-export default MainPage;
+export default HomePage;
