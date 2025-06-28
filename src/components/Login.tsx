@@ -1,9 +1,12 @@
 import type { Theme } from "@emotion/react";
 import { useTheme } from "@emotion/react";
 import { css } from "@emotion/react";
+import { useNavigate } from "react-router";
 
 const Login = () => {
   const theme = useTheme();
+  const navigate = useNavigate();
+
   return (
     <div css={containerStyle(theme)}>
       <h1 css={textSytle(theme)}>로그인</h1>
@@ -11,7 +14,13 @@ const Login = () => {
         <input css={inputSytle(theme)} type="text" placeholder="이메일" />
         <input css={inputSytle(theme)} type="password" placeholder="비밀번호" />
       </div>
-      <button css={buttonSytle(theme)}>로그인</button>
+      <button
+        onClick={() => {
+          navigate(-1);
+        }}
+        css={buttonSytle(theme)}>
+        로그인
+      </button>
     </div>
   );
 };
