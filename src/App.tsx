@@ -1,13 +1,15 @@
-import { Global } from '@emotion/react';
+import { Global } from "@emotion/react";
 import reset from "@/styles/reset";
+import Layout from "@/layout/Layout";
+import MainPage from "@/pages/MainPage/MainPage";
 
 function App() {
   return (
     <>
-      <Global styles={reset}/>
-      <div>
-        Kakao Gift project
-      </div>
+      <Global styles={reset} />
+      <Layout>
+        <MainPage />
+      </Layout>
     </>
   );
 }
