@@ -1,27 +1,18 @@
 import "./App.css";
-import Layout from "./styles/Layout";
-import GlobalStyle from "@/styles/GlobalStyle";
-import NavigationBar from "./components/NavigationBar";
-import Category from "./components/Category";
-import SelectFriend from "./components/SelectFriend";
-import Cheering from "./components/Cheering";
-import GiftRanking from "./components/GiftRankingBox";
-import GiftRankingHeader from "./components/GiftRankingHeader";
+import "@/components/Main";
 import { theme } from "@/styles/theme";
 import { ThemeProvider } from "@emotion/react";
+import { Routes, Route } from "react-router-dom";
+import Login from "@/components/Login";
+import Main from "@/components/Main";
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Layout>
-        <NavigationBar />
-        <SelectFriend />
-        <Category />
-        <Cheering />
-        <GiftRankingHeader />
-        <GiftRanking />
-      </Layout>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Main />} />
+      </Routes>
     </ThemeProvider>
   );
 }
