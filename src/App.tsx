@@ -1,4 +1,4 @@
-import "./App.css";
+import "@/App.css";
 import "@/components/Main";
 import { theme } from "@/styles/theme";
 import { ThemeProvider } from "@emotion/react";

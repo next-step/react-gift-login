@@ -1,6 +1,5 @@
 import { css } from "@emotion/react";
 import { Theme } from "@emotion/react";
-import { theme } from "@/styles/theme";
 import { IoAppsOutline, IoWomanOutline, IoManOutline } from "react-icons/io5";
 import { useTheme } from "@emotion/react";
 
