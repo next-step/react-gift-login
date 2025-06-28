@@ -1,8 +1,8 @@
 /** @jsxImportSource @emotion/react */
-import { css, useTheme } from '@emotion/react';
+import { css, useTheme, type Theme as ThemeType } from '@emotion/react';
 import { FaPlus } from 'react-icons/fa';
 
-const container = (theme: any) => css`
+const container = (theme: ThemeType) => css`
   display: flex;
   align-items: center;
   padding: 12px 16px;
@@ -16,16 +16,19 @@ const container = (theme: any) => css`
   cursor: pointer;
 `;
 
+const iconStyle = css`
+  margin-right: 8px;
+`;
+
 const FriendSelector = () => {
   const theme = useTheme();
 
   return (
     <button css={container(theme)}>
-      <FaPlus style={{ marginRight: '8px' }} />
+      <FaPlus css={iconStyle} />
       선물할 친구를 선택해 주세요.
     </button>
   );
 };
 
 export default FriendSelector;
-
