@@ -1,7 +1,17 @@
+import Header from '@/components/Header';
+import CategorySection from '@/components/CategorySection';
+import FriendSelectBox from '@/components/FriendSelectBox';
+import SupportBanner from '@/components/SupportBanner';
+import RankingSection from '@/components/RankingSection/RankingSection';
+
 function App() {
   return (
     <div>
-      <h1>앱 실행 중</h1>
+      <Header />
+      <FriendSelectBox/>
+      <CategorySection />
+      <SupportBanner/>
+      <RankingSection/>
     </div>
   );
 }
