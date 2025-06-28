@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router";
 import styled from "@emotion/styled";
 import KakaoLogo from "@/assets/kakaologo.svg";
 
@@ -52,12 +53,22 @@ const Button = styled.button`
 `;
 
 export default function LoginPage() {
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    if(window.history.length > 2) {
+      navigate(-1);
+    } else {
+      navigate("/");
+    }
+  };
+
   return (
     <Container>
       <LogoImage src={KakaoLogo} alt="kakao logo" />
       <Input type="email" placeholder="이메일" />
       <Input type="password" placeholder="비밀번호" />
-      <Button>로그인</Button>
+      <Button onClick={handleLogin}>로그인</Button>
     </Container>
   );
 }
