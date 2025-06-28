@@ -1,4 +1,3 @@
-import type { TrendingGiftsType } from '@/types/TrendingGiftsType';
 import {
   BrandName,
   PriceAmount,
@@ -11,21 +10,24 @@ import {
 } from './ProductCard.styles';
 
 export interface ProductCardPropsType {
-  product: TrendingGiftsType;
+  imageURL: string;
+  name: string;
+  brandName: string;
+  sellingPrice: number;
   index: number;
 }
 
-function ProductCard({ product, index }: ProductCardPropsType) {
+function ProductCard({ imageURL, name, brandName, sellingPrice, index }: ProductCardPropsType) {
   return (
     <ProductCardContainer>
       <RankBadge isTopThree={index < 3}>{index + 1}</RankBadge>
-      <ProductImage src={product.imageURL} alt={product.name} />
+      <ProductImage src={imageURL} alt={name} />
       <ProductInfo>
-        <BrandName>{product.brandInfo.name}</BrandName>
-        <ProductName>{product.name}</ProductName>
+        <BrandName>{brandName}</BrandName>
+        <ProductName>{name}</ProductName>
       </ProductInfo>
       <ProductPrice>
-        <PriceAmount>{product.price.sellingPrice.toLocaleString()}</PriceAmount> 원
+        <PriceAmount>{sellingPrice.toLocaleString()}</PriceAmount> 원
       </ProductPrice>
     </ProductCardContainer>
   );

@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import type { TrendingGiftsType } from '@/data/trendingGfitsMockData';
+import type { TrendingGiftsType } from '@/types/TrendingGiftsType';
 import ProductCard from '../ProductCard/ProductCard';
 
 const ProductGridContainer = styled.div`
@@ -18,7 +18,14 @@ function ProductGrid({ products }: ProductGridPropsType) {
   return (
     <ProductGridContainer>
       {products.map((product, idx) => (
-        <ProductCard key={idx} product={product} index={idx} />
+        <ProductCard
+          key={idx}
+          imageURL={product.imageURL}
+          name={product.name}
+          brandName={product.brandInfo.name}
+          sellingPrice={product.price.sellingPrice}
+          index={idx}
+        />
       ))}
     </ProductGridContainer>
   );
