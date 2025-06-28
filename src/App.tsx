@@ -6,14 +6,26 @@ import { Routes, Route } from "react-router-dom";
 import Login from "@/components/Login";
 import Main from "@/components/Main";
 import NavigationBar from "@/components/NavigationBar";
+import NotFound from "@/components/NotFound";
+import Layout from "@/styles/Layout";
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <NavigationBar />
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route path="/" element={<Main />} />
+        <Route
+          path="/"
+          element={
+            <>
+              <NavigationBar />
+              <Layout>
+                <Main />
+              </Layout>
+            </>
+          }
+        />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </ThemeProvider>
   );

@@ -1,4 +1,3 @@
-import Layout from "@/styles/Layout";
 import GlobalStyle from "@/styles/GlobalStyle";
 import Category from "@/components/Category";
 import SelectFriend from "@/components/SelectFriend";
@@ -10,13 +9,11 @@ const Main = () => {
   return (
     <>
       <GlobalStyle />
-      <Layout>
-        <SelectFriend />
-        <Category />
-        <Cheering />
-        <GiftRankingHeader />
-        <GiftRanking />
-      </Layout>
+      <SelectFriend />
+      <Category />
+      <Cheering />
+      <GiftRankingHeader />
+      <GiftRanking />
     </>
   );
 };
