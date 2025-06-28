@@ -1,9 +1,17 @@
-import { Link } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Header from '@/components/Header/Header';
 import { Container, InputWrapper, LoginButton, LogoImg, StyledInput } from '@/pages/Login/Login.styles';
-import { KAKAO_LOGO_SVG } from "@/assets/svg/kakaoLogo";
+import { KAKAO_LOGO_SVG                                                                                                  } from "@/assets/svg/kakaoLogo";
 
 const Login = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleLogin = () => {
+    const fallback = location.state?.from || '/';
+    navigate(fallback);
+  }
+
   return (
     <div>
       <Header />
@@ -16,9 +24,7 @@ const Login = () => {
           <StyledInput type="text" placeholder="이메일" />
           <StyledInput type="password" placeholder="비밀번호" />
         </InputWrapper>
-        <LoginButton>
-          <Link to="/">로그인</Link>
-        </LoginButton>
+        <LoginButton onClick={handleLogin}>로그인</LoginButton>
       </Container>
     </div>
   );

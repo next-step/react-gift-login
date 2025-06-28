@@ -49,15 +49,12 @@ export const LoginButton = styled.button`
     font-weight: bold;
     font-size: 15px;
     cursor: pointer;
-
-  a {
+    
     text-decoration: none;
     color: ${({ theme }) => theme.colors.gray1000};
     display: block;
-    width: 100%;
     height: 100%;
     line-height: 44px;
-  }
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.semantic.brand.kakaoYellowHover};
