@@ -21,7 +21,7 @@ export const SectionTitle = styled.h2`
   font-weight: ${({ theme }) => theme.typography.title.title1Bold.fontWeight};
 `;
 
-export const IconButton = styled.button`
+export const UnstyledButton = styled.button`
   cursor: pointer;
   border: 0;
   background-color: transparent;
