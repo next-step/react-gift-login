@@ -1,8 +1,10 @@
-import CheerUpSection from "@/components/CheerUpSection";
-import Header from "@/components/Header";
-import HotGiftRanking from "@/components/HotGiftRanking";
-import PresentTheme from "@/components/PresentTheme";
-import SelectFriendSection from "@/components/SelectFriendSection";
+import {
+  CheerUpSection,
+  Header,
+  HotGiftRanking,
+  PresentTheme,
+  SelectFriendSection,
+} from "@/components";
 
 const MainPage = () => {
   return (

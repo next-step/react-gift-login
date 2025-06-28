@@ -85,6 +85,7 @@ const ButtonContainer = styled.div(props => ({
   padding: `${props.theme.spacing8} 0 ${props.theme.spacing10} 0`,
 }));
 
+const RANK_CORRECTION_NUMBER = 1;
 const HotGiftRankingGrid = () => {
   const [showMore, setShowMore] = useState(false);
   const INITIAL_SHOW_COUNT = 6;
@@ -100,7 +101,9 @@ const HotGiftRankingGrid = () => {
         {displayedItems.map((item, index) => (
           <GridItem key={item.id}>
             <ImageContainer src={item.imageURL}></ImageContainer>
-            <RankBadge rank={index}>{index}</RankBadge>
+            <RankBadge rank={index + RANK_CORRECTION_NUMBER}>
+              {index + RANK_CORRECTION_NUMBER}
+            </RankBadge>
             <CategoryText>{item.brandInfo.name}</CategoryText>
             <ProductTitle>{item.name}</ProductTitle>
             <PriceText>{item.price.basicPrice}원</PriceText>

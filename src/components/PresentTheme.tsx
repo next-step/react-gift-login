@@ -1,5 +1,5 @@
 import { category } from "@/__mock__";
-import ThemeItem from "@/components/ThemeItem";
+import { ThemeItem } from "@/components";
 import styled from "@emotion/styled";
 
 const SectionPadding = styled.div({

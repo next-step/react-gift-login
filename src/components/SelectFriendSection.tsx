@@ -29,7 +29,7 @@ const IconCircle = styled.div(props => ({
   borderRadius: "16px",
 }));
 
-const SectionDescription = styled.p(props => ({
+const FriendSectionDescription = styled.p(props => ({
   fontSize: `${props.theme.typography.body1Bold.fontSize}px`,
   lineHeight: `${props.theme.typography.body1Bold.lineHeight}`,
   fontWeight: `${props.theme.typography.body1Bold.fontWeight}`,
@@ -43,7 +43,9 @@ const SelectFriendSection = () => {
         <IconCircle>
           <Plus />
         </IconCircle>
-        <SectionDescription>선물할 친구를 선택해 주세요.</SectionDescription>
+        <FriendSectionDescription>
+          선물할 친구를 선택해 주세요.
+        </FriendSectionDescription>
       </FriendSectionContainer>
     </FriendSectionWrapper>
   );

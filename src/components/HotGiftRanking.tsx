@@ -1,6 +1,8 @@
-import HotGiftRankingGrid from "@/components/HotGiftRankingGrid";
-import HotGiftRankingTab from "@/components/HotGiftRankingTab";
-import HotGiftRankingTag from "@/components/HotGiftRankingTag";
+import {
+  HotGiftRankingGrid,
+  HotGiftRankingTab,
+  HotGiftRankingTag,
+} from "@/components";
 import styled from "@emotion/styled";
 import { useSearchParams } from "react-router-dom";
 
@@ -29,10 +31,10 @@ const SectionTagContainer = styled.div(props => ({
 }));
 
 const tags = [
-  { id: "all", emoji: "ALL", text: "전체" },
-  { id: "female", emoji: "👩", text: "여성이" },
-  { id: "male", emoji: "👨", text: "남성이" },
-  { id: "teen", emoji: "👦", text: "청소년이" },
+  { id: "ALL", emoji: "ALL", text: "전체" },
+  { id: "FEMALE", emoji: "👩", text: "여성이" },
+  { id: "MALE", emoji: "👨", text: "남성이" },
+  { id: "TEEN", emoji: "👦", text: "청소년이" },
 ];
 
 const HotGiftRanking = () => {
@@ -43,7 +45,7 @@ const HotGiftRanking = () => {
 
   const handleTagChange = (tagId: string) => {
     const newParams = new URLSearchParams(searchParams);
-    newParams.set("targetType", tagId.toUpperCase());
+    newParams.set("targetType", tagId);
     setSearchParams(newParams);
   };
 
