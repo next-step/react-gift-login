@@ -81,9 +81,9 @@ const RankingSection = () => {
 
       <ProductGrid products={rankingProducts} showMore={showMore} />
 
-      {!showMore && (
-        <MoreButton onClick={() => setShowMore(true)}>더보기</MoreButton>
-      )}
+      <MoreButton onClick={() => setShowMore(!showMore)}>
+        {showMore ? '접기' : '더보기'}
+      </MoreButton>
     </Section>
   );
 };
