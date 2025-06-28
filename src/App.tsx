@@ -1,12 +1,19 @@
 import { GlobalResetStyle } from "@styles/reset";
-import { Global } from "@emotion/react";
+import { GlobalTypographyStyle } from "@styles/typography";
+import { Global, ThemeProvider } from "@emotion/react";
+import { theme } from "@styles/theme";
+import AppLayout from "@/components/layout/AppLayout";
+import MainPage from "@/pages/MainPage";
 
 function App() {
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <Global styles={GlobalResetStyle} />
-      <div>카카오 테크 캠퍼스 2단계 미션 1</div>
-    </>
+      <Global styles={GlobalTypographyStyle} />
+      <AppLayout>
+        <MainPage />
+      </AppLayout>
+    </ThemeProvider>
   );
 }
 
