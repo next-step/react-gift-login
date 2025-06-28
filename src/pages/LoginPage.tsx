@@ -1,8 +1,10 @@
 import styled from "@emotion/styled";
 import useUserInfo, { type UserInfoHook } from "@src/hooks/useUserInfo";
 import theme from "@src/styles/kakaoTheme";
+import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
+  const navigate = useNavigate();
   const userInfo = useUserInfo();
 
   const handleLogin = (userInfo: UserInfoHook) => {
@@ -10,6 +12,11 @@ function LoginPage() {
       email: userInfo.email.value,
       password: userInfo.password.value
     });
+    if (window.history.length > 1) {
+      navigate(-1);
+    } else {
+      navigate("/");
+    }
   };
 
   return (
@@ -21,7 +28,7 @@ function LoginPage() {
           placeholder="이메일"
           value={userInfo.email.value}
           onChange={(e) => {
-            userInfo.email.setter(e.target.value);
+            userInfo.email.setValue(e.target.value);
           }}
         />
         <InputField
@@ -29,7 +36,7 @@ function LoginPage() {
           placeholder="비밀번호"
           value={userInfo.password.value}
           onChange={(e) => {
-            userInfo.password.setter(e.target.value);
+            userInfo.password.setValue(e.target.value);
           }}
         />
         <LoginButton

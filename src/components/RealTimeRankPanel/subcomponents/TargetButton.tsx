@@ -1,21 +1,21 @@
 import styled from "@emotion/styled";
 import RoundButton from "@src/components/shared/RoundButton";
 import theme from "@src/styles/kakaoTheme";
-import type { targetType } from "../enumerators";
+import type { TargetType } from "../enumerators";
 import type { ReactNode } from "react";
 
 type TargetButtonProps = {
   selected: boolean;
-  target: targetType;
+  target: TargetType;
   children: string | ReactNode;
-  onclick: () => void;
+  onClick: () => void;
 };
 
 function TargetButton({
   selected,
   target,
   children,
-  onclick
+  onClick: onclick
 }: TargetButtonProps) {
   return (
     <TargetButtonWrapper selected={selected} onClick={() => onclick()}>
