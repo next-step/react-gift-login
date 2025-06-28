@@ -42,7 +42,7 @@ const CheerUpSection = () => {
         <SectionContainer>
           <CheerUpSubject>카카오테크 캠퍼스 3기 여러분</CheerUpSubject>
           <CheerUpDescription>
-            프론트엔드는 재밌?어요 화이팅⭐️
+            프론트엔드는 재밌어요 화이팅⭐️
           </CheerUpDescription>
         </SectionContainer>
       </SectionWrapper>
