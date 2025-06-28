@@ -1,13 +1,13 @@
 import styled from "@emotion/styled";
 import { Plus } from "lucide-react";
 
-const SectionWrapper = styled.section(props => ({
+const FriendSectionWrapper = styled.section(props => ({
   display: "flex",
-  padding: `${props.theme.spacing4} ${props.theme.spacing3}}`,
+  padding: `${props.theme.spacing4} ${props.theme.spacing3}`,
   backgroundColor: props.theme.color.gray[200],
 }));
 
-const SectionContainer = styled.div(props => ({
+const FriendSectionContainer = styled.div(props => ({
   display: "flex",
   alignItems: "center",
   gap: `${props.theme.spacing3}`,
@@ -38,14 +38,14 @@ const SectionDescription = styled.p(props => ({
 
 const SelectFriendSection = () => {
   return (
-    <SectionWrapper>
-      <SectionContainer>
+    <FriendSectionWrapper>
+      <FriendSectionContainer>
         <IconCircle>
           <Plus />
         </IconCircle>
         <SectionDescription>선물할 친구를 선택해 주세요.</SectionDescription>
-      </SectionContainer>
-    </SectionWrapper>
+      </FriendSectionContainer>
+    </FriendSectionWrapper>
   );
 };
 
