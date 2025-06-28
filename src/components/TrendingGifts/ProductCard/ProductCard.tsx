@@ -1,4 +1,4 @@
-import type { TrendingGiftsType } from '@/data/trendingGfitsMockData';
+import type { TrendingGiftsType } from '@/types/TrendingGiftsType';
 import {
   BrandName,
   PriceAmount,

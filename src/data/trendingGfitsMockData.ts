@@ -1,22 +1,4 @@
-export type TrendingGiftsType = {
-  id: number;
-  name: string;
-  imageURL: string;
-  price: PriceInfoType;
-  brandInfo: BrandInfoType;
-};
-
-type PriceInfoType = {
-  basicPrice: number;
-  discountRate: number;
-  sellingPrice: number;
-};
-
-type BrandInfoType = {
-  id: number;
-  name: string;
-  imageURL: string;
-};
+import type { TrendingGiftsType } from '@/types/TrendingGiftsType';
 
 export const trendingGiftsMockData: TrendingGiftsType[] = [
   {
