@@ -4,3 +4,5 @@ export const categories = [
   { label: '남성이', icon: '👨🏻' },
   { label: '청소년이', icon: '👦🏻' },
 ];
+
+export const INITIAL_VISIBLE_GIFT_COUNT = 6;

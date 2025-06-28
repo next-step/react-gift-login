@@ -7,7 +7,7 @@ import {
   ProductImage,
   ProductName, RankBadge, SortOptions, SortSpan,
 } from '@/components/GiftRanking/GiftRanking.styles';
-import { categories } from "@/constants/RankingCategories";
+import { categories, INITIAL_VISIBLE_GIFT_COUNT } from "@/constants/RankingConstants.ts";
 
 export default function GiftRanking() {
   const [showCount, setShowCount] = useState(6); // 초기에 6개 보여줌
@@ -62,7 +62,7 @@ export default function GiftRanking() {
         ))}
       </Grid>
       <MoreButton onClick={handleToggle}>
-        {showCount === 6 ? '더보기' : '접기'}
+        {showCount === INITIAL_VISIBLE_GIFT_COUNT ? '더보기' : '접기'}
       </MoreButton>
     </Section>
   );
