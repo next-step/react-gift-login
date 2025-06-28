@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { TRENDING_GIFTS_SUB_TABS } from '../constants/labels';
 
 const SubTabContainer = styled.div`
   display: flex;
@@ -31,11 +32,9 @@ interface SubTabPropsType {
 }
 
 function SubTab({ selectedTabIdx, setSelectedTabIdx }: SubTabPropsType) {
-  const tabs = ['받고 싶어한', '많이 선물한', '위시로 받은'];
-
   return (
     <SubTabContainer>
-      {tabs.map((el, idx) => (
+      {TRENDING_GIFTS_SUB_TABS.map((el, idx) => (
         <SubTabButton
           key={idx}
           isSelected={idx === selectedTabIdx}
