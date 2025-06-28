@@ -4,7 +4,7 @@ import AddIcon from '@mui/icons-material/Add'
 const Section = styled.section`
   width: 100%;
   background: ${({ theme }) => theme.colors.gray.gray100};
-  padding: 32px 0 0 0;
+  padding: 12px 8px 12px 8px;
 `
 
 const Card = styled.div`

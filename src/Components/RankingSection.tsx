@@ -2,14 +2,18 @@ import { useState } from 'react'
 import styled from '@emotion/styled'
 import PersonIcon from '@mui/icons-material/Person'
 
-const filters = [
+// 타입 정의
+export type FilterKey = 'all' | 'female' | 'male' | 'teen'
+export type TabKey = 'want' | 'many' | 'wish'
+
+const filters: { key: FilterKey; label: string; icon: React.ReactNode }[] = [
   { key: 'all', label: '전체', icon: null },
   { key: 'female', label: '여성', icon: <PersonIcon style={{fontSize: 28}} /> },
   { key: 'male', label: '남성', icon: <PersonIcon style={{fontSize: 28}} /> },
   { key: 'teen', label: '청소년', icon: <PersonIcon style={{fontSize: 28}} /> },
 ]
 
-const tabList = [
+const tabList: { key: TabKey; label: string }[] = [
   { key: 'want', label: '받고 싶어한' },
   { key: 'many', label: '많이 선물한' },
   { key: 'wish', label: '위시로 받은' },
@@ -190,8 +194,8 @@ const MoreBtn = styled.button`
 `
 
 const RankingSection = () => {
-  const [selected, setSelected] = useState('all')
-  const [selectedTab, setSelectedTab] = useState('want')
+  const [selectedFilter, setSelectedFilter] = useState<FilterKey>('all')
+  const [selectedTab, setSelectedTab] = useState<TabKey>('want')
 
   return (
     <Section>
@@ -200,8 +204,8 @@ const RankingSection = () => {
         {filters.map(f => (
           <FilterBtn
             key={f.key}
-            active={selected === f.key}
-            onClick={() => setSelected(f.key)}
+            active={selectedFilter === f.key}
+            onClick={() => setSelectedFilter(f.key)}
           >
             {f.icon}
             <FilterLabel>{f.label}</FilterLabel>
