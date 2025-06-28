@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import { theme } from '@/styles/theme'
+import { BANNER_CONTENT } from '@/data/bannerContent'
 
 // * 기타 배너 컨테이너
 const Container = styled.div`
@@ -62,8 +63,8 @@ export const Banner = () => {
   return (
     <Container>
       <SubContainer>
-        <SubBannerTitle>카카오테크 캠퍼스 3기여러분</SubBannerTitle>
-        <BannerTitle>프론트엔드 2단계 과제 화이팅! 🎉</BannerTitle>
+        <SubBannerTitle>{BANNER_CONTENT.subTitle}</SubBannerTitle>
+        <BannerTitle>{BANNER_CONTENT.mainTitle}</BannerTitle>
       </SubContainer>
     </Container>
   )
