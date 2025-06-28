@@ -16,5 +16,5 @@ export const products = [
       imageURL:
         'https://st.kakaocdn.net/product/gift/gift_brand/20220216170226_38ba26d8eedf450683200d6730757204.png',
     },
-  }
-]; 
+  },
+];

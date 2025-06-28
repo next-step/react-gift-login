@@ -104,4 +104,4 @@ export const semanticColors = {
     info: '#217cf9',
     infoBackground: '#eff6ff',
   },
-} as const; 
+} as const;

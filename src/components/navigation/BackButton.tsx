@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 const BackButtonWrapper = styled.button`
   background: none;
   border: none;
-  padding: ${props => props.theme.spacing.spacing3};
+  padding: ${(props) => props.theme.spacing.spacing3};
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -12,19 +12,19 @@ const BackButtonWrapper = styled.button`
   min-height: 44px;
   border-radius: 6px;
   transition: background-color 0.2s;
-  
+
   &:hover {
-    background-color: ${props => props.theme.semanticColors.background.fill};
+    background-color: ${(props) => props.theme.semanticColors.background.fill};
   }
-  
+
   &:active {
-    background-color: ${props => props.theme.colors.gray200};
+    background-color: ${(props) => props.theme.colors.gray200};
   }
 `;
 
 const BackIcon = styled.span`
-  font-size: ${props => props.theme.typography.title2Bold.fontSize};
-  color: ${props => props.theme.semanticColors.text.default};
+  font-size: ${(props) => props.theme.typography.title2Bold.fontSize};
+  color: ${(props) => props.theme.semanticColors.text.default};
   line-height: 1;
 `;
 
@@ -40,4 +40,4 @@ const BackButton = ({ onClick }: BackButtonProps) => {
   );
 };
 
-export default BackButton; 
+export default BackButton;

@@ -3,17 +3,17 @@ import styled from '@emotion/styled';
 
 const ContainerWrapper = styled.div<{ fullWidth?: boolean }>`
   width: 100%;
-  max-width: ${props => props.fullWidth ? '100%' : '720px'};
+  max-width: ${(props) => (props.fullWidth ? '100%' : '720px')};
   margin: 0 auto;
-  padding: 0 ${props => props.theme.spacing.spacing4};
-  
+  padding: 0 ${(props) => props.theme.spacing.spacing4};
+
   /* 반응형 패딩 */
   @media (max-width: 480px) {
-    padding: 0 ${props => props.theme.spacing.spacing3};
+    padding: 0 ${(props) => props.theme.spacing.spacing3};
   }
-  
+
   @media (min-width: 600px) {
-    padding: 0 ${props => props.theme.spacing.spacing6};
+    padding: 0 ${(props) => props.theme.spacing.spacing6};
   }
 `;
 
@@ -23,11 +23,7 @@ interface ContainerProps {
 }
 
 const Container = ({ children, fullWidth = false }: ContainerProps) => {
-  return (
-    <ContainerWrapper fullWidth={fullWidth}>
-      {children}
-    </ContainerWrapper>
-  );
+  return <ContainerWrapper fullWidth={fullWidth}>{children}</ContainerWrapper>;
 };
 
-export default Container; 
+export default Container;

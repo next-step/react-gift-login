@@ -87,4 +87,4 @@ export const typography = {
     fontWeight: 400,
     lineHeight: '1rem', // 16px
   },
-} as const; 
+} as const;

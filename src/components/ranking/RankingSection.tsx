@@ -11,22 +11,22 @@ const targetOptions = [
   { value: 'ALL', label: '전체' },
   { value: 'FEMALE', label: '여성이' },
   { value: 'MALE', label: '남성이' },
-  { value: 'TEEN', label: '청소년이' }
+  { value: 'TEEN', label: '청소년이' },
 ] as const;
 
 const rankOptions = [
   { value: 'MANY_WISH', label: '받고 싶어한' },
   { value: 'MANY_RECEIVE', label: '많이 선물한' },
-  { value: 'MANY_WISH_RECEIVE', label: '위시로 받은' }
+  { value: 'MANY_WISH_RECEIVE', label: '위시로 받은' },
 ] as const;
 
 // 상수에서 타입 추출
-type TargetType = typeof targetOptions[number]['value'];
-type RankType = typeof rankOptions[number]['value'];
+type TargetType = (typeof targetOptions)[number]['value'];
+type RankType = (typeof rankOptions)[number]['value'];
 
 // BBQ 데이터를 21개로 복제하여 랭킹 데이터 생성
 const generateRankingProducts = (): Product[] => {
-  const baseProduct = products.find(p => p.brandInfo.name === 'BBQ');
+  const baseProduct = products.find((p) => p.brandInfo.name === 'BBQ');
   if (!baseProduct) {
     console.warn('BBQ 상품을 찾을 수 없습니다.');
     return [];
@@ -40,7 +40,7 @@ const generateRankingProducts = (): Product[] => {
     brandName: baseProduct.brandInfo.name,
     image: baseProduct.imageURL,
     rank: index + 1,
-    isTopThree: index < 3
+    isTopThree: index < 3,
   }));
 };
 
@@ -71,26 +71,21 @@ const RankingSection = () => {
         selected={targetType}
         onChange={handleTargetChange}
       />
-      
+
       <FilterButtonGroup
         type="rank"
         options={rankOptions}
         selected={rankType}
         onChange={handleRankChange}
       />
-      
-      <ProductGrid 
-        products={rankingProducts}
-        showMore={showMore}
-      />
-      
+
+      <ProductGrid products={rankingProducts} showMore={showMore} />
+
       {!showMore && (
-        <MoreButton onClick={() => setShowMore(true)}>
-          더보기
-        </MoreButton>
+        <MoreButton onClick={() => setShowMore(true)}>더보기</MoreButton>
       )}
     </Section>
   );
 };
 
-export default RankingSection; 
+export default RankingSection;

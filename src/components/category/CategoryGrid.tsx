@@ -4,13 +4,13 @@ import CategoryItem from './CategoryItem';
 const GridWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr); /* 가로 5칸 */
-  grid-template-rows: repeat(3, 1fr);    /* 세로 3칸 */
-  gap: ${props => props.theme.spacing.spacing2};
+  grid-template-rows: repeat(3, 1fr); /* 세로 3칸 */
+  gap: ${(props) => props.theme.spacing.spacing2};
   width: 100%;
-  
+
   /* 작은 화면에서 간격 조정 */
   @media (max-width: 480px) {
-    gap: ${props => props.theme.spacing.spacing1};
+    gap: ${(props) => props.theme.spacing.spacing1};
   }
 `;
 
@@ -25,10 +25,7 @@ interface CategoryGridProps {
   onCategoryClick?: (category: CategoryData) => void;
 }
 
-const CategoryGrid = ({ 
-  categories, 
-  onCategoryClick 
-}: CategoryGridProps) => {
+const CategoryGrid = ({ categories, onCategoryClick }: CategoryGridProps) => {
   // 15개 아이템으로 제한 (5x3 그리드에 맞춤)
   const displayCategories = categories.slice(0, 15);
 
@@ -46,4 +43,4 @@ const CategoryGrid = ({
   );
 };
 
-export default CategoryGrid; 
+export default CategoryGrid;

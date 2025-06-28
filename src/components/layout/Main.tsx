@@ -8,8 +8,8 @@ const MainWrapper = styled.main`
 `;
 
 const MainContent = styled.div`
-  padding: 0 ${props => props.theme.spacing.spacing4};
-  padding-bottom: ${props => props.theme.spacing.spacing8}; /* 하단 여백 */
+  padding: 0 ${(props) => props.theme.spacing.spacing4};
+  padding-bottom: ${(props) => props.theme.spacing.spacing8}; /* 하단 여백 */
 `;
 
 interface MainProps {
@@ -19,11 +19,9 @@ interface MainProps {
 const Main = ({ children }: MainProps) => {
   return (
     <MainWrapper>
-      <MainContent>
-        {children}
-      </MainContent>
+      <MainContent>{children}</MainContent>
     </MainWrapper>
   );
 };
 
-export default Main; 
+export default Main;

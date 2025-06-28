@@ -6,21 +6,15 @@ interface CategorySectionProps {
   onCategoryClick?: (category: CategoryData) => void;
 }
 
-const CategorySection = ({ 
-  categories, 
-  onCategoryClick 
+const CategorySection = ({
+  categories,
+  onCategoryClick,
 }: CategorySectionProps) => {
   return (
-    <Section 
-      title="선물 테마" 
-      spacing="md"
-    >
-      <CategoryGrid 
-        categories={categories}
-        onCategoryClick={onCategoryClick}
-      />
+    <Section title="선물 테마" spacing="md">
+      <CategoryGrid categories={categories} onCategoryClick={onCategoryClick} />
     </Section>
   );
 };
 
-export default CategorySection; 
+export default CategorySection;

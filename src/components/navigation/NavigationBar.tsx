@@ -6,15 +6,17 @@ const NavWrapper = styled.nav`
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: ${props => props.theme.semanticColors.background.default};
-  border-bottom: 1px solid ${props => props.theme.semanticColors.border.default};
-  
+  background-color: ${(props) => props.theme.semanticColors.background.default};
+  border-bottom: 1px solid
+    ${(props) => props.theme.semanticColors.border.default};
+
   /* 모바일 상단 안전 영역 고려 */
   padding-top: env(safe-area-inset-top);
 `;
 
 const NavContent = styled.div`
-  padding: ${props => props.theme.spacing.spacing2} ${props => props.theme.spacing.spacing4};
+  padding: ${(props) => props.theme.spacing.spacing2}
+    ${(props) => props.theme.spacing.spacing4};
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -26,10 +28,10 @@ const NavTitle = styled.h1`
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  font-size: ${props => props.theme.typography.title2Bold.fontSize};
-  font-weight: ${props => props.theme.typography.title2Bold.fontWeight};
-  line-height: ${props => props.theme.typography.title2Bold.lineHeight};
-  color: ${props => props.theme.semanticColors.text.default};
+  font-size: ${(props) => props.theme.typography.title2Bold.fontSize};
+  font-weight: ${(props) => props.theme.typography.title2Bold.fontWeight};
+  line-height: ${(props) => props.theme.typography.title2Bold.lineHeight};
+  color: ${(props) => props.theme.semanticColors.text.default};
   margin: 0;
   white-space: nowrap;
 `;
@@ -55,7 +57,7 @@ const NavigationBar = ({
   showBackButton = true,
   showProfileButton = true,
   onBackClick,
-  onProfileClick
+  onProfileClick,
 }: NavigationBarProps) => {
   const handleBackClick = () => {
     if (onBackClick) {
@@ -78,9 +80,9 @@ const NavigationBar = ({
         <NavLeft>
           {showBackButton && <BackButton onClick={handleBackClick} />}
         </NavLeft>
-        
+
         <NavTitle>{title}</NavTitle>
-        
+
         <NavRight>
           {showProfileButton && <ProfileButton onClick={handleProfileClick} />}
         </NavRight>
@@ -89,4 +91,4 @@ const NavigationBar = ({
   );
 };
 
-export default NavigationBar; 
+export default NavigationBar;

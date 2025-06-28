@@ -31,7 +31,7 @@
       "@/navigation/*": ["src/components/navigation/*"],
       "@/category/*": ["src/components/category/*"],
       "@/misc/*": ["src/components/misc/*"],
-      "@/ranking/*": ["src/components/ranking/*"],
+      "@/ranking/*": ["src/components/ranking/*"]
     },
 
     /* Linting */

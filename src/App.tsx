@@ -1,13 +1,13 @@
-import { useState } from 'react'
-import { MobileLayout, Main } from '@/components/layout'
-import { NavigationBar } from '@/components/navigation'
-import { HomePage, LoginPage } from '@/pages'
+import { useState } from 'react';
+import { MobileLayout, Main } from '@/components/layout';
+import { NavigationBar } from '@/components/navigation';
+import { HomePage, LoginPage } from '@/pages';
 
 type PageType = 'home' | 'login';
 
 function App() {
   const [currentPage, setCurrentPage] = useState<PageType>('home');
-  
+
   // 페이지별 네비게이션 설정
   const getNavigationConfig = () => {
     switch (currentPage) {
@@ -15,19 +15,19 @@ function App() {
         return {
           title: '선물하기',
           showBackButton: true, // 메인 페이지에서도 뒤로가기 표시
-          showProfileButton: true
+          showProfileButton: true,
         };
       case 'login':
         return {
           title: '로그인',
           showBackButton: true,
-          showProfileButton: false // 로그인 페이지에서는 프로필 버튼 숨김
+          showProfileButton: false, // 로그인 페이지에서는 프로필 버튼 숨김
         };
       default:
         return {
           title: '카카오 선물하기',
           showBackButton: true,
-          showProfileButton: true
+          showProfileButton: true,
         };
     }
   };
@@ -64,12 +64,10 @@ function App() {
         onBackClick={handleBackClick}
         onProfileClick={handleProfileClick}
       />
-      
-      <Main>
-        {renderCurrentPage()}
-      </Main>
+
+      <Main>{renderCurrentPage()}</Main>
     </MobileLayout>
-  )
+  );
 }
 
-export default App
+export default App;

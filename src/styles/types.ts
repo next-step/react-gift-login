@@ -18,4 +18,4 @@ declare module '@emotion/react' {
     typography: typeof typography;
     spacing: typeof spacing;
   }
-} 
+}

@@ -18,7 +18,7 @@ interface ProductCardProps {
 const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: ${props => props.theme.spacing.spacing2};
+  gap: ${(props) => props.theme.spacing.spacing2};
 `;
 
 const ImageContainer = styled.div`
@@ -33,17 +33,18 @@ const ProductImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  background-color: ${props => props.theme.semanticColors.background.fill};
+  background-color: ${(props) => props.theme.semanticColors.background.fill};
 `;
 
 const RankBadge = styled.div<{ isTopThree: boolean }>`
   position: absolute;
-  top: ${props => props.theme.spacing.spacing1};
-  left: ${props => props.theme.spacing.spacing1};
+  top: ${(props) => props.theme.spacing.spacing1};
+  left: ${(props) => props.theme.spacing.spacing1};
   width: 20px;
   height: 20px;
   border-radius: 4px;
-  background-color: ${props => props.isTopThree ? props.theme.colors.red500 : props.theme.colors.gray500};
+  background-color: ${(props) =>
+    props.isTopThree ? props.theme.colors.red500 : props.theme.colors.gray500};
   color: white;
   display: flex;
   align-items: center;
@@ -54,16 +55,16 @@ const RankBadge = styled.div<{ isTopThree: boolean }>`
 `;
 
 const BrandName = styled.div`
-  font-size: ${props => props.theme.typography.body2Regular.fontSize};
-  font-weight: ${props => props.theme.typography.body2Regular.fontWeight};
-  color: ${props => props.theme.semanticColors.text.sub};
+  font-size: ${(props) => props.theme.typography.body2Regular.fontSize};
+  font-weight: ${(props) => props.theme.typography.body2Regular.fontWeight};
+  color: ${(props) => props.theme.semanticColors.text.sub};
   font-family: 'Pretendard', sans-serif;
 `;
 
 const ProductName = styled.div`
-  font-size: ${props => props.theme.typography.body2Regular.fontSize};
-  font-weight: ${props => props.theme.typography.body2Regular.fontWeight};
-  color: ${props => props.theme.semanticColors.text.default};
+  font-size: ${(props) => props.theme.typography.body2Regular.fontSize};
+  font-weight: ${(props) => props.theme.typography.body2Regular.fontWeight};
+  color: ${(props) => props.theme.semanticColors.text.default};
   font-family: 'Pretendard', sans-serif;
   line-height: 1.4;
   display: -webkit-box;
@@ -73,9 +74,9 @@ const ProductName = styled.div`
 `;
 
 const Price = styled.div`
-  font-size: ${props => props.theme.typography.body1Bold.fontSize};
-  font-weight: ${props => props.theme.typography.body1Bold.fontWeight};
-  color: ${props => props.theme.semanticColors.text.default};
+  font-size: ${(props) => props.theme.typography.body1Bold.fontSize};
+  font-weight: ${(props) => props.theme.typography.body1Bold.fontWeight};
+  color: ${(props) => props.theme.semanticColors.text.default};
   font-family: 'Pretendard', sans-serif;
 `;
 
@@ -83,11 +84,9 @@ const ProductCard = ({ product }: ProductCardProps) => {
   return (
     <CardContainer>
       <ImageContainer>
-        <RankBadge isTopThree={product.isTopThree}>
-          {product.rank}
-        </RankBadge>
-        <ProductImage 
-          src={product.image} 
+        <RankBadge isTopThree={product.isTopThree}>{product.rank}</RankBadge>
+        <ProductImage
+          src={product.image}
           alt={product.productName}
           loading="lazy"
         />
@@ -100,4 +99,4 @@ const ProductCard = ({ product }: ProductCardProps) => {
 };
 
 export default ProductCard;
-export type { Product }; 
+export type { Product };
