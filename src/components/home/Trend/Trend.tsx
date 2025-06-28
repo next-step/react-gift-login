@@ -97,7 +97,7 @@ export const Trend = () => {
     const urlTargetType = searchParams.get('targetType')
     const urlRankType = searchParams.get('rankType')
 
-    if (urlTargetType && isValidTargetType(urlTargetType) && urlTargetType !== targetType) {
+    if (urlTargetType && isValidTargetType(urlTargetType)) {
       setTargetType(urlTargetType)
     }
 
