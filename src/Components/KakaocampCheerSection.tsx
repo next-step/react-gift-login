@@ -17,14 +17,6 @@ const Banner = styled.div`
   gap: 20px;
 `
 
-const CheerImg = styled.img`
-  width: 56px;
-  height: 56px;
-  border-radius: 12px;
-  object-fit: cover;
-  background: ${({ theme }) => theme.colors.yellow.yellow100};
-`
-
 const CheerText = styled.div`
   ${({ theme }) => theme.typography.title2Bold};
   color: ${({ theme }) => theme.colors.brown.brown800};

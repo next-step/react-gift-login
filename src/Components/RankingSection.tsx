@@ -9,6 +9,12 @@ const filters = [
   { key: 'teen', label: '청소년', icon: <PersonIcon style={{fontSize: 28}} /> },
 ]
 
+const tabList = [
+  { key: 'want', label: '받고 싶어한' },
+  { key: 'many', label: '많이 선물한' },
+  { key: 'wish', label: '위시로 받은' },
+]
+
 const rankingData = Array(3).fill({
   id: 123,
   name: 'BBQ 양념치킨+크림치즈볼+콜라1.25L',
@@ -185,6 +191,7 @@ const MoreBtn = styled.button`
 
 const RankingSection = () => {
   const [selected, setSelected] = useState('all')
+  const [selectedTab, setSelectedTab] = useState('want')
 
   return (
     <Section>
@@ -202,9 +209,15 @@ const RankingSection = () => {
         ))}
       </FilterRow>
       <TabRow>
-        <TabBtn active>받고 싶어한</TabBtn>
-        <TabBtn>많이 선물한</TabBtn>
-        <TabBtn>위시로 받은</TabBtn>
+        {tabList.map(tab => (
+          <TabBtn
+            key={tab.key}
+            active={selectedTab === tab.key}
+            onClick={() => setSelectedTab(tab.key)}
+          >
+            {tab.label}
+          </TabBtn>
+        ))}
       </TabRow>
       <Grid>
         {rankingData.map((item) => (
