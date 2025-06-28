@@ -7,7 +7,7 @@ interface FilterOption {
 
 interface FilterButtonGroupProps {
   type: 'target' | 'rank';
-  options: FilterOption[];
+  options: readonly FilterOption[];
   selected: string;
   onChange: (value: string) => void;
 }

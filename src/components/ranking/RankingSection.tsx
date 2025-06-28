@@ -6,21 +6,23 @@ import MoreButton from './MoreButton';
 import { type Product } from './ProductCard';
 import { products } from '@/data';
 
-type TargetType = 'ALL' | 'FEMALE' | 'MALE' | 'TEEN';
-type RankType = 'MANY_WISH' | 'MANY_RECEIVE' | 'MANY_WISH_RECEIVE';
-
+// 상수에서 타입을 추출하는 방식으로 변경
 const targetOptions = [
   { value: 'ALL', label: '전체' },
   { value: 'FEMALE', label: '여성이' },
   { value: 'MALE', label: '남성이' },
   { value: 'TEEN', label: '청소년이' }
-];
+] as const;
 
 const rankOptions = [
   { value: 'MANY_WISH', label: '받고 싶어한' },
   { value: 'MANY_RECEIVE', label: '많이 선물한' },
   { value: 'MANY_WISH_RECEIVE', label: '위시로 받은' }
-];
+] as const;
+
+// 상수에서 타입 추출
+type TargetType = typeof targetOptions[number]['value'];
+type RankType = typeof rankOptions[number]['value'];
 
 // BBQ 데이터를 21개로 복제하여 랭킹 데이터 생성
 const generateRankingProducts = (): Product[] => {
