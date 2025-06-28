@@ -92,6 +92,9 @@ const ProductPrice = styled.div`
   font-size: ${theme.typography.body.body1Regular.fontSize};
   font-weight: ${theme.typography.body.body1Regular.fontWeight};
   line-height: ${theme.typography.body.body1Regular.lineHeight};
+
+  /* 화면 축소 시 원치 않는 찌그러짐 방지 */
+  flex-wrap: wrap;
 `
 
 // * 실시간 급상승 상품 할인율
