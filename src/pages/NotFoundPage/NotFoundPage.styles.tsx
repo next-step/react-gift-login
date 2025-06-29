@@ -5,7 +5,7 @@ export const NotFoundContainer = styled.div`
   flex-direction: column;
   align-items: center;
 
-  min-height: calc(100vh - 3rem);
+  min-height: calc(100vh - ${({ theme }) => theme.components.navigationBar.height});
   padding-top: ${({ theme }) => theme.spacing[16]};
 
   background-color: ${({ theme }) => theme.colors.background.disabled};

@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 export const NavigationSection = styled.section`
   max-width: ${({ theme }) => theme.layout.width.container};
   width: 100%;
-  height: 3rem;
+  height: ${({ theme }) => theme.components.navigationBar.height};
   position: fixed;
 
   display: flex;

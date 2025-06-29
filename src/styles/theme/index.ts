@@ -13,6 +13,12 @@ export const theme = {
   spacing,
   layout,
   borderRadius,
+
+  components: {
+    navigationBar: {
+      height: '3rem',
+    },
+  },
 } as const;
 
 // 명시적 타입 계산

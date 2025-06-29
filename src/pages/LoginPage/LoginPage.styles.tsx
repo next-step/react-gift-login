@@ -6,7 +6,7 @@ export const LoginContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: calc(100vh - 3rem);
+  height: calc(100vh - ${({ theme }) => theme.components.navigationBar.height});
   background-color: ${theme.colors.background.default};
 `;
 
