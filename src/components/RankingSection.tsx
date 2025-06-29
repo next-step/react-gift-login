@@ -79,11 +79,11 @@ const ProductCard = styled.div`
   }
 `
 
-const Badge = styled.div`
+const Badge = styled.div<{ isTop3: boolean }>`
   position: absolute;
   top: ${({ theme }) => theme.spacing.spacing1};
   left: ${({ theme }) => theme.spacing.spacing1};
-  background-color: ${({ theme }) => theme.colors.red.red600};
+  background-color: ${({ theme, isTop3 }) => isTop3 ? theme.colors.red.red600 : theme.colors.gray.gray400};
   color: ${({ theme }) => theme.colors.gray.gray00};
   padding: ${({ theme }) => `${theme.spacing.spacing0} ${theme.spacing.spacing1}`};
   border-radius: 50%;
@@ -166,7 +166,7 @@ const RankingSection = () => {
       <ProductGrid>
         {productList.slice(0, visibleCount).map((item, idx) => (
           <ProductCard key={item.id}>
-            <Badge>{idx + 1}</Badge>
+            <Badge isTop3={idx < 3}>{idx + 1}</Badge>
             <img src={item.imageURL} alt={item.name} />
             <Brand>{item.brandInfo.name}</Brand>
             <Name>{item.name}</Name>
