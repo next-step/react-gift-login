@@ -43,31 +43,43 @@ const GiftRankingHeader = () => {
       <div css={containerStyle}>
         <IoWomanOutline
           onClick={() => handleTargetClick("WOMAN")}
-          css={iconStyle}
+          css={[iconStyle, target == "WOMAN" && selectedTargetStyle(theme)]}
         />
         <IoManOutline
           onClick={() => handleTargetClick("MAN")}
-          css={iconStyle}
+          css={[iconStyle, target == "MAN" && selectedTargetStyle(theme)]}
         />
         <IoAppsOutline
           onClick={() => handleTargetClick("ALL")}
-          css={iconStyle(theme)}
+          css={[
+            iconStyle(theme),
+            target == "ALL" && selectedTargetStyle(theme),
+          ]}
         />
       </div>
       <div css={tabContainerStyle(theme)}>
         <div
           onClick={() => handleRankClick("MANY-WANT")}
-          css={tabItemStyle(theme)}>
+          css={[
+            tabItemStyle(theme),
+            rankType == "MANY-WANT" && selectedRankStyle(theme),
+          ]}>
           받고 싶어한
         </div>
         <div
           onClick={() => handleRankClick("MANY-GIVE")}
-          css={tabItemStyle(theme)}>
+          css={[
+            tabItemStyle(theme),
+            rankType == "MANY-GIVE" && selectedRankStyle(theme),
+          ]}>
           많이 선물한
         </div>
         <div
           onClick={() => handleRankClick("MANY-WISH")}
-          css={tabItemStyle(theme)}>
+          css={[
+            tabItemStyle(theme),
+            rankType == "MANY-WISH" && selectedRankStyle(theme),
+          ]}>
           위시로 받은
         </div>
       </div>
@@ -124,4 +136,13 @@ const tabItemStyle = (theme: Theme) => css`
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
+`;
+
+const selectedTargetStyle = (theme: Theme) => css`
+  color: ${theme.colors.blue.blue500};
+`;
+
+const selectedRankStyle = (theme: Theme) => css`
+  color: ${theme.colors.blue.blue500};
+  font-weight: 600;
 `;
