@@ -5,7 +5,7 @@ import SelectFriends from "../components/SelectFriends";
 import EnterTainment from "../components/EnterTainment";
 
 import { productListData } from "../data/productListData";
-import type { Product } from "../types/common";
+import type { Product } from "../types/product";
 
 const HomePage = () => {
   return (
