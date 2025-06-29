@@ -22,6 +22,6 @@ const typography = {
 
   label2Bold: '700 0.75rem/1rem "Pretendard", sans-serif',
   label2Regular: '400 0.75rem/1rem "Pretendard", sans-serif',
-};
+} as const;
 
 export default typography;

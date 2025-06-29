@@ -6,6 +6,6 @@ const theme = {
   color,
   typography,
   spacing,
-};
+} as const;
 
 export default theme;

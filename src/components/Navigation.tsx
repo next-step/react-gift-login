@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import LeftArrow from "@/components/icons/LeftArrow";
-import Profile from "./icons/Profile";
+import Profile from "@/components/icons/Profile";
 
 const Navigation = () => {
   return (

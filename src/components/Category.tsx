@@ -1,14 +1,12 @@
 import styled from "@emotion/styled";
 import { categoryMock } from "@/assets/categoryMock";
-import type { CategoryType } from "@/types/CategoryType";
 
 const Category = () => {
-  const categoryList: CategoryType[] = categoryMock;
   return (
     <Container>
       <Title>선물 테마</Title>
       <List>
-        {categoryList.map((category) => (
+        {categoryMock.map((category) => (
           <Item key={category.themeId}>
             <Img src={category.image} alt={category.name} />
             <Name>{category.name}</Name>

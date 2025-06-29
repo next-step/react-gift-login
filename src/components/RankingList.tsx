@@ -4,18 +4,16 @@ import Divider from "@/components/Divider";
 import { useState } from "react";
 import type { ThemeType } from "@/types/ThemeType";
 import { useTheme } from "@emotion/react";
-import type { RankingItemType } from "@/types/RankingItemType";
 
-const rankingListItemViewCount = 6;
+const RANKING_LIST_ITEM_VIEW_COUNT = 6;
 
 const RankingList = () => {
-  const [viewCount, setViewCount] = useState(rankingListItemViewCount);
+  const [viewCount, setViewCount] = useState(RANKING_LIST_ITEM_VIEW_COUNT);
   const theme = useTheme();
-  const rankingItem: RankingItemType[] = rankingItemMock;
   return (
     <Container>
       <Content>
-        {rankingItem.slice(0, viewCount).map((item, index) => (
+        {rankingItemMock.slice(0, viewCount).map((item, index) => (
           <Item key={item.id}>
             <ItemRank ranking={index + 1} theme={theme}>
               {index + 1}
@@ -36,12 +34,12 @@ const RankingList = () => {
       <ItemContent>
         <MoreBtn
           onClick={() => {
-            viewCount === rankingListItemViewCount
-              ? setViewCount(rankingItemMock.length)
-              : setViewCount(rankingListItemViewCount);
+            const rankingListItemViewMaxCount =
+              viewCount === RANKING_LIST_ITEM_VIEW_COUNT ? rankingItemMock.length : RANKING_LIST_ITEM_VIEW_COUNT;
+            setViewCount(rankingListItemViewMaxCount);
           }}
         >
-          {viewCount === rankingListItemViewCount ? "더보기" : "접기"}
+          {viewCount === RANKING_LIST_ITEM_VIEW_COUNT ? "더보기" : "접기"}
         </MoreBtn>
       </ItemContent>
       <Divider />

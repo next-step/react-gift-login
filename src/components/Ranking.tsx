@@ -3,10 +3,8 @@ import { useTheme } from "@emotion/react";
 import styled from "@emotion/styled";
 import { useState } from "react";
 import RankingList from "@/components/RankingList";
-import type { RankingTargetCategoryType } from "@/types/RankingTargetCategoryType";
 import { rankingTargetCategory } from "@/assets/rankingTargetCategory";
 
-const rankingTargetCategoryList: RankingTargetCategoryType[] = rankingTargetCategory;
 const rankingRankCategoryList = {
   MANY_WISH: "받고 싶어한",
   MANY_RECEIVE: "많이 선물한",
@@ -14,7 +12,7 @@ const rankingRankCategoryList = {
 } as const;
 
 const Ranking = () => {
-  const [selectedTargetCategory, setSelectedTargetCategory] = useState(rankingTargetCategoryList[0].targetType);
+  const [selectedTargetCategory, setSelectedTargetCategory] = useState(rankingTargetCategory[0].targetType);
   const [selectedRankCategory, setSelectedRankCategory] = useState(Object.keys(rankingRankCategoryList)[0]);
   const theme = useTheme();
   const isSelected = (element: string, selected: string) => {
@@ -25,7 +23,7 @@ const Ranking = () => {
       <Title>실시간 급상승 선물랭킹</Title>
       <NavBar>
         <TargetCategoryList>
-          {rankingTargetCategoryList.map((e) => (
+          {rankingTargetCategory.map((e) => (
             <TargetCategory
               key={e.targetType}
               onClick={() => {

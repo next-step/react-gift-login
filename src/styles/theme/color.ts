@@ -91,5 +91,5 @@ const color = {
     info: "#217cf9", //정보 색상
     infoBackground: "#eff6ff", //정보 배경 색상
   },
-};
+} as const;
 export default color;
