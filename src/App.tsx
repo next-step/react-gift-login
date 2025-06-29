@@ -1,24 +1,17 @@
+import Router from '@src/router/Router';
 import Background, { Inner } from '@src/components/Background';
 import Title from '@src/components/Title';
-import Banner from '@src/components/Banner';
-import Maintheme from '@src/components/Maintheme';
-import Realtime from './components/Realtime';
+
 const App = () => {
   return (
-    <>
-      <Background>
-        <Inner>
-          <header>
-            <Title />
-          </header>
-          <main>
-            <Banner />
-            <Maintheme />
-            <Realtime />
-          </main>
-        </Inner>
-      </Background>
-    </>
+    <Background>
+      <Inner>
+        <header>
+          <Title />
+        </header>
+        <Router />
+      </Inner>
+    </Background>
   );
 };
 

@@ -3,6 +3,7 @@ import theme from '@/styles/tokens';
 import arrowBackIcon from '@src/assets/icons/arrow_back.svg';
 import personIcon from '@src/assets/icons/person.svg';
 import logoIcon from '@src/assets/icons/logo.webp';
+import { Link, useNavigate } from 'react-router-dom';
 
 const wrapperStyle = css`
   background-color: ${theme.colors.gray00};
@@ -45,21 +46,31 @@ const logoStyle = css`
 `;
 
 const Title = () => {
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1);
+  };
+
+  const goLogin = () => {
+    navigate('login');
+  };
+
   return (
     <div css={wrapperStyle}>
       <nav css={navStyle}>
         <div css={navSide}>
-          <button css={buttonStyle}>
+          <button css={buttonStyle} onClick={goBack}>
             <img src={arrowBackIcon} alt="뒤로 가기" />
           </button>
         </div>
         <div css={logoWrapper}>
-          <a href="#">
+          <Link to="/">
             <img src={logoIcon} css={logoStyle} alt="카카오 선물하기 로고" />
-          </a>
+          </Link>
         </div>
         <div css={navSide}>
-          <button css={buttonStyle}>
+          <button css={buttonStyle} onClick={goLogin}>
             <img style={{ height: '2rem' }} src={personIcon} alt="마이페이지" />
           </button>
         </div>
