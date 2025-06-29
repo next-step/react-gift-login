@@ -23,7 +23,7 @@ export const RankBadge = styled.div<{ isTopThree: boolean }>`
 
   width: ${({ theme }) => theme.spacing[4]};
   height: ${({ theme }) => theme.spacing[4]};
-  padding: ${({ theme }) => theme.components.trendingGifts.productCard.rankBadgePadding};
+  padding: 2px;
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   font-size: ${({ theme }) => theme.typography.label.label2Bold.fontSize};
   font-weight: ${({ theme }) => theme.typography.label.label2Bold.fontWeight};
@@ -31,7 +31,7 @@ export const RankBadge = styled.div<{ isTopThree: boolean }>`
 
 export const ProductImage = styled.img`
   width: 100%;
-  aspect-ratio: ${({ theme }) => theme.components.trendingGifts.productCard.imageRatio};
+  aspect-ratio: 1;
   object-fit: cover;
   border-radius: ${({ theme }) => theme.borderRadius.xs};
 `;

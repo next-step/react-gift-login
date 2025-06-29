@@ -12,12 +12,12 @@ export const BannerCard = styled.div`
   align-items: start;
   flex-direction: column;
 
-  width: ${({ theme }) => theme.components.eventBanner.bannerCardWidth};
-  height: ${({ theme }) => theme.components.eventBanner.bannerCardHeight};
+  width: 95%;
+  height: 4rem;
 
   box-sizing: border-box;
   padding: ${({ theme }) => theme.spacing[4]};
-  gap: ${({ theme }) => theme.components.eventBanner.labelGap};
+  gap: 5px;
 
   background-color: ${({ theme }) => theme.colors.brand.kakaoYellow};
   border-radius: ${({ theme }) => theme.borderRadius.md};

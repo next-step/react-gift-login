@@ -10,19 +10,15 @@ const TabContentContainer = styled.div`
 `;
 
 interface TabContentWrapperPropsType {
-  selectedTabIdx: number;
-  setSelectedTabIdx: (idx: number) => void;
+  subTabIdx: number;
+  setSubTabIdx: (idx: number) => void;
   children: React.ReactNode;
 }
 
-function TabContentWrapper({
-  selectedTabIdx,
-  setSelectedTabIdx,
-  children,
-}: TabContentWrapperPropsType) {
+function TabContentWrapper({ subTabIdx, setSubTabIdx, children }: TabContentWrapperPropsType) {
   return (
     <TabContentContainer>
-      <SubTab selectedTabIdx={selectedTabIdx} setSelectedTabIdx={setSelectedTabIdx} />
+      <SubTab subTabIdx={subTabIdx} setSubTabIdx={setSubTabIdx} />
       {children}
     </TabContentContainer>
   );

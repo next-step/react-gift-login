@@ -1,12 +1,11 @@
 import { Global, ThemeProvider, css } from '@emotion/react';
+import { Routes, Route } from 'react-router-dom';
 import resetStyles from '@/reset';
 import theme from './styles/theme';
-import NavigationBar from './components/NavigationBar/NavigationBar';
-import GiftBanner from './components/GiftBanner/GiftBanner';
-import Category from './components/Category/Category';
-import EventBanner from './components/EventBanner/EventBanner';
-import TrendingGifts from './components/TrendingGifts/TrendingGifts';
-import { AppFrame, Content, ViewportContainer } from './App.styles';
+import HomePage from './pages/HomePage/HomePage';
+import LoginPage from './pages/LoginPage/LoginPage';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
+import { ViewportContainer } from './App.styles';
 
 const globalStyles = css`
   body {
@@ -19,17 +18,11 @@ function App() {
     <ThemeProvider theme={theme}>
       <Global styles={[resetStyles, globalStyles]} />
       <ViewportContainer>
-        <AppFrame>
-          <NavigationBar />
-          <main>
-            <GiftBanner />
-            <Content>
-              <Category />
-              <EventBanner />
-              <TrendingGifts />
-            </Content>
-          </main>
-        </AppFrame>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
       </ViewportContainer>
     </ThemeProvider>
   );
