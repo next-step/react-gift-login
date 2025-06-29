@@ -1,14 +1,17 @@
 import styled from '@emotion/styled'
 import { FiChevronLeft, FiUser } from 'react-icons/fi'
+import { useNavigate } from 'react-router-dom'
 
 export function Navbar() {
+  const navigate = useNavigate()
+
   return (
     <NavWrapper>
       <LeftIcon>
         <FiChevronLeft size={24} />
       </LeftIcon>
       <Title>선물하기</Title>
-      <RightIcon>
+      <RightIcon onClick={() => navigate('/login')}>
         <FiUser size={24} />
       </RightIcon>
     </NavWrapper>
@@ -39,6 +42,7 @@ const RightIcon = styled.div`
   display: flex;
   align-items: center;
   color: ${({ theme }) => theme.colors.textDefault};
+  cursor: pointer;
 `
 
 const Title = styled.h1`
