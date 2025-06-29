@@ -1,6 +1,12 @@
 import styled from '@emotion/styled';
 import { useSearchParams } from 'react-router-dom';
 
+type FilterType = '전체' | '여성이' | '남성이' | '청소년이';
+type TabType = '받고 싶어한' | '많이 선물한' | '위시로 받은';
+
+const FILTERS: FilterType[] = ['전체', '여성이', '남성이', '청소년이'];
+const TABS: TabType[] = ['받고 싶어한', '많이 선물한', '위시로 받은'];
+
 const mockItems = Array.from({ length: 12 }, (_, i) => ({
   id: i + 1,
   name: 'BBQ 양념치킨+크림치즈볼+콜라1.25L',
@@ -143,11 +149,20 @@ const RankingSection = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   // 기본값 설정
-  const selectedFilter = searchParams.get('filter') ?? '전체';
-  const selectedTab = searchParams.get('tab') ?? '받고 싶어한';
-  const isExpanded = searchParams.get('expanded') === 'true';
+  const rawFilter = searchParams.get('filter');
+  const rawTab = searchParams.get('tab');
+  const rawExpanded = searchParams.get('expanded');
 
-  // 쿼리 파라미터 설정 함수
+  const selectedFilter: FilterType = FILTERS.includes(rawFilter as FilterType)
+    ? (rawFilter as FilterType)
+    : '전체';
+
+  const selectedTab: TabType = TABS.includes(rawTab as TabType)
+    ? (rawTab as TabType)
+    : '받고 싶어한';
+
+  const isExpanded = rawExpanded === 'true';
+
   const updateParam = (key: string, value: string) => {
     const newParams = new URLSearchParams(searchParams.toString());
     newParams.set(key, value);
@@ -162,7 +177,7 @@ const RankingSection = () => {
 
       {/* 필터 */}
       <FilterRow>
-        {['전체', '여성이', '남성이', '청소년이'].map((label) => (
+        {FILTERS.map((label) => (
           <FilterButton
             key={label}
             active={selectedFilter === label}
@@ -175,7 +190,7 @@ const RankingSection = () => {
 
       {/* 탭 */}
       <TabRow>
-        {['받고 싶어한', '많이 선물한', '위시로 받은'].map((label) => (
+        {TABS.map((label) => (
           <TabButton
             key={label}
             active={selectedTab === label}
