@@ -1,19 +1,8 @@
-import Navigation from './components/Navigation';
-import FriendSelector from './components/FriendSelector';
-import CategorySection from './components/CategorySection';
-import MessageSection from './components/MessageSection';
-import RankingSection from './components/RankingSection';
+import { RouterProvider } from 'react-router-dom';
+import routes from './routes/router';
 
 function App() {
-  return (
-    <>
-      <Navigation />
-      <FriendSelector />
-      <CategorySection />
-      <MessageSection />
-      <RankingSection />
-    </>
-  )
+  return <RouterProvider router={routes} />;
 }
 
-export default App
+export default App;
