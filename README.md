@@ -1,8 +1,8 @@
 # react-gift-login
 
-//STEP 1
+# STEP 1
 
-# TODO
+//TODO
 
 홈과 로그인(WIP) 레포지토리를 클론해요. : CLEAR
 
@@ -18,9 +18,9 @@ emotion 스타일 라이브러리를 추가하고, reset css를 적용해주세�
 
 기능 단위로 나누어 커밋을 해주세요. : CLEAR
 
-//STEP 2
+# STEP 2
 
-# TODO
+//TODO
 
 본인만의 기준으로 일관된 코드를 작성해주세요. : CLEAR
 
