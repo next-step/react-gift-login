@@ -12,21 +12,21 @@ import Layout from "@/styles/Layout";
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route
-          path="/"
-          element={
-            <>
-              <NavigationBar />
-              <Layout>
+      <Layout>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route
+            path="/"
+            element={
+              <>
+                <NavigationBar />
                 <Main />
-              </Layout>
-            </>
-          }
-        />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+              </>
+            }
+          />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Layout>
     </ThemeProvider>
   );
 }
