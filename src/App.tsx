@@ -5,6 +5,7 @@ import Header from '@/Layout/Header';
 import Login from '@/Layout/Login';
 import { ThemeProvider } from '@emotion/react';
 import { theme } from '@/styles/ResetStyles';
+import { AppWrapper } from '@/styles/App.styles';
 
 function App() {
   const [isHome, setIsHome] = useState(true);
@@ -16,19 +17,11 @@ function App() {
   }
   return (
     <ThemeProvider theme={theme}>
-      <div
-        style={{
-          backgroundColor: '#f7f8f9',
-          minHeight: '100vh',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-        }}
-      >
+      <AppWrapper>
         <ResetStyles />
         <Header onBackClick={handleBackClick} onLoginClick={handleLoginClick} />
         {isHome ? <MainLayout /> : <Login onLogin={handleBackClick} />}
-      </div>
+      </AppWrapper>
     </ThemeProvider>
   );
 }
