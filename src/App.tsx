@@ -4,6 +4,7 @@ import resetStyles from '@/reset';
 import theme from './styles/theme';
 import HomePage from './pages/HomePage/HomePage';
 import LoginPage from './pages/LoginPage/LoginPage';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import { ViewportContainer } from './App.styles';
 
 const globalStyles = css`
@@ -20,6 +21,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </ViewportContainer>
     </ThemeProvider>

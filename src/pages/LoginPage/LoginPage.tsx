@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import NavigationBar from '../../components/NavigationBar/NavigationBar';
 import {
   LoginContainer,
   KakaoLogo,
@@ -22,17 +21,12 @@ function LoginPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // TODO: 실제 로그인 검증 로직
-    console.log('Login attempt:', { email, password });
-
-    // 로그인 성공 후 redirect
     const from = location.state?.from || '/';
     navigate(from, { replace: true });
   };
 
   return (
     <Layout>
-      <NavigationBar />
       <LoginContainer>
         <KakaoLogo>kakao</KakaoLogo>
         <LoginForm onSubmit={handleSubmit}>
