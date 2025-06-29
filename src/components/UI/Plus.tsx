@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-const SelectFriendBox = ({ size }: { size: string }) => {
+const Plus = ({ size }: { size: string }) => {
   return (
     <PlusSvg
       xmlns="http://www.w3.org/2000/svg"
@@ -20,7 +20,7 @@ const SelectFriendBox = ({ size }: { size: string }) => {
   );
 };
 
-export default SelectFriendBox;
+export default Plus;
 
 const PlusSvg = styled.svg`
   cursor: pointer;
