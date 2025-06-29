@@ -4,28 +4,24 @@ const Wrapper = styled.section`
   margin: ${({ theme }) => theme.spacing.spacing4};
   padding: ${({ theme }) => theme.spacing.spacing4};
   background-color: ${({ theme }) => theme.colors.semantic.kakaoYellow};
-  border-radius: 12px;
+  border-radius: ${({ theme }) => theme.spacing.spacing3};
   text-align: center;
 `
 
 const Line1 = styled.p`
-  ${({ theme }) => `
-    font-size: ${theme.typography.body1Regular.fontSize};
-    font-weight: ${theme.typography.body1Regular.fontWeight};
-    line-height: ${theme.typography.body1Regular.lineHeight};
-    color: ${theme.colors.semantic.textSub};
-    margin-bottom: ${theme.spacing.spacing2};
-  `}
+  font-size: ${({ theme }) => theme.typography.body1Regular.fontSize};
+  font-weight: ${({ theme }) => theme.typography.body1Regular.fontWeight};
+  line-height: ${({ theme }) => theme.typography.body1Regular.lineHeight};
+  color: ${({ theme }) => theme.colors.semantic.textSub};
+  margin-bottom: ${({ theme }) => theme.spacing.spacing2};
 `
 
 const Line2 = styled.p`
-  ${({ theme }) => `
-    font-size: ${theme.typography.body2Regular.fontSize};
-    font-weight: ${theme.typography.body2Regular.fontWeight};
-    line-height: ${theme.typography.body2Regular.lineHeight};
-    color: ${theme.colors.semantic.textDefault};
-    margin: 0;
-  `}
+  font-size: ${({ theme }) => theme.typography.body2Regular.fontSize};
+  font-weight: ${({ theme }) => theme.typography.body2Regular.fontWeight};
+  line-height: ${({ theme }) => theme.typography.body2Regular.lineHeight};
+  color: ${({ theme }) => theme.colors.semantic.textDefault};
+  margin: 0;
 `
 
 const DisplaySection = () => {

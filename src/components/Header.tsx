@@ -6,8 +6,8 @@ const HeaderWrapper = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 56px;
-  padding: 0 16px;
+  height: ${({ theme }) => theme.spacing.spacing14};
+  padding: 0 ${({ theme }) => theme.spacing.spacing4};
   background-color: ${({ theme }) => theme.colors.semantic.backgroundDefault};
   border-bottom: 1px solid ${({ theme }) => theme.colors.semantic.borderDefault};
   position: relative;
@@ -24,7 +24,7 @@ const Title = styled.h1`
 `
 
 const IconButton = styled.button`
-  font-size: 20px;
+  font-size: ${({ theme }) => theme.typography.title2Bold.fontSize};
   color: ${({ theme }) => theme.colors.gray.gray800};
   z-index: 1;
 `

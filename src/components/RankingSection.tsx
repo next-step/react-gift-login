@@ -20,60 +20,60 @@ const Title = styled.h2`
 
 const UserGroupTab = styled.div`
   display: flex;
-  gap: 12px;
-  margin-bottom: 12px;
+  gap: ${({ theme }) => theme.spacing.spacing3};
+  margin-bottom: ${({ theme }) => theme.spacing.spacing3};
 `
 
 const UserTab = styled.button<{ isSelected: boolean }>`
   flex: 1;
-  padding: 8px 0;
-  border-radius: 12px;
-  background-color: ${({ isSelected }) => (isSelected ? '#597EF7' : '#f4f6fa')};
-  color: ${({ isSelected }) => (isSelected ? 'white' : '#555')};
+  padding: ${({ theme }) => `${theme.spacing.spacing2} 0`};
+  border-radius: ${({ theme }) => theme.spacing.spacing3};
+  background-color: ${({ isSelected, theme }) => isSelected ? theme.colors.blue.blue700 : theme.colors.gray.gray100};
+  color: ${({ isSelected, theme }) => isSelected ? theme.colors.gray.gray00 : theme.colors.gray.gray700};
   font-weight: 500;
   text-align: center;
   .all {
     display: block;
-    font-size: 12px;
-    font-weight: bold;
+    font-size: ${({ theme }) => theme.typography.label2Regular.fontSize};
+    font-weight: ${({ theme }) => theme.typography.label2Bold.fontWeight};
   }
 `
 
 const Avatar = styled.div`
-  width: 24px;
-  height: 24px;
-  background-color: #ddd;
+  width: ${({ theme }) => theme.spacing.spacing6};
+  height: ${({ theme }) => theme.spacing.spacing6};
+  background-color: ${({ theme }) => theme.colors.gray.gray300};
   border-radius: 50%;
-  margin: 0 auto 4px;
+  margin: 0 auto ${({ theme }) => theme.spacing.spacing1};
 `
 
 const TrendGroupTab = styled.div`
   display: flex;
-  background-color: #f7f9fc;
-  border-radius: 10px;
-  padding: 8px;
-  margin-bottom: 16px;
+  background-color: ${({ theme }) => theme.colors.gray.gray100};
+  border-radius: ${({ theme }) => theme.spacing.spacing2};
+  padding: ${({ theme }) => theme.spacing.spacing2};
+  margin-bottom: ${({ theme }) => theme.spacing.spacing4};
 `
 
 const TrendTab = styled.button<{ isSelected: boolean }>`
   flex: 1;
   text-align: center;
-  color: ${({ isSelected }) => (isSelected ? '#3558e1' : '#a1a7b3')};
+  color: ${({ isSelected, theme }) => isSelected ? theme.colors.blue.blue700 : theme.colors.gray.gray500};
   font-weight: ${({ isSelected }) => (isSelected ? 'bold' : 'normal')};
 `
 
 const ProductGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  gap: ${({ theme }) => theme.spacing.spacing4};
 `
 
 const ProductCard = styled.div`
   position: relative;
-  background: #fff;
-  border-radius: 10px;
+  background: ${({ theme }) => theme.colors.gray.gray00};
+  border-radius: ${({ theme }) => theme.spacing.spacing2};
   overflow: hidden;
-  padding-bottom: 8px;
+  padding-bottom: ${({ theme }) => theme.spacing.spacing2};
   img {
     width: 100%;
   }
@@ -81,40 +81,40 @@ const ProductCard = styled.div`
 
 const Badge = styled.div`
   position: absolute;
-  top: 4px;
-  left: 4px;
+  top: ${({ theme }) => theme.spacing.spacing1};
+  left: ${({ theme }) => theme.spacing.spacing1};
   background-color: ${({ theme }) => theme.colors.red.red600};
-  color: #fff;
-  padding: 2px 6px;
+  color: ${({ theme }) => theme.colors.gray.gray00};
+  padding: ${({ theme }) => `${theme.spacing.spacing0} ${theme.spacing.spacing1}`};
   border-radius: 50%;
-  font-size: 12px;
+  font-size: ${({ theme }) => theme.typography.label2Regular.fontSize};
 `
 
 const Brand = styled.div`
   ${({ theme }) => theme.typography.label1Regular};
   color: ${({ theme }) => theme.colors.gray.gray700};
-  padding: 4px 8px 0;
+  padding: ${({ theme }) => `${theme.spacing.spacing1} ${theme.spacing.spacing2} 0`};
 `
 
 const Name = styled.div`
   ${({ theme }) => theme.typography.label1Bold};
   color: ${({ theme }) => theme.colors.gray.gray900};
-  padding: 0 8px;
+  padding: 0 ${({ theme }) => theme.spacing.spacing2};
 `
 
 const Price = styled.div`
   ${({ theme }) => theme.typography.body2Bold};
   color: ${({ theme }) => theme.colors.gray.gray900};
-  padding: 4px 8px;
+  padding: ${({ theme }) => `${theme.spacing.spacing1} ${theme.spacing.spacing2}`};
 `
 
 const ToggleButton = styled.button`
   width: 100%;
-  padding: 12px;
+  padding: ${({ theme }) => theme.spacing.spacing3};
   border: 1px solid ${({ theme }) => theme.colors.semantic.borderDefault};
-  border-radius: 8px;
-  background-color: #fff;
-  text-align : center;
+  border-radius: ${({ theme }) => theme.spacing.spacing2};
+  background-color: ${({ theme }) => theme.colors.semantic.backgroundDefault};
+  text-align: center;
   font-weight: 500;
   cursor: pointer;
 `

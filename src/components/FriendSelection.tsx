@@ -8,7 +8,7 @@ const Wrapper = styled.section`
   margin: ${({ theme }) => theme.spacing.spacing4};
   padding: ${({ theme }) => theme.spacing.spacing4};
   background-color: ${({ theme }) => theme.colors.semantic.backgroundFill};
-  border-radius: 12px;
+  border-radius: ${({ theme }) => theme.spacing.spacing3};
   cursor: pointer;
 
   &:hover {
@@ -17,25 +17,23 @@ const Wrapper = styled.section`
 `
 
 const Text = styled.p`
-  ${({ theme }) => `
-    font-size: ${theme.typography.subtitle2Regular.fontSize};
-    font-weight: ${theme.typography.subtitle2Regular.fontWeight};
-    line-height: ${theme.typography.subtitle2Regular.lineHeight};
-    color: ${theme.colors.semantic.textDefault};
-    margin: 0;
-  `}
+  font-size: ${({ theme }) => theme.typography.subtitle2Regular.fontSize};
+  font-weight: ${({ theme }) => theme.typography.subtitle2Regular.fontWeight};
+  line-height: ${({ theme }) => theme.typography.subtitle2Regular.lineHeight};
+  color: ${({ theme }) => theme.colors.semantic.textDefault};
+  margin: 0;
 `
 
 const PlusButton = styled.button`
   background-color: ${({ theme }) => theme.colors.semantic.kakaoYellow};
   border: none;
   border-radius: 50%;
-  padding: 6px;
+  padding: ${({ theme }) => theme.spacing.spacing1};
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
-  color: #000;
+  font-size: ${({ theme }) => theme.typography.label1Bold.fontSize};
+  color: ${({ theme }) => theme.colors.gray.gray1000};
   cursor: pointer;
 `
 

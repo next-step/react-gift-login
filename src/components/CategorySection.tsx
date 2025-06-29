@@ -6,13 +6,11 @@ const SectionWrapper = styled.section`
 `
 
 const Title = styled.h2`
-  ${({ theme }) => `
-    font-size: ${theme.typography.subtitle1Bold.fontSize};
-    font-weight: ${theme.typography.subtitle1Bold.fontWeight};
-    line-height: ${theme.typography.subtitle1Bold.lineHeight};
-    color: ${theme.colors.semantic.textDefault};
-    margin-bottom: ${theme.spacing.spacing3};
-  `}
+  font-size: ${({ theme }) => theme.typography.subtitle1Bold.fontSize};
+  font-weight: ${({ theme }) => theme.typography.subtitle1Bold.fontWeight};
+  line-height: ${({ theme }) => theme.typography.subtitle1Bold.lineHeight};
+  color: ${({ theme }) => theme.colors.semantic.textDefault};
+  margin-bottom: ${({ theme }) => theme.spacing.spacing3};
 `
 
 const Grid = styled.ul`
@@ -33,20 +31,18 @@ const Item = styled.li`
 `
 
 const Image = styled.img`
-  width: 56px;
-  height: 56px;
+  width: ${({ theme }) => theme.spacing.spacing14};
+  height: ${({ theme }) => theme.spacing.spacing14};
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: ${({ theme }) => theme.spacing.spacing1};
 `
 
 const Label = styled.div`
-  ${({ theme }) => `
-    font-size: ${theme.typography.label2Regular.fontSize};
-    font-weight: ${theme.typography.label2Regular.fontWeight};
-    line-height: ${theme.typography.label2Regular.lineHeight};
-    color: ${theme.colors.semantic.textDefault};
-  `}
+  font-size: ${({ theme }) => theme.typography.label2Regular.fontSize};
+  font-weight: ${({ theme }) => theme.typography.label2Regular.fontWeight};
+  line-height: ${({ theme }) => theme.typography.label2Regular.lineHeight};
+  color: ${({ theme }) => theme.colors.semantic.textDefault};
 `
 
 const CategorySection = () => {
