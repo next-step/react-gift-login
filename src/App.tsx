@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css, useTheme } from '@emotion/react';
 import NavigationBar from '@/components/common/NavigationBar';
+import CategorySection from '@/components/home/CategorySection'; // ✅ 추가
 
 function App() {
   const theme = useTheme();
@@ -15,6 +16,7 @@ function App() {
       `}
     >
       <NavigationBar />
+      <CategorySection /> 
     </div>
   );
 }

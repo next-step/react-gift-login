@@ -6,6 +6,8 @@ import { Global, ThemeProvider } from '@emotion/react';
 import reset from '@/styles/reset';
 import App from '@/App';
 import { theme } from '@/constants/theme'; 
+<Global styles={reset} />
+
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
