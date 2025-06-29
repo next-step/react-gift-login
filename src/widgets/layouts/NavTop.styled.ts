@@ -37,3 +37,12 @@ export const Item = styled.li<{ align: "left" | "center" | "right" }>`
         }
     }};
 `;
+
+export const NavigateButton = styled.button`
+    display: block;
+    width: fit-content;
+    height: 100%;
+
+    border: 0;
+    background-color: transparent;
+`;

@@ -1,19 +1,28 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { ChevronLeft, User } from "lucide-react";
 
 import kakaoGiftLogo from "@/app/assets/kakao-gift-logo.png";
 
+import { useRedirect } from "@/shared/hooks/useRedirect";
+
 import * as Styles from "./NavTop.styled";
 
 export const NavTop = () => {
+    const navigate = useNavigate();
+    const { navigateWithRedirect } = useRedirect();
+
+    const navigateToSignIn = () => {
+        navigateWithRedirect("/auth/signin");
+    };
+
     return (
         <Styles.Wrapper>
             <Styles.Container>
                 <Styles.Item align="left">
-                    <Link to="/">
+                    <Styles.NavigateButton onClick={() => navigate(-1)}>
                         <ChevronLeft />
-                    </Link>
+                    </Styles.NavigateButton>
                 </Styles.Item>
 
                 <Styles.Item align="center">
@@ -21,7 +30,9 @@ export const NavTop = () => {
                 </Styles.Item>
 
                 <Styles.Item align="right">
-                    <User />
+                    <Styles.NavigateButton onClick={() => navigateToSignIn()}>
+                        <User />
+                    </Styles.NavigateButton>
                 </Styles.Item>
             </Styles.Container>
         </Styles.Wrapper>
