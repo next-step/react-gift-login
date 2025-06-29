@@ -5,18 +5,32 @@ import CategorySection from "@/sections/CategorySection";
 import FriendSelectBanner from "./sections/FriendSelectBanner";
 import CampaignBanner from "./sections/CampaignBanner";
 import GiftRankingSection from "@/sections/GiftRankingSection";
+import { Route, Routes } from "react-router";
+import LoginPage from "./LoginPage";
+import NotFoundPage from "./NotFoundPage";
 
 function App() {
   return (
     <>
       <GlobalStyle />
-
       <Layout>
         <Header />
-        <FriendSelectBanner />
-        <CategorySection />
-        <CampaignBanner />
-        <GiftRankingSection />
+        <Routes>
+          <Route path="/" element={
+            <>
+              <FriendSelectBanner />
+              <CategorySection />
+              <CampaignBanner />
+              <GiftRankingSection />
+            </>
+          } />
+          <Route path="/login" element={
+            <LoginPage />
+          } />
+          <Route path="/*" element={
+            <NotFoundPage />
+          } />
+        </Routes>
       </Layout>
     </>
   );
