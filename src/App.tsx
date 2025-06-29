@@ -3,7 +3,7 @@ import { GlobalTypographyStyle } from "@styles/typography";
 import { Global, ThemeProvider } from "@emotion/react";
 import { theme } from "@styles/theme";
 import AppLayout from "@/components/layout/AppLayout";
-import MainPage from "@/pages/MainPage";
+import Router from "@/routes/router";
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <Global styles={GlobalResetStyle} />
       <Global styles={GlobalTypographyStyle} />
       <AppLayout>
-        <MainPage />
+        <Router />
       </AppLayout>
     </ThemeProvider>
   );
