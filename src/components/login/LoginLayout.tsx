@@ -8,7 +8,7 @@ const LoginWrapper = styled.main({
   overflow: "hidden",
   width: "100%",
   backgroundColor: "white",
-  height: "100vh",
+  height: "calc(100dvh - 44px)",
   justifyContent: "center",
 });
 
