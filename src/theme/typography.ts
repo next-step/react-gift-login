@@ -1,9 +1,9 @@
 export const typography = {
   // 제목
   title1Bold: {
-    fontSize: '1.25rem', // 20px
+    fontSize: '1.25rem',
     fontWeight: 700,
-    lineHeight: '1.6875rem', // 27px
+    lineHeight: '1.6875rem',
   },
   title1Regular: {
     fontSize: '1.25rem',

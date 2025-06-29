@@ -1,12 +1,9 @@
 import styled from '@emotion/styled';
-import { useState } from 'react';
-import { Header } from '@/components/Header';
-import { Category } from '@/components/Category';
-import { SelectFriend } from './components/SelectFriend';
-import { Banner } from './components/Banner';
-import { GiftRankingHeader } from './components/GiftRankingHeader';
-import { GiftList } from './components/GiftList';
-import { MoreButton } from './components/MoreButton';
+import { Header } from '@/components/gift_page/Header';
+import { Category } from '@/components/gift_page/Category';
+import { SelectFriend } from '@/components/gift_page/SelectFriend';
+import { Banner } from '@/components/gift_page/Banner';
+import { GiftList } from '@/components/gift_page/GiftList';
 
 const Container = styled.div`
   display: flex;
@@ -18,20 +15,17 @@ const Container = styled.div`
   min-height: 100vh;
   max-width: 720px;
   margin: auto;
-  background-color: ${({ theme }) => theme.colors.gray100};
+  background-color: ${({ theme }) => theme.colors.gray200};
 `;
 
 function App() {
-  const [isViewMore, setisViewMore] = useState<boolean>(false);
   return (
     <Container>
       <Header />
       <SelectFriend />
       <Category />
       <Banner />
-      <GiftRankingHeader />
       <GiftList />
-      <MoreButton isViewMore={isViewMore} setIsViewMore={setisViewMore} />
     </Container>
   );
 }

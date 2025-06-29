@@ -3,11 +3,14 @@ import BackArrow from '@/assets/chevron_left.svg?react';
 import User from '@/assets/user.svg?react';
 
 const Container = styled.div`
+  position: fixed;
+  z-index: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 4vh;
+  max-width: 720px;
+  height: 2.8rem;
   background-color: white;
 `;
 

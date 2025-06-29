@@ -5,7 +5,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 65px;
+  height: 5rem;
   background-color: white;
 `;
 
@@ -14,9 +14,12 @@ const Body = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  width: 96%;
-  height: 100%;
-  border-radius: 15px;
+  width: calc(100% - ${({ theme }) => theme.spacing.spacing8});
+  height: calc(100% - ${({ theme }) => theme.spacing.spacing3});
+  margin-top: ${({ theme }) => theme.spacing.spacing3};
+  margin-left: ${({ theme }) => theme.spacing.spacing4};
+  margin-right: ${({ theme }) => theme.spacing.spacing4};
+  border-radius: 1rem;
   background-color: ${({ theme }) => theme.colors.yellow600};
 `;
 

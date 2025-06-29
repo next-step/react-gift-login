@@ -1,4 +1,4 @@
-export interface GiftItemsType {
+export interface GiftItemDataType {
   id: number;
   name: string;
   imageURL: string;
@@ -12,4 +12,11 @@ export interface GiftItemsType {
     name: string;
     imageURL: string;
   };
+}
+
+export interface GiftCardType {
+  id: number;
+  image: string;
+  brandName: string;
+  price: number;
 }

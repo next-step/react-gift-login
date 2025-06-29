@@ -1,9 +1,5 @@
+import type { CategoryCardType } from '@/types/category';
 import styled from '@emotion/styled';
-
-interface Category {
-  name: string;
-  image: string;
-}
 
 const Card = styled.button`
   all: unset;
@@ -12,21 +8,21 @@ const Card = styled.button`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 20%;
+  width: 100%;
   height: 100%;
 `;
 
 const Image = styled.img`
-  height: 50%;
+  height: 3.1rem;
 `;
 
 const Name = styled.div`
-  margin-top: ${({ theme }) => theme.spacing.spacing2};
-  font-size: 0.8rem;
-  font-weight: 400;
+  ${({ theme }) => theme.typography.label2Regular}
+  margin-top: ${({ theme }) => theme.spacing.spacing1};
+  margin-bottom: ${({ theme }) => theme.spacing.spacing5};
 `;
 
-export const CategoryCard = ({ name, image }: Category) => {
+export const CategoryCard = ({ name, image }: CategoryCardType) => {
   return (
     <Card>
       <Image src={image} />
