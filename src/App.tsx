@@ -4,6 +4,8 @@ import NavigationBar from '@/components/common/NavigationBar';
 import CategorySection from '@/components/home/CategorySection';
 import FriendSelectSection from './components/home/FriendSelectSection';
 import BannerSection from './components/home/BannerSection';
+import GiftRankingGrid from './components/GiftRanking/GiftRankingGrid';
+
 
 function App() {
   const theme = useTheme();
@@ -27,6 +29,7 @@ function App() {
         <FriendSelectSection />
         <CategorySection />
         <BannerSection />
+        <GiftRankingGrid />
       </div>
     </div>
   );
