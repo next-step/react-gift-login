@@ -1,17 +1,22 @@
 import styled from '@emotion/styled';
 import { IoIosArrowBack } from 'react-icons/io';
 import { LuUserRound } from 'react-icons/lu';
-import Text from '@/components/Text';
+import { useNavigate } from 'react-router-dom';
+import Text from '@/common/Text';
 
 const NavigationBar = () => {
+  const navigate = useNavigate();
+
+  const gotoLogin = () => {
+    navigate(`/login`);
+  };
   return (
     <Layout>
       <IoIosArrowBack size={25} />
       <Text fontSize="title1Bold" fontWeight="title2Bold">
         선물하기
       </Text>
-
-      <LuUserRound size={25} />
+      <LuUserRound size={25} onClick={gotoLogin} />
     </Layout>
   );
 };

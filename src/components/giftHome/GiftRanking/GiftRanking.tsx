@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled from '@emotion/styled';
-import ProductCard from '@/components/ProductCard';
-import Text from '@/components/Text';
+import ProductCard from '@/components/giftHome/GiftThemes/ProductCard';
+import Text from '@/common/Text';
 
 const categories = ['전체', '여성이', '남성이', '청소년이'] as const;
 type CategoryType = (typeof categories)[number];

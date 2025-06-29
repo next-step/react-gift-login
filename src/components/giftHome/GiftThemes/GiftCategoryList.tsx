@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
-import CategoryBtn from '@/components/CategoryBtn';
+import CategoryBtn from '@/components/giftHome/GiftThemes/CategoryBtn';
 import { categoryData } from '@/data/CATEGORY_DATA';
-import Text from '@/components/Text';
+import Text from '@/common/Text';
 
 const GiftCategoryList = () => {
   return (

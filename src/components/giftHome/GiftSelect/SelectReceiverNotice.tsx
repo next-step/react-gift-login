@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import Text from '@/components/Text';
+import Text from '@/common/Text';
 
 const SelectReceiverNotice = () => {
   return (
