@@ -12,9 +12,9 @@ const mockRankingProducts = {
   imageURL:
     "https://st.kakaocdn.net/product/gift/product/20231030175450_53e90ee9708f45ffa45b3f7b4bc01c7c.jpg",
   price: {
-    basicPrice: 29000,
+    basicPrice: 29_000,
     discountRate: 0,
-    sellingPrice: 29000,
+    sellingPrice: 29_000,
   },
   brandInfo: {
     id: 2088,
