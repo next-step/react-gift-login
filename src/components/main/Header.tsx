@@ -36,25 +36,25 @@ export const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const handleNavigateToLogin = () => {
+  const handleLoginClick = () => {
     navigate(`/login?redirect=${encodeURIComponent(location.pathname)}`);
   };
 
-  const handleNavigateToMain = () => {
+  const handleTitleClick = () => {
     navigate("/");
   };
 
-  const handleNavigationToBack = () => {
+  const handleBackClick = () => {
     navigate(-1);
   };
   return (
     <Navbar>
       <NavbarIcon>
-        <ChevronLeft onClick={handleNavigationToBack} />
+        <ChevronLeft onClick={handleBackClick} />
       </NavbarIcon>
-      <NavbarTitle onClick={handleNavigateToMain}>선물하기</NavbarTitle>
+      <NavbarTitle onClick={handleTitleClick}>선물하기</NavbarTitle>
       <NavbarIcon>
-        <UserRound onClick={handleNavigateToLogin} />
+        <UserRound onClick={handleLoginClick} />
       </NavbarIcon>
     </Navbar>
   );
