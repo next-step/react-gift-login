@@ -2,21 +2,74 @@ import { css } from "@emotion/react";
 import { Theme } from "@emotion/react";
 import { IoAppsOutline, IoWomanOutline, IoManOutline } from "react-icons/io5";
 import { useTheme } from "@emotion/react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const GiftRankingHeader = () => {
+  const [target, setTarget] = useState("ALL");
+  const [rankType, setRank] = useState("MANY_WISH");
+
+  const navigate = useNavigate();
   const theme = useTheme();
+  const location = useLocation();
+  ("");
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const initTarget = searchParams.get("target") || "ALL";
+    const initRank = searchParams.get("rankType") || "MANY_WISH";
+    setTarget(initTarget);
+    setRank(initRank);
+  }, []);
+
+  const handleTargetClick = (newTarget: string) => {
+    setTarget(newTarget);
+    const params = new URLSearchParams(location.search);
+    params.set("target", newTarget);
+    params.set("rankType", rankType);
+    navigate(`${location.pathname}?${params.toString()}`);
+  };
+
+  const handleRankClick = (newRank: string) => {
+    setRank(newRank);
+    const params = new URLSearchParams(location.search);
+    params.set("target", target);
+    params.set("rankType", newRank);
+    navigate(`${location.pathname}?${params.toString()}`);
+  };
+
   return (
     <>
       <div css={textStyle(theme)}>실시간 급상승 선물랭킹</div>
       <div css={containerStyle}>
-        <IoAppsOutline css={iconStyle(theme)} />
-        <IoWomanOutline css={iconStyle} />
-        <IoManOutline css={iconStyle} />
+        <IoWomanOutline
+          onClick={() => handleTargetClick("WOMAN")}
+          css={iconStyle}
+        />
+        <IoManOutline
+          onClick={() => handleTargetClick("MAN")}
+          css={iconStyle}
+        />
+        <IoAppsOutline
+          onClick={() => handleTargetClick("ALL")}
+          css={iconStyle(theme)}
+        />
       </div>
       <div css={tabContainerStyle(theme)}>
-        <div css={tabItemStyle(theme)}>받고 싶어한</div>
-        <div css={tabItemStyle(theme)}>많이 선물한</div>
-        <div css={tabItemStyle(theme)}>위시로 받은</div>
+        <div
+          onClick={() => handleRankClick("MANY-WANT")}
+          css={tabItemStyle(theme)}>
+          받고 싶어한
+        </div>
+        <div
+          onClick={() => handleRankClick("MANY-GIVE")}
+          css={tabItemStyle(theme)}>
+          많이 선물한
+        </div>
+        <div
+          onClick={() => handleRankClick("MANY-WISH")}
+          css={tabItemStyle(theme)}>
+          위시로 받은
+        </div>
       </div>
     </>
   );
