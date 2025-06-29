@@ -1,9 +1,9 @@
-import { NotFoundImage } from "../components/notFound";
+import { NotFound } from "../components/error";
 
 export const NotFoundPage = () => {
   return (
     <>
-      <NotFoundImage />
+      <NotFound />
     </>
   );
 };

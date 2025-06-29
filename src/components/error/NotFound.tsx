@@ -51,7 +51,7 @@ const NotFoundRedirectButton = styled.button(props => ({
   cursor: "pointer",
 }));
 
-export const NotFoundImage = () => {
+export const NotFound = () => {
   const navigate = useNavigate();
   const handleNavigateToHome = () => {
     navigate("/");
