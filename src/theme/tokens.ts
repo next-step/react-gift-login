@@ -66,7 +66,7 @@ export const colorScale = {
   red1000: '#4a1209',
 } as const;
 
-export type ColorScale = typeof colorScale;
+export type ColorScaleType = typeof colorScale;
 
 // 2. Semantic Colors
 export const semanticColors = {
@@ -101,7 +101,7 @@ export const semanticColors = {
   },
 } as const;
 
-export type SemanticColors = typeof semanticColors;
+export type SemanticColorsType = typeof semanticColors;
 
 // 3. Typography Tokens
 export const typographyTokens = {
@@ -130,7 +130,7 @@ export const typographyTokens = {
   label2Regular: { size: '0.75rem', weight: 400, lineHeight: '1rem' },
 } as const;
 
-export type TypographyTokens = typeof typographyTokens;
+export type TypographyType = typeof typographyTokens;
 
 // 4. Spacing Tokens
 export const spacingTokens = {
@@ -153,4 +153,4 @@ export const spacingTokens = {
   spacing16: '64px',
 } as const;
 
-export type SpacingTokens = typeof spacingTokens;
+export type SpacingTokensType = typeof spacingTokens;
