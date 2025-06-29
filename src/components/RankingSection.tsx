@@ -1,5 +1,11 @@
 import styled from '@emotion/styled';
-import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
+
+type FilterType = '전체' | '여성이' | '남성이' | '청소년이';
+type TabType = '받고 싶어한' | '많이 선물한' | '위시로 받은';
+
+const FILTERS: FilterType[] = ['전체', '여성이', '남성이', '청소년이'];
+const TABS: TabType[] = ['받고 싶어한', '많이 선물한', '위시로 받은'];
 
 const mockItems = Array.from({ length: 12 }, (_, i) => ({
   id: i + 1,
@@ -140,10 +146,28 @@ const ToggleButton = styled.button(({ theme }) => ({
 }));
 
 const RankingSection = () => {
-  const [selectedFilter, setSelectedFilter] = useState('전체');
-  const [selectedTab, setSelectedTab] = useState('받고 싶어한');
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  const [isExpanded, setIsExpanded] = useState(false);
+  // 기본값 설정
+  const rawFilter = searchParams.get('filter');
+  const rawTab = searchParams.get('tab');
+  const rawExpanded = searchParams.get('expanded');
+
+  const selectedFilter: FilterType = FILTERS.includes(rawFilter as FilterType)
+    ? (rawFilter as FilterType)
+    : '전체';
+
+  const selectedTab: TabType = TABS.includes(rawTab as TabType)
+    ? (rawTab as TabType)
+    : '받고 싶어한';
+
+  const isExpanded = rawExpanded === 'true';
+
+  const updateParam = (key: string, value: string) => {
+    const newParams = new URLSearchParams(searchParams.toString());
+    newParams.set(key, value);
+    setSearchParams(newParams);
+  };
 
   const visibleItems = isExpanded ? mockItems : mockItems.slice(0, 6);
 
@@ -153,11 +177,11 @@ const RankingSection = () => {
 
       {/* 필터 */}
       <FilterRow>
-        {['전체', '여성이', '남성이', '청소년이'].map((label) => (
+        {FILTERS.map((label) => (
           <FilterButton
             key={label}
             active={selectedFilter === label}
-            onClick={() => setSelectedFilter(label)}
+            onClick={() => updateParam('filter', label)}
           >
             {label}
           </FilterButton>
@@ -166,11 +190,11 @@ const RankingSection = () => {
 
       {/* 탭 */}
       <TabRow>
-        {['받고 싶어한', '많이 선물한', '위시로 받은'].map((label) => (
+        {TABS.map((label) => (
           <TabButton
             key={label}
             active={selectedTab === label}
-            onClick={() => setSelectedTab(label)}
+            onClick={() => updateParam('tab', label)}
           >
             {label}
           </TabButton>
@@ -193,7 +217,9 @@ const RankingSection = () => {
       </Grid>
 
       {/* 더보기 / 접기 버튼 */}
-      <ToggleButton onClick={() => setIsExpanded((prev) => !prev)}>
+      <ToggleButton
+        onClick={() => updateParam('expanded', (!isExpanded).toString())}
+      >
         {isExpanded ? '접기' : '더보기'}
       </ToggleButton>
     </Section>
