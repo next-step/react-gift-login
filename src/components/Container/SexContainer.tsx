@@ -1,6 +1,6 @@
 import SexItem from '@/components/SexItem';
 import { useState } from 'react';
-import { SexContainerWrapper } from '@/styles/SecContainer.styles';
+import { SexContainerWrapper } from '@/styles/Sex/SexContainer.styles';
 
 type SexType = 'All' | '남성' | '여성' | '청소년';
 

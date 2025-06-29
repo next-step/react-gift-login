@@ -7,7 +7,7 @@ import {
   ItemIndex,
   ItemName,
   ItemPrice,
-} from '@/styles/Item.styles';
+} from '@/styles/Item/Item.styles';
 
 type ItemType = {
   index: number;

@@ -1,4 +1,4 @@
-import { CategoryContainerStyle } from '@/styles/CategoryStyle.styles';
+import { CategoryContainerStyle } from '@/styles/Category/CategoryStyle.styles';
 
 function Category({
   category,

@@ -4,7 +4,7 @@ import Item from '@/components/Item';
 import ItemBtn from '@/components/ItemBtn';
 import { useState } from 'react';
 
-import { ItemContainerStyle, ItemlistContainer } from '@/styles/ItemlistContainer.styles';
+import { ItemContainerStyle, ItemlistContainer } from '@/styles/Item/ItemlistContainer.styles';
 
 function ItemContainer({ itemList }: { itemList: mockItemType }) {
   const [isExpanded, setIsExpanded] = useState(false);

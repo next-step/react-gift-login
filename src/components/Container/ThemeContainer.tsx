@@ -1,6 +1,6 @@
 import ThemeItem from '@/components/ThemeItem';
 import mockTheme from '@/mocks/mockdata.ts';
-import { ThemeContainerWrapper, ThemeTitle, Message } from '@/styles/ThemeContainer.styles.ts';
+import { ThemeContainerWrapper, ThemeTitle, Message } from '@/styles/Theme/ThemeContainer.styles';
 
 function ThemeContainer() {
   return (

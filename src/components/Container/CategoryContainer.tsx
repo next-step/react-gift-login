@@ -1,5 +1,5 @@
 import Category from '@/components/Category';
-import { CategoryContainerStyle } from '@/styles/CategoryContainer.styles';
+import { CategoryContainerStyle } from '@/styles/Category/CategoryContainer.styles';
 import { useState } from 'react';
 
 function CategoryContainer() {

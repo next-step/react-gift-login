@@ -1,4 +1,4 @@
-import { SexContainerWrapperItem } from '@/styles/SexItemStyle.styles';
+import { SexContainerWrapperItem } from '@/styles/Sex/SexItemStyle.styles';
 
 function SexItem({
   sex,

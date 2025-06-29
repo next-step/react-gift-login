@@ -1,4 +1,4 @@
-import { ThemeImage, ThemeItemWrapper, ThemeItemText } from '@/styles/ThemeItem.styles';
+import { ThemeImage, ThemeItemWrapper, ThemeItemText } from '@/styles/Theme/ThemeItem.styles';
 
 type Themetype = {
   themeId: number;
