@@ -1,11 +1,10 @@
 import { useState } from "react";
+import { sortOptions } from "../constants/sortoptions";
+import { tabs } from "../constants/tabs";
 
 const RealtimeRanking = () => {
   const [activeTab, setActiveTab] = useState("전체");
   const [activeSort, setActiveSort] = useState("받고 싶어한");
-
-  const tabs = ["전체", "여성이", "남성이", "청소년이"];
-  const sortOptions = ["받고 싶어한", "많이 선물한", "위시로 받은"];
 
   return (
     <section className="mb-8">

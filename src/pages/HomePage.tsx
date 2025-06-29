@@ -2,7 +2,7 @@ import GiftThemes from "../components/GiftThemes";
 import RealtimeRanking from "../components/RealtimeRanking";
 import ProductCard from "../components/ProductCard";
 import SelectFriends from "../components/SelectFriends";
-import EnterTainment from "../components/EnterTainment";
+import Entertainment from "../components/EnterTainment";
 
 import { productListData } from "../data/productListData";
 import type { Product } from "../types/product";
@@ -14,7 +14,7 @@ const HomePage = () => {
 
       <GiftThemes />
 
-      <EnterTainment />
+      <Entertainment />
 
       <RealtimeRanking />
 

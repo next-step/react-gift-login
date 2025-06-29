@@ -1,4 +1,4 @@
-import type { Product } from "../types/common.ts";
+import type { Product } from "../types/product.ts";
 
 interface ProductCardProps {
   product: Product;
