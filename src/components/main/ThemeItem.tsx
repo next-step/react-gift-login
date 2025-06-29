@@ -1,7 +1,7 @@
 import type { CategoryType } from "@/types";
 import styled from "@emotion/styled";
 
-const ItemContainer = styled.div(props => ({
+const ThemeItemContainer = styled.div(props => ({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
@@ -10,26 +10,24 @@ const ItemContainer = styled.div(props => ({
   cursor: "pointer",
 }));
 
-const ItemImage = styled.img({
+const ThemeItemImage = styled.img({
   width: "50px",
   height: "50px",
   objectFit: "contain",
 });
 
-const ItemTitle = styled.p(props => ({
+const ThemeItemTitle = styled.p(props => ({
   fontSize: `${props.theme.typography.label2Regular.fontSize}`,
   lineHeight: `${props.theme.typography.label2Regular.lineHeight}`,
   fontWeight: `${props.theme.typography.label2Regular.fontWeight}`,
   color: `${props.theme.color.gray[900]}`,
 }));
 
-const ThemeItem = ({ image, name }: CategoryType) => {
+export const ThemeItem = ({ image, name }: CategoryType) => {
   return (
-    <ItemContainer>
-      <ItemImage src={image} />
-      <ItemTitle>{name}</ItemTitle>
-    </ItemContainer>
+    <ThemeItemContainer>
+      <ThemeItemImage src={image} />
+      <ThemeItemTitle>{name}</ThemeItemTitle>
+    </ThemeItemContainer>
   );
 };
-
-export default ThemeItem;

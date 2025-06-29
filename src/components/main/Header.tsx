@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { ChevronLeft, UserRound } from "lucide-react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Navbar = styled.nav(props => ({
   display: "flex",
@@ -9,6 +10,9 @@ const Navbar = styled.nav(props => ({
   backgroundColor: "rgb(255,255,255)",
   padding: `0 ${props.theme.spacing2}`,
   boxShadow: `0 1px ${props.theme.color.gray[200]}`,
+  position: "sticky",
+  top: "0",
+  zIndex: "1000",
 }));
 
 const NavbarIcon = styled.div({
@@ -28,17 +32,30 @@ const NavbarTitle = styled.h1(props => ({
   margin: 0,
 }));
 
-const Header = () => {
+export const Header = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleLoginClick = () => {
+    navigate(`/login?redirect=${encodeURIComponent(location.pathname)}`);
+  };
+
+  const handleTitleClick = () => {
+    navigate("/");
+  };
+
+  const handleBackClick = () => {
+    navigate(-1);
+  };
   return (
     <Navbar>
       <NavbarIcon>
-        <ChevronLeft />
+        <ChevronLeft onClick={handleBackClick} />
       </NavbarIcon>
-      <NavbarTitle>선물하기</NavbarTitle>
+      <NavbarTitle onClick={handleTitleClick}>선물하기</NavbarTitle>
       <NavbarIcon>
-        <UserRound />
+        <UserRound onClick={handleLoginClick} />
       </NavbarIcon>
     </Navbar>
   );
 };
-export default Header;

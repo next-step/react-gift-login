@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-const TabContainer = styled.div(props => ({
+const HotGiftTabContainer = styled.div(props => ({
   display: "flex",
   flexDirection: "row",
   height: "45px",
@@ -14,7 +14,7 @@ const TabContainer = styled.div(props => ({
   border: "1px solid rgba(70,132,233,0.1)",
 }));
 
-const TabTag = styled.button<{ isSelected: boolean }>(
+const HotGiftTabTag = styled.button<{ isSelected: boolean }>(
   ({ theme, isSelected }) => ({
     display: "flex",
     flexWrap: "wrap",
@@ -46,23 +46,21 @@ const tabData = [
   { id: "MANY_WISH_RECEIVE", text: "위시로 받은" },
 ];
 
-const HotGiftRankingTab = ({
+export const HotGiftRankingTab = ({
   onTabChange,
   selectedTab,
 }: HotGiftRankingTabProp) => {
   return (
-    <TabContainer>
+    <HotGiftTabContainer>
       {tabData.map(tab => (
-        <TabTag
+        <HotGiftTabTag
           key={tab.id}
           isSelected={selectedTab === tab.id}
           onClick={() => onTabChange(tab.id)}
         >
           {tab.text}
-        </TabTag>
+        </HotGiftTabTag>
       ))}
-    </TabContainer>
+    </HotGiftTabContainer>
   );
 };
-
-export default HotGiftRankingTab;

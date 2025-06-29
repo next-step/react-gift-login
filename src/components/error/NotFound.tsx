@@ -1,0 +1,63 @@
+import styled from "@emotion/styled";
+import notFound from "@/assets/not-found-image.png";
+import { useNavigate } from "react-router-dom";
+import { Button } from "@/components/common";
+
+const NotFoundSectionContainer = styled.section(props => ({
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  backgroundColor: `${props.theme.color.gray[200]}`,
+  width: "100%",
+  height: "100vh",
+}));
+
+const NotFoundStyledImage = styled.img(props => ({
+  display: "flex",
+  width: "150px",
+  height: "150px",
+  objectFit: "contain",
+  padding: `${props.theme.spacing2}`,
+}));
+
+const NotFoundTitle = styled.p(props => ({
+  fontSize: `${props.theme.typography.title1Bold.fontSize}`,
+  fontWeight: `${props.theme.typography.title1Bold.fontWeight}`,
+  lineHeight: `${props.theme.typography.title1Bold.lineHeight}`,
+  color: `${props.theme.color.gray[900]}`,
+  textAlign: "center",
+  padding: `${props.theme.spacing2}`,
+}));
+
+const NotFoundDescription = styled.p(props => ({
+  fontSize: `${props.theme.typography.title2Regular.fontSize}`,
+  fontWeight: `${props.theme.typography.title2Regular.fontWeight}`,
+  lineHeight: `${props.theme.typography.title2Regular.lineHeight}`,
+  color: `${props.theme.color.gray[700]}`,
+  padding: `${props.theme.spacing2}`,
+}));
+
+export const NotFound = () => {
+  const navigate = useNavigate();
+  const handleNavigateToHome = () => {
+    navigate("/");
+  };
+  return (
+    <NotFoundSectionContainer>
+      <NotFoundStyledImage src={notFound} alt="페이지를 찾을 수 없습니다" />
+      <NotFoundTitle>잘못된 접근입니다.</NotFoundTitle>
+      <NotFoundDescription>
+        찾으시는 페이지가 존재하지 않습니다.
+      </NotFoundDescription>
+      <Button
+        variant="primary"
+        size="large"
+        width="160px"
+        onClick={handleNavigateToHome}
+      >
+        홈으로
+      </Button>
+    </NotFoundSectionContainer>
+  );
+};

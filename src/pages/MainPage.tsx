@@ -1,15 +1,13 @@
 import {
   CheerUpSection,
-  Header,
   HotGiftRanking,
   PresentTheme,
   SelectFriendSection,
-} from "@/components";
+} from "@/components/main";
 
-const MainPage = () => {
+export const MainPage = () => {
   return (
     <>
-      <Header />
       <SelectFriendSection />
       <PresentTheme />
       <CheerUpSection />
@@ -17,5 +15,3 @@ const MainPage = () => {
     </>
   );
 };
-
-export default MainPage;

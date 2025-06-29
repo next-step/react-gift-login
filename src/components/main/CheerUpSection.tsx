@@ -1,12 +1,12 @@
 import styled from "@emotion/styled";
 
-const SectionWrapper = styled.section(props => ({
+const CheerUpSectionWrapper = styled.section(props => ({
   display: "flex",
   backgroundColor: "white",
   padding: `0 ${props.theme.spacing4}`,
 }));
 
-const SectionContainer = styled.div(props => ({
+const CheerUpSectionContainer = styled.div(props => ({
   display: "flex",
   flexDirection: "column",
   width: "100%",
@@ -35,19 +35,19 @@ const CheerUpSectionPadding = styled.div({
   height: "40px",
   backgroundColor: "white",
 });
-const CheerUpSection = () => {
+
+export const CheerUpSection = () => {
   return (
     <>
-      <SectionWrapper>
-        <SectionContainer>
+      <CheerUpSectionWrapper>
+        <CheerUpSectionContainer>
           <CheerUpSubject>카카오테크 캠퍼스 3기 여러분</CheerUpSubject>
           <CheerUpDescription>
             프론트엔드는 재밌어요 화이팅⭐️
           </CheerUpDescription>
-        </SectionContainer>
-      </SectionWrapper>
+        </CheerUpSectionContainer>
+      </CheerUpSectionWrapper>
       <CheerUpSectionPadding />
     </>
   );
 };
-export default CheerUpSection;

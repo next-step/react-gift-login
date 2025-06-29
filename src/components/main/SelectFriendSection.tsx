@@ -18,7 +18,7 @@ const FriendSectionContainer = styled.div(props => ({
   borderRadius: "18px",
 }));
 
-const IconCircle = styled.div(props => ({
+const FriendSectionIconCircle = styled.div(props => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -36,13 +36,13 @@ const FriendSectionDescription = styled.p(props => ({
   color: props.theme.color.gray[900],
 }));
 
-const SelectFriendSection = () => {
+export const SelectFriendSection = () => {
   return (
     <FriendSectionWrapper>
       <FriendSectionContainer>
-        <IconCircle>
+        <FriendSectionIconCircle>
           <Plus />
-        </IconCircle>
+        </FriendSectionIconCircle>
         <FriendSectionDescription>
           선물할 친구를 선택해 주세요.
         </FriendSectionDescription>
@@ -50,5 +50,3 @@ const SelectFriendSection = () => {
     </FriendSectionWrapper>
   );
 };
-
-export default SelectFriendSection;
