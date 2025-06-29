@@ -32,7 +32,7 @@ function ItemContainer({ itemList }: { itemList: mockItemType }) {
     <ItemlistContainer>
       <ItemContainerStyle>
         {visibleItems.map((itemData, index) => (
-          <Item key={itemData.id + '-' + index} index={index} itemData={itemData} />
+          <Item key={itemData.id} index={index} itemData={itemData} />
         ))}
       </ItemContainerStyle>
       <ItemBtn isExpanded={isExpanded} onClick={handleToggle} />

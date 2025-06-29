@@ -1,8 +1,8 @@
 import { HeaderContainer, BackButton, Title, LoginIcon } from '@/styles/Header.styles';
 
 type HeaderProps = {
-  onBackClick?: () => void;
-  onLoginClick?: () => void;
+  onBackClick: () => void;
+  onLoginClick: () => void;
 };
 
 function Header({ onBackClick, onLoginClick }: HeaderProps) {
