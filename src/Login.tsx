@@ -5,6 +5,7 @@ import theme from './styles/theme'
 import styled from '@emotion/styled'
 
 import Layout from './components/Layout'
+import NavBar from './components/NavBar'
 
 function Login() {
 
@@ -12,7 +13,7 @@ function Login() {
         <ThemeProvider theme={theme}>
             <GlobalStyle />
             <Layout>
-                <></>
+                <NavBar></NavBar>
             </Layout>
         </ThemeProvider>
     )

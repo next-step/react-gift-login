@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { useNavigate } from 'react-router-dom'
 
 const NavBarWrapper = styled.div`
   width: auto;
@@ -59,11 +60,12 @@ const NavBarLoginBtn = styled.button`
 `
 
 function NavBar() {
+    const navigate = useNavigate();
     return (
         <NavBarWrapper>
-            <NavBarBackBtn></NavBarBackBtn>
+            <NavBarBackBtn onClick={() => navigate('/')}></NavBarBackBtn>
             <NavBarTitle>선물하기</NavBarTitle>
-            <NavBarLoginBtn></NavBarLoginBtn>
+            <NavBarLoginBtn onClick={() => navigate('/login')}></NavBarLoginBtn>
         </NavBarWrapper>
     )
 }
