@@ -9,7 +9,12 @@ import {
   ItemPrice,
 } from '@/styles/Item.styles';
 
-function Item({ index, itemData }: { index: number; itemData: mockItemType }) {
+type ItemType = {
+  index: number;
+  itemData: mockItemType;
+};
+
+function Item({ index, itemData }: ItemType) {
   return (
     <ItemContainerStyle>
       <ItemImageWrapper>
