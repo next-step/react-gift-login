@@ -2,11 +2,11 @@ import {
   HotGiftRankingGrid,
   HotGiftRankingTab,
   HotGiftRankingTag,
-} from "@/components";
+} from "@/components/main";
 import styled from "@emotion/styled";
 import { useSearchParams } from "react-router-dom";
 
-const SectionContainer = styled.section(props => ({
+const HotGiftRankingSectionContainer = styled.section(props => ({
   display: "flex",
   width: "100%",
   flexDirection: "column",
@@ -14,7 +14,7 @@ const SectionContainer = styled.section(props => ({
   backgroundColor: "white",
 }));
 
-const SectionTitle = styled.h3(props => ({
+const HotGiftRankingSectionTitle = styled.h3(props => ({
   fontSize: `${props.theme.typography.title1Bold.fontSize}`,
   fontWeight: `${props.theme.typography.title1Bold.fontWeight}`,
   lineHeight: `${props.theme.typography.title1Bold.lineHeight}`,
@@ -22,7 +22,7 @@ const SectionTitle = styled.h3(props => ({
   marginBottom: `${props.theme.spacing5}`,
 }));
 
-const SectionTagContainer = styled.div(props => ({
+const HotGiftRankingSectionTagContainer = styled.div(props => ({
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
@@ -37,7 +37,7 @@ const tags = [
   { id: "TEEN", emoji: "👦", text: "청소년이" },
 ];
 
-const HotGiftRanking = () => {
+export const HotGiftRanking = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const selectedTag = searchParams.get("targetType") || "ALL";
@@ -56,26 +56,26 @@ const HotGiftRanking = () => {
   };
 
   return (
-    <SectionContainer>
-      <SectionTitle>실시간 급상승 선물랭킹</SectionTitle>
-      <SectionTagContainer>
+    <HotGiftRankingSectionContainer>
+      <HotGiftRankingSectionTitle>
+        실시간 급상승 선물랭킹
+      </HotGiftRankingSectionTitle>
+      <HotGiftRankingSectionTagContainer>
         {tags.map(tag => (
           <HotGiftRankingTag
             key={tag.id}
-            isSelected={selectedTag === tag.id.toUpperCase()}
+            isSelected={selectedTag === tag.id}
             onClick={() => handleTagChange(tag.id)}
             tagEmoji={tag.emoji}
             tagText={tag.text}
           />
         ))}
-      </SectionTagContainer>
+      </HotGiftRankingSectionTagContainer>
       <HotGiftRankingTab
         selectedTab={selectedTab}
         onTabChange={handleTabChange}
       />
       <HotGiftRankingGrid />
-    </SectionContainer>
+    </HotGiftRankingSectionContainer>
   );
 };
-
-export default HotGiftRanking;
