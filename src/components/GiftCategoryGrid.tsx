@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { theme } from '@/styles/theme';
 import type { GiftTheme } from '@/types';
-import { ThemeItem } from './ThemeItem';
+import { GiftThemeItem } from './GiftThemeItem';
 
 interface GiftCategoryGridProps {
   themes: GiftTheme[];
@@ -46,7 +46,7 @@ export function GiftCategoryGrid({
       <SectionTitle>선물 테마</SectionTitle>
       <Grid>
         {themes.map(theme => (
-          <ThemeItem
+          <GiftThemeItem
             key={theme.themeId}
             theme={theme}
             onClick={handleThemeClick}
