@@ -1,6 +1,6 @@
 # react-gift-login
 
-# STEP 1
+# STEP 1 ： ＣＬＥＡＲ
 
 //TODO
 
@@ -18,7 +18,7 @@ emotion 스타일 라이브러리를 추가하고, reset css를 적용해주세�
 
 기능 단위로 나누어 커밋을 해주세요. : CLEAR
 
-# STEP 2
+# STEP 2 ：ＣＬＥＡＲ
 
 //TODO
 
