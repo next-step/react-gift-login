@@ -3,7 +3,7 @@ import { ThemeProvider as EmotionThemeProvider } from '@emotion/react'
 import { theme as emotionTheme } from '@/styles/Theme'
 import GlobalStyle from '@/styles/GlobalStyle'
 import Home from '@/pages/Home'
-import Login from '@pages/Login'
+import Login from './pages/Login'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 
@@ -17,7 +17,7 @@ function App() {
           <GlobalStyle />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/login/" element={<Login />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </BrowserRouter>
       </EmotionThemeProvider>
