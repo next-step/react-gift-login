@@ -1,9 +1,7 @@
-import React from 'react';
 import styled from '@emotion/styled';
 import { css, ThemeProvider } from '@emotion/react';
 import { theme } from '@/theme/theme';
 import productData from '../data/productData';
-import categoryData from '@/data/categotyData';
 
 const Wrapper = styled.section`
   padding: 0px 16px;
