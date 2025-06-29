@@ -1,5 +1,9 @@
 import { useState, useEffect } from 'react';
-import { TRENDING_GIFTS_TABS, TRENDING_GIFTS_LABELS } from './constants/labels';
+import {
+  TRENDING_GIFTS_TABS,
+  TRENDING_GIFTS_LABELS,
+  TRENDING_GIFTS_STORAGE_KEYS,
+} from './constants/labels';
 import TabContentWrapper from './TabContentWrapper/TabContentWrapper';
 import ProductGrid from './ProductGrid/ProductGrid';
 import { trendingGiftsMockData } from '@/data/trendingGfitsMockData';
@@ -18,8 +22,8 @@ import {
 import useLocalStorage from '@/hooks/useLocalStorage';
 
 function TrendingGifts() {
-  const [mainTabIdx, setMainTabIdx] = useLocalStorage('mainTab', 0);
-  const [subTabIdx, setSubTabIdx] = useLocalStorage('subTab', 0);
+  const [mainTabIdx, setMainTabIdx] = useLocalStorage(TRENDING_GIFTS_STORAGE_KEYS.MAIN_TAB, 0);
+  const [subTabIdx, setSubTabIdx] = useLocalStorage(TRENDING_GIFTS_STORAGE_KEYS.SUB_TAB, 0);
   const [data, setData] = useState<TrendingGiftsType[]>([]);
 
   useEffect(() => {
