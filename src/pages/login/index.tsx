@@ -17,10 +17,10 @@ export default function LoginPage() {
       <h1 css={titleCss(theme)}>kakao</h1>
 
       <form css={formCss} onSubmit={(e) => e.preventDefault()}>
-        <label css={labelCss(theme)}>이메일</label>
+        <label css={labelCss(theme)}></label>
         <input css={inputCss(theme)} placeholder="이메일" />
 
-        <label css={labelCss(theme)}>비밀번호</label>
+        <label css={labelCss(theme)}></label>
         <input css={inputCss(theme)} type="password" placeholder="비밀번호" />
 
         <button css={buttonCss(theme)} onClick={handleLogin}>

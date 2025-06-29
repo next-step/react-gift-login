@@ -8,25 +8,29 @@ import {
   RANKING_TABS,
   type TabType,
 } from "../../../constants/ranking";
-
-const GENDER_KEY = "ranking_gender";
-const TAB_KEY = "ranking_tab";
+import { LOCAL_STORAGE_KEYS } from "@/constants/localStorage";
 
 export const RankingSection = () => {
   const [gender, setGender] = useState<GenderType>(() => {
-    return (localStorage.getItem(GENDER_KEY) as GenderType) || "ALL";
+    return (
+      (localStorage.getItem(LOCAL_STORAGE_KEYS.RANKING_GENDER) as GenderType) ||
+      "ALL"
+    );
   });
 
   const [tab, setTab] = useState<TabType>(() => {
-    return (localStorage.getItem(TAB_KEY) as TabType) || RANKING_TABS[0];
+    return (
+      (localStorage.getItem(LOCAL_STORAGE_KEYS.RANKING_TAB) as TabType) ||
+      RANKING_TABS[0]
+    );
   });
 
   useEffect(() => {
-    localStorage.setItem(GENDER_KEY, gender);
+    localStorage.setItem(LOCAL_STORAGE_KEYS.RANKING_GENDER, gender);
   }, [gender]);
 
   useEffect(() => {
-    localStorage.setItem(TAB_KEY, tab);
+    localStorage.setItem(LOCAL_STORAGE_KEYS.RANKING_TAB, tab);
   }, [tab]);
 
   return (

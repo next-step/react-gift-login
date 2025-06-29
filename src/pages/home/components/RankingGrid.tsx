@@ -3,13 +3,12 @@ import { useState } from "react";
 import { RankingCard } from "./RankingCard";
 import { type GenderType, type TabType } from "../../../constants/ranking";
 import { mockRankingData } from "@/mock/mockData";
+import { INITIAL_RANKING_COUNT } from "@/constants/grid";
 
 type RankingGridProps = {
   gender: GenderType;
   tab: TabType;
 };
-
-const INITIAL_COUNT = 4;
 
 export const RankingGrid = ({ gender, tab }: RankingGridProps) => {
   void gender;
@@ -19,8 +18,8 @@ export const RankingGrid = ({ gender, tab }: RankingGridProps) => {
 
   const visibleItems = showAll
     ? mockRankingData
-    : mockRankingData.slice(0, INITIAL_COUNT);
-  const canToggle = mockRankingData.length > INITIAL_COUNT;
+    : mockRankingData.slice(0, INITIAL_RANKING_COUNT);
+  const canToggle = mockRankingData.length > INITIAL_RANKING_COUNT;
 
   const handleToggle = () => setShowAll((prev) => !prev);
 
