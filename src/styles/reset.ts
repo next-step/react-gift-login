@@ -24,9 +24,7 @@ export const GlobalResetStyle = css`
     margin: 0;
   }
   button {
-    background: none;
-    border: none;
-    padding: 0;
+    all: unset;
     cursor: pointer;
   }
 `;

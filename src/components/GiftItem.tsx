@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-
 interface Price {
   basicPrice: number;
   discountRate: number;
@@ -20,15 +19,20 @@ interface Gift {
   brandInfo: BrandInfo;
 }
 
-type GiftItemProps = {
+type GiftItemProps<TElement extends React.ElementType = "div"> = {
   gift: Gift;
   rank: number;
-  isClickable: boolean;
-};
+  as?: TElement;
+} & React.ComponentPropsWithoutRef<TElement>;
 
-const GiftItem = ({ gift, rank, isClickable }: GiftItemProps) => {
+const GiftItem = <TElement extends React.ElementType = "div">({
+  gift,
+  rank,
+  as,
+  ...rest
+}: GiftItemProps<TElement>) => {
   return (
-    <GiftItemBox isClickable={isClickable}>
+    <GiftItemBox as={as} {...rest}>
       <RankDiv rank={rank}>{rank}</RankDiv>
       <Img src={gift.imageURL} alt={gift.name} />
       <BrandP>{gift.brandInfo.name}</BrandP>
@@ -43,11 +47,10 @@ const GiftItem = ({ gift, rank, isClickable }: GiftItemProps) => {
 
 export default GiftItem;
 
-const GiftItemBox = styled.div<{ isClickable: boolean }>`
+const GiftItemBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  cursor: ${({ isClickable }) => (isClickable ? "pointer" : "default")};
   position: relative;
 `;
 

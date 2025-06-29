@@ -57,7 +57,8 @@ const GiftsRanking = () => {
             key={gift.id}
             gift={gift}
             rank={index + 1}
-            isClickable={true}
+            as="button"
+            type="button"
           />
         ))}
       </GiftsGrid>
@@ -146,6 +147,7 @@ const GiftsToggle = styled.p`
 const GiftsButton = styled.button`
   max-width: 480px;
   width: 100%;
+  text-align: center;
   padding: ${({ theme }) => theme.spacing.spacing3};
   border-radius: 4px;
   border: 1px solid ${({ theme }) => theme.colors.gray.gray400};
