@@ -1,4 +1,4 @@
-import { css } from "@emotion/react";
+import styled from "@emotion/styled";
 import { useEffect, useState } from "react";
 import { RankingFilter } from "./RankingFilter";
 import { RankingTab } from "./RankingTab";
@@ -34,20 +34,20 @@ export const RankingSection = () => {
   }, [tab]);
 
   return (
-    <section css={sectionStyle}>
-      <h2 css={titleStyle}>실시간 급상승 선물랭킹</h2>
+    <Section>
+      <Title>실시간 급상승 선물랭킹</Title>
       <RankingFilter selected={gender} onChange={setGender} />
       <RankingTab selected={tab} onChange={setTab} />
       <RankingGrid gender={gender} tab={tab} />
-    </section>
+    </Section>
   );
 };
 
-const sectionStyle = css`
+const Section = styled.section`
   padding: 24px 16px;
 `;
 
-const titleStyle = css`
+const Title = styled.h2`
   font-size: 16px;
   font-weight: 700;
   margin-bottom: 16px;

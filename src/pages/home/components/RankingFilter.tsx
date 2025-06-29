@@ -1,6 +1,5 @@
-import { css, useTheme } from "@emotion/react";
+import styled from "@emotion/styled";
 import { GENDER_FILTERS, type GenderType } from "../../../constants/ranking";
-import type { Theme } from "@emotion/react";
 
 type RankingFilterProps = {
   selected: GenderType;
@@ -8,39 +7,40 @@ type RankingFilterProps = {
 };
 
 export const RankingFilter = ({ selected, onChange }: RankingFilterProps) => {
-  const theme = useTheme();
-
   return (
-    <div css={wrapperStyle}>
+    <Wrapper>
       {GENDER_FILTERS.map((filter) => (
-        <button
+        <FilterButton
           key={filter}
-          css={buttonStyle(theme, selected === filter)}
+          active={selected === filter}
           onClick={() => onChange(filter)}
         >
           {filter}
-        </button>
+        </FilterButton>
       ))}
-    </div>
+    </Wrapper>
   );
 };
 
-const wrapperStyle = css`
+const Wrapper = styled.div`
   display: flex;
   gap: 8px;
   margin-bottom: 16px;
   overflow-x: auto;
 `;
 
-const buttonStyle = (theme: Theme, active: boolean) => css`
+const FilterButton = styled.button<{ active: boolean }>`
   padding: 6px 12px;
   font-size: 14px;
   border-radius: 20px;
   border: 1px solid
-    ${active
-      ? theme.colors.colorScale.gray.gray800
-      : theme.colors.semantic.border.default};
-  background-color: ${active ? theme.colors.colorScale.gray.gray800 : "white"};
-  color: ${active ? "white" : theme.colors.semantic.text.default};
+    ${({ theme, active }) =>
+      active
+        ? theme.colors.colorScale.gray.gray800
+        : theme.colors.semantic.border.default};
+  background-color: ${({ theme, active }) =>
+    active ? theme.colors.colorScale.gray.gray800 : "white"};
+  color: ${({ theme, active }) =>
+    active ? "white" : theme.colors.semantic.text.default};
   white-space: nowrap;
 `;

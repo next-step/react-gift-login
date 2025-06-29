@@ -1,37 +1,34 @@
-import type { Theme } from "@emotion/react";
-import { css, useTheme } from "@emotion/react";
+import styled from "@emotion/styled";
 
 export const KakaoTechCampusBanner = () => {
-  const theme = useTheme();
-
   return (
-    <div css={container(theme)}>
-      <div css={subText(theme)}>카카오테크 캠퍼스 3기 여러분</div>
-      <strong css={mainText(theme)}>프론트엔드 2단계 과제 화이팅! 🎉</strong>
-    </div>
+    <Container>
+      <SubText>카카오테크 캠퍼스 3기</SubText>
+      <MainText>프론트엔드 2단계 과제 화이팅!</MainText>
+    </Container>
   );
 };
 
-const container = (theme: Theme) => css`
-  background-color: ${theme.colors.brand.kakao.yellow};
-  color: ${theme.colors.colorScale.gray.gray1000};
+const Container = styled.div`
+  background-color: ${({ theme }) => theme.colors.brand.kakao.yellow};
+  color: ${({ theme }) => theme.colors.colorScale.gray.gray1000};
   padding: 16px;
   margin: 16px;
   border-radius: 12px;
   text-align: left;
 `;
 
-const subText = (theme: Theme) => css`
-  color: ${theme.colors.colorScale.gray.gray800};
-  font-size: ${theme.typography.body2Regular.fontSize};
-  font-weight: ${theme.typography.body2Regular.fontWeight};
-  line-height: ${theme.typography.body2Regular.lineHeight};
+const SubText = styled.div`
+  color: ${({ theme }) => theme.colors.colorScale.gray.gray800};
+  font-size: ${({ theme }) => theme.typography.body2Regular.fontSize};
+  font-weight: ${({ theme }) => theme.typography.body2Regular.fontWeight};
+  line-height: ${({ theme }) => theme.typography.body2Regular.lineHeight};
   margin-bottom: 4px;
 `;
 
-const mainText = (theme: Theme) => css`
+const MainText = styled.strong`
   display: block;
-  font-size: ${theme.typography.body1Bold.fontSize};
-  font-weight: ${theme.typography.body1Bold.fontWeight};
-  line-height: ${theme.typography.body1Bold.lineHeight};
+  font-size: ${({ theme }) => theme.typography.body1Bold.fontSize};
+  font-weight: ${({ theme }) => theme.typography.body1Bold.fontWeight};
+  line-height: ${({ theme }) => theme.typography.body1Bold.lineHeight};
 `;

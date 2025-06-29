@@ -1,4 +1,4 @@
-import { css } from "@emotion/react";
+import styled from "@emotion/styled";
 import { useState } from "react";
 import { RankingCard } from "./RankingCard";
 import { type GenderType, type TabType } from "../../../constants/ranking";
@@ -25,7 +25,7 @@ export const RankingGrid = ({ gender, tab }: RankingGridProps) => {
 
   return (
     <>
-      <div css={gridStyle}>
+      <Grid>
         {visibleItems.map((item, idx) => (
           <RankingCard
             key={item.id}
@@ -37,25 +37,25 @@ export const RankingGrid = ({ gender, tab }: RankingGridProps) => {
             brandImageURL={item.brandInfo.imageURL}
           />
         ))}
-      </div>
+      </Grid>
 
       {canToggle && (
-        <button css={toggleButtonStyle} onClick={handleToggle}>
+        <ToggleButton onClick={handleToggle}>
           {showAll ? "접기" : "더보기"}
-        </button>
+        </ToggleButton>
       )}
     </>
   );
 };
 
-const gridStyle = css`
+const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 16px 12px;
   margin-top: 16px;
 `;
 
-const toggleButtonStyle = css`
+const ToggleButton = styled.button`
   margin: 24px auto 0;
   display: block;
   font-size: 14px;

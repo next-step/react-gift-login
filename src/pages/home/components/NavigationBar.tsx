@@ -1,4 +1,4 @@
-import { css } from "@emotion/react";
+import styled from "@emotion/styled";
 import { FiArrowLeft, FiUser } from "react-icons/fi";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -9,28 +9,27 @@ export const NavigationBar = () => {
   const isHomePage = location.pathname === "/";
 
   return (
-    <nav css={navStyle}>
-      <div css={leftStyle}>
+    <Nav>
+      <Left>
         {!isHomePage && (
-          <button onClick={() => navigate(-1)} css={iconButtonCss}>
+          <IconButton onClick={() => navigate(-1)}>
             <FiArrowLeft size={24} />
-          </button>
+          </IconButton>
         )}
-      </div>
-      <div css={centerStyle}>선물하기</div>
-      <div css={rightStyle}>
-        <button
+      </Left>
+      <Center>선물하기</Center>
+      <Right>
+        <IconButton
           onClick={() => navigate("/login", { state: { from: location } })}
-          css={iconButtonCss}
         >
           <FiUser size={24} />
-        </button>
-      </div>
-    </nav>
+        </IconButton>
+      </Right>
+    </Nav>
   );
 };
 
-const navStyle = css`
+const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -39,23 +38,23 @@ const navStyle = css`
   border-bottom: 1px solid #dcdee3;
 `;
 
-const leftStyle = css`
+const Left = styled.div`
   display: flex;
   align-items: center;
   width: 24px;
 `;
 
-const centerStyle = css`
+const Center = styled.div`
   font-size: 16px;
   font-weight: 700;
 `;
 
-const rightStyle = css`
+const Right = styled.div`
   display: flex;
   align-items: center;
 `;
 
-const iconButtonCss = css`
+const IconButton = styled.button`
   background: none;
   border: none;
   padding: 0;

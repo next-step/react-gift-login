@@ -1,5 +1,4 @@
-import type { Theme } from "@emotion/react";
-import { css } from "@emotion/react";
+import styled from "@emotion/styled";
 
 type CategoryCardProps = {
   name: string;
@@ -8,29 +7,29 @@ type CategoryCardProps = {
 
 export const CategoryCard = ({ name, image }: CategoryCardProps) => {
   return (
-    <div css={cardStyle}>
-      <img src={image} alt={name} css={imageStyle} />
-      <span css={labelStyle}>{name}</span>
-    </div>
+    <Card>
+      <Image src={image} alt={name} />
+      <Label>{name}</Label>
+    </Card>
   );
 };
 
-const cardStyle = css`
+const Card = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 6px;
 `;
 
-const imageStyle = (theme: Theme) => css`
+const Image = styled.img`
   width: 56px;
   height: 56px;
   border-radius: 50%;
   object-fit: cover;
-  background-color: ${theme.colors.colorScale.gray.gray200};
+  background-color: ${({ theme }) => theme.colors.colorScale.gray.gray200};
 `;
 
-const labelStyle = (theme: Theme) => css`
+const Label = styled.span`
   font-size: 12px;
-  color: ${theme.colors.semantic.text.default};
+  color: ${({ theme }) => theme.colors.semantic.text.default};
 `;

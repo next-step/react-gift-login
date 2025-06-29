@@ -1,8 +1,7 @@
-import { css, useTheme } from "@emotion/react";
+import styled from "@emotion/styled";
 import { useLocation, useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
-  const theme = useTheme();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -13,25 +12,23 @@ export default function LoginPage() {
   };
 
   return (
-    <div css={wrapperCss}>
-      <h1 css={titleCss(theme)}>kakao</h1>
+    <Wrapper>
+      <Title>kakao</Title>
 
-      <form css={formCss} onSubmit={(e) => e.preventDefault()}>
-        <label css={labelCss(theme)}></label>
-        <input css={inputCss(theme)} placeholder="이메일" />
+      <Form onSubmit={(e) => e.preventDefault()}>
+        <Label />
+        <Input placeholder="이메일" />
 
-        <label css={labelCss(theme)}></label>
-        <input css={inputCss(theme)} type="password" placeholder="비밀번호" />
+        <Label />
+        <Input type="password" placeholder="비밀번호" />
 
-        <button css={buttonCss(theme)} onClick={handleLogin}>
-          로그인
-        </button>
-      </form>
-    </div>
+        <LoginButton onClick={handleLogin}>로그인</LoginButton>
+      </Form>
+    </Wrapper>
   );
 }
 
-const wrapperCss = css`
+const Wrapper = styled.div`
   height: 100dvh;
   display: flex;
   flex-direction: column;
@@ -41,14 +38,14 @@ const wrapperCss = css`
   box-sizing: border-box;
 `;
 
-const titleCss = (theme: any) => css`
+const Title = styled.h1`
   font-size: 2rem;
   font-weight: 400;
   margin-bottom: 48px;
-  color: ${theme.colors.semantic.text.default};
+  color: ${({ theme }) => theme.colors.semantic.text.default};
 `;
 
-const formCss = css`
+const Form = styled.form`
   width: 100%;
   max-width: 360px;
   display: flex;
@@ -56,27 +53,28 @@ const formCss = css`
   gap: 16px;
 `;
 
-const labelCss = (theme: any) => css`
+const Label = styled.label`
   font-size: 0.875rem;
-  color: ${theme.colors.semantic.text.placeholder};
+  color: ${({ theme }) => theme.colors.semantic.text.placeholder};
 `;
 
-const inputCss = (theme: any) => css`
+const Input = styled.input`
   border: none;
-  border-bottom: 1px solid ${theme.colors.semantic.border.default};
+  border-bottom: 1px solid
+    ${({ theme }) => theme.colors.semantic.border.default};
   padding: 12px 0;
   font-size: 1rem;
   outline: none;
 
   &::placeholder {
-    color: ${theme.colors.semantic.text.placeholder};
+    color: ${({ theme }) => theme.colors.semantic.text.placeholder};
   }
 `;
 
-const buttonCss = (theme: any) => css`
+const LoginButton = styled.button`
   width: 100%;
-  background-color: ${theme.colors.brand.kakao.yellow};
-  color: ${theme.colors.brand.kakao.brown};
+  background-color: ${({ theme }) => theme.colors.brand.kakao.yellow};
+  color: ${({ theme }) => theme.colors.brand.kakao.brown};
   border: none;
   border-radius: 8px;
   padding: 12px 0;
@@ -85,10 +83,10 @@ const buttonCss = (theme: any) => css`
   cursor: pointer;
 
   &:hover {
-    background-color: ${theme.colors.brand.kakao.yellowHover};
+    background-color: ${({ theme }) => theme.colors.brand.kakao.yellowHover};
   }
 
   &:active {
-    background-color: ${theme.colors.brand.kakao.yellowActive};
+    background-color: ${({ theme }) => theme.colors.brand.kakao.yellowActive};
   }
 `;

@@ -1,6 +1,5 @@
-import { css, useTheme } from "@emotion/react";
+import styled from "@emotion/styled";
 import { RANKING_TABS, type TabType } from "../../../constants/ranking";
-import type { Theme } from "@emotion/react";
 
 type RankingTabProps = {
   selected: TabType;
@@ -8,37 +7,38 @@ type RankingTabProps = {
 };
 
 export const RankingTab = ({ selected, onChange }: RankingTabProps) => {
-  const theme = useTheme();
-
   return (
-    <div css={tabWrapperStyle}>
+    <TabWrapper>
       {RANKING_TABS.map((tab) => (
-        <button
+        <TabButton
           key={tab}
-          css={tabButtonStyle(theme, selected === tab)}
+          active={selected === tab}
           onClick={() => onChange(tab)}
         >
           {tab}
-        </button>
+        </TabButton>
       ))}
-    </div>
+    </TabWrapper>
   );
 };
 
-const tabWrapperStyle = css`
+const TabWrapper = styled.div`
   display: flex;
   gap: 12px;
   margin-bottom: 12px;
 `;
 
-const tabButtonStyle = (theme: Theme, active: boolean) => css`
+const TabButton = styled.button<{ active: boolean }>`
   font-size: 14px;
   font-weight: 700;
   padding: 4px 0;
+  border: none;
   border-bottom: 2px solid
-    ${active ? theme.colors.colorScale.gray.gray1000 : "transparent"};
-  color: ${active
-    ? theme.colors.semantic.text.default
-    : theme.colors.semantic.text.sub};
+    ${({ active, theme }) =>
+      active ? theme.colors.colorScale.gray.gray1000 : "transparent"};
+  color: ${({ active, theme }) =>
+    active
+      ? theme.colors.semantic.text.default
+      : theme.colors.semantic.text.sub};
   background: none;
 `;
