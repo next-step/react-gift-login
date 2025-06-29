@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
-import NavigationBar from '@/components/NavigationBar';
-import SelectReceiverNotice from '@/components/SelectReceiverNotice';
-import GiftCategoryList from '@/components/GiftCategoryList';
-import GiftChart from '@/components/GiftChart';
+import NavigationBar from '@/common/NavigationBar';
+import SelectReceiverNotice from '@/components/giftHome/GiftSelect/SelectReceiverNotice';
+import GiftCategoryList from '@/components/giftHome/GiftThemes/GiftCategoryList';
+import GiftRanking from '@/components/giftHome/GiftRanking/GiftRanking';
 const GiftHome = () => {
   return (
     <Layout>
@@ -10,7 +10,7 @@ const GiftHome = () => {
         <NavigationBar />
         <SelectReceiverNotice />
         <GiftCategoryList />
-        <GiftChart />
+        <GiftRanking />
       </Content>
     </Layout>
   );
