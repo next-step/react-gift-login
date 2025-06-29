@@ -4,6 +4,9 @@ import { productMockData } from '@/mocks/products'
 
 const genderTabs = ['전체', '여성이', '남성이', '청소년이']
 const rankTabs = ['받고 싶어한', '많이 선물한', '위시로 받은']
+// TODO : 임시 하드코딩. 추후 개수 변경 가능
+const initCount = 6
+const fullCount = 12
 
 const SectionWrapper = styled.section`
   margin-top: ${({ theme }) => theme.spacing.spacing6};
@@ -119,13 +122,14 @@ const ToggleButton = styled.button`
 const RankingSection = () => {
   const [selectedGender, setSelectedGender] = useState('남성이')
   const [selectedRank, setSelectedRank] = useState('많이 선물한')
-  const [visibleCount, setVisibleCount] = useState(6)
+  const [isExpanded, setIsExpanded] = useState(false)
 
   const handleToggle = () => {
-    setVisibleCount((prev) => (prev === 6 ? 12 : 6))
+    setIsExpanded((prev) => !prev)
   }
 
-  const fullList = Array.from({ length: 12 }, (_, i) => ({
+  const visibleCount = isExpanded ? fullCount : initCount
+  const fullList = Array.from({ length: fullCount }, (_, i) => ({
     ...productMockData[0],
     id: productMockData[0].id + i,
   }))
@@ -174,7 +178,7 @@ const RankingSection = () => {
       </ProductGrid>
 
       <ToggleButton onClick={handleToggle}>
-        {visibleCount === 6 ? '더보기' : '접기'}
+        {isExpanded ? '접기' : '더보기'}
       </ToggleButton>
     </SectionWrapper>
   )
