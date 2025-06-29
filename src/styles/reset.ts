@@ -21,7 +21,7 @@ export const GlobalResetStyle = css`
   optgroup,
   select,
   textarea {
-    margin: 0;
+    all: unset;
   }
   button {
     all: unset;
