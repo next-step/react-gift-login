@@ -1,9 +1,8 @@
 import '@emotion/react'
+import {ThemeType} from './theme';
 
 declare module '@emotion/react' {
-  export interface Theme {
-    colors: typeof import('./theme').theme.colors
-    spacing: typeof import('./theme').theme.spacing
-    typography: typeof import('./theme').theme.typography
-  }
+  // eslint 예외 처리 적용
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
+  export interface Theme extends ThemeType {}
 }
