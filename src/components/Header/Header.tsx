@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { colors, typography, spacing } from '@/styles/tokens';
+import { useNavigate } from 'react-router';
 
 const HeaderContainer = styled.header`
   position: sticky;
@@ -40,16 +41,22 @@ const ProfileButton = styled.button`
 
 interface HeaderProps {
   title: string;
-  onBackClick?: () => void;
-  onProfileClick?: () => void;
 }
 
-export const Header = ({ title, onBackClick, onProfileClick }: HeaderProps) => {
+export const Header = ({ title }: HeaderProps) => {
+  const navigate = useNavigate();
+  const handleBack = () => {
+    navigate(-1);
+  };
+
+  const handleLogin = () => {
+    navigate('/login');
+  };
   return (
     <HeaderContainer>
-      <BackButton onClick={onBackClick}>&#8249;</BackButton>
+      <BackButton onClick={handleBack}>&#8249;</BackButton>
       <Title>{title}</Title>
-      <ProfileButton onClick={onProfileClick}>&#128100;</ProfileButton>
+      <ProfileButton onClick={handleLogin}>&#128100;</ProfileButton>
     </HeaderContainer>
   );
 };

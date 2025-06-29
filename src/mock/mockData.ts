@@ -1,4 +1,4 @@
-import type { CategoryTheme, Product, Tab, Filter } from '@/types/index.ts';
+import type { CategoryTheme, Product } from '@/types/index.ts';
 
 // 실제 Mock 데이터
 
@@ -95,7 +95,7 @@ export const categories: CategoryTheme[] = [
   },
 ];
 
-export const mockProduct: Product = {
+const mockProduct: Product = {
   id: 123,
   name: 'BBQ 양념치킨+크림치즈볼+콜라1.25L',
   imageURL:
@@ -119,15 +119,19 @@ export const products: Product[] = Array.from({ length: 12 }, (_, i) => ({
   id: mockProduct.id + i,
 }));
 
-export const tabs: Tab[] = [
+export const tabs = [
   { id: 'all', label: '전체', icon: 'ALL' },
   { id: 'female', label: '여성이', icon: '👩' },
   { id: 'male', label: '남성이', icon: '👨' },
   { id: 'teen', label: '청소년이', icon: '🧑' },
-];
+] as const;
+export type Tab = (typeof tabs)[number];
+export type TabId = Tab['id'];
 
-export const filters: Filter[] = [
+export const filters = [
   { id: 'wanted', label: '받고 싶어한' },
   { id: 'gifted', label: '많이 선물한' },
   { id: 'wished', label: '위시로 받은' },
-];
+] as const;
+export type Filter = (typeof filters)[number];
+export type FilterId = Filter['id'];
