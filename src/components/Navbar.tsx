@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import { ChevronLeft, UserRound } from 'lucide-react'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 const NavbarContainer = styled.nav`
   position: relative; 
@@ -35,6 +36,9 @@ const SideButton = styled.button`
 `
 
 export const Navbar = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   return (
     <NavbarContainer>
       <SideButton onClick={() => window.history.back()}>
@@ -45,11 +49,10 @@ export const Navbar = () => {
         <Logo src="/logo.png" alt="카카오 선물하기 로고" />
       </LogoWrapper>
 
-      <a href="/login">
-        <SideButton>
-          <UserRound size={20} color="#000" />
-        </SideButton>
-      </a>
+     
+      <SideButton onClick={() => navigate('/login', { state: { from: location } })}>
+        <UserRound size={20} color="#000" />
+      </SideButton>
     </NavbarContainer>
   )
 }
