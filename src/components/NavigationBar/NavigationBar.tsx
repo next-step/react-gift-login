@@ -14,6 +14,12 @@ function NavigationBar() {
   const navigate = useNavigate();
   const location = useLocation();
 
+  const handleLoginClick = () => {
+    navigate('/login', {
+      state: { from: location.pathname },
+    });
+  };
+
   return (
     <NavigationSection>
       <UnstyledButton onClick={() => navigate(-1)}>
@@ -22,16 +28,7 @@ function NavigationBar() {
       <UnstyledButton onClick={() => navigate('/')}>
         <SectionTitle>{NAVIGATION_BAR_LABELS.SECTION_TITLE}</SectionTitle>
       </UnstyledButton>
-      <UnstyledButton
-        onClick={() =>
-          // login 페이지에 이동할 때만 히스토리가 필요함
-          navigate('/login', {
-            state: {
-              history: location.pathname,
-            },
-          })
-        }
-      >
+      <UnstyledButton onClick={handleLoginClick}>
         <ProfileIcon src={ProfileIconSvg} alt={NAVIGATION_BAR_LABELS.PROFILE_BUTTON_ALT} />
       </UnstyledButton>
     </NavigationSection>

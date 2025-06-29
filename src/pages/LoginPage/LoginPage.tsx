@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import NavigationBar from '../NavigationBar/NavigationBar';
+import NavigationBar from '../../components/NavigationBar/NavigationBar';
 import {
   LoginContainer,
   KakaoLogo,
@@ -7,12 +7,12 @@ import {
   InputField,
   LoginButton,
   InputFieldGroup,
-} from './Login.styles';
+} from './LoginPage.styles';
 import { LOGIN_LABELS } from './constants/labels';
 import Layout from '@/layout';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-function Login() {
+function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -22,8 +22,12 @@ function Login() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const history = location.state?.history || '/';
-    navigate(history, { replace: true });
+    // TODO: 실제 로그인 검증 로직
+    console.log('Login attempt:', { email, password });
+
+    // 로그인 성공 후 redirect
+    const from = location.state?.from || '/';
+    navigate(from, { replace: true });
   };
 
   return (
@@ -55,4 +59,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default LoginPage;

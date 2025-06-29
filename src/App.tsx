@@ -2,8 +2,8 @@ import { Global, ThemeProvider, css } from '@emotion/react';
 import { Routes, Route } from 'react-router-dom';
 import resetStyles from '@/reset';
 import theme from './styles/theme';
-import Home from './components/Home/Home';
-import Login from './components/Login/Login';
+import HomePage from './pages/HomePage/HomePage';
+import LoginPage from './pages/LoginPage/LoginPage';
 import { ViewportContainer } from './App.styles';
 
 const globalStyles = css`
@@ -18,8 +18,8 @@ function App() {
       <Global styles={[resetStyles, globalStyles]} />
       <ViewportContainer>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
         </Routes>
       </ViewportContainer>
     </ThemeProvider>
