@@ -84,7 +84,7 @@ export const backgroundColors = {
 
 //텍스트 컬러
 export const textColors = {
-  default: '#dcdee3',
+  default: '#2a3038',
   sub: '#b0b3ba',
   disabled: '#dcdee3',
   placeholder: '#b0b3ba',
