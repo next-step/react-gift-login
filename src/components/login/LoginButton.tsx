@@ -1,9 +1,9 @@
 import Text from '@/common/Text';
 import styled from '@emotion/styled';
 
-const LoginButton = () => {
+const LoginButton = ({ onClick }: { onClick: () => void }) => {
   return (
-    <Content>
+    <Content onClick={onClick}>
       <Text fontSize="label1Regular" fontWeight="body1Regular">
         로그인
       </Text>

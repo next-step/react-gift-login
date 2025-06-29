@@ -1,11 +1,17 @@
-import Input from '@/common/Input';
-import { useLoginForm } from '../hooks/useLoginForm';
-import NavigationBar from '@/common/NavigationBar';
 import styled from '@emotion/styled';
+import { useLoginForm } from '../hooks/useLoginForm';
+import { useNavigate } from 'react-router-dom';
+import NavigationBar from '@/common/NavigationBar';
+import Input from '@/common/Input';
 import LoginButton from '@/components/login/LoginButton';
 
 const LoginForm = () => {
   const { id, setId, password, setPassword } = useLoginForm();
+  const navigate = useNavigate();
+
+  const LoginRedirect = () => {
+    navigate('/');
+  };
 
   return (
     <Layout>
@@ -23,7 +29,7 @@ const LoginForm = () => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <LoginButton />
+      <LoginButton onClick={LoginRedirect} />
     </Layout>
   );
 };
