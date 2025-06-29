@@ -1,27 +1,39 @@
-import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import styled from '@emotion/styled';
 import ProductCard from '@/components/giftHome/GiftThemes/ProductCard';
 import Text from '@/common/Text';
 
-const categories = ['전체', '여성이', '남성이', '청소년이'] as const;
-type CategoryType = (typeof categories)[number];
-const sortTypes = ['받고 싶어한', '많이 선물한', '위시로 받은'] as const;
-type SortType = (typeof sortTypes)[number];
+const targetTypes = ['ALL', 'FEMALE', 'MALE', 'TEEN'] as const;
+type TargetType = (typeof targetTypes)[number];
+
+const rankTypes = ['MANY_WISH', 'MANY_RECEIVE', 'MANY_WISHLIST'] as const;
+type RankType = (typeof rankTypes)[number];
+
+const targetTypeLabels: Record<TargetType, string> = {
+  ALL: '전체',
+  FEMALE: '여성이',
+  MALE: '남성이',
+  TEEN: '청소년이',
+};
+
+const rankTypeLabels: Record<RankType, string> = {
+  MANY_WISH: '받고 싶어한',
+  MANY_RECEIVE: '많이 선물한',
+  MANY_WISHLIST: '위시로 받은',
+};
 
 const GiftChart: React.FC = () => {
-  const [selectedCategory, setSelectedCategory] =
-    useState<CategoryType>('전체');
-  const [selectedSort, setSelectedSort] = useState<SortType>('받고 싶어한');
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  const categories: CategoryType[] = ['전체', '여성이', '남성이', '청소년이'];
-  const sortOptions: SortType[] = ['받고 싶어한', '많이 선물한', '위시로 받은'];
+  const selectedTarget = (searchParams.get('target') as TargetType) || 'ALL';
+  const selectedRank = (searchParams.get('rank') as RankType) || 'MANY_WISH';
 
-  const handleCategoryClick = (category: CategoryType): void => {
-    setSelectedCategory(category);
+  const handleTargetClick = (target: TargetType) => {
+    setSearchParams({ target, rank: selectedRank });
   };
 
-  const handleSortClick = (sort: SortType): void => {
-    setSelectedSort(sort);
+  const handleRankClick = (rank: RankType) => {
+    setSearchParams({ target: selectedTarget, rank });
   };
 
   return (
@@ -29,31 +41,33 @@ const GiftChart: React.FC = () => {
       <Text fontSize="title1Bold" fontWeight="title2Bold">
         실시간 급상승 선물랭킹
       </Text>
-      <CategoryContainer>
-        {categories.map((category) => (
-          <CategoryBox
-            key={category}
-            isSelected={selectedCategory === category}
-            onClick={() => handleCategoryClick(category)}
-          >
-            <CategoryText isSelected={selectedCategory === category}>
-              {category}
-            </CategoryText>
-          </CategoryBox>
-        ))}
-      </CategoryContainer>
 
-      <SortContainer>
-        {sortOptions.map((option) => (
-          <SortOption
-            key={option}
-            isSelected={selectedSort === option}
-            onClick={() => handleSortClick(option)}
+      <TargetContainer>
+        {targetTypes.map((target) => (
+          <TargetBox
+            key={target}
+            isSelected={selectedTarget === target}
+            onClick={() => handleTargetClick(target)}
           >
-            {option}
-          </SortOption>
+            <TargetText isSelected={selectedTarget === target}>
+              {targetTypeLabels[target]}
+            </TargetText>
+          </TargetBox>
         ))}
-      </SortContainer>
+      </TargetContainer>
+
+      <RankContainer>
+        {rankTypes.map((rank) => (
+          <RankOption
+            key={rank}
+            isSelected={selectedRank === rank}
+            onClick={() => handleRankClick(rank)}
+          >
+            {rankTypeLabels[rank]}
+          </RankOption>
+        ))}
+      </RankContainer>
+
       <ProductItem>
         {Array.from({ length: 6 }).map((_, index) => (
           <ProductCard key={index} />
@@ -69,18 +83,18 @@ const Layout = styled.div`
   padding: ${({ theme }) => theme.spacing.spacing6};
 `;
 
-const CategoryContainer = styled.div`
+const TargetContainer = styled.div`
   margin-top: ${({ theme }) => theme.spacing.spacing7};
   display: flex;
   justify-content: space-between;
   margin-bottom: ${({ theme }) => theme.spacing.spacing7};
 `;
 
-interface CategoryBoxProps {
+interface TargetBoxProps {
   isSelected: boolean;
 }
 
-const CategoryBox = styled.div<CategoryBoxProps>`
+const TargetBox = styled.div<TargetBoxProps>`
   width: 44px;
   height: 44px;
   border-radius: ${({ theme }) => theme.spacing.spacing4};
@@ -93,18 +107,18 @@ const CategoryBox = styled.div<CategoryBoxProps>`
   cursor: pointer;
 `;
 
-interface CategoryTextProps {
+interface TargetTextProps {
   isSelected: boolean;
 }
 
-const CategoryText = styled.span<CategoryTextProps>`
+const TargetText = styled.span<TargetTextProps>`
   font-size: 12px;
   font-weight: 500;
   color: ${({ isSelected, theme }) =>
     isSelected ? 'white' : theme.colors.gray700};
 `;
 
-const SortContainer = styled.div`
+const RankContainer = styled.div`
   height: 45px;
   display: flex;
   justify-content: space-around;
@@ -116,17 +130,18 @@ const SortContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.blue100};
 `;
 
-interface SortOptionProps {
+interface RankOptionProps {
   isSelected: boolean;
 }
 
-const SortOption = styled.div<SortOptionProps>`
+const RankOption = styled.div<RankOptionProps>`
   font-size: 14px;
   font-weight: 500;
   color: ${({ isSelected, theme }) =>
     isSelected ? theme.colors.blue800 : theme.colors.blue400};
   cursor: pointer;
 `;
+
 const ProductItem = styled.div`
   display: flex;
   flex-wrap: wrap;
