@@ -9,17 +9,18 @@ import Layout from './components/Layout'
 
 import categories from './mocks/category.mock'
 import itemList  from './mocks/iteml_list.mock'
-import PromoBanner from './components/PromoBanner'
+
 
 // 코드 분리중
 import NavBar from './components/NavBar';
 import FriendSelector from './components/FriendSelector'
 import GiftCategorySelector from './components/GiftCategorySelector'
+import PromoBanner from './components/PromoBanner'
 
 const Main = styled.div`
   background-color: ${({ theme }) => theme.colors.gray[0]};
   width: 700px;
-  height: 100vh;
+  /* height: 100vh; */
   margin: 0 auto;
 `
 
