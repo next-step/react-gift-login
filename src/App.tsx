@@ -1,7 +1,7 @@
-import { GiftPage } from './pages/GiftPage';
+import { Router } from '@/shared/Router';
 
 function App() {
-  return <GiftPage />;
+  return <Router />;
 }
 
 export default App;

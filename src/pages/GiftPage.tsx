@@ -17,11 +17,7 @@ const AppContainer = styled.div`
 export const GiftPage = () => {
   return (
     <AppContainer>
-      <Header
-        title="선물하기"
-        onBackClick={() => console.log('뒤로가기 버튼 누름')}
-        onProfileClick={() => console.log('프로필 버튼 누름')}
-      />
+      <Header title="선물하기" />
       <FriendSelector onClick={() => console.log('선물할 친구 선택')} />
       <CategoryGrid
         categories={categories}
