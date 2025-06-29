@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import theme from '@src/styles/tokens/index';
-
 import product from '@src/assets/mock/itemList_mock';
 
 const targets = [
@@ -12,9 +12,9 @@ const targets = [
 ];
 
 const sortOptions = [
-  { key: 'wanted', label: '받고 싶어한' },
-  { key: 'gifted', label: '많이 선물한' },
-  { key: 'wished', label: '위시로 받은' },
+  { key: 'MANY_WISH', label: '받고 싶어한' },
+  { key: 'MANY_RECEIVE', label: '많이 선물한' },
+  { key: 'MANY_WISH_RECEIVE', label: '위시로 받은' },
 ];
 
 const targetButton = css`
@@ -308,8 +308,38 @@ const spacer20 = css`
 `;
 
 const Realtime = () => {
-  const [selectedTarget, setSelectedTarget] = useState('ALL');
-  const [selectedSort, setSelectedSort] = useState('wanted');
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const paramTarget = searchParams.get('targetType');
+  const paramSort = searchParams.get('rankType');
+
+  const DEFAULT_TARGET = 'ALL';
+  const DEFAULT_SORT = 'MANY_WISH';
+
+  const initialTarget = paramTarget || DEFAULT_TARGET;
+  const initialSort = paramSort || DEFAULT_SORT;
+
+  const [selectedTarget, setSelectedTarget] = useState(initialTarget);
+  const [selectedSort, setSelectedSort] = useState(initialSort);
+  const [userHasSelected, setUserHasSelected] = useState(false);
+
+  useEffect(() => {
+    if (!userHasSelected && [...searchParams].length === 0) {
+      if (selectedTarget === DEFAULT_TARGET && selectedSort === DEFAULT_SORT) {
+        setSearchParams({});
+      } else {
+        setSearchParams({
+          targetType: selectedTarget,
+          rankType: selectedSort,
+        });
+      }
+    } else {
+      setSearchParams({
+        targetType: selectedTarget,
+        rankType: selectedSort,
+      });
+    }
+  }, [selectedTarget, selectedSort, userHasSelected, setSearchParams]);
 
   const [expanded, setExpanded] = useState(false);
   const displayedCount = expanded ? 21 : 6;
@@ -328,6 +358,17 @@ const Realtime = () => {
       ? theme.colors.blue700
       : theme.colors.gray700};
   `;
+
+  const handleSelectTarget = (key: string) => {
+    setSelectedTarget(key);
+    setUserHasSelected(true);
+  };
+
+  const handleSelectSort = (key: string) => {
+    setSelectedSort(key);
+    setUserHasSelected(true);
+  };
+
   return (
     <>
       <div css={spacer24} />
@@ -347,7 +388,7 @@ const Realtime = () => {
               <button
                 key={target.key}
                 css={targetButton}
-                onClick={() => setSelectedTarget(target.key)}
+                onClick={() => handleSelectTarget(target.key)}
                 type="button"
               >
                 <div css={getButtonDivStyle(target.key)}>{target.icon}</div>
@@ -362,7 +403,7 @@ const Realtime = () => {
             <button
               key={key}
               css={key === selectedSort ? selectedContent : selectContent}
-              onClick={() => setSelectedSort(key)}
+              onClick={() => handleSelectSort(key)}
               type="button"
             >
               {label}
