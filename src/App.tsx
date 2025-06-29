@@ -1,15 +1,19 @@
-import GlobalStyle from './styles/GlobalStyle';
-import Logo from '@/assets/logo.png';
+import GlobalStyle from '@/styles/GlobalStyle';
+import Navigation from '@/components/Navigation';
+import FriendSelectSection from '@/components/FriendSelectSection';
+import CategorySection from '@/components/CategorySection';
+import BannerSection from '@/components/BannerSection';
+import RankingGroup from '@/components/RankingSection/RankingGroup';
 
 function App() {
   return (
     <>
       <GlobalStyle />
-      <div>
-        <h2>불필요한 코드 삭제 후 App 화면</h2>
-        <h2>Complete!</h2>
-        <img src={Logo} alt="로고" width={100} />
-      </div>
+      <Navigation />
+      <FriendSelectSection />
+      <CategorySection />
+      <BannerSection />
+      <RankingGroup />
     </>
   );
 }

@@ -1,37 +1,11 @@
-/** @jsxImportSource @emotion/react */
-import { Global, css } from '@emotion/react';
+import { Global, css, useTheme } from '@emotion/react';
+import { resetStyle } from '@/styles/resetStyle';
+import { baseStyle } from '@/styles/baseStyle';
 
-const GlobalStyle = () => (
-  <Global
-    styles={css`
-      // reset css 역할
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+const GlobalStyle = () => {
+  const theme = useTheme();
 
-      html,
-      body {
-        font-family: 'Pretendard', sans-serif;
-        background-color: #fff;
-        color: #9631ac;
-        line-height: 2;
-      }
-
-      h2 {
-        font-size: 24px;
-        font-weight: 600;
-        margin-bottom: 8px;
-      }
-
-      img {
-        display: block;
-        max-width: 100%;
-        height: auto;
-      }
-    `}
-  />
-);
+  return <Global styles={css([resetStyle, baseStyle(theme)])} />;
+};
 
 export default GlobalStyle;
