@@ -15,11 +15,12 @@ import {
   MoreInfoWrapper,
   MoreInfo,
 } from './TrendingGifts.styles';
+import useLocalStorage from '@/hooks/useLocalStorage';
 
 function TrendingGifts() {
-  const [mainTabIdx, setMainTabIdx] = useState<number>(0);
-  const [subTabIdx, setSubTabIdx] = useState<number>(0);
-  const [data, setData] = useState<TrendingGiftsType[]>(trendingGiftsMockData);
+  const [mainTabIdx, setMainTabIdx] = useLocalStorage('mainTab', 0);
+  const [subTabIdx, setSubTabIdx] = useLocalStorage('subTab', 0);
+  const [data, setData] = useState<TrendingGiftsType[]>([]);
 
   useEffect(() => {
     // 현재는 mock 데이터로 대체
@@ -40,7 +41,7 @@ function TrendingGifts() {
         ))}
       </TabsWrapper>
 
-      <TabContentWrapper selectedTabIdx={subTabIdx} setSelectedTabIdx={setSubTabIdx}>
+      <TabContentWrapper subTabIdx={subTabIdx} setSubTabIdx={setSubTabIdx}>
         <ProductGrid products={data} />
       </TabContentWrapper>
 

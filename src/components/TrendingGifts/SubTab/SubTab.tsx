@@ -27,19 +27,15 @@ const SubTabButton = styled.button<{ isSelected: boolean }>`
 `;
 
 interface SubTabPropsType {
-  selectedTabIdx: number;
-  setSelectedTabIdx: (idx: number) => void;
+  subTabIdx: number;
+  setSubTabIdx: (idx: number) => void;
 }
 
-function SubTab({ selectedTabIdx, setSelectedTabIdx }: SubTabPropsType) {
+function SubTab({ subTabIdx, setSubTabIdx }: SubTabPropsType) {
   return (
     <SubTabContainer>
       {TRENDING_GIFTS_SUB_TABS.map((el, idx) => (
-        <SubTabButton
-          key={idx}
-          isSelected={idx === selectedTabIdx}
-          onClick={() => setSelectedTabIdx(idx)}
-        >
+        <SubTabButton key={idx} isSelected={idx === subTabIdx} onClick={() => setSubTabIdx(idx)}>
           {el}
         </SubTabButton>
       ))}
