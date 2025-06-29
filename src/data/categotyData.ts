@@ -1,4 +1,4 @@
-const CATEGORY_DATA = [
+const categoryData = [
   {
     themeId: 3715,
     name: '생일',
@@ -91,4 +91,4 @@ const CATEGORY_DATA = [
   },
 ];
 
-export default CATEGORY_DATA;
+export default categoryData;

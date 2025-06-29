@@ -1,4 +1,4 @@
-const PRODUCT_DATA = {
+const productData = {
   id: 123,
   name: 'BBQ 양념치킨+크림치즈볼+콜라1.25L',
   imageURL:
@@ -16,4 +16,4 @@ const PRODUCT_DATA = {
   },
 };
 
-export default PRODUCT_DATA;
+export default productData;

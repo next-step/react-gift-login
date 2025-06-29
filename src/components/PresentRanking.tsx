@@ -2,7 +2,8 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { css, ThemeProvider } from '@emotion/react';
 import { theme } from '@/theme/theme';
-import PRODUCT_DATA from '../data/PRODUCT_DATA';
+import productData from '../data/productData';
+import categoryData from '@/data/categotyData';
 
 const Wrapper = styled.section`
   padding: 0px 16px;
@@ -220,7 +221,7 @@ const PresentRanking = () => {
     imageURL,
     price: { sellingPrice },
     brandInfo,
-  } = PRODUCT_DATA;
+  } = productData;
 
   return (
     <ThemeProvider theme={theme}>

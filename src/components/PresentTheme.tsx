@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { ThemeProvider } from '@emotion/react';
 import { theme } from '@/theme/theme';
-import CATEGORY_DATA from '@/data/CATEGORY_DATA';
+import categoryData from '@/data/categotyData';
 
 const Container = styled.section`
   padding: 8px;
@@ -65,7 +65,7 @@ const PresentTheme = () => {
           <Title>선물 테마</Title>
         </TitleContainer>
         <CategoryContainer>
-          {CATEGORY_DATA.map((category) => (
+          {categoryData.map((category) => (
             <Category key={category.themeId}>
               <PresentImage src={category.image} alt={category.name} />
               <PresentName>{category.name}</PresentName>
