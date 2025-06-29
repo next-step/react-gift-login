@@ -140,7 +140,7 @@ interface ThemeSpacing {
 }
 
 interface ThemeBreakpoints {
-  desktop: string;
+  desktop: number;
 }
 
 export interface Theme {
@@ -358,6 +358,6 @@ export const theme: Theme = {
   },
 
   breakpoints: {
-    desktop: '721px',
+    desktop: 721,
   },
 };
