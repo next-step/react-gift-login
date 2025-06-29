@@ -5,13 +5,21 @@ import { useNavigate } from 'react-router-dom'
 export function Navbar() {
   const navigate = useNavigate()
 
+  const handleGoBack = () => {
+    navigate(-1)
+  }
+
+  const handleLoginClick = () => {
+    navigate('/login')
+  }
+
   return (
     <NavWrapper>
-      <LeftIcon>
+      <LeftIcon onClick={handleGoBack}>
         <FiChevronLeft size={24} />
       </LeftIcon>
       <Title>선물하기</Title>
-      <RightIcon onClick={() => navigate('/login')}>
+      <RightIcon onClick={handleLoginClick}>
         <FiUser size={24} />
       </RightIcon>
     </NavWrapper>
