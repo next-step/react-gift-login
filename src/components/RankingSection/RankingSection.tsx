@@ -1,11 +1,31 @@
 import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { rankingItems, genderItems, actionItems } from '../../data/ranking';
 import * as S from './RankingSection.styles';
 
 const RankingSection = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [isExpanded, setIsExpanded] = useState(false);
-  const [selectedGender, setSelectedGender] = useState('ALL');
-  const [selectedAction, setSelectedAction] = useState('받고 싶어한');
+  
+  // URL에서 필터 값 읽기 (기본값 설정)
+  const selectedGender = searchParams.get('gender') || 'ALL';
+  const selectedAction = searchParams.get('action') || '받고 싶어한';
+  // 필터 변경 핸들러
+  const handleGenderChange = (gender: string) => {
+    setSearchParams(prev => {
+      const newParams = new URLSearchParams(prev);
+      newParams.set('gender', gender);
+      return newParams;
+    });
+  };
+  // 필터 변경 핸들러
+  const handleActionChange = (action: string) => {
+    setSearchParams(prev => {
+      const newParams = new URLSearchParams(prev);
+      newParams.set('action', action);
+      return newParams;
+    });
+  };
 
   return (
     <S.Section>
@@ -14,7 +34,7 @@ const RankingSection = () => {
       <S.FilterContainer>
         <S.GenderFilterContainer>
           {genderItems.map(option => (
-            <S.GenderButton key={option.key} onClick={() => setSelectedGender(option.key)}>
+            <S.GenderButton key={option.key} onClick={() => handleGenderChange(option.key)}>
               <S.GenderIconContainer isSelected={selectedGender === option.key}>
                 {option.icon}
               </S.GenderIconContainer>
@@ -30,7 +50,7 @@ const RankingSection = () => {
             <S.ActionButton 
               key={action} 
               isSelected={selectedAction === action}
-              onClick={() => setSelectedAction(action)}
+              onClick={() => handleActionChange(action)}
             >
               {action}
             </S.ActionButton>
