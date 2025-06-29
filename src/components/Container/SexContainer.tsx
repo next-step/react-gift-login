@@ -1,19 +1,12 @@
 import SexItem from '@/components/SexItem';
 import { useState } from 'react';
+import { SexContainerWrapper } from '@/styles/SecContainer.styles';
 
-import styled from '@emotion/styled';
-
-export const SexContainerWrapper = styled.ul`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 20px;
-`;
+type SexType = 'All' | '남성' | '여성' | '청소년';
 
 function SexContainer() {
-  const [selectSex, setSelectsex] = useState<string>('All');
-  function handleSelect(sex: string) {
+  const [selectSex, setSelectsex] = useState<SexType>('All');
+  function handleSelect(sex: SexType) {
     setSelectsex(sex);
   }
   return (
