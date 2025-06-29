@@ -1,37 +1,39 @@
 import * as S from './ItemCard.styles';
 
-interface ItemCardProps {
+// 기본 프로퍼티
+interface BaseItemCardProps {
   imageUrl: string;
   title: string;
-  subtitle?: string;    // 브랜드명
-  price?: number;       // 가격 (있을 때만 표시)
-  rank?: number;        // 순위 (있을 때만 표시)
-  onClick?: () => void;
-  variant?: 'category' | 'product'; // 카테고리용인지 상품용인지
+  variant: 'category' | 'product'; 
 }
 
-const ItemCard = ({ 
-  imageUrl, 
-  title, 
-  subtitle,
-  price,
-  rank,
-  onClick,
-  variant = 'category'
-}: ItemCardProps) => {
+// 리뷰, 늘어날 가능성있는 부분 분리해서 사용 
+interface RankingItemCardProps {
+  subtitle?: string;   
+  price?: number;       
+  rank?: number;       
+}
+
+type ItemCardProps = BaseItemCardProps & RankingItemCardProps;
+
+const ItemCard = (props: ItemCardProps) => {
+  const { imageUrl, title, subtitle, price, rank, variant } = props;
+  
+  const isProductCard = variant === 'product';
+  
   return (
-    <S.Card onClick={onClick}>
-      {rank && <S.RankBadge rank={rank}>{rank}</S.RankBadge>}
+    <S.Card>
+      {isProductCard && rank !== undefined && <S.RankBadge rank={rank}>{rank}</S.RankBadge>}
       <S.Image src={imageUrl} alt={title} variant={variant} />
       
-      {variant === 'category' ? (
-        <S.Title>{title}</S.Title>
-      ) : (
+      {isProductCard ? (
         <>
-          {subtitle && <S.Subtitle>{subtitle}</S.Subtitle>}
+          <S.Subtitle>{subtitle}</S.Subtitle>
           <S.ProductName>{title}</S.ProductName>
-          {price && <S.Price>{price.toLocaleString()} <span>원</span></S.Price>}
+          {price !== undefined && <S.Price>{price.toLocaleString()} <span>원</span></S.Price>}
         </>
+      ) : (
+        <S.Title>{title}</S.Title>
       )}
     </S.Card>
   );

@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 export const Card = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
   cursor: pointer;
   position: relative;
 `;
@@ -43,8 +42,6 @@ export const Title = styled.span`
 export const Subtitle = styled.p`
   ${({ theme }) => theme.typography.label1Regular}
   color: ${({ theme }) => theme.colors.gray[700]};
-  margin: 0 0 ${({ theme }) => theme.spacing.spacing1} 0;
-  text-align: center;
 `;
 
 export const ProductName = styled.h6`

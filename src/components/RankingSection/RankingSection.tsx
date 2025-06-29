@@ -62,7 +62,7 @@ const RankingSection = () => {
       <S.Grid>
         {(isExpanded ? rankingItems : rankingItems.slice(0, 6)).map((item, index) => (
           <ItemCard 
-            key={`${item.id}-${index}`}
+            key={item.id} //key 간소화
             imageUrl={item.imageURL}
             title={item.name}
             subtitle={item.brandInfo.name}
