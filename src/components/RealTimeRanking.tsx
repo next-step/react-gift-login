@@ -13,20 +13,15 @@ const formatPrice = (price: number) => {
   return `${price} 원`;
 };
 
-const getProfileIconText = (filter: TargetFilter) => {
-  switch (filter) {
-    case '전체':
-      return 'ALL';
-    case '여성이':
-      return '👩🏻';
-    case '남성이':
-      return '👨🏻';
-    case '청소년이':
-      return '👦🏻';
-    default:
-      return 'ALL';
-  }
+const profileIconMap: Record<TargetFilter, string> = {
+  전체: 'ALL',
+  여성이: '👩🏻',
+  남성이: '👨🏻',
+  청소년이: '👦🏻',
 };
+
+const getProfileIconText = (filter: TargetFilter) =>
+  profileIconMap[filter] || 'ALL';
 
 const Container = styled.div`
   padding: ${theme.spacing.spacing4};
