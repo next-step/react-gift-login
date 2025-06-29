@@ -2,12 +2,9 @@
 import { Global, ThemeProvider, css } from '@emotion/react';
 import { reset } from './styles/reset';
 import { theme } from './styles/theme';
-import { FriendSelect } from './components/FriendSelect';
-import { Header } from './components/Header';
-import { GiftThemeGrid } from './components/GiftThemeGrid';
-import { YellowBanner } from './components/YellowBanner';
-import { RankingGrid } from './components/RankingGrid';
-import GiftRankingFilter from './components/GiftRankingFilter';
+import Login from './pages/Login';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
 
 const containerStyle = css`
   max-width: 720px;
@@ -21,12 +18,12 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <Global styles={reset} />
       <div css={containerStyle}>
-        <Header />
-        <FriendSelect />
-        <GiftThemeGrid />
-        <YellowBanner />
-        <GiftRankingFilter />
-        <RankingGrid />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </BrowserRouter>
       </div>
     </ThemeProvider>
   );
