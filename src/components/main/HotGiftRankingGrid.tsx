@@ -1,4 +1,5 @@
 import { generateMockArray } from "@/__mock__/generate-mock-array";
+import { Button } from "@/components/common";
 import styled from "@emotion/styled";
 import { useState } from "react";
 
@@ -63,22 +64,6 @@ const HotGiftPriceText = styled.p(props => ({
   color: `${props.theme.color.gray[900]}`,
 }));
 
-const HotGiftMoreButton = styled.button(props => ({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  width: "75%",
-  padding: `${props.theme.spacing4} ${props.theme.spacing6}`,
-  backgroundColor: "white",
-  color: `${props.theme.color.gray[900]}`,
-  fontSize: `${props.theme.typography.label1Bold.fontSize}`,
-  fontWeight: `${props.theme.typography.label1Bold.fontWeight}`,
-  border: "1px solid rgb(220,222,227)",
-  borderRadius: `${props.theme.spacing2}`,
-  cursor: "pointer",
-  transition: "all 0.2s ease",
-}));
-
 const ButtonContainer = styled.div(props => ({
   display: "flex",
   justifyContent: "center",
@@ -116,17 +101,27 @@ export const HotGiftRankingGrid = () => {
 
       {!showMore && mockData.length > INITIAL_SHOW_COUNT && (
         <ButtonContainer>
-          <HotGiftMoreButton onClick={() => setShowMore(true)}>
+          <Button
+            variant="secondary"
+            size="medium"
+            width="75%"
+            onClick={() => setShowMore(true)}
+          >
             더보기
-          </HotGiftMoreButton>
+          </Button>
         </ButtonContainer>
       )}
 
       {showMore && (
         <ButtonContainer>
-          <HotGiftMoreButton onClick={() => setShowMore(false)}>
-            접기
-          </HotGiftMoreButton>
+          <Button
+            variant="secondary"
+            size="medium"
+            width="75%"
+            onClick={() => setShowMore(true)}
+          >
+            더보기
+          </Button>
         </ButtonContainer>
       )}
     </>
