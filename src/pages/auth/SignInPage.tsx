@@ -1,7 +1,6 @@
 import kakaoLogo from "@/app/assets/kakao-logo.svg";
 
-import { useRedirect } from "@/features/auth/hooks/useRedirect";
-
+import { useRedirect } from "@/shared/hooks/useRedirect";
 import { Button, Input } from "@/shared/ui";
 
 import { VerticalSpacing } from "@/widgets/layouts/Spacing.styled";

@@ -4,7 +4,7 @@ import { ChevronLeft, User } from "lucide-react";
 
 import kakaoGiftLogo from "@/app/assets/kakao-gift-logo.png";
 
-import { useRedirect } from "@/features/auth/hooks/useRedirect";
+import { useRedirect } from "@/shared/hooks/useRedirect";
 
 import * as Styles from "./NavTop.styled";
 
