@@ -1,11 +1,14 @@
 import styled from '@emotion/styled';
+import Text from '@/components/Text';
 
 const SelectReceiverNotice = () => {
   return (
     <Layout>
       <Content>
         <SelectReceiveBtn></SelectReceiveBtn>
-        <SelectReceiveText>선물할 친구를 선택해주세요.</SelectReceiveText>
+        <Text fontSize="subtitle1Bold" fontWeight="subtitle1Bold">
+          선물할 친구를 선택해주세요.
+        </Text>
       </Content>
     </Layout>
   );
@@ -38,10 +41,4 @@ const SelectReceiveBtn = styled.button`
   height: 42px;
   border-radius: ${({ theme }) => theme.spacing.spacing4};
   border: 0px;
-`;
-
-const SelectReceiveText = styled.text`
-  font-size: ${({ theme }) => theme.typography.title2Bold.fontSize};
-  font-weight: ${({ theme }) => theme.typography.title2Bold.fontWeight};
-  color: ${({ theme }) => theme.colors.textDefault};
 `;

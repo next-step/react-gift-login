@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import Text from '@/components/Text';
 
 interface CategoryBtnProps {
   name: string;
@@ -9,7 +10,9 @@ const CategoryBtn = ({ name, image }: CategoryBtnProps) => {
   return (
     <Content>
       <Image src={image} alt={name} />
-      <Label>{name}</Label>
+      <Text fontSize="label2Regular" fontWeight="label2Regular">
+        {name}
+      </Text>
     </Content>
   );
 };
@@ -30,10 +33,4 @@ const Image = styled.img`
   object-fit: cover;
   border-radius: 50%;
   margin-bottom: ${({ theme }) => theme.spacing.spacing1};
-`;
-
-const Label = styled.div`
-  font-size: ${({ theme }) => theme.typography.label2Regular.fontSize};
-  font-weight: ${({ theme }) => theme.typography.label2Regular.fontWeight};
-  text-align: center;
 `;

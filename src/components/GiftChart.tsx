@@ -1,6 +1,7 @@
-import styled from '@emotion/styled';
 import { useState } from 'react';
+import styled from '@emotion/styled';
 import ProductCard from '@/components/ProductCard';
+import Text from '@/components/Text';
 
 const categories = ['전체', '여성이', '남성이', '청소년이'] as const;
 type CategoryType = (typeof categories)[number];
@@ -25,8 +26,9 @@ const GiftChart: React.FC = () => {
 
   return (
     <Layout>
-      <TitleText>실시간 급상승 선물랭킹</TitleText>
-
+      <Text fontSize="title1Bold" fontWeight="title2Bold">
+        실시간 급상승 선물랭킹
+      </Text>
       <CategoryContainer>
         {categories.map((category) => (
           <CategoryBox
@@ -67,13 +69,8 @@ const Layout = styled.div`
   padding: ${({ theme }) => theme.spacing.spacing6};
 `;
 
-const TitleText = styled.h2`
-  font-size: ${({ theme }) => theme.typography.title1Bold.fontSize};
-  font-weight: ${({ theme }) => theme.typography.subtitle2Bold.fontWeight};
-  margin-bottom: ${({ theme }) => theme.spacing.spacing7};
-`;
-
 const CategoryContainer = styled.div`
+  margin-top: ${({ theme }) => theme.spacing.spacing7};
   display: flex;
   justify-content: space-between;
   margin-bottom: ${({ theme }) => theme.spacing.spacing7};

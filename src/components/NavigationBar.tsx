@@ -1,12 +1,16 @@
 import styled from '@emotion/styled';
 import { IoIosArrowBack } from 'react-icons/io';
 import { LuUserRound } from 'react-icons/lu';
+import Text from '@/components/Text';
 
 const NavigationBar = () => {
   return (
     <Layout>
       <IoIosArrowBack size={25} />
-      <Container>선물하기</Container>
+      <Text fontSize="title1Bold" fontWeight="title2Bold">
+        선물하기
+      </Text>
+
       <LuUserRound size={25} />
     </Layout>
   );
@@ -25,9 +29,4 @@ const Layout = styled.div`
   align-items: center;
   height: 44px;
   background-color: ${({ theme }) => theme.colors.gray00};
-`;
-
-const Container = styled.div`
-  font-size: ${({ theme }) => theme.typography.title1Bold.fontSize};
-  font-weight: ${({ theme }) => theme.typography.title2Bold.fontWeight};
 `;
