@@ -4,7 +4,7 @@ import App from "./App.tsx";
 import { Global, ThemeProvider } from "@emotion/react";
 import { GlobalResetStyle } from "@styles/index";
 import { theme } from "@styles/index";
-import { Container } from "@/components/Container.tsx";
+import { Container } from "@/components/layout/Container";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
