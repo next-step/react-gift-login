@@ -10,15 +10,20 @@ import {
 } from './Login.styles';
 import { LOGIN_LABELS } from './constants/labels';
 import Layout from '@/layout';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: 로그인 로직 구현
-    console.log('Login attempt:', { email, password });
+
+    const history = location.state?.history || '/';
+    navigate(history, { replace: true });
   };
 
   return (
