@@ -7,16 +7,23 @@ import Text from '@/common/Text';
 const NavigationBar = () => {
   const navigate = useNavigate();
 
-  const gotoLogin = () => {
-    navigate(`/login`);
-  };
   return (
     <Layout>
-      <IoIosArrowBack size={25} />
+      <IoIosArrowBack
+        size={25}
+        onClick={() => {
+          navigate(-1);
+        }}
+      />
       <Text fontSize="title1Bold" fontWeight="title2Bold">
         선물하기
       </Text>
-      <LuUserRound size={25} onClick={gotoLogin} />
+      <LuUserRound
+        size={25}
+        onClick={() => {
+          navigate(`/login`);
+        }}
+      />
     </Layout>
   );
 };
