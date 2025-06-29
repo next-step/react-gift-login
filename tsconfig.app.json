@@ -24,7 +24,14 @@
       "@/hooks/*": ["src/hooks/*"],
       "@/utils/*": ["src/utils/*"],
       "@/types/*": ["src/types/*"],
-      "@/assets/*": ["src/assets/*"]
+      "@/assets/*": ["src/assets/*"],
+      "@/data/*": ["src/data/*"],
+      "@/styles/*": ["src/styles/*"],
+      "@/layout/*": ["src/components/layout/*"],
+      "@/navigation/*": ["src/components/navigation/*"],
+      "@/category/*": ["src/components/category/*"],
+      "@/misc/*": ["src/components/misc/*"],
+      "@/ranking/*": ["src/components/ranking/*"]
     },
 
     /* Linting */

@@ -1,137 +1,53 @@
 # React Gift Login
 
-React + TypeScript + Vite를 사용한 선물 로그인 애플리케이션입니다.
+카카오 선물하기 메인 페이지를 React + TypeScript + Vite + Emotion으로 구현.
 
-## 🚀 구현된 기능 목록
+## 개발 진행 과정
 
-### ✅ 완료된 기능
+### 1. Emotion에 Color, Typography 토큰 설정
 
-#### 1. 프로젝트 초기 설정 및 정리
-- [x] 불필요한 파일 및 코드 정리
-  - 기본 Vite 템플릿의 카운터 기능 제거
-  - 불필요한 CSS 스타일 정리
-  - 로고 이미지 파일들 삭제
-  - 페이지 제목 업데이트
-  - 깔끔한 기본 App 컴포넌트로 변경
+- **Design Token 시스템 구축**: `src/styles/`
+- **색상 토큰**: Gray, Yellow, Brown, Blue, Red 색상 스케일 + 카카오 브랜드 컬러(#fee500)
+- **타이포그래피 토큰**: Title, Subtitle, Body, Label 체계
+- **간격 토큰**: spacing1~16 일관된 간격 시스템
+- **ThemeProvider**: 전역 테마 시스템 적용
 
-#### 2. 개발 환경 설정
-- [x] 절대경로 Import(alias) 설정
-  - TypeScript 설정에 baseUrl과 paths 추가
-  - Vite 설정에 alias 추가
-  - @types/node devDependencies 추가
-  - 절대경로 import 테스트용 컴포넌트 생성
+### 2. Mobile First Design 기반의 Layout 구현
 
-#### 3. 코드 품질 도구
-- [x] Prettier 코드 포맷터 추가
-  - Prettier 설치 및 기본 설정
-  - 세미콜론 사용, 작은따옴표 사용
-  - 80자 줄 길이 제한, 2칸 들여쓰기
-  - format 스크립트 추가 (`npm run format`)
-  - .prettierignore 설정
+- **720px 제한** 모바일 중심 UI 설계
+- **MobileLayout**: 전체 앱 레이아웃 컨테이너
+- **Header**: Sticky 네비게이션 헤더
+- **Main**: 메인 콘텐츠 영역
+- **Section**: 재사용 가능한 섹션 컴포넌트 (spacing 옵션)
+- **터치 친화적**: 44px 최소 터치 영역, iOS 스크롤 최적화
 
-#### 4. 스타일링 시스템
-- [x] Emotion CSS-in-JS 라이브러리 추가
-  - @emotion/react, @emotion/styled, @emotion/babel-plugin 설치
-  - Vite 설정에 Emotion 플러그인 추가
-  - 스타일 컴포넌트 예제 생성 (Button, SecondaryButton)
-  - App.css 삭제하고 Emotion으로 대체
+### 3. 상단 네비게이션 바 영역 구현
 
-- [x] Reset CSS 적용
-  - 브라우저 기본 스타일 초기화
-  - 일관된 스타일링을 위한 기본 설정
+- **NavigationBar**: [<] [선물하기] [👤] 구조
+- **페이지 라우팅**: useState 기반 상태 관리
+- **LoginPage**: 카카오 브랜드 아이덴티티 로그인 페이지
+- **HomePage**: 메인 선물하기 페이지
+- 프로필 버튼 → 로그인, 뒤로가기 → 메인 페이지 이동
 
-#### 5. 폰트 시스템
-- [x] Pretendard 폰트 적용
-  - Pretendard CDN 링크 추가
-  - 전역 기본 폰트를 Pretendard로 변경
-  - 모든 스타일 컴포넌트에 Pretendard 폰트 적용
-  - TestComponent를 스타일 컴포넌트로 개선
+### 4. 카테고리 섹션 구현
 
-### 🔄 진행 예정 기능
+- **CategoryGrid**: CSS Grid 기반 **5x3 그리드** 레이아웃
+- **CategoryItem**: 원형 아이콘 + 하단 라벨 구조
+- **"선물 테마"** 섹션으로 15개 카테고리 표시
+- 이미지 URL과 이모지 모두 지원, 터치 인터랙션 최적화
 
-#### 6. 선물 로그인 기능 (예정)
-- [ ] 로그인 페이지 구현
-- [ ] 회원가입 페이지 구현
-- [ ] 선물 목록 페이지 구현
-- [ ] 선물 상세 페이지 구현
-- [ ] 사용자 프로필 페이지 구현
+### 5. 기타 섹션 (선물할 친구 선택, 카테캠 화이팅) UI 구현
 
-## 🛠 기술 스택
+- **FriendSelectSection**: 노란색 + 버튼 + "선물할 친구를 선택해 주세요."
+- **PromoSection**: 카카오 옐로우 배경 + "카카오 테크 캠퍼스 3기여러분 프론트엔드 2단계 과제 화이팅!"
+- 카카오 브랜드 컬러 활용한 일관된 디자인
 
-- **Frontend Framework**: React 19.1.0
-- **Language**: TypeScript
-- **Build Tool**: Vite 6.3.5
-- **Styling**: Emotion (CSS-in-JS)
-- **Font**: Pretendard
-- **Code Quality**: ESLint, Prettier
-- **Package Manager**: npm
+### 6. 실시간 급상승 선물랭킹 구현
 
-## 📦 설치 및 실행
-
-### 의존성 설치
-```bash
-npm install
-```
-
-### 개발 서버 실행
-```bash
-npm run dev
-```
-
-### 빌드
-```bash
-npm run build
-```
-
-### 코드 포맷팅
-```bash
-npm run format
-```
-
-### 린팅
-```bash
-npm run lint
-```
-
-## 📁 프로젝트 구조
-
-```
-react-gift-login/
-├── src/
-│   ├── components/
-│   │   ├── TestComponent.tsx      # 절대경로 import 테스트 컴포넌트
-│   │   └── StyledButton.tsx       # Emotion 스타일 버튼 컴포넌트
-│   ├── App.tsx                    # 메인 App 컴포넌트
-│   ├── main.tsx                   # React 앱 진입점
-│   └── index.css                  # Reset CSS
-├── public/
-├── package.json
-├── vite.config.ts                 # Vite 설정 (alias, Emotion 플러그인)
-├── tsconfig.json                  # TypeScript 설정
-├── .prettierrc                    # Prettier 설정
-└── .prettierignore                # Prettier 무시 파일
-```
-
-## 🎯 커밋 컨벤션
-
-AngularJS Git Commit Message Conventions을 따릅니다:
-
-- `feat`: 새로운 기능 추가
-- `fix`: 버그 수정
-- `docs`: 문서 수정
-- `style`: 코드 포맷팅, 세미콜론 누락 등
-- `refactor`: 코드 리팩토링
-- `test`: 테스트 코드 추가/수정
-- `chore`: 빌드 프로세스 또는 보조 도구 변경
-
-### 커밋 예시
-```
-feat: 절대경로 import(alias) 설정 및 테스트 컴포넌트 추가
-chore: Prettier 코드 포맷터 추가 및 기본 설정
-feat: Emotion CSS-in-JS 라이브러리 추가 및 Reset CSS 적용
-feat: Pretendard 폰트 적용
-```
-
-##  라이선스
-
-MIT License
+- **이중 필터 시스템**:
+  - 상단: 전체/여성이/남성이/청소년이
+  - 하단: 받고싶어한/많이선물한/위시로받은
+- **ProductGrid**: **3x2 → 3x7** 확장 가능한 반응형 그리드
+- **순위 배지**: 1,2,3등 빨간색 강조, 나머지 회색
+- **더보기 기능**: 6개 → 21개 상품 확장
+- BBQ 상품 데이터 활용한 랭킹 시스템
