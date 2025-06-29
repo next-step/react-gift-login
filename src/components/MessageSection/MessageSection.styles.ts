@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
-export const Section = styled.section`
+// 리뷰1 section에서 div로 변경
+export const Div = styled.div`
   padding: ${({ theme }) => theme.spacing.spacing4};
   background-color: white;
 `;
