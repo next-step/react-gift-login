@@ -6,4 +6,11 @@ export const baseStyles = css`
     *::after {
         box-sizing: border-box;
     }
+
+    a,
+    a:visited,
+    a:focus {
+        text-decoration: none;
+        color: inherit;
+    }
 `;
