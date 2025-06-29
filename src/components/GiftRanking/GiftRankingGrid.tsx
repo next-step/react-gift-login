@@ -1,0 +1,68 @@
+import { useState } from 'react';
+import styled from '@emotion/styled';
+import GiftItemCard from './GiftItemCard';
+import GiftRankingFilter from './GiftRankingFilter';
+import GiftRankingTab from './GiftRankingTab';
+import { giftItems } from '@/mock/giftItems';
+
+type GiftItem = typeof giftItems[number];
+
+const INITIAL_VISIBLE_COUNT = 6;
+
+const GiftRankingGrid = () => {
+  const [showAll, setShowAll] = useState(false);
+  const visibleItems = showAll ? giftItems : giftItems.slice(0, INITIAL_VISIBLE_COUNT);
+
+  return (
+    <Wrapper>
+      <Title>실시간 급상승 선물랭킹</Title>
+
+      <GiftRankingFilter />
+      <GiftRankingTab />
+
+      <Container>
+        {visibleItems.map((item: GiftItem) => (
+          <GiftItemCard key={item.id} item={item} />
+        ))}
+      </Container>
+
+      <ToggleButton onClick={() => setShowAll(prev => !prev)}>
+        {showAll ? '접기' : '더보기'}
+      </ToggleButton>
+    </Wrapper>
+  );
+};
+
+
+const Wrapper = styled.div`
+  padding: 24px 16px;
+`;
+
+const Title = styled.h2`
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: ${({ theme }) => theme.textColors.default};
+`;
+
+const Container = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+`;
+
+const ToggleButton = styled.button`
+  margin-top: 16px;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: ${({ theme }) => theme.colors.gray200};
+  color: ${({ theme }) => theme.textColors.default};
+  border: 1px solid ${({ theme }) => theme.borderColors.default};
+  border-radius: 8px;
+  width: 100%;
+  cursor: pointer;
+`;
+
+
+export default GiftRankingGrid;
