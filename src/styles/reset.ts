@@ -86,6 +86,7 @@ export const reset = css`
     margin: 0;
     padding: 0;
     border: 0;
+    font-family: 'Pretendard Variable', sans-serif;
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
