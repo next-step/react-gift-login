@@ -1,37 +1,13 @@
 import { useNavigate } from "react-router";
 import styled from "@emotion/styled";
 import KakaoLogo from "@/assets/kakaologo.svg";
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-`;
+import PageContainer from "@/components/PageContainer";
+import Input from "@/components/Input";
 
 const LogoImage = styled.img`
   width: 88px;
   height: auto;
   margin-bottom: ${({ theme }) => theme.spacing.spacing6};
-`;
-
-const Input = styled.input`
-  ${({ theme }) => theme.typography.body.body1Regular};
-  width: 100%;
-  max-width: 320px;
-  padding: 12px;
-  margin-bottom: ${({ theme }) => theme.spacing.spacing3};
-  border: none;
-  border-bottom: 1px solid ${({ theme }) => theme.color.semantic.borderDefault};
-  &::placeholder {
-    color: ${({ theme }) => theme.color.gray.gray700};
-  }
-
-  &:focus {
-    outline: none;
-    border-color: ${({ theme }) => theme.color.gray.gray700};
-  }
 `;
 
 const Button = styled.button`
@@ -64,11 +40,11 @@ export default function LoginPage() {
   };
 
   return (
-    <Container>
+    <PageContainer>
       <LogoImage src={KakaoLogo} alt="kakao logo" />
       <Input type="email" placeholder="이메일" />
       <Input type="password" placeholder="비밀번호" />
       <Button onClick={handleLogin}>로그인</Button>
-    </Container>
+    </PageContainer>
   );
 }
