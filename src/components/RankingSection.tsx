@@ -18,13 +18,13 @@ const Title = styled.h2`
   margin-bottom: ${({ theme }) => theme.spacing.spacing3};
 `
 
-const TabRow = styled.div`
+const UserGroupTab = styled.div`
   display: flex;
   gap: 12px;
   margin-bottom: 12px;
 `
 
-const TabButton = styled.button<{ isSelected: boolean }>`
+const UserTab = styled.button<{ isSelected: boolean }>`
   flex: 1;
   padding: 8px 0;
   border-radius: 12px;
@@ -47,7 +47,7 @@ const Avatar = styled.div`
   margin: 0 auto 4px;
 `
 
-const SubTabRow = styled.div`
+const TrendGroupTab = styled.div`
   display: flex;
   background-color: #f7f9fc;
   border-radius: 10px;
@@ -55,7 +55,7 @@ const SubTabRow = styled.div`
   margin-bottom: 16px;
 `
 
-const SubTabButton = styled.button<{ isSelected: boolean }>`
+const TrendTab = styled.button<{ isSelected: boolean }>`
   flex: 1;
   text-align: center;
   color: ${({ isSelected }) => (isSelected ? '#3558e1' : '#a1a7b3')};
@@ -129,7 +129,7 @@ const RankingSection = () => {
   }
 
   const visibleCount = isExpanded ? fullCount : initCount
-  const fullList = Array.from({ length: fullCount }, (_, i) => ({
+  const productList = Array.from({ length: fullCount }, (_, i) => ({
     ...productMockData[0],
     id: productMockData[0].id + i,
   }))
@@ -138,33 +138,33 @@ const RankingSection = () => {
     <SectionWrapper>
       <Title>실시간 급상승 선물랭킹</Title>
 
-      <TabRow>
+      <UserGroupTab>
         {genderTabs.map((tab) => (
-          <TabButton
+          <UserTab
             key={tab}
             isSelected={selectedGender === tab}
             onClick={() => setSelectedGender(tab)}
           >
             {tab === '전체' ? <span className="all">ALL</span> : <Avatar />}
             <span>{tab}</span>
-          </TabButton>
+          </UserTab>
         ))}
-      </TabRow>
+      </UserGroupTab>
 
-      <SubTabRow>
+      <TrendGroupTab>
         {rankTabs.map((tab) => (
-          <SubTabButton
+          <TrendTab
             key={tab}
             isSelected={selectedRank === tab}
             onClick={() => setSelectedRank(tab)}
           >
             {tab}
-          </SubTabButton>
+          </TrendTab>
         ))}
-      </SubTabRow>
+      </TrendGroupTab>
 
       <ProductGrid>
-        {fullList.slice(0, visibleCount).map((item, idx) => (
+        {productList.slice(0, visibleCount).map((item, idx) => (
           <ProductCard key={item.id}>
             <Badge>{idx + 1}</Badge>
             <img src={item.imageURL} alt={item.name} />
