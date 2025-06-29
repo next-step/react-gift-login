@@ -1,7 +1,16 @@
 import styled from '@emotion/styled'
 import { Navbar } from '@/components/Navbar'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 export function LoginPage() {
+  const navigate = useNavigate()
+  const location = useLocation()
+  const from = location.state?.from?.pathname || '/'
+
+  const handleLogin = () => {
+    navigate(from, { replace: true })
+  }
+
   return (
     <>
       <Navbar />
@@ -10,7 +19,7 @@ export function LoginPage() {
         <Form>
           <Input type="email" placeholder="이메일" />
           <Input type="password" placeholder="비밀번호" />
-          <LoginButton>로그인</LoginButton>
+          <LoginButton onClick={handleLogin}>로그인</LoginButton>
         </Form>
       </Container>
     </>
