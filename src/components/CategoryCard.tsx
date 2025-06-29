@@ -8,7 +8,7 @@ interface CategoryCardProps {
 const Card = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;;
+  align-items: center;
   gap: 8px;
 `;
 
