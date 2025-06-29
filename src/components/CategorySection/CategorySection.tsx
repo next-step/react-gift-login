@@ -1,4 +1,5 @@
 import { categories } from '../../data/categories';
+import ItemCard from '../common/ItemCard/ItemCard';
 import * as S from './CategorySection.styles';
 
 const CategorySection = () => {
@@ -7,13 +8,12 @@ const CategorySection = () => {
       <S.Title>선물 테마</S.Title>
       <S.Grid>
         {categories.slice(0, 15).map((category) => (
-          <S.Item key={category.themeId}>
-            <S.Image 
-              src={category.image}
-              alt={category.name}
-            />
-            <S.Name>{category.name}</S.Name>
-          </S.Item>
+          <ItemCard 
+            key={category.themeId}
+            imageUrl={category.image}
+            title={category.name}
+            variant="category"
+          />
         ))}
       </S.Grid>
     </S.Section>

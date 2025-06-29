@@ -77,61 +77,6 @@ export const Grid = styled.div`
   margin-bottom: ${({ theme }) => theme.spacing.spacing4};
 `;
 
-export const Item = styled.div`
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-  position: relative;
-`;
-
-export const RankBadge = styled.span<{ rank: number }>`
-  position: absolute;
-  top: ${({ theme }) => theme.spacing.spacing1};
-  left: ${({ theme }) => theme.spacing.spacing1};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  background-color: ${({ theme, rank }) => rank <= 3 ? theme.colors.red[600] : theme.colors.gray[600]};
-  border-radius: 4px;
-  ${({ theme }) => theme.typography.label2Bold}
-  color: white;
-  z-index: 1;
-`;
-
-export const ItemImage = styled.img`
-  width: 100%;
-  aspect-ratio: 1;
-  border-radius: 8px;
-  margin-bottom: ${({ theme }) => theme.spacing.spacing2};
-  object-fit: cover;
-`;
-
-export const BrandName = styled.p`
-  ${({ theme }) => theme.typography.label1Regular}
-  color: ${({ theme }) => theme.colors.gray[700]};
-  margin-bottom: ${({ theme }) => theme.spacing.spacing1};
-`;
-
-export const ProductName = styled.h6`
-  ${({ theme }) => theme.typography.body2Regular}
-  margin: 0;
-  text-align: left;
-  margin-bottom: ${({ theme }) => theme.spacing.spacing2};
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-`;
-
-export const Price = styled.p`
-  ${({ theme }) => theme.typography.title2Bold}
-  color: ${({ theme }) => theme.semantic.text.default};
-  margin: 0;
-  text-align: left;
-  word-break: break-word;
-`;
-
 export const MoreButton = styled.button`
   width: 70%;
   padding: ${({ theme }) => theme.spacing.spacing3};

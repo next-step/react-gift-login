@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { rankingItems, genderItems, actionItems } from '../../data/ranking';
+import ItemCard from '../common/ItemCard/ItemCard';
 import * as S from './RankingSection.styles';
 
 const RankingSection = () => {
@@ -60,13 +61,15 @@ const RankingSection = () => {
 
       <S.Grid>
         {(isExpanded ? rankingItems : rankingItems.slice(0, 6)).map((item, index) => (
-          <S.Item key={`${item.id}-${index}`}>
-            <S.RankBadge rank={index + 1}>{index + 1}</S.RankBadge>
-            <S.ItemImage src={item.imageURL} alt={item.name} />
-            <S.BrandName>{item.brandInfo.name}</S.BrandName>
-            <S.ProductName>{item.name}</S.ProductName>
-            <S.Price>{item.price.sellingPrice.toLocaleString()} <span>원</span></S.Price>
-          </S.Item>
+          <ItemCard 
+            key={`${item.id}-${index}`}
+            imageUrl={item.imageURL}
+            title={item.name}
+            subtitle={item.brandInfo.name}
+            price={item.price.sellingPrice}
+            rank={index + 1}
+            variant="product"
+          />
         ))}
       </S.Grid>
 

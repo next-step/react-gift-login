@@ -16,23 +16,4 @@ export const Grid = styled.div`
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(3, 1fr);
   row-gap: ${({ theme }) => theme.spacing.spacing5};
-`;
-
-export const Item = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-`;
-
-export const Image = styled.img`
-  width: 52px;
-  height: 52px;
-  margin-bottom: ${({ theme }) => theme.spacing.spacing1};
-`;
-
-export const Name = styled.span`
-  ${({ theme }) => theme.typography.label2Regular}
-  color: ${({ theme }) => theme.semantic.text.default};
-  text-align: center;
 `; 
