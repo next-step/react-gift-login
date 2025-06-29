@@ -1,5 +1,5 @@
-import styled from '@emotion/styled';
-
+import styled from "@emotion/styled";
+import type { personProps } from "./types";
 
 const PersonCategoryWrapper = styled.div`
   display: flex;
@@ -14,40 +14,35 @@ const PersonBtn = styled.button`
   width: 3.625rem;
   gap: 4px;
 `;
-const PersonImage = styled.div`
-  ${({ theme }) => theme.typography.subtitle2Bold};
+const PersonImage = styled.div<{ selected: boolean }>`
   width: 2.75rem;
   height: 2.75rem;
   border-radius: 1rem;
-
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.state.infoBackground};
-  color: ${({ theme }) => theme.colors.blue.blue400};
+
+  ${({ theme }) => theme.typography.subtitle2Bold};
+  background-color: ${({ selected, theme }) =>
+    selected ? theme.colors.blue.blue700 : theme.colors.state.infoBackground};
+  color: ${({ selected, theme }) =>
+    selected ? theme.colors.gray.gray00 : theme.colors.blue.blue400};
 `;
-const PersonCategory = () => {
-    
+
+const PersonCategory = ({ options, selected, onSelect }: personProps) => {
   return (
     <PersonCategoryWrapper>
-      <PersonBtn>
-        <PersonImage>ALL</PersonImage>
-        <p>전체</p>
-      </PersonBtn>
-      <PersonBtn>
-        <PersonImage>👩🏻</PersonImage>
-        <p>여성이</p>
-      </PersonBtn>
-      <PersonBtn>
-        <PersonImage>👨🏻</PersonImage>
-        <p>남성이</p>
-      </PersonBtn>
-      <PersonBtn>
-        <PersonImage>👦🏻</PersonImage>
-        <p>청소년이</p>
-      </PersonBtn>
+      {options.map((o) => (
+        <PersonBtn key={o.label} onClick={() => onSelect(o)}>
+          <PersonImage selected={selected.label === o.label}>
+            {o.emoji}
+          </PersonImage>
+          <p>{o.label}</p>
+        </PersonBtn>
+      ))}
+
     </PersonCategoryWrapper>
   );
-}
+};
 
-export default PersonCategory
+export default PersonCategory;

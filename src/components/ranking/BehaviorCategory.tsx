@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import type { behaviorProps } from './types';
 
 const BehaviorCategoryWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.state.infoBackground};
@@ -9,11 +10,11 @@ const BehaviorCategoryWrapper = styled.div`
   border-radius: 0.5rem;
   padding: ${({ theme }) => theme.spacing.spacing3} ${({ theme }) => theme.spacing.spacing4};
 `;
-const BehaviorTextButton = styled.button`
+const BehaviorTextButton = styled.button<{selected:boolean}>`
   width: 100%;
 
   ${({ theme }) => theme.typography.subtitle2Bold};
-  color: ${({ theme }) => theme.colors.state.info};
+  color: ${({ selected, theme }) => selected?theme.colors.state.info:theme.colors.blue.blue400};
   display: flex;
   justify-content: center;
   transition:
@@ -21,15 +22,16 @@ const BehaviorTextButton = styled.button`
     font-weight 200ms;
 `;
 
-const BehaviorCategory = () => {
+const BehaviorCategory = ({ options, selected, onSelect }: behaviorProps) => {
   return (
-     <BehaviorCategoryWrapper>
-        <BehaviorTextButton>받고 싶어한</BehaviorTextButton>
-        <BehaviorTextButton>많이 선물한</BehaviorTextButton>
-        <BehaviorTextButton>위시로 받은</BehaviorTextButton>
-      </BehaviorCategoryWrapper>
-  )
-}
+    <BehaviorCategoryWrapper>
+      {options.map((o) => (
+        <BehaviorTextButton key={o} onClick={()=>onSelect(o)} selected={selected===o}>{o}</BehaviorTextButton>
+      ))}
+      
+    </BehaviorCategoryWrapper>
+  );
+};
 
 export default BehaviorCategory
  
