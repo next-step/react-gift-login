@@ -1,33 +1,33 @@
 import styled from '@emotion/styled'
 
-const SelectFriendsWrapper = styled.div`
-  width: 100%;
-  height: 120px;
+const FriendSelectorWrapper = styled.div`
+  width: auto;
+  height: 65px;
+  padding: 14px;
   background-color: ${({ theme }) => theme.colors.gray[200]};
-  padding: 20px;
-  box-sizing: border-box;
 `
 
-const SelectFriendsBox = styled.div`
+const FriendSelectorBox = styled.div`
+  width: auto;
+  height: auto;
+  padding: 13px;
   background-color: ${({ theme }) => theme.colors.gray[0]};
   border-radius: 15px;
-  width: 100%;
-  height: 100%;
-  padding: 12px;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: left;
   cursor: pointer;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 `
 
-const SelectFriendsBoxPlusButton = styled.div`
-  width: 50px;
-  height: 50px;
+const FriendSelectorBoxBtn = styled.div`
+  width: 40px;
+  height: 40px;
   background-color: ${({ theme }) => theme.colors.semantic.kakaoYellow};
   border-radius: 15px;
+
   display: flex;
   justify-content: center;
-  align-items: center;
 
   &::before {
     content: '+';
@@ -37,20 +37,21 @@ const SelectFriendsBoxPlusButton = styled.div`
   }
 `
 
-const SelectFriendsBoxText = styled.span`
-  font-size: 17px;
-  font-weight: bold;
-  padding: 20px 10px;
+const FriendSelectorBoxText = styled.p`
+  font-size: ${({ theme }) => theme.typography.subtitle1Bold.fontSize};
+  font-weight: ${({ theme }) => theme.typography.subtitle1Bold.fontWeight};
+  line-height: ${({ theme }) => theme.typography.subtitle1Bold.lineHeight};
+  margin-left: 12px;
 `
 
 function FriendSelector() {
     return (
-        <SelectFriendsWrapper>
-            <SelectFriendsBox>
-              <SelectFriendsBoxPlusButton></SelectFriendsBoxPlusButton>
-              <SelectFriendsBoxText>선물할 친구를 선택해 주세요.</SelectFriendsBoxText>
-            </SelectFriendsBox>
-          </SelectFriendsWrapper>
+        <FriendSelectorWrapper>
+          <FriendSelectorBox>
+            <FriendSelectorBoxBtn></FriendSelectorBoxBtn>
+            <FriendSelectorBoxText>선물할 친구를 선택해 주세요.</FriendSelectorBoxText>
+          </FriendSelectorBox>
+        </FriendSelectorWrapper>
     )
 }
 

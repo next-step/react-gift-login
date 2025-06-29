@@ -10,19 +10,11 @@ import Layout from './components/Layout'
 import categories from './mocks/category.mock'
 import itemList  from './mocks/iteml_list.mock'
 
-
-// 코드 분리중
+// 코드 분리
 import NavBar from './components/NavBar';
 import FriendSelector from './components/FriendSelector'
 import GiftCategorySelector from './components/GiftCategorySelector'
 import PromoBanner from './components/PromoBanner'
-
-const Main = styled.div`
-  background-color: ${({ theme }) => theme.colors.gray[0]};
-  width: 700px;
-  /* height: 100vh; */
-  margin: 0 auto;
-`
 
 const RealtimeRankWrapper = styled.div`
   width: 95%;
@@ -129,7 +121,6 @@ const RealtimeRankItemWrapper = styled.div`
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   box-sizing: border-box;
-  /* border: 1px solid black; */
 `
 
 const RealtimeItem = styled.div`
@@ -221,38 +212,36 @@ function App() {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Layout>
-        <Main>
-          <NavBar></NavBar>
-          <FriendSelector></FriendSelector>
-          <GiftCategorySelector></GiftCategorySelector>
-          <PromoBanner></PromoBanner>
-          {/* 코드 분리중 */}
-          <RealtimeRankWrapper>
-            <RealtimeRankTitle>실시간 급상승 선물랭킹</RealtimeRankTitle>
-            <RealtimeRankNavWrapper>
-              {rankGroup.map(({ group, label }) => (
-                <RealtimeRankNavBtnTitleWrapper>
-                <RealtimeRankNavBtn onClick={() => setSelectedGroup(group)} isSelected={selectedGroup === group}>{label}</RealtimeRankNavBtn>
-                <RealtimeRankNavTitle>전체</RealtimeRankNavTitle>
-                </RealtimeRankNavBtnTitleWrapper>
-              ))}
-            </RealtimeRankNavWrapper>
-            <RealtimeRankNav2Wrapper>
-              {rankTypes.map(({ type, label }) => (
-                <RealtimeRankNav2Btn key={type} onClick={() => setSelectRankingType(type)} isSelected={selectRankingType === type}>
-                  {label}
-                </RealtimeRankNav2Btn>
-              ))}
-            </RealtimeRankNav2Wrapper>
-            <RealtimeRankItemWrapper>
-              <RealtimeRankItemList collapsed={isCollapsed}>
-              </RealtimeRankItemList>
-            </RealtimeRankItemWrapper>
-          </RealtimeRankWrapper>
-          <ExtraBtnWrapper>
-            <ExtraBtn onClick={() => {setIsCollapsed(!isCollapsed);}}>{isCollapsed ? '더보기' : '접기'}</ExtraBtn>
-          </ExtraBtnWrapper>
-        </Main>
+        <NavBar></NavBar>
+        <FriendSelector></FriendSelector>
+        <GiftCategorySelector></GiftCategorySelector>
+        <PromoBanner></PromoBanner>
+        {/* 코드 분리중 */}
+        <RealtimeRankWrapper>
+          <RealtimeRankTitle>실시간 급상승 선물랭킹</RealtimeRankTitle>
+          <RealtimeRankNavWrapper>
+            {rankGroup.map(({ group, label }) => (
+              <RealtimeRankNavBtnTitleWrapper>
+              <RealtimeRankNavBtn onClick={() => setSelectedGroup(group)} isSelected={selectedGroup === group}>{label}</RealtimeRankNavBtn>
+              <RealtimeRankNavTitle>전체</RealtimeRankNavTitle>
+              </RealtimeRankNavBtnTitleWrapper>
+            ))}
+          </RealtimeRankNavWrapper>
+          <RealtimeRankNav2Wrapper>
+            {rankTypes.map(({ type, label }) => (
+              <RealtimeRankNav2Btn key={type} onClick={() => setSelectRankingType(type)} isSelected={selectRankingType === type}>
+                {label}
+              </RealtimeRankNav2Btn>
+            ))}
+          </RealtimeRankNav2Wrapper>
+          <RealtimeRankItemWrapper>
+            <RealtimeRankItemList collapsed={isCollapsed}>
+            </RealtimeRankItemList>
+          </RealtimeRankItemWrapper>
+        </RealtimeRankWrapper>
+        <ExtraBtnWrapper>
+          <ExtraBtn onClick={() => {setIsCollapsed(!isCollapsed);}}>{isCollapsed ? '더보기' : '접기'}</ExtraBtn>
+        </ExtraBtnWrapper>
       </Layout>
     </ThemeProvider>
   )
