@@ -14,7 +14,7 @@ const AppContainer = styled.div`
   display: flex;
   justify-content: center;
 
-  @media (min-width: ${theme.breakpoints.desktop}) {
+  @media (min-width: ${theme.breakpoints.desktop}px) {
     padding: 0 24px;
   }
 `;
@@ -26,7 +26,7 @@ const MobileViewport = styled.div`
   background: ${theme.colors.fill};
   position: relative;
 
-  @media (min-width: ${theme.breakpoints.desktop}) {
+  @media (min-width: ${theme.breakpoints.desktop}px) {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     border-radius: 16px;
   }
