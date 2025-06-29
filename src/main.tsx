@@ -1,13 +1,17 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
-import { reset } from '@styles/reset.ts'
-import { Global } from '@emotion/react'
+import { createRoot } from 'react-dom/client';
+import './index.css';
+import App from './App.tsx';
+import { reset } from '@styles/reset';
+import { Global, ThemeProvider } from '@emotion/react';
+import { theme } from './theme/theme';
+import { BrowserRouter } from 'react-router-dom';
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <Global styles={reset} />
-    <App />
-  </StrictMode>,
-)
+  <BrowserRouter>
+    <ThemeProvider theme={theme}>
+      <Global styles={reset} />
+      <App />
+    </ThemeProvider>
+  </BrowserRouter>
+);
+
