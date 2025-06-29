@@ -18,4 +18,5 @@ export const IconButton = styled.button`
 
 export const Logo = styled.img`
   height: 42px;
+  cursor: pointer;
 `; 
