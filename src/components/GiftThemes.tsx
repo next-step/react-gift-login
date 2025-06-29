@@ -1,8 +1,7 @@
-import React from "react";
 import { giftThemesData } from "../data/giftThemesData";
 import type { ThemeItem } from "../types/common";
 
-const GiftThemes: React.FC = () => {
+const GiftThemes = () => {
   return (
     <section className="mb-8">
       <h2 className="text-xl font-bold text-gray-800 mb-4">선물 테마</h2>

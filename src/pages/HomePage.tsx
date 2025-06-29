@@ -1,4 +1,3 @@
-import React from "react";
 import GiftThemes from "../components/GiftThemes";
 import RealtimeRanking from "../components/RealtimeRanking";
 import ProductCard from "../components/ProductCard";
@@ -8,7 +7,7 @@ import EnterTainment from "../components/EnterTainment";
 import { productListData } from "../data/productListData";
 import type { Product } from "../types/common";
 
-const HomePage: React.FC = () => {
+const HomePage = () => {
   return (
     <div className="container mx-auto px-4 py-6">
       <SelectFriends />

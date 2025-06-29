@@ -1,12 +1,10 @@
-import React from "react";
 import type { Product } from "../types/common.ts";
 
 interface ProductCardProps {
   product: Product;
   rank: number;
 }
-
-const ProductCard: React.FC<ProductCardProps> = ({ product, rank }) => {
+const ProductCard = ({ product, rank }: ProductCardProps) => {
   const formattedPrice =
     product.price.sellingPrice.toLocaleString("ko-KR") + "원";
 

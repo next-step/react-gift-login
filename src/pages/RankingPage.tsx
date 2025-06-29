@@ -1,6 +1,4 @@
-import React from "react";
-
-const RankingPage: React.FC = () => {
+const RankingPage = () => {
   return (
     <div className="container mx-auto px-4 py-6">
       <h2 className="text-2xl font-bold text-gray-800 mb-6">전체 랭킹</h2>

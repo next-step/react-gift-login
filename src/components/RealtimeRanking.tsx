@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
-const RealtimeRanking: React.FC = () => {
+const RealtimeRanking = () => {
   const [activeTab, setActiveTab] = useState("전체");
   const [activeSort, setActiveSort] = useState("받고 싶어한");
 

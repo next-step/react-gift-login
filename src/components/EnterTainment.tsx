@@ -1,6 +1,4 @@
-import React from "react";
-
-const EnterTainment: React.FC = () => {
+const EnterTainment = () => {
   return (
     <section className="my-8 p-4 bg-yellow-100 border-l-4 border-yellow-500 rounded-lg shadow-sm">
       <h2 className="text-base font-bold text-gray-800 flex items-center">

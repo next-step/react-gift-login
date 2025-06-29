@@ -1,6 +1,4 @@
-import React from "react";
-
-const MyGiftPage: React.FC = () => {
+const MyGiftPage = () => {
   return (
     <div className="container mx-auto px-4 py-6">
       <h2 className="text-2xl font-bold text-gray-800 mb-6">내 선물함</h2>
