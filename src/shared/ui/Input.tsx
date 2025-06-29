@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export interface InputProps extends React.ComponentProps<"input"> {}
+export type InputProps = React.ComponentProps<"input">;
 
 export const Input = styled.input<InputProps>`
     width: ${({ width }) => width};
