@@ -1,7 +1,7 @@
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { MobileLayout, Main } from '@/components/layout';
 import { NavigationBar } from '@/components/navigation';
-import { HomePage, LoginPage } from '@/pages';
+import { HomePage, LoginPage, NotFoundPage } from '@/pages';
 
 function App() {
   const location = useLocation();
@@ -23,9 +23,9 @@ function App() {
         };
       default:
         return {
-          title: '카카오 선물하기',
+          title: 'Page Not Found',
           showBackButton: true,
-          showProfileButton: true,
+          showProfileButton: false,
         };
     }
   };
@@ -61,6 +61,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Main>
     </MobileLayout>
