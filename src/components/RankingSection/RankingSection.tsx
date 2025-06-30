@@ -1,69 +1,84 @@
 import styled from '@emotion/styled'
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { RankingItem } from './RankingItem'
 import { mockProduct } from '@/data/products'
 
 const filters = [
-    { label: '전체', emoji: 'ALL' },
-    { label: '여성이', emoji: '👩🏻' },
-    { label: '남성이', emoji: '👨🏻' },
-    { label: '청소년이', emoji: '👦🏻' },
+  { label: '전체', emoji: 'ALL' },
+  { label: '여성이', emoji: '👩🏻' },
+  { label: '남성이', emoji: '👨🏻' },
+  { label: '청소년이', emoji: '👦🏻' },
 ]
 
 const tabs = ['받고 싶어한', '많이 선물한', '위시로 받은']
 
 export const RankingSection = () => {
-    const [selectedFilter, setSelectedFilter] = useState('전체')
-    const [selectedTab, setSelectedTab] = useState('받고 싶어한')
 
-    const list = useMemo(
-        () => Array.from({ length: 6 }, (_, i) => ({ ...mockProduct, id: i })),
-        []
-    )
+  const [selectedFilter, setSelectedFilter] = useState(() => {
+    return localStorage.getItem('selectedFilter') || '전체'
+  })
 
-    return (
-        <Section>
-            <Title>실시간 급상승 선물랭킹</Title>
+  const [selectedTab, setSelectedTab] = useState(() => {
+    return localStorage.getItem('selectedTab') || '받고 싶어한'
+  })
 
-            <FilterRow>
-                {filters.map(({ emoji, label }) => (
-                    <Filter
-                        key={label}
-                        selected={label === selectedFilter}
-                        onClick={() => setSelectedFilter(label)}
-                    >
-                        <div className="emoji">{emoji}</div>
-                        <span>{label}</span>
-                    </Filter>
-                ))}
-            </FilterRow>
 
-            <TabRow>
-                {tabs.map((t) => (
-                    <Tab
-                        key={t}
-                        selected={t === selectedTab}
-                        onClick={() => setSelectedTab(t)}
-                    >
-                        {t}
-                    </Tab>
-                ))}
-            </TabRow>
+  useEffect(() => {
+    localStorage.setItem('selectedFilter', selectedFilter)
+  }, [selectedFilter])
 
-            <Grid>
-                {list.map((item, idx) => (
-                    <RankingItem
-                        key={item.id + '-' + idx}
-                        rank={idx + 1}
-                        image={item.imageURL}
-                        brand={item.brandInfo.name}
-                        name={item.name}
-                        price={item.price.sellingPrice}
-                    />
-                ))}
-            </Grid>
-        </Section>
-    )
+  useEffect(() => {
+    localStorage.setItem('selectedTab', selectedTab)
+  }, [selectedTab])
+
+  const list = useMemo(
+    () => Array.from({ length: 6 }, (_, i) => ({ ...mockProduct, id: i })),
+    []
+  )
+
+  return (
+    <Section>
+      <Title>실시간 급상승 선물랭킹</Title>
+
+      <FilterRow>
+        {filters.map(({ emoji, label }) => (
+          <Filter
+            key={label}
+            selected={label === selectedFilter}
+            onClick={() => setSelectedFilter(label)}
+          >
+            <div className="emoji">{emoji}</div>
+            <span>{label}</span>
+          </Filter>
+        ))}
+      </FilterRow>
+
+      <TabRow>
+        {tabs.map((t) => (
+          <Tab
+            key={t}
+            selected={t === selectedTab}
+            onClick={() => setSelectedTab(t)}
+          >
+            {t}
+          </Tab>
+        ))}
+      </TabRow>
+
+      <Grid>
+        {list.map((item, idx) => (
+          <RankingItem
+            key={item.id + '-' + idx}
+            rank={idx + 1}
+            image={item.imageURL}
+            brand={item.brandInfo.name}
+            name={item.name}
+            price={item.price.sellingPrice}
+          />
+        ))}
+      </Grid>
+    </Section>
+  )
 }
 
 const Section = styled.section`
@@ -74,6 +89,7 @@ const Title = styled.h3`
   ${({ theme }) => theme.typography.title2Bold};
   margin-bottom: ${({ theme }) => theme.spacing.spacing3};
 `
+
 
 
 
