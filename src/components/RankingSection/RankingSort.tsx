@@ -5,13 +5,13 @@ interface RankingSortProps {
   onSelect: (value: string) => void;
 }
 
-const RankingSort = ({ selectedSort, onSelect }: RankingSortProps) => {
-  const options = [
-    { label: '받고 싶어한', value: 'MANY_WISH' },
-    { label: '많이 선물한', value: 'MANY_RECEIVE' },
-    { label: '위시로 받은', value: 'MANY_WISH_RECEIVE' },
-  ];
+const options = [
+  { label: '받고 싶어한', value: 'MANY_WISH' },
+  { label: '많이 선물한', value: 'MANY_RECEIVE' },
+  { label: '위시로 받은', value: 'MANY_WISH_RECEIVE' },
+];
 
+const RankingSort = ({ selectedSort, onSelect }: RankingSortProps) => {
   return (
     <SegmentedControl
       options={options}

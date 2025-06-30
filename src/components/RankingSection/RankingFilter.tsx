@@ -5,14 +5,14 @@ interface RankingFilterProps {
   onSelect: (label: string) => void;
 }
 
-const RankingFilter = ({ selectedFilter, onSelect }: RankingFilterProps) => {
-  const filters = [
-    { emoji: 'ALL', label: '전체', value: 'ALL' },
-    { emoji: '👩🏻', label: '여성이', value: 'FEMALE' },
-    { emoji: '👨🏻', label: '남성이', value: 'MALE' },
-    { emoji: '👦🏻', label: '청소년이', value: 'TEEN' },
-  ];
+const filters = [
+  { emoji: 'ALL', label: '전체', value: 'ALL' },
+  { emoji: '👩🏻', label: '여성이', value: 'FEMALE' },
+  { emoji: '👨🏻', label: '남성이', value: 'MALE' },
+  { emoji: '👦🏻', label: '청소년이', value: 'TEEN' },
+];
 
+const RankingFilter = ({ selectedFilter, onSelect }: RankingFilterProps) => {
   return (
     <FilterWrapper>
       {filters.map(filter => {
