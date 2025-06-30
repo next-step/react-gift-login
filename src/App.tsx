@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import HomePage from "./pages/HomePage";
 import RankingPage from "./pages/RankingPage";
 import MyGiftPage from "./pages/MyGiftPage";
+import LoginPage from "./pages/LoginPage";
 import { PATHS } from "./constants/paths";
 
 function App() {
@@ -32,11 +33,12 @@ function App() {
         </nav>
         <main>
           <Routes>
-            <Route path={PATHS.HOME} element={<HomePage />} />{" "}
-            <Route path={PATHS.RANKING} element={<RankingPage />} />{" "}
-            <Route path={PATHS.MY_GIFTS} element={<MyGiftPage />} />{" "}
+            <Route path={PATHS.HOME} element={<HomePage />} />
+            <Route path={PATHS.RANKING} element={<RankingPage />} />
+            <Route path={PATHS.MY_GIFTS} element={<MyGiftPage />} />
+            <Route path={PATHS.LOGIN} element={<LoginPage />} />
             <Route
-              path={PATHS.NOT_FOUND} // ⭐ 상수 사용
+              path={PATHS.NOT_FOUND}
               element={
                 <div className="container mx-auto py-10 text-center text-xl font-bold text-gray-700">
                   404 - 페이지를 찾을 수 없습니다!
