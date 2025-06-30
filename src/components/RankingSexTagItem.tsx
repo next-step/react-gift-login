@@ -1,26 +1,17 @@
-import StyledRankingSexTagItem from '@/styles/StyledRankingSexTagItem';
+import StyledRankingSexTagItemBtn from '@/styles/StyledRankingSexTagItemBtn';
 import styled from '@emotion/styled';
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const sexTagItemlist = ['전체', '여성이', '남성이', '청소년이'];
 
-interface SexTagBtnProps {
-  isSelected: boolean;
-}
-const StyledRankingSexTagItemBtn = styled.button<SexTagBtnProps>`
-  background-color: ${({ theme }) => theme.sementicPalette.backgroundDefault};
-  border: none;
-  div {
-    background-color: ${({ theme, isSelected }) => (isSelected ? theme.palette.blue800 : theme.palette.blue200)};
-    border-radius: 10px;
-    width: 45px;
-    height: 45px;
-  }
-  p {
-    color: ${({ theme, isSelected }) => (isSelected ? theme.palette.blue800 : theme.palette.gray600)};
-    ${({ theme, isSelected }) => (isSelected ? theme.typography.label1Bold : theme.typography.label1Regular)}
-  }
+const StyledRankingSexTagItem = styled.div`
+  width: 60px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
 `;
 
 const RankingSexTagItem = () => {
