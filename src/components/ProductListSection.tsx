@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { ProductItem } from '@/components/ProductItem'
 
 const productMock = Array(21).fill({
@@ -20,8 +20,34 @@ const productMock = Array(21).fill({
   },
 })
 
+const genderOptions = ['전체', '여성이', '남성이', '청소년이']
+const topicOptions = ['받고 싶어한', '많이 선물한', '위시로 받은']
+
 export function ProductListSection() {
   const [showAll, setShowAll] = useState(false)
+  const [selectedGender, setSelectedGender] = useState('전체')
+  const [selectedTopic, setSelectedTopic] = useState('받고 싶어한')
+
+  useEffect(() => {
+    const savedGender = localStorage.getItem('selectedGender')
+    const savedTopic = localStorage.getItem('selectedTopic')
+    if (savedGender && genderOptions.includes(savedGender)) {
+      setSelectedGender(savedGender)
+    }
+    if (savedTopic && topicOptions.includes(savedTopic)) {
+      setSelectedTopic(savedTopic)
+    }
+  }, [])
+
+  const handleGenderClick = (option: string) => {
+    setSelectedGender(option)
+    localStorage.setItem('selectedGender', option)
+  }
+
+  const handleTopicClick = (option: string) => {
+    setSelectedTopic(option)
+    localStorage.setItem('selectedTopic', option)
+  }
 
   const displayedProducts = showAll ? productMock : productMock.slice(0, 6)
 
@@ -30,16 +56,27 @@ export function ProductListSection() {
       <SectionTitle>실시간 급상승 선물랭킹</SectionTitle>
 
       <CategoryTabs>
-        <span>🎁 전체</span>
-        <span>👩 여성이</span>
-        <span>👨 남성이</span>
-        <span>🧒 청소년이</span>
+        {genderOptions.map((option) => (
+          <span
+            key={option}
+            className={selectedGender === option ? 'active' : ''}
+            onClick={() => handleGenderClick(option)}
+          >
+            {getEmoji(option)} {option}
+          </span>
+        ))}
       </CategoryTabs>
 
       <SubTab>
-        <span>받고 싶어한</span>
-        <span>많이 선물한</span>
-        <span>위시로 받은</span>
+        {topicOptions.map((option) => (
+          <span
+            key={option}
+            className={selectedTopic === option ? 'active' : ''}
+            onClick={() => handleTopicClick(option)}
+          >
+            {option}
+          </span>
+        ))}
       </SubTab>
 
       <ProductListWrapper>
@@ -57,6 +94,14 @@ export function ProductListSection() {
       </ToggleButton>
     </SectionWrapper>
   )
+}
+
+function getEmoji(option: string) {
+  if (option === '전체') return '🎁'
+  if (option === '여성이') return '👩'
+  if (option === '남성이') return '👨'
+  if (option === '청소년이') return '🧒'
+  return ''
 }
 
 const SectionWrapper = styled.section`
@@ -81,6 +126,12 @@ const CategoryTabs = styled.div`
     background: ${({ theme }) => theme.colors.blue100};
     padding: 6px 12px;
     border-radius: 16px;
+    cursor: pointer;
+
+    &.active {
+      background: ${({ theme }) => theme.colors.blue300};
+      font-weight: 700;
+    }
   }
 `
 
@@ -93,6 +144,13 @@ const SubTab = styled.div`
   color: ${({ theme }) => theme.colors.blue800};
   margin-bottom: 16px;
   border-radius: 8px;
+
+  span {
+    cursor: pointer;
+    &.active {
+      font-weight: 700;
+    }
+  }
 `
 
 const ProductListWrapper = styled.div`
