@@ -78,8 +78,13 @@ const Login = () => {
   const location = useLocation();
 
   const handleLogin = () => {
-    const from = location.state?.from?.pathname || '/';
-    navigate(from, { replace: true });
+    const redirectPath = location.state?.from?.pathname;
+
+    if (redirectPath) {
+      navigate(redirectPath, { replace: true });
+    } else {
+      window.location.replace('/');
+    }
   };
 
   return (
