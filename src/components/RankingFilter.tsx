@@ -103,6 +103,13 @@ const TabBtn = styled.button<{ active?: boolean }>`
   }
 `;
 
+const filterOptions = [
+  { type: 'ALL', label: '전체', icon: <span className="icon">ALL</span> },
+  { type: 'FEMALE', label: '여성', icon: <span className="icon">👩🏻</span> },
+  { type: 'MALE', label: '남성', icon: <span className="icon">👨🏻</span> },
+  { type: 'TEENAGER', label: '청소년', icon: <span className="icon">🧑🏻</span> },
+];
+
 function RankingFilter() {
   const [targetType, setTargetType] = useState('ALL');
   const [rankType, setRankType] = useState('MANY_WISH');
@@ -111,34 +118,16 @@ function RankingFilter() {
       <Title>실시간 급상승 선물랭킹</Title>
 
       <FilterBar>
-        <FilterBtn
-          active={targetType === 'ALL'}
-          onClick={() => setTargetType('ALL')}
-        >
-          <span className="icon">ALL</span>
-          전체
-        </FilterBtn>
-        <FilterBtn
-          active={targetType === 'FEMALE'}
-          onClick={() => setTargetType('FEMALE')}
-        >
-          <span className="icon">👩🏻</span>
-          여성이
-        </FilterBtn>
-        <FilterBtn
-          active={targetType === 'MALE'}
-          onClick={() => setTargetType('MALE')}
-        >
-          <span className="icon">👨🏻</span>
-          남성이
-        </FilterBtn>
-        <FilterBtn
-          active={targetType === 'TEENAGER'}
-          onClick={() => setTargetType('TEENAGER')}
-        >
-          <span className="icon">🧑🏻</span>
-          청소년이
-        </FilterBtn>
+        {filterOptions.map((option) => (
+          <FilterBtn
+            key={option.type}
+            active={targetType === option.type}
+            onClick={() => setTargetType(option.type)}
+          >
+            {option.icon}
+            {option.label}
+          </FilterBtn>
+        ))}
       </FilterBar>
       <TabBar>
         <TabBtn
