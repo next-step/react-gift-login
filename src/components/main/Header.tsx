@@ -1,3 +1,4 @@
+import { ROUTE_PATH } from "@/constants";
 import styled from "@emotion/styled";
 import { ChevronLeft, UserRound } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -37,15 +38,17 @@ export const Header = () => {
   const location = useLocation();
 
   const handleLoginClick = () => {
-    navigate(`/login?redirect=${encodeURIComponent(location.pathname)}`);
+    navigate(
+      `${ROUTE_PATH.LOGIN}?redirect=${encodeURIComponent(location.pathname)}`,
+    );
   };
 
   const handleTitleClick = () => {
-    navigate("/");
+    navigate(ROUTE_PATH.HOME);
   };
 
   const handleBackClick = () => {
-    navigate(-1);
+    navigate(ROUTE_PATH.GO_BACK);
   };
   return (
     <Navbar>

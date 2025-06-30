@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import notFound from "@/assets/not-found-image.png";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/common";
+import { ROUTE_PATH } from "@/constants";
 
 const NotFoundSectionContainer = styled.section(({ theme }) => ({
   display: "flex",
@@ -41,7 +42,7 @@ const NotFoundDescription = styled.p(({ theme }) => ({
 export const NotFound = () => {
   const navigate = useNavigate();
   const handleNavigateToHome = () => {
-    navigate("/");
+    navigate(ROUTE_PATH.HOME);
   };
   return (
     <NotFoundSectionContainer>
