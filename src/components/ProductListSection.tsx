@@ -4,20 +4,20 @@ import { productListMock } from '@/data/productListMock';
 import { ProductItem } from '@/components/ProductItem';
 
 export function ProductListSection() {
-  /* 탭/더보기 상태 ------------------------------------------------------- */
+  /* 탭/더보기 상태 */
   const [mainTab, setMainTab] = useState<'ALL' | 'F' | 'M' | 'T'>('ALL');
   const [subTab, setSubTab] = useState<'WANT' | 'GIVE' | 'WISH'>('WANT');
   const [showAll, setShowAll] = useState(false);
 
   const products = showAll ? productListMock : productListMock.slice(0, 6);
 
-  /* 렌더링 -------------------------------------------------------------- */
+  /* 렌더링 */
   return (
     <Section>
-      {/* ── 타이틀 ───────────────────────────────────────────────────── */}
+      {/* 타이틀 */}
       <Title>실시간 급상승 선물랭킹</Title>
 
-      {/* ── 1차 탭 : 대상별 ─────────────────────────────────────────── */}
+      {/* 1차 탭 : 대상별 */}
       <MainTabs>
         <TabButton active={mainTab === 'ALL'} onClick={() => setMainTab('ALL')}>
           🎁 전체
@@ -33,7 +33,7 @@ export function ProductListSection() {
         </TabButton>
       </MainTabs>
 
-      {/* ── 2차 탭 : 액션별 ─────────────────────────────────────────── */}
+      {/* 2차 탭 : 액션별 */}
       <SubTabs>
         <SubTabButton active={subTab === 'WANT'} onClick={() => setSubTab('WANT')}>
           받고 싶어한
@@ -46,17 +46,15 @@ export function ProductListSection() {
         </SubTabButton>
       </SubTabs>
 
-      {/* ── 상품 그리드 ─────────────────────────────────────────────── */}
+      {/* 상품 그리드 */}
       <ProductGrid>
         {products.map((p, idx) => (
           <ProductItem key={p.id} product={p} rank={idx + 1} />
         ))}
       </ProductGrid>
 
-      {/* ── 더보기 / 접기 ───────────────────────────────────────────── */}
-      <MoreButton onClick={() => setShowAll(!showAll)}>
-        {showAll ? '접기' : '더보기'}
-      </MoreButton>
+      {/* 더보기 / 접기 */}
+      <MoreButton onClick={() => setShowAll(!showAll)}>{showAll ? '접기' : '더보기'}</MoreButton>
     </Section>
   );
 }
@@ -88,8 +86,7 @@ const TabButton = styled.li<{ active: boolean }>`
   white-space: nowrap;
   background-color: ${({ active, theme }) =>
     active ? theme.colors.blue.blue700 : theme.colors.blue.blue100};
-  color: ${({ active, theme }) =>
-    active ? '#fff' : theme.colors.blue.blue800};
+  color: ${({ active, theme }) => (active ? '#fff' : theme.colors.blue.blue800)};
 `;
 
 const SubTabs = styled.ul`
@@ -116,8 +113,7 @@ const ProductGrid = styled.ul`
 const MoreButton = styled.button`
   display: block;
   width: 100%;
-  margin: ${({ theme }) => theme.spacing.spacing6} auto
-    ${({ theme }) => theme.spacing.spacing6};
+  margin: ${({ theme }) => theme.spacing.spacing6} auto ${({ theme }) => theme.spacing.spacing6};
   padding: ${({ theme }) => `${theme.spacing.spacing3} 0`};
   border: 1px solid ${({ theme }) => theme.semanticColors.border.default};
   border-radius: ${({ theme }) => theme.spacing.spacing2};

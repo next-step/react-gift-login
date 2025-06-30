@@ -1,9 +1,9 @@
-import '@emotion/react'
-import { theme } from '@/styles/theme'
+import '@emotion/react';
+import { theme } from '@/styles/theme';
 
-type ThemeType = typeof theme
+type ThemeType = typeof theme;
 
 declare module '@emotion/react' {
-    // eslint-disable-next-line @typescript-eslint/no-empty-object-type
-    export interface Theme extends ThemeType {}
+  // eslint-disable-next-line @typescript-eslint/no-empty-object-type
+  export interface Theme extends ThemeType {}
 }

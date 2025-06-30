@@ -5,7 +5,7 @@ import { categoryMock } from '@/data/categoryMock';
 export function CategorySection() {
   return (
     <Section>
-      {/* ── 선물할 친구 선택 메시지 ────────────────────────────── */}
+      {/* 선물할 친구 선택 메시지 */}
       <MessageBox>
         <PlusIcon aria-hidden="true">
           <span className="material-icons-outlined">add</span>
@@ -13,17 +13,17 @@ export function CategorySection() {
         <MessageText>선물할 친구를 선택해 주세요.</MessageText>
       </MessageBox>
 
-      {/* ── 선물 테마 타이틀 ─────────────────────────────────── */}
+      {/* 선물 테마 타이틀 */}
       <Title>선물 테마</Title>
 
-      {/* ── 테마 목록 그리드 ────────────────────────────────── */}
+      {/* 테마 목록 그리드 */}
       <Grid>
         {categoryMock.map(({ themeId, name, image }) => (
           <CategoryItem key={themeId} name={name} image={image} />
         ))}
       </Grid>
 
-      {/* ── 과제 응원 노티스 ─────────────────────────────────── */}
+      {/* 과제 응원 노티스 */}
       <NoticeBox>
         <NoticeText>카카오테크 캠퍼스 3기여러분</NoticeText>
         <StrongText>프론트엔드 2단계 과제 화이팅! 🎉</StrongText>
@@ -38,7 +38,7 @@ const NAVBAR_HEIGHT = '56px'; /* 고정 헤더 높이 */
 
 const Section = styled.section`
   max-width: 720px;
-  margin: ${NAVBAR_HEIGHT} auto 0;      /* 헤더만큼 내려주기 */
+  margin: ${NAVBAR_HEIGHT} auto 0; /* 헤더만큼 내려주기 */
   padding: ${({ theme }) => theme.spacing.spacing4};
 `;
 
