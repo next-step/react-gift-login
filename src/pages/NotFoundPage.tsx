@@ -1,5 +1,3 @@
-'use client';
-
 import { useNavigate, useLocation } from 'react-router-dom';
 import styled from '@emotion/styled';
 import { theme } from '@/styles/theme';
