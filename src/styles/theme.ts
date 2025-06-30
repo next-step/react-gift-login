@@ -65,6 +65,7 @@ export const theme = {
     // 브랜드 컬러
     kakaoYellow: '#fee500',
     kakaoYellowHover: '#ffea2e',
+
     kakaoYellowActive: '#d5c000',
     kakaoYellowPressed: '#d5c000',
     kakaoBrown: '#654321',

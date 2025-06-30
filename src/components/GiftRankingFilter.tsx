@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import { theme } from '../styles/theme';
 import { IconFilterItem } from './common/IconFilterItem';
 
+
 const filters = [
   { key: 'all', label: '전체', icon: 'ALL' },
   { key: 'female', label: '여성', icon: '👩' },
@@ -78,6 +79,7 @@ export default function GiftRankingFilter() {
     localStorage.setItem(LOCAL_TAB_KEY, tab);
   };
 
+
   return (
     <Container>
       <Heading>실시간 급상승 선물랭킹</Heading>
@@ -90,6 +92,7 @@ export default function GiftRankingFilter() {
             icon={icon}
             selected={selected === key}
             onClick={() => handleFilterChange(key)}
+
           />
         ))}
       </IconFilterContainer>
@@ -100,6 +103,7 @@ export default function GiftRankingFilter() {
             key={tab}
             selected={selectedTab === tab}
             onClick={() => handleTabChange(tab)}
+
           >
             {tab}
           </TabButton>
