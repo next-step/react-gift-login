@@ -100,7 +100,7 @@ export const ItemName = styled.div`
 `;
 
 export const Price = styled.div`
-  font: ${({ theme }) => theme.typography.label2Regular};
+  font: ${({ theme }) => theme.typography.label2Bold};
   color: ${({ theme }) => theme.colors.semantic.textDefault};
   margin-top: 2px;
 `;

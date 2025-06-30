@@ -2,7 +2,7 @@ import NavigationBar from '@/components/NavigationBar';
 import RecieverSelectBox from '@/components/RecieverSelectBox';
 import GiftThemeSection from '@/components/GiftTheme';
 import Banner from '@/components/Banner';
-import GiftRanking from '@/components/GiftRanking';
+import GiftRankingSection from '@/components/GiftRanking/GiftRankingSection';
 
 const HomePage = () => {
   return (
@@ -11,7 +11,7 @@ const HomePage = () => {
       <RecieverSelectBox />
       <GiftThemeSection />
       <Banner />
-      <GiftRanking />
+      <GiftRankingSection />
     </>
   );
 };

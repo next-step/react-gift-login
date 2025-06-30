@@ -8,9 +8,9 @@ export const Container = styled.div`
   background-color: ${({ theme }) => theme.colors.semantic.backgroundDefault};
 `;
 
-export const Logo = styled.h1`
-  font : ${({ theme }) => theme.typography.title1Bold};
-  margin-bottom: ${({ theme }) => theme.spacing.spacing6};
+export const Logo = styled.img`
+    width: 120px;
+    height: auto;
 `;
 
 export const Input = styled.input`
