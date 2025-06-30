@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { useNavigate } from 'react-router-dom';
+import CTAButton from '../components/common/CTAButton';
 
 const NotFoundPage = () => {
   const navigate = useNavigate();
@@ -13,7 +14,9 @@ const NotFoundPage = () => {
       <Description>
         요청하신 페이지가 존재하지 않거나, 주소가 잘못되었습니다.
       </Description>
-      <HomeButton onClick={() => navigate('/')}>홈으로 이동</HomeButton>
+      <CTAButton size="medium" onClick={() => navigate('/')}>
+        홈으로 이동
+      </CTAButton>
     </Wrapper>
   );
 };
@@ -33,20 +36,6 @@ const Description = styled.p`
   font-size: ${({ theme }) => theme.typography.body2Regular.fontSize};
   color: ${({ theme }) => theme.colors.gray600};
   margin-bottom: 24px;
-`;
-
-const HomeButton = styled.button`
-  background-color: ${({ theme }) => theme.colors.kakaoYellow};
-  padding: 12px 30px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.kakaoYellowHover};
-  }
-  &:active {
-    background-color: ${({ theme }) => theme.colors.kakaoYellowPressed};
-  }
 `;
 
 export default NotFoundPage;

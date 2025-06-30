@@ -1,5 +1,6 @@
 import { useNavigate, useLocation } from 'react-router-dom';
 import styled from '@emotion/styled';
+import CTAButton from '../components/common/CTAButton';
 
 type LocationState = {
   from?: {
@@ -29,7 +30,9 @@ const LoginPage = () => {
       </Logo>
       <Input placeholder="이메일" />
       <Input type="password" placeholder="비밀번호" />
-      <LoginButton onClick={handleLogin}>로그인</LoginButton>
+      <CTAButton size="large" onClick={handleLogin}>
+        로그인
+      </CTAButton>
     </Wrapper>
   );
 };
@@ -65,23 +68,6 @@ const Input = styled.input`
 
   &::placeholder {
     color: ${({ theme }) => theme.colors.gray600};
-  }
-`;
-
-const LoginButton = styled.button`
-  background-color: ${({ theme }) => theme.colors.kakaoYellow};
-  color: ${({ theme }) => theme.colors.gray1000};
-  border: none;
-  border-radius: 6px;
-  padding: 14px;
-  font-size: ${({ theme }) => theme.typography.subtitle1Regular.fontSize};
-  cursor: pointer;
-  margin-top: 8px;
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.kakaoYellowHover};
-  }
-  &:active {
-    background-color: ${({ theme }) => theme.colors.kakaoYellowPressed};
   }
 `;
 
