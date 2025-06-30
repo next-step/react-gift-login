@@ -1,6 +1,11 @@
 import styled from "@emotion/styled";
 
-const TheHeader = ({ size }: { size: string }) => {
+type UserProps = {
+  size: string;
+  onClick?: () => void;
+};
+
+const User = ({ size, onClick }: UserProps) => {
   return (
     <UserSvg
       xmlns="http://www.w3.org/2000/svg"
@@ -13,6 +18,7 @@ const TheHeader = ({ size }: { size: string }) => {
       stroke-linecap="round"
       stroke-linejoin="round"
       aria-hidden="true"
+      onClick={onClick}
     >
       <circle cx="12" cy="8" r="5"></circle>
       <path d="M20 21a8 8 0 0 0-16 0"></path>
@@ -20,7 +26,7 @@ const TheHeader = ({ size }: { size: string }) => {
   );
 };
 
-export default TheHeader;
+export default User;
 
 const UserSvg = styled.svg`
   cursor: pointer;

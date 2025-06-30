@@ -1,6 +1,11 @@
 import styled from "@emotion/styled";
 
-const TheHeader = ({ size }: { size: string }) => {
+type BackProps = {
+  size: string;
+  onClick?: () => void;
+};
+
+const Back = ({ size, onClick }: BackProps) => {
   return (
     <BackSvg
       xmlns="http://www.w3.org/2000/svg"
@@ -13,13 +18,14 @@ const TheHeader = ({ size }: { size: string }) => {
       stroke-linecap="round"
       stroke-linejoin="round"
       aria-hidden="true"
+      onClick={onClick}
     >
       <path d="m15 18-6-6 6-6"></path>
     </BackSvg>
   );
 };
 
-export default TheHeader;
+export default Back;
 
 const BackSvg = styled.svg`
   cursor: pointer;

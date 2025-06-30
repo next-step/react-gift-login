@@ -2,13 +2,30 @@ import styled from "@emotion/styled";
 import Back from "@/components/UI/Back";
 import Logo from "@/components/UI/Logo";
 import User from "@/components/UI/User";
+import { useNavigate } from "react-router";
 
 const TheHeader = () => {
+  const navigate = useNavigate();
+
+  const handleClickBack = () => {
+    navigate(-1);
+  };
+  const handleClickLogo = () => {
+    if (location.pathname !== "/") {
+      navigate("/");
+    }
+  };
+  const handleClickUser = () => {
+    if (location.pathname !== "/login") {
+      navigate("/login");
+    }
+  };
+
   return (
     <Header>
-      <Back size={"28px"} />
-      <Logo size={"150px"} />
-      <User size={"24px"} />
+      <Back size={"28px"} onClick={handleClickBack} />
+      <Logo size={"150px"} onClick={handleClickLogo} />
+      <User size={"24px"} onClick={handleClickUser} />
     </Header>
   );
 };

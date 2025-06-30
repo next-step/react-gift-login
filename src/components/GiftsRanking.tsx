@@ -1,18 +1,39 @@
 import styled from "@emotion/styled";
 import GiftPersonType from "./GiftPersonType";
 import { personType, presentType } from "@/data/giftType";
-import GiftItem from "./GiftItem";
 import { gifts } from "@/data/gift";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router";
+import GiftsList from "./GiftsList";
 
 const GiftsRanking = () => {
-  const [selectedPersonType, setSelectedPersonType] = useState(
-    () => personType[0],
-  );
-  const [selectedPresentType, setSelectedPresentType] = useState(
-    () => presentType[0],
-  );
-  const [showMore, setShowMore] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const query = new URLSearchParams(location.search);
+
+  const [selectedTypes, setSelectedTypes] = useState({
+    personType: query.get("personType") ?? personType[0].id,
+    presentType: query.get("presentType") ?? personType[0].id,
+  });
+
+  const handleFilterChange = (key: string, selectedType: string) => {
+    const newSelectedTypes = { ...selectedTypes, [key]: selectedType };
+    setSelectedTypes(newSelectedTypes);
+
+    const searchParams = new URLSearchParams(newSelectedTypes).toString();
+    navigate(`?${searchParams}`, { replace: true });
+  };
+
+  useEffect(() => {
+    const query = new URLSearchParams(location.search);
+    const personQueryType = query.get("personType") ?? personType[0].id;
+    const presentQueryType = query.get("presentType") ?? presentType[0].id;
+
+    setSelectedTypes(() => ({
+      personType: personQueryType,
+      presentType: presentQueryType,
+    }));
+  }, [location.search]);
 
   const duplicatedMockGifts = Array(21)
     .fill(null)
@@ -22,9 +43,6 @@ const GiftsRanking = () => {
         id: gift.id + i,
       })),
     );
-  const visibleGifts = showMore
-    ? duplicatedMockGifts
-    : duplicatedMockGifts.slice(0, 6);
 
   return (
     <Background>
@@ -35,8 +53,8 @@ const GiftsRanking = () => {
             key={index}
             icon={type.icon}
             name={type.name}
-            selected={selectedPersonType === type}
-            onClick={() => setSelectedPersonType(type)}
+            selected={selectedTypes.personType === type.id}
+            onClick={() => handleFilterChange("personType", type.id)}
           />
         ))}
       </GiftPersonTypeFlex>
@@ -44,28 +62,14 @@ const GiftsRanking = () => {
         {presentType.map((type, index) => (
           <PresentType
             key={index}
-            selected={selectedPresentType === type}
-            onClick={() => setSelectedPresentType(type)}
+            selected={selectedTypes.presentType === type.id}
+            onClick={() => handleFilterChange("presentType", type.id)}
           >
-            {type}
+            {type.name}
           </PresentType>
         ))}
       </PresentTypeFlex>
-      <GiftsGrid>
-        {visibleGifts.map((gift, index) => (
-          <GiftItem
-            key={gift.id}
-            gift={gift}
-            rank={index + 1}
-            isClickable={true}
-          />
-        ))}
-      </GiftsGrid>
-      <GiftsToggle>
-        <GiftsButton onClick={() => setShowMore(!showMore)}>
-          {showMore ? "접기" : "더보기"}
-        </GiftsButton>
-      </GiftsToggle>
+      <GiftsList gifts={duplicatedMockGifts} />
     </Background>
   );
 };
@@ -128,29 +132,4 @@ const PresentType = styled.p<{ selected: boolean }>`
     color 200ms,
     font-weight 200ms;
   cursor: pointer;
-`;
-
-const GiftsGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: ${({ theme }) => `${theme.spacing.spacing6} ${theme.spacing.spacing2}`};
-  padding: ${({ theme }) => `${theme.spacing.spacing4} 0`};
-`;
-
-const GiftsToggle = styled.p`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-`;
-
-const GiftsButton = styled.button`
-  max-width: 480px;
-  width: 100%;
-  padding: ${({ theme }) => theme.spacing.spacing3};
-  border-radius: 4px;
-  border: 1px solid ${({ theme }) => theme.colors.gray.gray400};
-  font-size: ${({ theme }) => theme.typography.body2Regular.fontSize};
-  font-weight: ${({ theme }) => theme.typography.body2Regular.fontWeight};
-  line-height: ${({ theme }) => theme.typography.body2Regular.lineHeight};
-  color: ${({ theme }) => theme.colors.semantic.text.default};
 `;

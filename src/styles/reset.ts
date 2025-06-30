@@ -10,6 +10,7 @@ export const GlobalResetStyle = css`
     padding: 0;
   }
   * {
+    margin: 0;
     box-sizing: border-box;
   }
   a {
@@ -21,12 +22,10 @@ export const GlobalResetStyle = css`
   optgroup,
   select,
   textarea {
-    margin: 0;
+    all: unset;
   }
   button {
-    background: none;
-    border: none;
-    padding: 0;
+    all: unset;
     cursor: pointer;
   }
 `;
