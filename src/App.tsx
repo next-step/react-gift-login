@@ -4,6 +4,7 @@ import theme from "@/styles/theme/theme";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Gift from "@/pages/Gift";
 import Login from "@/pages/Login";
+import NotFound from "@/pages/NotFound";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Gift />} />
           <Route path="/login" element={<Login />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
