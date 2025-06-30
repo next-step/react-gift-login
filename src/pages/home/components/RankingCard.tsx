@@ -1,4 +1,4 @@
-import { css } from "@emotion/react";
+import styled from "@emotion/styled";
 
 type RankingCardProps = {
   rank: number;
@@ -18,29 +18,29 @@ export const RankingCard = ({
   brandImageURL,
 }: RankingCardProps) => {
   return (
-    <div css={cardStyle}>
-      <div css={imageWrapper}>
-        <img src={imageURL} alt={name} css={productImage} />
-        <div css={rankBadge}>{rank}위</div>
-      </div>
+    <Card>
+      <ImageWrapper>
+        <ProductImage src={imageURL} alt={name} />
+        <RankBadge>{rank}위</RankBadge>
+      </ImageWrapper>
 
-      <div css={brandInfo}>
-        <img src={brandImageURL} alt={brandName} css={brandImage} />
-        <span css={brandNameStyle}>{brandName}</span>
-      </div>
+      <BrandInfo>
+        <BrandImage src={brandImageURL} alt={brandName} />
+        <BrandName>{brandName}</BrandName>
+      </BrandInfo>
 
-      <div css={productName}>{name}</div>
-      <div css={priceStyle}>{price.toLocaleString()}원</div>
-    </div>
+      <ProductName>{name}</ProductName>
+      <Price>{price.toLocaleString()}원</Price>
+    </Card>
   );
 };
 
-const cardStyle = css`
+const Card = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
-const imageWrapper = css`
+const ImageWrapper = styled.div`
   position: relative;
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -49,13 +49,13 @@ const imageWrapper = css`
   margin-bottom: 8px;
 `;
 
-const productImage = css`
+const ProductImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
 `;
 
-const rankBadge = css`
+const RankBadge = styled.div`
   position: absolute;
   top: 8px;
   left: 8px;
@@ -66,25 +66,25 @@ const rankBadge = css`
   font-weight: 700;
 `;
 
-const brandInfo = css`
+const BrandInfo = styled.div`
   display: flex;
   align-items: center;
   gap: 4px;
   margin-bottom: 4px;
 `;
 
-const brandImage = css`
+const BrandImage = styled.img`
   width: 16px;
   height: 16px;
   object-fit: contain;
 `;
 
-const brandNameStyle = css`
+const BrandName = styled.span`
   font-size: 12px;
   color: #555;
 `;
 
-const productName = css`
+const ProductName = styled.div`
   font-size: 14px;
   font-weight: 500;
   color: #2a3038;
@@ -96,7 +96,7 @@ const productName = css`
   -webkit-box-orient: vertical;
 `;
 
-const priceStyle = css`
+const Price = styled.div`
   font-size: 14px;
   font-weight: 700;
   color: #2a3038;
