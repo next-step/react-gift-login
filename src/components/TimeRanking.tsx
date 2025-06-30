@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 import { useState } from 'react'
 import { ranking } from '@/data/ranking'
+import { useSearchParams } from 'react-router-dom'
 
 const genderOptions = [
   { label: 'ALL', icon: 'ALL', value: 'ALL' },
@@ -12,8 +13,22 @@ const genderOptions = [
 const rankTypeTabs = ['받고 싶어한', '많이 선물한', '위시로 받은']
 
 export default function TimeRanking() {
-  const [selectedGender, setSelectedGender] = useState('ALL')
-  const [selectedRankType, setSelectedRankType] = useState('받고 싶어한')
+  const [searchParams, setSearchParams] = useSearchParams()
+
+  const [selectedGender, setSelectedGender] = useState(() => searchParams.get('gender') || 'ALL')
+  const [selectedRankType, setSelectedRankType] = useState(() => searchParams.get('rankType') || '받고 싶어한')
+
+  const handleGenderChange = (value: string) => {
+    setSelectedGender(value)
+    searchParams.set('gender', value)
+    setSearchParams(searchParams)
+  }
+
+  const handleRankTypeChange = (value: string) => {
+    setSelectedRankType(value)
+    searchParams.set('rankType', value)
+    setSearchParams(searchParams)
+  }
 
   const filteredRanking = ranking.filter((item) => {
     return true
@@ -30,7 +45,7 @@ export default function TimeRanking() {
           <GenderTab key={value}>
             <GenderButton
               isSelected={selectedGender === value}
-              onClick={() => setSelectedGender(value)}
+              onClick={() => handleGenderChange(value)}
             >
               {icon}
             </GenderButton>
@@ -43,10 +58,10 @@ export default function TimeRanking() {
 
       <RankingBox>
         {rankTypeTabs.map((tab) => (
-          <RankingTab 
+          <RankingTab
             key={tab}
             isSelected={selectedRankType === tab}
-            onClick={() => setSelectedRankType(tab)}
+            onClick={() => handleRankTypeChange(tab)}
           >
             {tab}
           </RankingTab>
@@ -126,8 +141,6 @@ const GenderText = styled.p`
   ${({ theme }) => theme.typography.label1Regular};
   color: ${({ theme }) => theme.colors.gray[700]};
   text-align: left;
-  display: block;
-  unicode-bidi: isolate;
 `
 
 const UndergenderandrankingBox = styled.div`
@@ -195,7 +208,6 @@ const Image = styled.img`
   object-fit: cover;
   object-position: center;
   border-radius: 4px;
-  overflow: hidden;
 `
 
 const UnderimageBox = styled.div`
@@ -217,12 +229,12 @@ const Name = styled.p`
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  overflow: hidden;
 `
 
 const Price = styled.p`
   margin-top: 4px;
   ${({ theme }) => theme.typography.subtitle1Bold};
   text-align: left;
-  word-break: break-word;
   color: ${({ theme }) => theme.colors.gray[900]};
 `

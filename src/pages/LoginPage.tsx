@@ -17,7 +17,6 @@ export default function LoginPage() {
   return (
     <ThemeProvider theme={theme}>
       <Global styles={resetStyle} />
-      <Header />
       <PageWrapper>
         <LoginForm>
           <Logo src="/loginlogo.svg" alt="kakao logo" />
@@ -38,7 +37,7 @@ const PageWrapper = styled.div`
   max-width: 720px;
   width: 100%;
   margin: 0 auto;
-  min-height: calc(100vh - 56px); // Header 제외한 화면 전체
+  min-height: calc(100vh - 56px); 
   display: flex;
   justify-content: center;
   align-items: center;
