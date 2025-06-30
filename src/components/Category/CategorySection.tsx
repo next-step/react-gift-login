@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
-import { categoryMock } from '@/components/categoryMock'
-import { CategoryItem } from '@/components/CategoryItem'
+import { categoryMock } from '@/components/Category/categoryMock'
+import { CategoryItem } from '@/components/Category/CategoryItem'
 import { FiPlus } from 'react-icons/fi'
 
 export function CategorySection() {
@@ -30,9 +30,8 @@ export function CategorySection() {
 }
 
 const SectionWrapper = styled.section`
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 16px;
+  width: 100%;
+  margin-bottom: 40px;
 `
 
 const MessageBox = styled.div`

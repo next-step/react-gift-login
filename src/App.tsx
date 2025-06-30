@@ -1,14 +1,15 @@
-import { Navbar } from '@/components/Navbar'
-import { CategorySection } from '@/components/CategorySection'
-import { ProductListSection } from '@/components/ProductListSection'
+import { Routes, Route } from 'react-router-dom'
+import { LoginPage } from '@/pages/LoginPage'
+import { NotFoundPage } from '@/pages/NotFoundPage'
+import { Home } from '@/pages/Home'
 
 function App() {
   return (
-    <>
-      <Navbar />
-      <CategorySection />
-      <ProductListSection />
-    </>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="*" element={<NotFoundPage />} />
+    </Routes>
   )
 }
 
