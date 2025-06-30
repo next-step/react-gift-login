@@ -19,7 +19,6 @@ const MIN_VISIBLE_CARDS = 6;
 
 const RankingSection = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-
   const selectedTarget =
     (searchParams.get("targetType") as TargetType) ?? "ALL";
   const selectedRank =
@@ -47,6 +46,7 @@ const RankingSection = () => {
     params.set("rankType", rank);
     setSearchParams(params);
   };
+
   return (
     <Wrapper>
       <Title>실시간 급상승 선물랭킹</Title>
