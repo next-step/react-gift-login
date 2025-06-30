@@ -32,12 +32,12 @@ export default RankingCategory;
 const CategoryWrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
   width: 100%;
   max-width: 720px;
   border-radius: 16px;
   margin-top: ${({ theme }) => theme.spacing.spacing5};
   margin-bottom: ${({ theme }) => theme.spacing.spacing5};
+  justify-content: space-between;
 `;
 
 const CategoryItemWrapper = styled.div`
@@ -45,7 +45,6 @@ const CategoryItemWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   gap: ${({ theme }) => theme.spacing.spacing1};
-  flex: 1;
 `;
 
 const CategoryItemButton = styled.button<{ isActive: boolean }>`
