@@ -1,5 +1,6 @@
 ﻿import { useState, type FormEvent } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
+import { useAuth } from '@/contexts/AuthContext'
 import styled from '@emotion/styled'
 import backIcon from '@/assets/back.png'
 import loginIcon from '@/assets/user.png'
@@ -94,6 +95,7 @@ const Button = styled.button`
 export default function LoginPage() {
   const navigate = useNavigate()
   const location = useLocation()
+  const { login } = useAuth()
   const from = (location.state as { from?: string })?.from ?? '/'
 
   const [email, setEmail] = useState('')
@@ -101,6 +103,7 @@ export default function LoginPage() {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
+    login()
     navigate(from, { replace: true })
   }
 

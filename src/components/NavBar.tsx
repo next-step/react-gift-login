@@ -1,8 +1,9 @@
 ﻿import styled from '@emotion/styled'
+import { useNavigate } from 'react-router-dom'
 import backIcon from '@/assets/back.png'
 import loginIcon from '@/assets/user.png'
 import { spacing } from '@/theme/spacing'
-
+import { useAuth } from '@/contexts/AuthContext'
 
 interface NavBarProps {
   onBack?: () => void
@@ -31,6 +32,14 @@ const LogoLink = styled.a`
 `
 
 const NavBar = ({ onBack, logoSrc, onLoginClick }: NavBarProps) => {
+  const navigate = useNavigate()
+  const { isLoggedIn } = useAuth()
+
+  const handleLoginClick = onLoginClick ?? (() => {
+    navigate(isLoggedIn ? '/profile' : '/login')
+  })
+
+  
   return (
     <Nav>
       <IconButton onClick={onBack} aria-label="back">
@@ -39,9 +48,16 @@ const NavBar = ({ onBack, logoSrc, onLoginClick }: NavBarProps) => {
       <LogoLink href="/">
         <img src={logoSrc} alt="logo" height="28" />
       </LogoLink>
-      <IconButton onClick={onLoginClick} aria-label="login">
-        <img src={loginIcon} alt="login" height="24" />
-      </IconButton>
+      <IconButton
+        onClick={handleLoginClick}
+        aria-label={isLoggedIn ? 'profile' : 'login'}
+      >
+        <img
+          src={loginIcon}
+          alt={isLoggedIn ? 'profile' : 'login'}
+          height="24"
+        />     
+        </IconButton>
     </Nav>
   )
 }
