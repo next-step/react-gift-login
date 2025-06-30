@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { sortOptions } from "../constants/sortoptions";
 import { tabs } from "../constants/tabs";
+import ProductCard from "../components/ProductCard";
+
+import { productListData } from "../data/productListData";
+import type { Product } from "../types/product";
 
 const RealtimeRanking = () => {
   const [activeTab, setActiveTab] = useState("전체");
@@ -48,9 +52,17 @@ const RealtimeRanking = () => {
           ))}
         </div>
 
-        <div className="min-h-[100px] flex items-center justify-center text-gray-500 border border-dashed border-gray-300 rounded-lg p-4">
-          현재 랭킹 정보가 없습니다.
-        </div>
+        <section className="mt-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {productListData.map((product: Product, index: number) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                rank={index + 1}
+              />
+            ))}
+          </div>
+        </section>
       </div>
     </section>
   );
