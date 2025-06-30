@@ -213,7 +213,7 @@ const MoreButtonFont = styled.p`
   text-align: center;
 `;
 
-const PresentRanking = () => {
+const PresentRanking: React.FC = () => {
   const {
     name,
     imageURL,
@@ -266,198 +266,40 @@ const PresentRanking = () => {
         <MarginBox2 />
         <PresentDisplayContainer>
           <PresentDisplay>
-            <ProductBox>
-              <NumberLogo>1</NumberLogo>
-              <ProductInfo>
-                <ProductImage src={imageURL} alt={name}></ProductImage>
-                <div
-                  css={css`
-                    width: 100%;
-                    height: 12px;
-                    background-color: transparent;
-                  `}
-                ></div>
-                <SubProductName>{brandInfo.name}</SubProductName>
-                <ProdudctName>{brandInfo.name}</ProdudctName>
-                <div
-                  css={css`
-                    width: 100%;
-                    height: 4px;
-                    background-color: transparent;
-                  `}
-                ></div>
-                <ProductPrice>
-                  {sellingPrice}
-                  <span
+            {[1, 2, 3, 4, 5, 6].map((rank) => (
+              <ProductBox key={rank}>
+                <NumberLogo>{rank}</NumberLogo>
+                <ProductInfo>
+                  <ProductImage src={imageURL} alt={name}></ProductImage>
+                  <div
                     css={css`
-                      font-weight: 400;
+                      width: 100%;
+                      height: 12px;
+                      background-color: transparent;
                     `}
-                  >
-                    원
-                  </span>
-                </ProductPrice>
-              </ProductInfo>
-            </ProductBox>
-            <ProductBox>
-              <NumberLogo>2</NumberLogo>
-              <ProductInfo>
-                <ProductImage src={imageURL} alt={name}></ProductImage>
-                <div
-                  css={css`
-                    width: 100%;
-                    height: 12px;
-                    background-color: transparent;
-                  `}
-                ></div>
-                <SubProductName>{brandInfo.name}</SubProductName>
-                <ProdudctName>{brandInfo.name}</ProdudctName>
-                <div
-                  css={css`
-                    width: 100%;
-                    height: 4px;
-                    background-color: transparent;
-                  `}
-                ></div>
-                <ProductPrice>
-                  {sellingPrice}
-                  <span
+                  ></div>
+                  <SubProductName>{brandInfo.name}</SubProductName>
+                  <ProdudctName>{brandInfo.name}</ProdudctName>
+                  <div
                     css={css`
-                      font-weight: 400;
+                      width: 100%;
+                      height: 4px;
+                      background-color: transparent;
                     `}
-                  >
-                    원
-                  </span>
-                </ProductPrice>
-              </ProductInfo>
-            </ProductBox>
-            <ProductBox>
-              <NumberLogo>3</NumberLogo>
-              <ProductInfo>
-                <ProductImage src={imageURL} alt={name}></ProductImage>
-                <div
-                  css={css`
-                    width: 100%;
-                    height: 12px;
-                    background-color: transparent;
-                  `}
-                ></div>
-                <SubProductName>{brandInfo.name}</SubProductName>
-                <ProdudctName>{brandInfo.name}</ProdudctName>
-                <div
-                  css={css`
-                    width: 100%;
-                    height: 4px;
-                    background-color: transparent;
-                  `}
-                ></div>
-                <ProductPrice>
-                  {sellingPrice}
-                  <span
-                    css={css`
-                      font-weight: 400;
-                    `}
-                  >
-                    원
-                  </span>
-                </ProductPrice>
-              </ProductInfo>
-            </ProductBox>
-            <ProductBox>
-              <NumberLogo>4</NumberLogo>
-              <ProductInfo>
-                <ProductImage src={imageURL} alt={name}></ProductImage>
-                <div
-                  css={css`
-                    width: 100%;
-                    height: 12px;
-                    background-color: transparent;
-                  `}
-                ></div>
-                <SubProductName>{brandInfo.name}</SubProductName>
-                <ProdudctName>{brandInfo.name}</ProdudctName>
-                <div
-                  css={css`
-                    width: 100%;
-                    height: 4px;
-                    background-color: transparent;
-                  `}
-                ></div>
-                <ProductPrice>
-                  {sellingPrice}
-                  <span
-                    css={css`
-                      font-weight: 400;
-                    `}
-                  >
-                    원
-                  </span>
-                </ProductPrice>
-              </ProductInfo>
-            </ProductBox>
-            <ProductBox>
-              <NumberLogo>5</NumberLogo>
-              <ProductInfo>
-                <ProductImage src={imageURL} alt={name}></ProductImage>
-                <div
-                  css={css`
-                    width: 100%;
-                    height: 12px;
-                    background-color: transparent;
-                  `}
-                ></div>
-                <SubProductName>{brandInfo.name}</SubProductName>
-                <ProdudctName>{brandInfo.name}</ProdudctName>
-                <div
-                  css={css`
-                    width: 100%;
-                    height: 4px;
-                    background-color: transparent;
-                  `}
-                ></div>
-                <ProductPrice>
-                  {sellingPrice}
-                  <span
-                    css={css`
-                      font-weight: 400;
-                    `}
-                  >
-                    원
-                  </span>
-                </ProductPrice>
-              </ProductInfo>
-            </ProductBox>
-            <ProductBox>
-              <NumberLogo>6</NumberLogo>
-              <ProductInfo>
-                <ProductImage src={imageURL} alt={name}></ProductImage>
-                <div
-                  css={css`
-                    width: 100%;
-                    height: 12px;
-                    background-color: transparent;
-                  `}
-                ></div>
-                <SubProductName>{brandInfo.name}</SubProductName>
-                <ProdudctName>{brandInfo.name}</ProdudctName>
-                <div
-                  css={css`
-                    width: 100%;
-                    height: 4px;
-                    background-color: transparent;
-                  `}
-                ></div>
-                <ProductPrice>
-                  {sellingPrice}
-                  <span
-                    css={css`
-                      font-weight: 400;
-                    `}
-                  >
-                    원
-                  </span>
-                </ProductPrice>
-              </ProductInfo>
-            </ProductBox>
+                  ></div>
+                  <ProductPrice>
+                    {sellingPrice}
+                    <span
+                      css={css`
+                        font-weight: 400;
+                      `}
+                    >
+                      원
+                    </span>
+                  </ProductPrice>
+                </ProductInfo>
+              </ProductBox>
+            ))}
           </PresentDisplay>
         </PresentDisplayContainer>
         <div
