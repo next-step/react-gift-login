@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const Title = styled.h1`
   display: flex;
@@ -111,8 +111,20 @@ const filterOptions = [
 ];
 
 function RankingFilter() {
-  const [targetType, setTargetType] = useState('ALL');
-  const [rankType, setRankType] = useState('MANY_WISH');
+  const [targetType, setTargetType] = useState(() => {
+    return localStorage.getItem('rankingFilterType') || 'ALL';
+  });
+  useEffect(() => {
+    localStorage.setItem('rankingFilterType', targetType);
+  }, [targetType]);
+
+  const [rankType, setRankType] = useState(() => {
+    return localStorage.getItem('rankingFilterRankType') || 'MANY_WISH';
+  });
+  useEffect(() => {
+    localStorage.setItem('rankingFilterRankType', rankType);
+  }, [rankType]);
+
   return (
     <>
       <Title>실시간 급상승 선물랭킹</Title>
