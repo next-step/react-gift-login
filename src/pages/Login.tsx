@@ -1,5 +1,6 @@
 import NavigationBar from '@/components/NavigationBar';
 import styled from '@emotion/styled';
+import { useNavigate } from 'react-router-dom';
 
 const StyledLoginComponentContainerDiv = styled.div`
   display: flex;
@@ -39,10 +40,21 @@ const StyledButton = styled.button`
   border-radius: 4px;
   width: 52%;
   height: 40px;
-  min-height: 16px;
-  ${({ theme }) => theme.typography.subtitle2Regular}
+  a {
+    text-decoration: none;
+  }
 `;
+
 const Login = () => {
+  const navigate = useNavigate();
+
+  const handelBackOrHome = () => {
+    if (window.history.length > 2) {
+      navigate(-1);
+    } else {
+      navigate('/');
+    }
+  };
   return (
     <>
       <NavigationBar />
@@ -51,7 +63,7 @@ const Login = () => {
           <StyledKakoLogo>kakao</StyledKakoLogo>
           <StyledInput id='loginid' placeholder='이메일'></StyledInput>
           <StyledInput id='passwd' placeholder='비밀번호'></StyledInput>
-          <StyledButton>로그인</StyledButton>
+          <StyledButton onClick={handelBackOrHome}>로그인</StyledButton>
         </StyledLoginComponentDiv>
       </StyledLoginComponentContainerDiv>
     </>
