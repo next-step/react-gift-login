@@ -5,7 +5,8 @@ import { PaddingLg } from "./../padding/Padding";
 import PersonCategory from "./PersonCategory";
 import BehaviorCategory from "./BehaviorCategory";
 import { useState } from "react";
-import type { behaviorFilterType, personFilterType } from "./types";
+// import type { behaviorFilterType, personFilterType } from "./types";
+import { useSearchParams } from 'react-router-dom';
 const mockRankingProducts = {
   id: 123,
   name: "BBQ 양념치킨+크림치즈볼+콜라1.25L",
@@ -61,29 +62,40 @@ const behaviorOptions = ["받고 싶어한", "많이 선물한", "위시로 받�
 
 const Ranking = () => {
   const [showAll, setShowAll] = useState(false);
-  const [personFilter, setPersonFilter] = useState<personFilterType>(
-    personFilterOptions[0]
-  );
-  const [behaviorFilter, setBehaviorFilter] = useState<behaviorFilterType>(
-    behaviorOptions[0]
-  );
+  const [searchParams, setSearchParams] = useSearchParams();
+  const selectedPerson= searchParams.get("targetType")
+  const selectedBehavior= searchParams.get("rankType")
+  //핸들러
+  const handlerPersonSelect = (label:string)=>{
+    searchParams.set("targetType", label)
+    setSearchParams(searchParams)
+  }
+  const handlerBehaviorSelect = (label: string) => {
+    searchParams.set("rankType", label);
+    setSearchParams(searchParams);
+  };
+  // const [personFilter, setPersonFilter] = useState<personFilterType>(
+  //   personFilterOptions[0]
+  // );
+  // const [behaviorFilter, setBehaviorFilter] = useState<behaviorFilterType>(
+  //   behaviorOptions[0]
+  // );
   const visible = showAll ? allProducts : allProducts.slice(0, 6);
-  console.log("사람", personFilter);
-  console.log("행동", behaviorFilter);
+  
   return (
     <RankingWrapper>
       <RankingTitle>실시간 급상승 선물랭킹</RankingTitle>
       <PaddingMd />
       <PersonCategory
         options={personFilterOptions}
-        selected={personFilter}
-        onSelect={setPersonFilter}
+        selected={selectedPerson}
+        onSelect={handlerPersonSelect}
       />
       <PaddingMd />
       <BehaviorCategory
         options={behaviorOptions}
-        selected={behaviorFilter}
-        onSelect={setBehaviorFilter}
+        selected={selectedBehavior}
+        onSelect={handlerBehaviorSelect}
       />
       <PaddingMd />
       <RankingProducts>

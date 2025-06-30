@@ -33,14 +33,13 @@ const PersonCategory = ({ options, selected, onSelect }: personProps) => {
   return (
     <PersonCategoryWrapper>
       {options.map((o) => (
-        <PersonBtn key={o.label} onClick={() => onSelect(o)}>
-          <PersonImage selected={selected.label === o.label}>
+        <PersonBtn key={o.label} onClick={() => onSelect(o.label)}>
+          <PersonImage selected={selected === o.label}>
             {o.emoji}
           </PersonImage>
           <p>{o.label}</p>
         </PersonBtn>
       ))}
-
     </PersonCategoryWrapper>
   );
 };
