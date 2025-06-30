@@ -11,6 +11,7 @@ export const GlobalResetStyle = css`
     height: 100%;
     margin: 0;
     padding: 0;
+    background-color: #f7f8f9;
     font-family:
       "Pretendard Variable",
       Pretendard,

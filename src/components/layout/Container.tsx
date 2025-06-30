@@ -8,7 +8,6 @@ const StyledContainer = styled.div({
   backgroundColor: "rgb(247, 248, 249)",
 });
 
-const Container = ({ children }: { children: ReactNode }) => {
+export const Container = ({ children }: { children: ReactNode }) => {
   return <StyledContainer>{children}</StyledContainer>;
 };
-export default Container;

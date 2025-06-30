@@ -1,20 +1,20 @@
 import styled from "@emotion/styled";
 
-const TabContainer = styled.div(props => ({
+const HotGiftTabContainer = styled.div(({ theme }) => ({
   display: "flex",
   flexDirection: "row",
   height: "45px",
-  borderRadius: `${props.theme.spacing2}`,
-  backgroundColor: `${props.theme.color.blue[100]}`,
-  marginBottom: `${props.theme.spacing4}`,
-  padding: `${props.theme.spacing3} ${props.theme.spacing4}`,
+  borderRadius: `${theme.spacing2}`,
+  backgroundColor: `${theme.color.blue[100]}`,
+  marginBottom: `${theme.spacing4}`,
+  padding: `${theme.spacing3} ${theme.spacing4}`,
   alignItems: "center",
   justifyContent: "space-around",
   transition: "all 0.2s ease",
   border: "1px solid rgba(70,132,233,0.1)",
 }));
 
-const TabTag = styled.button<{ isSelected: boolean }>(
+const HotGiftTabTag = styled.button<{ isSelected: boolean }>(
   ({ theme, isSelected }) => ({
     display: "flex",
     flexWrap: "wrap",
@@ -46,23 +46,21 @@ const tabData = [
   { id: "MANY_WISH_RECEIVE", text: "위시로 받은" },
 ];
 
-const HotGiftRankingTab = ({
+export const HotGiftRankingTab = ({
   onTabChange,
   selectedTab,
 }: HotGiftRankingTabProp) => {
   return (
-    <TabContainer>
+    <HotGiftTabContainer>
       {tabData.map(tab => (
-        <TabTag
+        <HotGiftTabTag
           key={tab.id}
           isSelected={selectedTab === tab.id}
           onClick={() => onTabChange(tab.id)}
         >
           {tab.text}
-        </TabTag>
+        </HotGiftTabTag>
       ))}
-    </TabContainer>
+    </HotGiftTabContainer>
   );
 };
-
-export default HotGiftRankingTab;
