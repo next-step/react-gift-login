@@ -2,39 +2,39 @@ import { category } from "@/__mock__";
 import { ThemeItem } from "@/components/main";
 import styled from "@emotion/styled";
 
-const PresentSectionPadding = styled.div(props => ({
+const PresentSectionPadding = styled.div(({ theme }) => ({
   width: "100%",
   height: "24px",
-  backgroundColor: `${props.theme.color.gray[0]}`,
+  backgroundColor: `${theme.color.gray[0]}`,
 }));
 
-const PresentSectionContainer = styled.section(props => ({
+const PresentSectionContainer = styled.section(({ theme }) => ({
   width: "100%",
   height: "313px",
-  padding: `${props.theme.spacing2}`,
-  backgroundColor: `${props.theme.color.gray[0]}`,
+  padding: `${theme.spacing2}`,
+  backgroundColor: `${theme.color.gray[0]}`,
 }));
 
-const PresentSectionTitleWrapper = styled.div(props => ({
+const PresentSectionTitleWrapper = styled.div(({ theme }) => ({
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
-  padding: `0 ${props.theme.spacing2} ${props.theme.spacing5}`,
+  padding: `0 ${theme.spacing2} ${theme.spacing5}`,
 }));
 
-const PresentSectionTitle = styled.h3(props => ({
-  fontSize: `${props.theme.typography.title1Bold.fontSize}`,
-  fontWeight: `${props.theme.typography.title1Bold.fontWeight}`,
-  lineHeight: `${props.theme.typography.title1Bold.lineHeight}`,
-  color: `${props.theme.color.gray[900]}`,
+const PresentSectionTitle = styled.h3(({ theme }) => ({
+  fontSize: `${theme.typography.title1Bold.fontSize}`,
+  fontWeight: `${theme.typography.title1Bold.fontWeight}`,
+  lineHeight: `${theme.typography.title1Bold.lineHeight}`,
+  color: `${theme.color.gray[900]}`,
 }));
 
-const PresentSectionGridContainer = styled.div(props => ({
+const PresentSectionGridContainer = styled.div(({ theme }) => ({
   display: "grid",
   gridTemplateRows: "repeat(3,1fr)",
   gridTemplateColumns: "repeat(5,1fr)",
-  gap: `${props.theme.spacing1}`,
-  rowGap: `${props.theme.spacing5}`,
+  gap: `${theme.spacing1}`,
+  rowGap: `${theme.spacing5}`,
 }));
 
 export const PresentTheme = () => {

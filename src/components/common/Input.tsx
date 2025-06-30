@@ -1,12 +1,12 @@
 import styled from "@emotion/styled";
 import type { InputHTMLAttributes } from "react";
 
-const StyledInput = styled.input(props => ({
+const StyledInput = styled.input(({ theme }) => ({
   width: "100%",
-  padding: `${props.theme.spacing2} 0`,
-  fontSize: `${props.theme.typography.label1Regular.fontSize}`,
-  lineHeight: `${props.theme.typography.label1Regular.lineHeight}`,
-  fontWeight: `${props.theme.typography.label1Regular.fontWeight}`,
+  padding: `${theme.spacing2} 0`,
+  fontSize: `${theme.typography.label1Regular.fontSize}`,
+  lineHeight: `${theme.typography.label1Regular.lineHeight}`,
+  fontWeight: `${theme.typography.label1Regular.fontWeight}`,
   border: "none",
   borderBottom: "1px solid rgb(220, 222, 227)",
   outline: "none",

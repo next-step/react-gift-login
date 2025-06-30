@@ -6,28 +6,28 @@ import {
 import styled from "@emotion/styled";
 import { useSearchParams } from "react-router-dom";
 
-const HotGiftRankingSectionContainer = styled.section(props => ({
+const HotGiftRankingSectionContainer = styled.section(({ theme }) => ({
   display: "flex",
   width: "100%",
   flexDirection: "column",
-  padding: `0 ${props.theme.spacing4}`,
-  backgroundColor: `${props.theme.color.gray[0]}`,
+  padding: `0 ${theme.spacing4}`,
+  backgroundColor: `${theme.color.gray[0]}`,
 }));
 
-const HotGiftRankingSectionTitle = styled.h3(props => ({
-  fontSize: `${props.theme.typography.title1Bold.fontSize}`,
-  fontWeight: `${props.theme.typography.title1Bold.fontWeight}`,
-  lineHeight: `${props.theme.typography.title1Bold.lineHeight}`,
-  color: `${props.theme.color.gray[900]}`,
-  marginBottom: `${props.theme.spacing5}`,
+const HotGiftRankingSectionTitle = styled.h3(({ theme }) => ({
+  fontSize: `${theme.typography.title1Bold.fontSize}`,
+  fontWeight: `${theme.typography.title1Bold.fontWeight}`,
+  lineHeight: `${theme.typography.title1Bold.lineHeight}`,
+  color: `${theme.color.gray[900]}`,
+  marginBottom: `${theme.spacing5}`,
 }));
 
-const HotGiftRankingSectionTagContainer = styled.div(props => ({
+const HotGiftRankingSectionTagContainer = styled.div(({ theme }) => ({
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
   height: "67px",
-  marginBottom: `${props.theme.spacing4}`,
+  marginBottom: `${theme.spacing4}`,
 }));
 
 const tags = [

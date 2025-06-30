@@ -2,8 +2,8 @@ import { Button } from "@/components/common";
 import styled from "@emotion/styled";
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 
-const StyledLoginButton = styled.div(props => ({
-  marginTop: `${props.theme.spacing11}`,
+const StyledLoginButton = styled.div(({ theme }) => ({
+  marginTop: `${theme.spacing11}`,
 }));
 
 export const LoginButton = () => {

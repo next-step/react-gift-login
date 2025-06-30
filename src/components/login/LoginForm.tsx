@@ -2,19 +2,19 @@ import { Input } from "@/components/common";
 import { LoginButton } from "@/components/login/LoginButton";
 import styled from "@emotion/styled";
 
-const LoginFormContainer = styled.section(props => ({
+const LoginFormContainer = styled.section(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   alignItems: "flex-start",
   justifyContent: "center",
   width: "100%",
   maxWidth: "420px",
-  padding: `${props.theme.spacing4}`,
+  padding: `${theme.spacing4}`,
 }));
 
-const LoginInputWrapper = styled.div(props => ({
+const LoginInputWrapper = styled.div(({ theme }) => ({
   width: "100%",
-  marginBottom: `${props.theme.spacing4}`,
+  marginBottom: `${theme.spacing4}`,
 }));
 
 export const LoginForm = () => {

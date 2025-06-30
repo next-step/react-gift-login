@@ -3,39 +3,39 @@ import notFound from "@/assets/not-found-image.png";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/common";
 
-const NotFoundSectionContainer = styled.section(props => ({
+const NotFoundSectionContainer = styled.section(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "center",
-  backgroundColor: `${props.theme.color.gray[200]}`,
+  backgroundColor: `${theme.color.gray[200]}`,
   width: "100%",
   height: "100vh",
 }));
 
-const NotFoundStyledImage = styled.img(props => ({
+const NotFoundStyledImage = styled.img(({ theme }) => ({
   display: "flex",
   width: "150px",
   height: "150px",
   objectFit: "contain",
-  padding: `${props.theme.spacing2}`,
+  padding: `${theme.spacing2}`,
 }));
 
-const NotFoundTitle = styled.p(props => ({
-  fontSize: `${props.theme.typography.title1Bold.fontSize}`,
-  fontWeight: `${props.theme.typography.title1Bold.fontWeight}`,
-  lineHeight: `${props.theme.typography.title1Bold.lineHeight}`,
-  color: `${props.theme.color.gray[900]}`,
+const NotFoundTitle = styled.p(({ theme }) => ({
+  fontSize: `${theme.typography.title1Bold.fontSize}`,
+  fontWeight: `${theme.typography.title1Bold.fontWeight}`,
+  lineHeight: `${theme.typography.title1Bold.lineHeight}`,
+  color: `${theme.color.gray[900]}`,
   textAlign: "center",
-  padding: `${props.theme.spacing2}`,
+  padding: `${theme.spacing2}`,
 }));
 
-const NotFoundDescription = styled.p(props => ({
-  fontSize: `${props.theme.typography.title2Regular.fontSize}`,
-  fontWeight: `${props.theme.typography.title2Regular.fontWeight}`,
-  lineHeight: `${props.theme.typography.title2Regular.lineHeight}`,
-  color: `${props.theme.color.gray[700]}`,
-  padding: `${props.theme.spacing2}`,
+const NotFoundDescription = styled.p(({ theme }) => ({
+  fontSize: `${theme.typography.title2Regular.fontSize}`,
+  fontWeight: `${theme.typography.title2Regular.fontWeight}`,
+  lineHeight: `${theme.typography.title2Regular.lineHeight}`,
+  color: `${theme.color.gray[700]}`,
+  padding: `${theme.spacing2}`,
 }));
 
 export const NotFound = () => {

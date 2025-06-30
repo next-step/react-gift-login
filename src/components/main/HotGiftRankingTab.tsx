@@ -1,13 +1,13 @@
 import styled from "@emotion/styled";
 
-const HotGiftTabContainer = styled.div(props => ({
+const HotGiftTabContainer = styled.div(({ theme }) => ({
   display: "flex",
   flexDirection: "row",
   height: "45px",
-  borderRadius: `${props.theme.spacing2}`,
-  backgroundColor: `${props.theme.color.blue[100]}`,
-  marginBottom: `${props.theme.spacing4}`,
-  padding: `${props.theme.spacing3} ${props.theme.spacing4}`,
+  borderRadius: `${theme.spacing2}`,
+  backgroundColor: `${theme.color.blue[100]}`,
+  marginBottom: `${theme.spacing4}`,
+  padding: `${theme.spacing3} ${theme.spacing4}`,
   alignItems: "center",
   justifyContent: "space-around",
   transition: "all 0.2s ease",

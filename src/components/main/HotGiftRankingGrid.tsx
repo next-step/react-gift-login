@@ -3,26 +3,26 @@ import { Button } from "@/components/common";
 import styled from "@emotion/styled";
 import { useState } from "react";
 
-const HotGiftRankingGridContainer = styled.div(props => ({
+const HotGiftRankingGridContainer = styled.div(({ theme }) => ({
   display: "grid",
   gridTemplateColumns: "repeat(3, 1fr)",
-  gap: `${props.theme.spacing2}`,
-  rowGap: `${props.theme.spacing6}`,
+  gap: `${theme.spacing2}`,
+  rowGap: `${theme.spacing6}`,
 }));
 
-const HotGiftRankingGridItem = styled.div(props => ({
-  backgroundColor: `${props.theme.color.gray[0]}`,
-  borderRadius: `${props.theme.spacing3}`,
+const HotGiftRankingGridItem = styled.div(({ theme }) => ({
+  backgroundColor: `${theme.color.gray[0]}`,
+  borderRadius: `${theme.spacing3}`,
   cursor: "pointer",
   position: "relative",
 }));
 
-const HotGiftRankingImageContainer = styled.img(props => ({
+const HotGiftRankingImageContainer = styled.img(({ theme }) => ({
   width: "100%",
   height: "224px",
   display: "flex",
   borderRadius: "4px",
-  marginBottom: `${props.theme.spacing3}`,
+  marginBottom: `${theme.spacing3}`,
   alignItems: "center",
   justifyContent: "center",
 }));
@@ -44,30 +44,30 @@ const RankBadge = styled.div<{ rank: number }>(({ theme, rank }) => ({
   zIndex: 1,
 }));
 
-const HotGiftCategoryText = styled.p(props => ({
-  fontSize: `${props.theme.typography.label1Regular.fontSize}`,
-  fontWeight: `${props.theme.typography.label1Regular.fontWeight}`,
-  lineHeight: `${props.theme.typography.label1Regular.lineHeight}`,
-  color: `${props.theme.color.gray[500]}`,
+const HotGiftCategoryText = styled.p(({ theme }) => ({
+  fontSize: `${theme.typography.label1Regular.fontSize}`,
+  fontWeight: `${theme.typography.label1Regular.fontWeight}`,
+  lineHeight: `${theme.typography.label1Regular.lineHeight}`,
+  color: `${theme.color.gray[500]}`,
 }));
 
-const HotGiftProductTitle = styled.p(props => ({
-  fontSize: `${props.theme.typography.label1Regular.fontSize}`,
-  fontWeight: `${props.theme.typography.label1Regular.fontWeight}`,
-  color: `${props.theme.color.gray[900]}`,
-  marginBottom: `${props.theme.spacing2}`,
+const HotGiftProductTitle = styled.p(({ theme }) => ({
+  fontSize: `${theme.typography.label1Regular.fontSize}`,
+  fontWeight: `${theme.typography.label1Regular.fontWeight}`,
+  color: `${theme.color.gray[900]}`,
+  marginBottom: `${theme.spacing2}`,
 }));
 
-const HotGiftPriceText = styled.p(props => ({
-  fontSize: `${props.theme.typography.title2Bold.fontSize}`,
-  fontWeight: `${props.theme.typography.title2Bold.fontWeight}`,
-  color: `${props.theme.color.gray[900]}`,
+const HotGiftPriceText = styled.p(({ theme }) => ({
+  fontSize: `${theme.typography.title2Bold.fontSize}`,
+  fontWeight: `${theme.typography.title2Bold.fontWeight}`,
+  color: `${theme.color.gray[900]}`,
 }));
 
-const ButtonContainer = styled.div(props => ({
+const ButtonContainer = styled.div(({ theme }) => ({
   display: "flex",
   justifyContent: "center",
-  padding: `${props.theme.spacing8} 0 ${props.theme.spacing10} 0`,
+  padding: `${theme.spacing8} 0 ${theme.spacing10} 0`,
 }));
 
 const RANK_CORRECTION_NUMBER = 1;
