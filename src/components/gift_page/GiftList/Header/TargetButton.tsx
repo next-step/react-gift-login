@@ -66,3 +66,4 @@ export const TargetButton = ({ type, isClicked, setCurrentTarget }: TargetButton
     </Button>
   );
 };
+

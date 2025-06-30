@@ -39,3 +39,4 @@ export const TopicButton = ({ type, isClicked, setCurrentTopic }: TopicButtonTyp
     </Button>
   );
 };
+
