@@ -1,10 +1,9 @@
 import styled from "@emotion/styled"
-interface BlankStyle {
-  height: string
-}
-const Blank = styled.div<BlankStyle>`
+import type { ComponentStyle } from "@/interfaces/ComponentStyle"
+
+const Blank = styled.div<ComponentStyle>`
   width: 100%;
-  max-width: 702px;
+  max-width: 720px;
   height: ${(props) => props.height};
 `
 export default Blank

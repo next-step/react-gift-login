@@ -1,34 +1,45 @@
-import { useState } from "react"
 import Row from "@/components/Row"
 import Text from "@/components/Text"
 import Column from "@/components/Column"
 import TabButton from "@/components/TabButton"
+import useQueryState from "@/hooks/useQueryState"
 
-const tabs = [
-  { id: 0, label: "전체", content: "ALL" },
-  { id: 1, label: "여성이", content: "👩🏻" },
-  { id: 2, label: "남성이", content: "👨🏻" },
-  { id: 3, label: "청소년이", content: "👦🏻" },
+type TargetType = "ALL" | "FEMALE" | "MALE" | "TEEN"
+
+interface TabItem {
+  id: number
+  label: string
+  emoji: string
+  query: TargetType
+}
+
+const tabs: TabItem[] = [
+  { id: 0, label: "전체", emoji: "ALL", query: "ALL" },
+  { id: 1, label: "여성이", emoji: "👩🏻", query: "FEMALE" },
+  { id: 2, label: "남성이", emoji: "👨🏻", query: "MALE" },
+  { id: 3, label: "청소년이", emoji: "👦🏻", query: "TEEN" },
 ]
 
 const ButtonsRow = () => {
-  const [activeId, setActiveId] = useState<number>(0)
-
+  const [targetType, setTargetType] = useQueryState<TargetType>(
+    "targetType",
+    "ALL"
+  )
   return (
     <Row>
       {tabs.map((tab) => (
         <Column key={tab.id}>
           <TabButton
             type="button"
-            active={activeId === tab.id}
-            onClick={() => setActiveId(tab.id)}
+            isActive={targetType === tab.query}
+            onClick={() => setTargetType(tab.query)}
           >
             <Text
               variant="subtitle2Regular"
               margin="spacing2"
               padding="spacing2"
             >
-              {tab.content}
+              {tab.emoji}
             </Text>
           </TabButton>
 
@@ -36,7 +47,7 @@ const ButtonsRow = () => {
             variant="label2Regular"
             margin="spacing0"
             padding="spacing0"
-            color={activeId === tab.id ? "blue700" : "blue300"}
+            color={targetType === tab.query ? "blue700" : "blue300"}
           >
             {tab.label}
           </Text>

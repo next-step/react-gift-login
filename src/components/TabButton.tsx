@@ -1,8 +1,7 @@
-import theme from "@/styles/theme"
 import styled from "@emotion/styled"
 
 interface TabButtonStyle {
-  active: boolean
+  isActive: boolean
 }
 
 const TabButton = styled.button<TabButtonStyle>`
@@ -11,10 +10,10 @@ const TabButton = styled.button<TabButtonStyle>`
   border: none;
   border-radius: 16px;
 
-  background-color: ${({ active, theme }) =>
-    active ? theme.colors.blue700 : theme.colors.blue100};
-  color: ${({ active, theme }) =>
-    active ? theme.colors.blue100 : theme.colors.blue300};
+  background-color: ${({ isActive, theme }) =>
+    isActive ? theme.colors.blue700 : theme.colors.blue100};
+  color: ${({ isActive, theme }) =>
+    isActive ? theme.colors.blue100 : theme.colors.blue300};
 
   display: flex;
   align-items: center;

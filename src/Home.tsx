@@ -20,13 +20,23 @@ const Home = () => {
       <Layout>
         <NaviBar>
           <Box direction="left">
-            <Button src={backarrow} onClick={handleGoBack} />
+            <Button
+              src={backarrow}
+              onClick={handleGoBack}
+              width="40px"
+              height="40px"
+            />
           </Box>
           <Box direction="center">
             <Title>선물하기</Title>
           </Box>
           <Box direction="right">
-            <Button src={person} onClick={() => navigate(`/Login`)} />
+            <Button
+              src={person}
+              onClick={() => navigate(`/Login`)}
+              width="40px"
+              height="40px"
+            />
           </Box>
         </NaviBar>
         <main style={{ paddingTop: "44px" }}>

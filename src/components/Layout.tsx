@@ -12,6 +12,7 @@ const Layout = styled.div<LayoutStyle>`
   margin: 0 auto;
   background-color: ${theme.colors.gray00};
   height: 100vh;
+
   ${marginTop ? `padding-top:  ${theme.space[marginTop]};` : ""}
   ${paddingLeft ? `padding-left:  ${theme.space[paddingLeft]};` : ""}
   ${paddingRight ? `padding-right:  ${theme.space[paddingRight]};` : ""}
