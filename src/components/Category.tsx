@@ -1,15 +1,13 @@
 import { CategoryContainerStyle } from '@/styles/Category/CategoryStyle.styles';
 
-function Category({
-  category,
-  onClick,
-  selectCategory,
-}: {
+type CategoryType = {
   category: string;
   onClick: () => void;
-  selectCategory: string;
-}) {
-  const selected = category === selectCategory;
+  selectedCategory: string;
+};
+
+function Category({ category, onClick, selectedCategory }: CategoryType) {
+  const selected = category === selectedCategory;
   return (
     <CategoryContainerStyle onClick={onClick} selected={selected}>
       {category}

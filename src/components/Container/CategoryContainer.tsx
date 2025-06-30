@@ -12,17 +12,17 @@ function CategoryContainer() {
       <Category
         onClick={() => handleCategoryClick('받고 싶어한')}
         category="받고 싶어한"
-        selectCategory={selectCategory}
+        selectedCategory={selectCategory}
       />
       <Category
         onClick={() => handleCategoryClick('많이 선물한')}
         category="많이 선물한"
-        selectCategory={selectCategory}
+        selectedCategory={selectCategory}
       />
       <Category
         onClick={() => handleCategoryClick('위시로 받은')}
         category="위시로 받은"
-        selectCategory={selectCategory}
+        selectedCategory={selectCategory}
       />
     </CategoryContainerStyle>
   );
