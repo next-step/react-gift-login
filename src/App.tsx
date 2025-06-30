@@ -22,7 +22,11 @@ function App() {
       <Global styles={globalReset} />
       <AppWrapper>
         <Layout>
+<<<<<<< HEAD
           <Navbar />
+=======
+          
+>>>>>>> 5b4be5d (style: 로그인 화면 구현 완료)
           <main>
             <GiftFriendSelector />
 

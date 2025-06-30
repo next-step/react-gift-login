@@ -12,6 +12,10 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
+<<<<<<< HEAD
+=======
+    "@mui/material": "^7.1.2",
+>>>>>>> 5b4be5d (style: 로그인 화면 구현 완료)
     "@types/react-router-dom": "^5.3.3",
     "lucide-react": "^0.523.0",
     "react": "^19.1.0",
