@@ -6,7 +6,6 @@ export const PageContainer = styled.div`
   width: 100%;
   max-width: 720px;
   margin: 0 auto;
-  padding: 0 16px;
   background-color: ${({ theme }) => theme.colors.backgroundDefault};
   box-sizing: border-box;
 `;

@@ -3,11 +3,39 @@ import { css, useTheme } from "@emotion/react";
 import { useState } from "react";
 import { rankingList } from "@/mock/rankingList";
 
+type AudienceGroupKey = "ALL" | "FEMALE" | "MALE" | "TEEN";
+
+interface AudienceGroupOption {
+  key: AudienceGroupKey;
+  label: string;
+  icon: string;
+}
+
+const audienceGroupOptions: AudienceGroupOption[] = [
+  { key: "ALL", label: "전체", icon: "ALL" },
+  { key: "FEMALE", label: "여성이", icon: "👩🏻" },
+  { key: "MALE", label: "남성이", icon: "👨🏻" },
+  { key: "TEEN", label: "청소년이", icon: "👦🏻" },
+];
+
+type ActionKey = "WANT" | "GIVE" | "WISH";
+
+interface ActionOption {
+  key: ActionKey;
+  label: string;
+}
+
+const actionOptions: ActionOption[] = [
+  { key: "WANT", label: "받고 싶어한" },
+  { key: "GIVE", label: "많이 선물한" },
+  { key: "WISH", label: "위시로 받은" },
+];
+
 export const RankingSection = () => {
   const theme = useTheme();
   const [isExpanded, setIsExpanded] = useState(false);
-  const [selectedGender, setSelectedGender] = useState("ALL");
-  const [selectedAction, setSelectedAction] = useState("받고 싶어한");
+  const [selectedUserGroup, setSelectedUserGroup] = useState<AudienceGroupKey>("ALL");
+  const [selectedAction, setSelectedAction] = useState<ActionKey>("WANT");
 
   return (
     <section css={section(theme)}>
@@ -15,56 +43,46 @@ export const RankingSection = () => {
 
       <div css={filterContainer(theme)}>
         <div css={gender(theme)}>
-          {["ALL", "여성이", "남성이", "청소년이"].map(gender => (
+          {audienceGroupOptions.map(({ key, label, icon }) => (
             <button
-              key={gender}
+              key={key}
               css={genderButton}
-              onClick={() => setSelectedGender(gender)}
+              onClick={() => setSelectedUserGroup(key)}
             >
-              <div css={genderIcon(theme, selectedGender === gender)}>
-                {gender === "ALL"
-                  ? "ALL"
-                  : gender === "여성이"
-                    ? "👩🏻"
-                    : gender === "남성이"
-                      ? "👨🏻"
-                      : "👦🏻"}
-              </div>
-              <p css={genderText(theme, selectedGender === gender)}>{gender}</p>
+              <div css={genderIcon(theme, selectedUserGroup === key)}>{icon}</div>
+              <p css={genderText(theme, selectedUserGroup === key)}>{label}</p>
             </button>
           ))}
         </div>
 
         <div css={gift(theme)}>
-          {["받고 싶어한", "많이 선물한", "위시로 받은"].map(action => (
+          {actionOptions.map(({ key, label }) => (
             <button
-              key={action}
-              css={actionButton(theme, selectedAction === action)}
-              onClick={() => setSelectedAction(action)}
+              key={key}
+              css={actionButton(theme, selectedAction === key)}
+              onClick={() => setSelectedAction(key)}
             >
-              {action}
+              {label}
             </button>
           ))}
         </div>
       </div>
 
       <div css={grid(theme)}>
-        {(isExpanded ? rankingList : rankingList.slice(0, 6)).map(
-          (item, idx) => (
-            <div key={item.id} css={itemStyle}>
-              <span css={ranks(theme, idx + 1)}>{idx + 1}</span>
-              <img css={itemImg(theme)} src={item.imageURL} alt={item.name} />
-              <p css={brandName(theme)}>{item.brandInfo.name}</p>
-              <h6 css={productName(theme)}>{item.name}</h6>
-              <p css={priceStyle(theme)}>
-                {item.price.sellingPrice.toLocaleString()} <span>원</span>
-              </p>
-            </div>
-          ),
-        )}
+        {(isExpanded ? rankingList : rankingList.slice(0, 6)).map((item, idx) => (
+          <div key={item.id} css={itemStyle}>
+            <span css={ranks(theme, idx + 1)}>{idx + 1}</span>
+            <img css={itemImg(theme)} src={item.imageURL} alt={item.name} />
+            <p css={brandName(theme)}>{item.brandInfo.name}</p>
+            <h6 css={productName(theme)}>{item.name}</h6>
+            <p css={priceStyle(theme)}>
+              {item.price.sellingPrice.toLocaleString()} <span>원</span>
+            </p>
+          </div>
+        ))}
       </div>
 
-      <button css={more(theme)} onClick={() => setIsExpanded(prev => !prev)}>
+      <button css={more(theme)} onClick={() => setIsExpanded((prev) => !prev)}>
         <p>{isExpanded ? "접기" : "더보기"}</p>
       </button>
     </section>
