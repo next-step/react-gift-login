@@ -23,14 +23,15 @@ export interface Product {
   price: PriceInfo;
   brandInfo: BrandInfo;
 }
-
+export type TabId = 'all' | 'female' | 'male' | 'teen';
 export interface Tab {
-  id: string;
+  id: TabId;
   label: string;
   icon?: string;
 }
 
+export type FilterId = 'wanted' | 'gifted' | 'wished';
 export interface Filter {
-  id: string;
+  id: FilterId;
   label: string;
 }
