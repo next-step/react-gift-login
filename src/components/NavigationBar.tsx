@@ -1,10 +1,10 @@
-import React from 'react';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { ThemeProvider } from '@emotion/react';
 import { theme } from '@/theme/theme';
 import ChevronLeftIcon from '@/assets/ChevronLeftIcon';
 import User from '@/assets/User';
+import { useNavigate } from 'react-router-dom';
 
 const Warpper = styled.nav`
   display: flex;
@@ -37,6 +37,13 @@ const MyPageSection = styled.div`
   justify-content: flex-end;
 `;
 
+const MyPageButton = styled.button`
+  cursor: pointer;
+  background: none;
+  outline: none;
+  border: none;
+  appearance: none;
+`;
 const BackButton = styled.button`
   cursor: pointer;
   background: none;
@@ -46,6 +53,7 @@ const BackButton = styled.button`
 `;
 
 const NavigationBar = () => {
+  const navigate = useNavigate();
   return (
     <ThemeProvider theme={theme}>
       <Warpper>
@@ -64,7 +72,13 @@ const NavigationBar = () => {
           ></img>
         </CenterSection>
         <MyPageSection>
-          <User />
+          <MyPageButton
+            onClick={() => {
+              navigate('/login');
+            }}
+          >
+            <User />
+          </MyPageButton>
         </MyPageSection>
       </Warpper>
     </ThemeProvider>
