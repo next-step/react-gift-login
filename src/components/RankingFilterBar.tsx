@@ -1,4 +1,5 @@
-﻿import { useState } from 'react'
+﻿﻿import { useEffect } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import styled from '@emotion/styled'
 import { colors } from '@/theme/color'
 import { typography } from '@/theme/typography'
@@ -103,9 +104,25 @@ export function RankingFilterBar({
   onGenderChange,
   onSortChange,
 }: RankingFilterBarProps) {
-  const [selectedGender, setSelectedGender] = useState(genders[0].key)
-  const [selectedSort, setSelectedSort] = useState(sorts[0].key)
+    const [searchParams, setSearchParams] = useSearchParams();
+  const selectedGender = searchParams.get('gender') ?? genders[0].key
+  const selectedSort = searchParams.get('sort') ?? sorts[0].key
 
+  useEffect(() => {
+    const params = new URLSearchParams(searchParams)
+    let changed = false
+    if (!searchParams.get('gender')) {
+      params.set('gender', genders[0].key)
+      changed = true
+    }
+    if (!searchParams.get('sort')) {
+      params.set('sort', sorts[0].key)
+      changed = true
+    }
+    if (changed) {
+      setSearchParams(params, { replace: true })
+    }
+  }, [])
   return (
     <FilterBarWrapper>
       {/* 1) 아이콘 버튼 행 */}
@@ -117,8 +134,9 @@ export function RankingFilterBar({
               key={g.key}
               selected={isSelected}
               onClick={() => {
-                setSelectedGender(g.key)
-                onGenderChange?.(g.key)
+                const params = new URLSearchParams(searchParams)
+                params.set('gender', g.key)
+                setSearchParams(params)
               }}
             >
               <GenderIcon selected={isSelected}>{g.icon}</GenderIcon>
@@ -148,8 +166,9 @@ export function RankingFilterBar({
               key={s.key}
               active={isActive}
               onClick={() => {
-                setSelectedSort(s.key)
-                onSortChange?.(s.key)
+                const params = new URLSearchParams(searchParams)
+                params.set('sort', s.key)
+                setSearchParams(params)
               }}
             >
               {s.label}
