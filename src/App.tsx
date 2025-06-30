@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import NotFoundPage from './pages/NotFoundPage';
 
+
 const containerStyle = css`
   max-width: 720px;
   margin: 0 auto;
@@ -26,6 +27,7 @@ const App = () => {
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </BrowserRouter>
+
       </div>
     </ThemeProvider>
   );
