@@ -5,7 +5,7 @@ import RankingFilter from '@/components/RankingSection/RankingFilter';
 import RankingSort from '@/components/RankingSection/RankingSort';
 import ProductGrid from '@/components/RankingSection/ProductGrid';
 import ExpandButton from '@/components/RankingSection/ExpandButton';
-import { useMemo, useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const RankingGroup = () => {
   const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE_COUNT);
