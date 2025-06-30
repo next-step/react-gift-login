@@ -37,7 +37,6 @@ export function GiftCategoryGrid({
   onThemeClick,
 }: GiftCategoryGridProps) {
   const handleThemeClick = (theme: GiftTheme) => {
-    console.log('테마 클릭:', theme.name);
     onThemeClick?.(theme);
   };
 
