@@ -1,26 +1,41 @@
-import { useState } from 'react';
-import ResetStyles from '@/styles/ResetStyles';
-import MainLayout from '@/Layout/MainLayout';
-import Header from '@/Layout/Header';
-import Login from '@/Layout/Login';
 import { ThemeProvider } from '@emotion/react';
 import { theme } from '@/styles/ResetStyles';
 import { AppWrapper } from '@/styles/App.styles';
+import { Routes, Route } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+import WithHeaderLayout from '@/Layout/WithHeaderLayout';
+import ResetStyles from '@/styles/ResetStyles';
+import MainLayout from '@/Layout/MainLayout';
+import Login from '@/Layout/Login';
+import NotFound from '@/NotFound';
 
 function App() {
-  const [isHome, setIsHome] = useState(true);
+  const navigate = useNavigate();
+  const location = useLocation();
   function handleBackClick() {
-    setIsHome(true);
+    if (location.pathname !== '/') navigate(-1);
   }
   function handleLoginClick() {
-    setIsHome(false);
+    navigate('/login');
   }
   return (
     <ThemeProvider theme={theme}>
       <AppWrapper>
         <ResetStyles />
-        <Header onBackClick={handleBackClick} onLoginClick={handleLoginClick} />
-        {isHome ? <MainLayout /> : <Login onLogin={handleBackClick} />}
+        <Routes>
+          <Route
+            element={
+              <WithHeaderLayout
+                handleBackClick={handleBackClick}
+                handleLoginClick={handleLoginClick}
+              />
+            }
+          >
+            <Route path="/" element={<MainLayout />} />
+            <Route path="/login" element={<Login onLogin={handleBackClick} />} />
+          </Route>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </AppWrapper>
     </ThemeProvider>
   );

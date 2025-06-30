@@ -25,8 +25,9 @@ function ItemContainer({ itemList }: { itemList: mockItemType }) {
   }));
 
   const visibleItems = isExpanded ? item : item.slice(0, 6);
-
-  const handleToggle = () => setIsExpanded((prev) => !prev);
+  function handleToggle() {
+    setIsExpanded((prev) => !prev);
+  }
 
   return (
     <ItemlistContainer>
