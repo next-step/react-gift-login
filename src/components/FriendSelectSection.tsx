@@ -1,16 +1,9 @@
 import IconTextButton from '@/components/common/IconTextButton';
+import styled from '@emotion/styled';
 
 const FriendSelectSection = () => {
   return (
-    <section
-      style={{
-        boxSizing: 'border-box',
-        height: '106px',
-        padding: '16px 12px',
-        backgroundColor: '#f2f3f6',
-        marginBottom: '16px',
-      }}
-    >
+    <Section>
       <IconTextButton
         icon={
           <svg
@@ -31,8 +24,16 @@ const FriendSelectSection = () => {
         }
         text="선물할 친구를 선택해 주세요."
       />
-    </section>
+    </Section>
   );
 };
 
 export default FriendSelectSection;
+
+const Section = styled.section`
+  box-sizing: border-box;
+  height: 106px;
+  padding: ${({ theme }) => `${theme.spacing[4]} ${theme.spacing[3]}`};
+  background-color: ${({ theme }) => theme.color.gray[200]};
+  margin-bottom: ${({ theme }) => theme.spacing[4]};
+`;
