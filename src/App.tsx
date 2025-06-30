@@ -5,6 +5,7 @@ import { theme } from './styles/theme';
 import Login from './pages/Login';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
+import NotFoundPage from './pages/NotFoundPage';
 
 const containerStyle = css`
   max-width: 720px;
@@ -22,6 +23,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </BrowserRouter>
       </div>
