@@ -27,7 +27,7 @@ const Container = styled.header`
   display: flex;
   justify-content: center;
   background-color: white;
-  position: relative;
+  position: fixed;
 `
 
 const Inner = styled.div`
