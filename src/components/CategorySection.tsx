@@ -1,6 +1,26 @@
 import styled from '@emotion/styled';
 import { mockCategories } from '@/data/categories';
 
+const CategorySection = () => {
+  return (
+    <Section>
+      <TitleWrapper>
+        <Title>선물 테마</Title>
+      </TitleWrapper>
+      <Grid>
+        {mockCategories.map(category => (
+          <Item key={category.themeId}>
+            <CategoryImage src={category.image} alt={category.name} />
+            <CategoryText>{category.name}</CategoryText>
+          </Item>
+        ))}
+      </Grid>
+    </Section>
+  );
+};
+
+export default CategorySection;
+
 const Section = styled.section`
   padding: ${({ theme }) => theme.spacing[2]};
   margin-bottom: ${({ theme }) => theme.spacing[6]};
@@ -43,23 +63,3 @@ const CategoryText = styled.p`
   ${({ theme }) => theme.typography.label.label2Regular};
   color: ${({ theme }) => theme.color.semantic.text.default};
 `;
-
-const CategorySection = () => {
-  return (
-    <Section>
-      <TitleWrapper>
-        <Title>선물 테마</Title>
-      </TitleWrapper>
-      <Grid>
-        {mockCategories.map(category => (
-          <Item key={category.themeId}>
-            <CategoryImage src={category.image} alt={category.name} />
-            <CategoryText>{category.name}</CategoryText>
-          </Item>
-        ))}
-      </Grid>
-    </Section>
-  );
-};
-
-export default CategorySection;

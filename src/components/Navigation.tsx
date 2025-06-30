@@ -1,32 +1,6 @@
 import styled from '@emotion/styled';
 import PresentLogo from '@/assets/present.webp';
 
-const Nav = styled.nav`
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: ${({ theme }) => `${theme.spacing[0]} ${theme.spacing[4]}`};
-  background-color: ${({ theme }) => theme.color.semantic.background.default};
-`;
-
-const IconButton = styled.button`
-  border: none;
-  background-color: ${({ theme }) => theme.color.semantic.background.default};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: ${({ theme }) => theme.color.semantic.text.default};
-  cursor: pointer;
-`;
-
-const Logo = styled.img`
-  height: 44px;
-  cursor: pointer;
-`;
-
 const Navigation = () => {
   return (
     <Nav>
@@ -75,3 +49,29 @@ const Navigation = () => {
 };
 
 export default Navigation;
+
+const Nav = styled.nav`
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: ${({ theme }) => `${theme.spacing[0]} ${theme.spacing[4]}`};
+  background-color: ${({ theme }) => theme.color.semantic.background.default};
+`;
+
+const IconButton = styled.button`
+  border: none;
+  background-color: ${({ theme }) => theme.color.semantic.background.default};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ${({ theme }) => theme.color.semantic.text.default};
+  cursor: pointer;
+`;
+
+const Logo = styled.img`
+  height: 44px;
+  cursor: pointer;
+`;

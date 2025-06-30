@@ -1,5 +1,34 @@
 import styled from '@emotion/styled';
 
+const FriendSelectSection = () => {
+  return (
+    <Section>
+      <SelectButton aria-label="선물할 친구 선택">
+        <IconWrapper>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#2a3038"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M5 12h14" />
+            <path d="M12 5v14" />
+          </svg>
+        </IconWrapper>
+        <ButtonText>선물할 친구를 선택해 주세요.</ButtonText>
+      </SelectButton>
+    </Section>
+  );
+};
+
+export default FriendSelectSection;
+
 const Section = styled.section`
   box-sizing: border-box;
   height: 106px;
@@ -37,32 +66,3 @@ const ButtonText = styled.p`
   ${({ theme }) => theme.typography.body.body1Bold};
   color: ${({ theme }) => theme.color.semantic.text.default};
 `;
-
-const FriendSelectSection = () => {
-  return (
-    <Section>
-      <SelectButton aria-label="선물할 친구 선택">
-        <IconWrapper>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="#2a3038"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
-          >
-            <path d="M5 12h14" />
-            <path d="M12 5v14" />
-          </svg>
-        </IconWrapper>
-        <ButtonText>선물할 친구를 선택해 주세요.</ButtonText>
-      </SelectButton>
-    </Section>
-  );
-};
-
-export default FriendSelectSection;

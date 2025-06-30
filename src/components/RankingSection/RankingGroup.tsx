@@ -6,18 +6,6 @@ import RankingSort from '@/components/RankingSection/RankingSort';
 import ProductGrid from '@/components/RankingSection/ProductGrid';
 import ExpandButton from '@/components/RankingSection/ExpandButton';
 
-const INITIAL_VISIBLE_COUNT = 6;
-
-const Section = styled.section`
-  padding: ${({ theme }) => `${theme.spacing[0]} ${theme.spacing[4]}`};
-  margin-bottom: ${({ theme }) => theme.spacing[5]};
-`;
-
-const Title = styled.h3`
-  ${({ theme }) => theme.typography.title.title1Bold};
-  margin-bottom: ${({ theme }) => theme.spacing[4]};
-`;
-
 const RankingGroup = () => {
   const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE_COUNT);
   const [selectedFilter, setSelectedFilter] = useState('전체');
@@ -49,3 +37,15 @@ const RankingGroup = () => {
 };
 
 export default RankingGroup;
+
+const INITIAL_VISIBLE_COUNT = 6;
+
+const Section = styled.section`
+  padding: ${({ theme }) => `${theme.spacing[0]} ${theme.spacing[4]}`};
+  margin-bottom: ${({ theme }) => theme.spacing[5]};
+`;
+
+const Title = styled.h3`
+  ${({ theme }) => theme.typography.title.title1Bold};
+  margin-bottom: ${({ theme }) => theme.spacing[4]};
+`;

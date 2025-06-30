@@ -2,18 +2,6 @@ import styled from '@emotion/styled';
 import type { Product } from '@/types/product';
 import ProductCard from '@/components/RankingSection/ProductCard';
 
-interface ProductGridProps {
-  products: Product[];
-}
-
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: ${({ theme }) => theme.spacing[2]};
-  row-gap: ${({ theme }) => theme.spacing[7]};
-  margin-bottom: ${({ theme }) => theme.spacing[4]};
-`;
-
 const ProductGrid = ({ products }: ProductGridProps) => {
   return (
     <Grid>
@@ -25,3 +13,15 @@ const ProductGrid = ({ products }: ProductGridProps) => {
 };
 
 export default ProductGrid;
+
+interface ProductGridProps {
+  products: Product[];
+}
+
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: ${({ theme }) => theme.spacing[2]};
+  row-gap: ${({ theme }) => theme.spacing[7]};
+  margin-bottom: ${({ theme }) => theme.spacing[4]};
+`;

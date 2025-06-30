@@ -1,6 +1,22 @@
 import styled from '@emotion/styled';
 import type { Product } from '@/types/product';
 
+const ProductCard = ({ item, rank }: ProductCardProps) => {
+  return (
+    <Card>
+      <RankBadge rank={rank}>{rank}</RankBadge>
+      <Image src={item.imageURL} alt={item.name} />
+      <Brand>{item.brandInfo.name}</Brand>
+      <Name>{item.name}</Name>
+      <Price>
+        {item.price.sellingPrice.toLocaleString()} <span>원</span>
+      </Price>
+    </Card>
+  );
+};
+
+export default ProductCard;
+
 interface ProductCardProps {
   item: Product;
   rank: number;
@@ -58,19 +74,3 @@ const RankBadge = styled.span<{ rank: number }>`
   color: ${({ theme }) => theme.color.gray[0]};
   z-index: 1;
 `;
-
-const ProductCard = ({ item, rank }: ProductCardProps) => {
-  return (
-    <Card>
-      <RankBadge rank={rank}>{rank}</RankBadge>
-      <Image src={item.imageURL} alt={item.name} />
-      <Brand>{item.brandInfo.name}</Brand>
-      <Name>{item.name}</Name>
-      <Price>
-        {item.price.sellingPrice.toLocaleString()} <span>원</span>
-      </Price>
-    </Card>
-  );
-};
-
-export default ProductCard;

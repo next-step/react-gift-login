@@ -1,5 +1,15 @@
 import styled from '@emotion/styled';
 
+const ExpandButton = ({ isExpanded, onToggle }: ExpandButtonProps) => {
+  return (
+    <Wrapper>
+      <Button onClick={onToggle}>{isExpanded ? '접기' : '더보기'}</Button>
+    </Wrapper>
+  );
+};
+
+export default ExpandButton;
+
 interface ExpandButtonProps {
   isExpanded: boolean;
   onToggle: () => void;
@@ -21,13 +31,3 @@ const Button = styled.button`
   background-color: ${({ theme }) => theme.color.semantic.background.default};
   cursor: pointer;
 `;
-
-const ExpandButton = ({ isExpanded, onToggle }: ExpandButtonProps) => {
-  return (
-    <Wrapper>
-      <Button onClick={onToggle}>{isExpanded ? '접기' : '더보기'}</Button>
-    </Wrapper>
-  );
-};
-
-export default ExpandButton;

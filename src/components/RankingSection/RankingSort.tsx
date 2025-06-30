@@ -1,5 +1,25 @@
 import styled from '@emotion/styled';
 
+const RankingSort = ({ selectedSort, onSelect }: RankingSortProps) => {
+  const labels = ['받고 싶어한', '많이 선물한', '위시로 받은'];
+
+  return (
+    <SortWrapper>
+      {labels.map(label => (
+        <SortButton
+          key={label}
+          isActive={selectedSort === label}
+          onClick={() => onSelect(label)}
+        >
+          {label}
+        </SortButton>
+      ))}
+    </SortWrapper>
+  );
+};
+
+export default RankingSort;
+
 interface RankingSortProps {
   selectedSort: string;
   onSelect: (label: string) => void;
@@ -32,23 +52,3 @@ const SortButton = styled.button<{ isActive: boolean }>`
   border-radius: 8px;
   transition: 200ms;
 `;
-
-const RankingSort = ({ selectedSort, onSelect }: RankingSortProps) => {
-  const labels = ['받고 싶어한', '많이 선물한', '위시로 받은'];
-
-  return (
-    <SortWrapper>
-      {labels.map(label => (
-        <SortButton
-          key={label}
-          isActive={selectedSort === label}
-          onClick={() => onSelect(label)}
-        >
-          {label}
-        </SortButton>
-      ))}
-    </SortWrapper>
-  );
-};
-
-export default RankingSort;
