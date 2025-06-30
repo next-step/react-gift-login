@@ -18,7 +18,8 @@ const StyledPresentThemeDiv = styled.div`
 
 const StyledExtraContainer = styled.div`
   background-color: ${({ theme }) => theme.sementicPalette.kakaoYellow};
-  margin: ${({ theme }) => theme.spacing.spacing3};
+  margin: ${({ theme }) => theme.spacing.spacing3} ${({ theme }) => theme.spacing.spacing3} 0px
+    ${({ theme }) => theme.spacing.spacing3};
   border-radius: ${({ theme }) => theme.spacing.spacing5};
   padding: ${({ theme }) => theme.spacing.spacing4};
 `;

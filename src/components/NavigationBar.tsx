@@ -1,6 +1,6 @@
 // NavigationBar.tsx
 import styled from '@emotion/styled';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const StyledNavbar = styled.div`
   position: fixed;
@@ -22,27 +22,16 @@ const StyledNavBackBtn = styled.button`
   border: none;
   background-color: inherit;
 `;
-
-const StyledNavIcon = styled.div`
-  a {
-    color: black;
-    text-decoration: none;
-  }
-  list-style: none;
-  display: flex;
-  align-items: center;
-  padding: 12px 30px;
-`;
-
-const StyledNavTextLi = styled.div`
-  a {
-    color: black;
-  }
-  list-style: none;
+const StyledNavTextDiv = styled.div`
   display: flex;
   align-items: center;
   padding: 13px 24px;
   ${({ theme }) => theme.typography.title1Bold};
+`;
+const StyledNavLoginBtn = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 12px 30px;
 `;
 
 //Home 페이지와 Login 페이지를 비교하면 NavigatioBar가 미묘하게 오른쪽으로 움직인것처럼 보입니다.
@@ -53,13 +42,14 @@ const NavigationBar = () => {
   const handelBack = () => {
     navigate(-1);
   };
+  const handelLogin = () => {
+    navigate('/login');
+  };
   return (
     <StyledNavbar>
       <StyledNavBackBtn onClick={handelBack}>뒤로가기</StyledNavBackBtn>
-      <StyledNavTextLi>선물하기</StyledNavTextLi>
-      <StyledNavIcon>
-        <Link to='/login'>로그인</Link>
-      </StyledNavIcon>
+      <StyledNavTextDiv>선물하기</StyledNavTextDiv>
+      <StyledNavLoginBtn onClick={handelLogin}>로그인</StyledNavLoginBtn>
     </StyledNavbar>
   );
 };
