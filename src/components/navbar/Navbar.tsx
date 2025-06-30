@@ -31,6 +31,7 @@ const Navbar = () => {
         <Button onClick={()=>{handleLink("/login")}}>
           <img src={myIcon} alt="" />
         </Button>
+
       </div>
     </NavbarWrapper>
   );

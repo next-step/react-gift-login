@@ -34,4 +34,5 @@ export type behaviorProps = {
   options: readonly behaviorFilterType[];
   selected: BehaviorFilterLabels| null;
   onSelect: (option: BehaviorFilterLabels) => void;
+
 };

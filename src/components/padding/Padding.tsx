@@ -4,9 +4,9 @@ export const PaddingSm = styled.div`
   height: ${({theme})=>theme.spacing.spacing1};
 `;
 export const PaddingMd = styled.div`
-        width: 100%;
-        height: ${({theme})=>theme.spacing.spacing8};
-        background-color: transparent;
+   width: 100%;
+   height: ${({theme})=>theme.spacing.spacing8};
+   background-color: transparent;
 `;
 export const PaddingLg = styled.div`
   width: 100%;

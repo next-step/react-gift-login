@@ -5,6 +5,7 @@ import { PaddingLg } from "./../padding/Padding";
 import PersonCategory from "./PersonCategory";
 import BehaviorCategory from "./BehaviorCategory";
 import { useState } from "react";
+
 import { useSearchParams } from "react-router-dom";
 import {
   BEHAVIOR_FILTER_LABELS,
