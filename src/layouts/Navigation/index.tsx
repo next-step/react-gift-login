@@ -40,8 +40,11 @@ const Navigation = () => {
   const navigate = useNavigate();
 
   const handleBackClick = () => {
-    navigate(-1);
-    console.log('working!');
+    if (window.history.length > 1) {
+      navigate(-1);
+    } else {
+      navigate('/');
+    }
   };
 
   return (
@@ -55,7 +58,7 @@ const Navigation = () => {
           <LogoImage src="/선물하기.webp" alt="카카오 선물하기 로고" />
         </LogoLink>
 
-        <UserIconLink href="/" aria-label="로그인">
+        <UserIconLink href="/login">
           <UserIcon />
         </UserIconLink>
       </Nav>

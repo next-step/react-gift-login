@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 import { rankingDatas } from '@/data/rankingDatas';
+import { useSearchParams } from 'react-router-dom';
 
 interface ButtonProps {
   isActive: boolean;
@@ -145,16 +146,49 @@ const ToggleButton = styled.button`
 const GiftRanking = () => {
   const [isCollapsed, setIsCollapsed] = useState(true);
   const [visibleItemsCount, setVisibleItemsCount] = useState(6);
-  const [activeButton, setActiveButton] = useState<string | null>(null);
+
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const [activeGenerationButton, setActiveGenerationButton] = useState<string>('all');
+  const [activeFilterButton, setActiveFilterButton] = useState<string>('received');
+
+  useEffect(() => {
+    const gender = searchParams.get('gender') ?? 'ALL';
+    const filter = searchParams.get('filter') ?? 'MANY_WISH';
+
+    setActiveGenerationButton(gender);
+    setActiveFilterButton(filter);
+  }, [searchParams]);
+
+  const handleGenerationGroupClick = (id: string) => {
+    setActiveGenerationButton(id);
+    searchParams.set('gender', id);
+    setSearchParams(searchParams, { replace: true });
+  };
+
+  const handleFilterGroupClick = (id: string) => {
+    setActiveFilterButton(id);
+    searchParams.set('filter', id);
+    setSearchParams(searchParams, { replace: true });
+  };
 
   const toggleCollapse = () => {
     setIsCollapsed(prev => !prev);
     setVisibleItemsCount(isCollapsed ? rankingDatas.length : 6);
   };
 
-  const handleButtonClick = (id: string) => {
-    setActiveButton(id);
-  };
+  const generations = [
+    { id: 'ALL', emoji: 'ALL', label: '전체' },
+    { id: 'FEMALE', emoji: '👩🏻', label: '여성이' },
+    { id: 'MALE', emoji: '👨🏻', label: '남성이' },
+    { id: 'TEEN', emoji: '👦🏻', label: '청소년이' },
+  ];
+
+  const filters = [
+    { id: 'MANY_WISH', label: '받고 싶어한' },
+    { id: 'MANY_RECEIVE', label: '많이 선물한' },
+    { id: 'MANY_WISH_RECEIVE', label: '위시로 받은' },
+  ];
 
   return (
     <Section>
@@ -162,40 +196,28 @@ const GiftRanking = () => {
 
       <CatContainer>
         <GenerationGroup>
-          <Button isActive={activeButton === 'all'} onClick={() => handleButtonClick('all')}>
-            <div>ALL</div>
-            <p>전체</p>
-          </Button>
-          <Button isActive={activeButton === 'female'} onClick={() => handleButtonClick('female')}>
-            <div>👩🏻</div>
-            <p>여성이</p>
-          </Button>
-          <Button isActive={activeButton === 'male'} onClick={() => handleButtonClick('male')}>
-            <div>👨🏻</div>
-            <p>남성이</p>
-          </Button>
-          <Button isActive={activeButton === 'teen'} onClick={() => handleButtonClick('teen')}>
-            <div>👦🏻</div>
-            <p>청소년이</p>
-          </Button>
+          {generations.map(({ id, emoji, label }) => (
+            <Button
+              key={id}
+              isActive={activeGenerationButton === id}
+              onClick={() => handleGenerationGroupClick(id)}
+            >
+              <div>{emoji}</div>
+              <p>{label}</p>
+            </Button>
+          ))}
         </GenerationGroup>
 
         <FilterGroup>
-          <Button
-            isActive={activeButton === 'received'}
-            onClick={() => handleButtonClick('received')}
-          >
-            받고 싶어한
-          </Button>
-          <Button isActive={activeButton === 'given'} onClick={() => handleButtonClick('given')}>
-            많이 선물한
-          </Button>
-          <Button
-            isActive={activeButton === 'wishlist'}
-            onClick={() => handleButtonClick('wishlist')}
-          >
-            위시로 받은
-          </Button>
+          {filters.map(({ id, label }) => (
+            <Button
+              key={id}
+              isActive={activeFilterButton === id}
+              onClick={() => handleFilterGroupClick(id)}
+            >
+              <p>{label}</p>
+            </Button>
+          ))}
         </FilterGroup>
       </CatContainer>
 
