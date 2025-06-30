@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { useSearchParams, useNavigate } from 'react-router-dom';
+import { ROUTE_PATH } from '@/constants/routes';
 
 const PageBackground = styled.div`
   min-height: 100vh;
@@ -71,7 +72,7 @@ function LoginPage() {
   const navigate = useNavigate();
 
   // URL에서 이전 페이지 정보를 가져옴 (기본값: '/')
-  const from = searchParams.get('from') || '/';
+  const from = searchParams.get('from') || ROUTE_PATH.HOME;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { FiChevronLeft, FiUser } from 'react-icons/fi';
+import { ROUTE_PATH } from '@/constants/routes';
 
 const HeaderBar = styled.header`
   position: fixed; // 화면에 고정
@@ -44,11 +45,12 @@ function Header() {
   const location = useLocation();
 
   const handleLoginClick = () => {
-    // 현재 페이지가 로그인 페이지가 아닐 때만 이전 페이지 정보를 전달
-    if (location.pathname !== '/login') {
-      navigate(`/login?from=${encodeURIComponent(location.pathname)}`);
+    if (location.pathname !== ROUTE_PATH.LOGIN) {
+      navigate(
+        `${ROUTE_PATH.LOGIN}?from=${encodeURIComponent(location.pathname)}`,
+      );
     } else {
-      navigate('/login');
+      navigate(ROUTE_PATH.LOGIN);
     }
   };
 
