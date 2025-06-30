@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import styled from '@emotion/styled'
 import PersonIcon from '@mui/icons-material/Person'
 
@@ -193,9 +193,32 @@ const MoreBtn = styled.button`
   }
 `
 
+const FILTER_KEY = 'ranking_selected_filter'
+const TAB_KEY = 'ranking_selected_tab'
+
 const RankingSection = () => {
-  const [selectedFilter, setSelectedFilter] = useState<FilterKey>('all')
-  const [selectedTab, setSelectedTab] = useState<TabKey>('want')
+  // localStorage에서 초기값 불러오기
+  const getInitialFilter = () => {
+    const saved = localStorage.getItem(FILTER_KEY)
+    if (saved === 'all' || saved === 'female' || saved === 'male' || saved === 'teen') return saved as FilterKey
+    return 'all'
+  }
+  const getInitialTab = () => {
+    const saved = localStorage.getItem(TAB_KEY)
+    if (saved === 'want' || saved === 'many' || saved === 'wish') return saved as TabKey
+    return 'want'
+  }
+
+  const [selectedFilter, setSelectedFilter] = useState<FilterKey>(getInitialFilter)
+  const [selectedTab, setSelectedTab] = useState<TabKey>(getInitialTab)
+
+  // 필터/탭 변경 시 localStorage에 저장
+  useEffect(() => {
+    localStorage.setItem(FILTER_KEY, selectedFilter)
+  }, [selectedFilter])
+  useEffect(() => {
+    localStorage.setItem(TAB_KEY, selectedTab)
+  }, [selectedTab])
 
   return (
     <Section>
