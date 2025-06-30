@@ -3,10 +3,11 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import styled from '@emotion/styled';
 import { theme } from '@/styles/theme';
 import type { Product, TargetFilter, CategoryFilter } from '@/types';
-import { GiftProductCard } from './GiftProductCard';
+import { ProductCard } from './ProductCard';
 
 interface RealTimeRankingProps {
   products: Product[];
+  ProductCardComponent?: typeof ProductCard;
 }
 
 const INITIAL_PRODUCT_COUNT = 6;
@@ -164,7 +165,10 @@ const categoryFilter: CategoryFilter[] = [
   '위시로 받은',
 ];
 
-export function RealTimeRanking({ products }: RealTimeRankingProps) {
+export function RealTimeRanking({
+  products,
+  ProductCardComponent = ProductCard,
+}: RealTimeRankingProps) {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
 
@@ -252,7 +256,7 @@ export function RealTimeRanking({ products }: RealTimeRankingProps) {
 
       <ProductGrid>
         {displayedProducts.map((product, index) => (
-          <GiftProductCard
+          <ProductCardComponent
             key={product.id}
             product={product}
             rank={index + 1}

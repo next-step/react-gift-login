@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { theme } from '@/styles/theme';
 import type { Product } from '@/types';
 
-interface GiftProductCardProps {
+interface ProductCardProps {
   product: Product;
   rank?: number;
   onClick?: (product: Product) => void;
@@ -72,12 +72,12 @@ const Price = styled.div`
 
 const formatPrice = (price: number) => `${price} 원`;
 
-export function GiftProductCard({
+export function ProductCard({
   product,
   rank,
   onClick,
   showRankBadge = false,
-}: GiftProductCardProps) {
+}: ProductCardProps) {
   return (
     <Card onClick={() => onClick?.(product)}>
       {showRankBadge && rank !== undefined && <RankBadge>{rank}</RankBadge>}

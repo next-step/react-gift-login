@@ -3,6 +3,7 @@ import { FriendSelector } from '@/components/FriendSelector';
 import { GiftCategoryGrid } from '@/components/GiftCategoryGrid';
 import { PromotionBanner } from '@/components/PromotionBanner';
 import { RealTimeRanking } from '@/components/RealTimeRanking';
+import { ProductCard } from '@/components/ProductCard';
 import { giftThemes, rankingProducts } from '@/data/mockData';
 import styled from '@emotion/styled';
 import { theme } from '@/styles/theme';
@@ -56,7 +57,10 @@ export default function MainPage() {
           title="프론트엔드 2단계 과제 화이팅!"
         />
 
-        <RealTimeRanking products={rankingProducts} />
+        <RealTimeRanking
+          products={rankingProducts}
+          ProductCardComponent={ProductCard}
+        />
       </MobileViewport>
     </AppContainer>
   );
