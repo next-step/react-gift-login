@@ -37,10 +37,6 @@ const REVERSE_CATEGORY_MAP: Record<string, CategoryFilter> = {
   MANY_WISH: '위시로 받은',
 };
 
-const formatPrice = (price: number) => {
-  return `${price} 원`;
-};
-
 const profileIconMap: Record<TargetFilter, string> = {
   전체: 'ALL',
   여성이: '👩🏻',
