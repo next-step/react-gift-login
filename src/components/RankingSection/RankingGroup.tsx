@@ -1,15 +1,28 @@
 import styled from '@emotion/styled';
-import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { mockProducts } from '@/data/products';
 import RankingFilter from '@/components/RankingSection/RankingFilter';
 import RankingSort from '@/components/RankingSection/RankingSort';
 import ProductGrid from '@/components/RankingSection/ProductGrid';
 import ExpandButton from '@/components/RankingSection/ExpandButton';
+import { useMemo, useState, useEffect } from 'react';
 
 const RankingGroup = () => {
   const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE_COUNT);
-  const [selectedFilter, setSelectedFilter] = useState('전체');
-  const [selectedSort, setSelectedSort] = useState('받고 싶어한');
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const targetType = searchParams.get('targetType') || 'ALL';
+  const rankType = searchParams.get('rankType') || 'MANY_WISH';
+
+  const handleFilterChange = (value: string) => {
+    searchParams.set('targetType', value);
+    setSearchParams(searchParams);
+  };
+
+  const handleSortChange = (value: string) => {
+    searchParams.set('rankType', value);
+    setSearchParams(searchParams);
+  };
 
   const isExpanded = visibleCount === mockProducts.length;
   const toggleVisibleCount = () => {
@@ -20,10 +33,10 @@ const RankingGroup = () => {
     <Section>
       <Title>실시간 급상승 선물랭킹</Title>
       <RankingFilter
-        selectedFilter={selectedFilter}
-        onSelect={setSelectedFilter}
+        selectedFilter={targetType}
+        onSelect={handleFilterChange}
       />
-      <RankingSort selectedSort={selectedSort} onSelect={setSelectedSort} />
+      <RankingSort selectedSort={rankType} onSelect={handleSortChange} />
       <ProductGrid
         products={
           isExpanded
