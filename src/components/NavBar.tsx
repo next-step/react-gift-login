@@ -39,10 +39,11 @@ const NavBar = ({ onBack, logoSrc, onLoginClick }: NavBarProps) => {
     navigate(-1)
   }
 
-  const handleLoginClick = () => {
-    if (onLoginClick) return onLoginClick()
-    navigate('/login')
-  }
+  const { isLoggedIn } = useAuth()
+
+  const handleLoginClick = onLoginClick ?? (() => {
+    navigate(isLoggedIn ? '/profile' : '/login')
+  })
 
   
   return (
@@ -55,13 +56,13 @@ const NavBar = ({ onBack, logoSrc, onLoginClick }: NavBarProps) => {
       </LogoLink>
       <IconButton
         onClick={handleLoginClick}
-        aria-label={'login'}
+        aria-label={isLoggedIn ? 'profile' : 'login'}
       >
         <img
           src={loginIcon}
-          alt={'login'}
+          alt={isLoggedIn ? 'profile' : 'login'}
           height="24"
-        />     
+        />
         </IconButton>
     </Nav>
   )
