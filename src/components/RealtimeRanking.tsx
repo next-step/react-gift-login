@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react"; // useEffect 훅 임포트
 import { sortOptions } from "../constants/sortoptions";
 import { tabs } from "../constants/tabs";
 import ProductCard from "../components/ProductCard";
@@ -7,8 +7,23 @@ import { productListData } from "../data/productListData";
 import type { Product } from "../types/product";
 
 const RealtimeRanking = () => {
-  const [activeTab, setActiveTab] = useState("전체");
-  const [activeSort, setActiveSort] = useState("받고 싶어한");
+  const [activeTab, setActiveTab] = useState(() => {
+    const savedTab = localStorage.getItem("activeTab");
+    return savedTab ? savedTab : "전체";
+  });
+
+  const [activeSort, setActiveSort] = useState(() => {
+    const savedSort = localStorage.getItem("activeSort");
+    return savedSort ? savedSort : "받고 싶어한";
+  });
+
+  useEffect(() => {
+    localStorage.setItem("activeTab", activeTab);
+  }, [activeTab]); // activeTab이 변경될 때만 실행
+
+  useEffect(() => {
+    localStorage.setItem("activeSort", activeSort);
+  }, [activeSort]);
 
   return (
     <section className="mb-8">
