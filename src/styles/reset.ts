@@ -87,7 +87,6 @@ export const reset = css`
     padding: 0;
     border: 0;
     font-family: 'Pretendard Variable', sans-serif;
-
     font-size: 100%;
     vertical-align: baseline;
   }
@@ -110,7 +109,6 @@ export const reset = css`
     max-width: 720px;
     margin: 0 auto;
     padding: 0 16px;
-
   }
   ol,
   ul {
@@ -137,5 +135,4 @@ export const reset = css`
     height: 100%;
     margin: 0;
   }
-
 `;
