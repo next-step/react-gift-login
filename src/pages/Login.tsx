@@ -86,7 +86,7 @@ const Login = () => {
     <>
       <PageWrapper>
         <HeaderContainer>
-          <FiArrowLeft size={20} />
+          <FiArrowLeft size={20} onClick={() => navigate('/')} />
           <Title>선물하기</Title>
           <FiUser size={20} />
         </HeaderContainer>
