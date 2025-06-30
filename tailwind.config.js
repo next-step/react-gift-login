@@ -12,6 +12,9 @@ export default {
           "2xl": "780px",
         },
       },
+      fontFamily: {
+        sans: ["Noto Sans KR", "sans-serif"],
+      },
     },
   },
   plugins: [],
