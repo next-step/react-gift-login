@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import GlobalStyle from './styles/GlobalStyle'
 import { ThemeProvider } from '@emotion/react'
@@ -207,6 +207,27 @@ function App() {
     { group: 'MALE', label: '👨🏻', text: '남성이' },
     { group: 'TEEN', label: '👦🏻', text: '청소년이' },
   ]
+
+  useEffect(() => {
+    const savedGrop = localStorage.getItem('selectedGroup');
+    const savedType = localStorage.getItem('rankingType');
+
+    if(savedGrop) {
+      setSelectedGroup(savedGrop);
+    }
+    
+    if(savedType) {
+      setSelectRankingType(savedType);
+    }
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem('selectedGroup', selectedGroup);
+  }, [selectedGroup])
+
+  useEffect(() => {
+    localStorage.setItem('rankingType', selectRankingType);
+  }, [selectRankingType])
 
   return (
     <ThemeProvider theme={theme}>
