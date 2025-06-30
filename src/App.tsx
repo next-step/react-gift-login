@@ -1,22 +1,17 @@
-import GlobalStyle from '@/styles/GlobalStyle'
-import Header from '@/components/Header'
-import FriendSelector from '@/components/FriendSelector'
-import CategoryList from '@/components/CategoryList'
-import NoticeBanner from '@/components/NoticeBanner'
-import RankingTabs from '@/components/RankingTabs'
-import ProductGrid from '@/components/ProductGrid'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import LoginPage from '@/pages/login'
+import Home from '@/pages/home'
+import NotFound from '@/pages/NotFound'
 
 function App() {
   return (
-    <div style={{ maxWidth: 720, margin: '0 auto' , alignItems: 'center'}}>
-      <GlobalStyle />
-      <Header />
-      <FriendSelector />
-      <CategoryList />
-      <NoticeBanner />
-      <RankingTabs />
-      <ProductGrid />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/" element={<Home />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
