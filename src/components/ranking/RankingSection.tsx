@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { Section } from '@/components/layout';
 import FilterButtonGroup from './FilterButtonGroup';
 import ProductGrid from './ProductGrid';
@@ -44,22 +45,45 @@ const generateRankingProducts = (): Product[] => {
 };
 
 const RankingSection = () => {
-  const [targetType, setTargetType] = useState<TargetType>('ALL');
-  const [rankType, setRankType] = useState<RankType>('MANY_WISH');
-  const [showMore, setShowMore] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [showMore, setShowMore] = useState(false); // 더보기는 URL에 저장하지 않음 (UX 고려)
+
+  // URL 쿼리 파라미터에서 필터 상태 읽기 및 유효성 검증
+  const getValidTargetType = (param: string | null): TargetType => {
+    const validValues = targetOptions.map((option) => option.value);
+    return validValues.includes(param as TargetType)
+      ? (param as TargetType)
+      : 'ALL';
+  };
+
+  const getValidRankType = (param: string | null): RankType => {
+    const validValues = rankOptions.map((option) => option.value);
+    return validValues.includes(param as RankType)
+      ? (param as RankType)
+      : 'MANY_WISH';
+  };
+
+  const targetType = getValidTargetType(searchParams.get('target'));
+  const rankType = getValidRankType(searchParams.get('rank'));
 
   const rankingProducts = generateRankingProducts();
 
   const handleTargetChange = (value: string) => {
-    setTargetType(value as TargetType);
-    // TODO: URL 파라미터 업데이트 및 라우팅 구현
-    console.log(`Target changed: ${value}, Rank: ${rankType}`);
+    // URL 쿼리 파라미터 업데이트: ?target=value&rank=기존값
+    setSearchParams((prev) => {
+      const newParams = new URLSearchParams(prev);
+      newParams.set('target', value);
+      return newParams;
+    });
   };
 
   const handleRankChange = (value: string) => {
-    setRankType(value as RankType);
-    // TODO: URL 파라미터 업데이트 및 라우팅 구현
-    console.log(`Target: ${targetType}, Rank changed: ${value}`);
+    // URL 쿼리 파라미터 업데이트: ?target=기존값&rank=value
+    setSearchParams((prev) => {
+      const newParams = new URLSearchParams(prev);
+      newParams.set('rank', value);
+      return newParams;
+    });
   };
 
   return (
