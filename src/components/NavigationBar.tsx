@@ -1,6 +1,6 @@
 // NavigationBar.tsx
 import styled from '@emotion/styled';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const StyledNavbar = styled.div`
   position: fixed;
@@ -9,6 +9,18 @@ const StyledNavbar = styled.div`
   align-items: center;
   justify-content: space-between;
   background-color: ${({ theme }) => theme.sementicPalette.backgroundDefault};
+`;
+const StyledNavBackBtn = styled.button`
+  a {
+    color: black;
+    text-decoration: none;
+  }
+  list-style: none;
+  display: flex;
+  align-items: center;
+  padding: 12px 30px;
+  border: none;
+  background-color: inherit;
 `;
 
 const StyledNavIcon = styled.div`
@@ -33,10 +45,17 @@ const StyledNavTextLi = styled.div`
   ${({ theme }) => theme.typography.title1Bold};
 `;
 
+//Home 페이지와 Login 페이지를 비교하면 NavigatioBar가 미묘하게 오른쪽으로 움직인것처럼 보입니다.
+//혹시 왜 그런지 이유를 알 수 있을까요?
 const NavigationBar = () => {
+  const navigate = useNavigate();
+
+  const handelBack = () => {
+    navigate(-1);
+  };
   return (
     <StyledNavbar>
-      <StyledNavIcon>뒤로가기</StyledNavIcon>
+      <StyledNavBackBtn onClick={handelBack}>뒤로가기</StyledNavBackBtn>
       <StyledNavTextLi>선물하기</StyledNavTextLi>
       <StyledNavIcon>
         <Link to='/login'>로그인</Link>
