@@ -52,7 +52,7 @@ const AddFriendButtonIcon = styled.span`
   border: none;
   border-radius: ${theme.spacing.spacing4};
 
-  font-size: 32px;
+  font-size: 30px;
   font-weight: ${theme.typography.title.title2Regular.fontWeight};
   line-height: ${theme.typography.title.title2Regular.lineHeight};
 

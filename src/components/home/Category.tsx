@@ -8,13 +8,13 @@ const Container = styled.div`
   width: 100%;
   height: fit-content;
 
-  padding: 20px;
+  padding: ${theme.spacing.spacing5};
 
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: 20px;
+  gap: ${theme.spacing.spacing5};
 `
 
 // * 카테고리 서브 컨테이너
@@ -24,7 +24,7 @@ const SubContainer = styled.div`
 
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
+  gap: ${theme.spacing.spacing5};
 `
 
 // * 카테고리 아이템 - 링크 연결

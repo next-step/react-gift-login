@@ -2,31 +2,15 @@ import { LOGIN_CONTENT } from '@/data/loginContent'
 import { theme } from '@/styles/theme'
 import styled from '@emotion/styled'
 import { useLocation, useNavigate } from 'react-router-dom'
-
-// * 로그인 컨테이너
-const Container = styled.div`
-  width: 100%;
-  max-width: 720px;
-  height: fit-content;
-  min-height: 100vh;
-
-  margin: 0 auto;
-  padding-top: ${theme.spacing.spacing11};
-
-  background-color: ${theme.semanticColors.background.default};
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`
+import { PageContainer } from '@/components/common/PageContainer'
+import { Button } from '@/components/common/Button'
 
 // * 로고 이미지
 const LogoImg = styled.img`
   width: 88px;
   height: 88px;
 
-  margin-bottom: ${theme.spacing.spacing2};
+  margin-bottom: ${theme.spacing.spacing1};
 `
 
 // * 로그인 폼
@@ -40,6 +24,7 @@ const LoginForm = styled.form`
   justify-content: center;
   align-items: center;
   gap: ${theme.spacing.spacing4};
+  margin-top: ${theme.spacing.spacing8};
 `
 
 // * 입력 란
@@ -65,27 +50,6 @@ const Input = styled.input`
   transition: border-bottom 0.2s ease-in-out;
 `
 
-// * 로그인 버튼
-const Button = styled.button`
-  width: 100%;
-
-  padding: ${theme.spacing.spacing3} 0;
-  margin-top: ${theme.spacing.spacing8};
-
-  background-color: ${theme.semanticColors.brand.kakaoYellow};
-  border-radius: ${theme.spacing.spacing1};
-
-  &:hover {
-    background-color: ${theme.semanticColors.brand.kakaoYellowHover};
-  }
-
-  &:active {
-    background-color: ${theme.semanticColors.brand.kakaoYellowActive};
-  }
-
-  transition: background-color 0.2s ease-in-out;
-`
-
 // * 로그인 화면
 export const Login = () => {
   const navigate = useNavigate()
@@ -101,14 +65,17 @@ export const Login = () => {
   }
 
   return (
-    <Container>
+    <PageContainer>
       <LogoImg alt="카카오 공식 로고" src={LOGIN_CONTENT.logoImgSrc}></LogoImg>
 
       <LoginForm onSubmit={handleLogin}>
         <Input placeholder="이메일"></Input>
         <Input placeholder="비밀번호"></Input>
-        <Button type="submit">로그인</Button>
+        <div css={{ height: `${theme.spacing.spacing4}` }} />
+        <Button type="submit" variant="kakao" size="medium">
+          로그인
+        </Button>
       </LoginForm>
-    </Container>
+    </PageContainer>
   )
 }

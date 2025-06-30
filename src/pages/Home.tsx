@@ -1,34 +1,20 @@
 import styled from '@emotion/styled'
-import { theme } from '@/styles/theme'
 import { Category } from '@/components/home/Category'
 import { Trend } from '@/components/home/Trend/Trend'
 import { Banner } from '@/components/home/Banner'
 import { Friends } from '@/components/home/Friends'
+import { PageContainer } from '@/components/common/PageContainer'
 
-// * 홈 컨테이너
-const Container = styled.div`
-  position: relative;
-
-  width: 100%;
-  max-width: 720px;
-  height: fit-content;
-  min-height: 100vh;
-
-  margin: 0 auto;
-  padding-top: 44px;
-
-  background-color: ${theme.semanticColors.background.default};
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+// * 홈 컨테이너 스타일 확장
+const HomeContainer = styled(PageContainer)`
+  /* 홈 페이지의 경우 위쪽으로 정렬 */
   justify-content: flex-start;
 `
 
 // * 메인
 export const Home = () => {
   return (
-    <Container>
+    <HomeContainer>
       {/* 선물할 친구 섹션 */}
       <Friends />
       {/* 카테고리 섹션 */}
@@ -37,6 +23,6 @@ export const Home = () => {
       <Banner />
       {/* 실시간 급상승 섹션 */}
       <Trend />
-    </Container>
+    </HomeContainer>
   )
 }
