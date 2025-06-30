@@ -75,25 +75,36 @@ interface FilterButtonProps {
 }
 
 const FilterButton = styled.button<FilterButtonProps>`
-
+  width: 3.7rem;
+  height: 3.7rem;
   padding: 10px 16px;
   border: none;
-  border-radius: 8px;
-  font-size: 14px;
+  border-radius: 20px;
+  font-size: 10px;
   cursor: pointer;
-  background-color: ${({ active }) => (active ? '#007bff' : '#f0f0f0')};
+  background-color: ${({ active }) => (active ? 'rgb(33, 124, 249)' : 'rgb(239, 246, 255)')};
   color: ${({ active }) => (active ? 'white' : '#333')};
+  transition: background-color 0.2s;
+`
+
+const FilterButton2 = styled.button<FilterButtonProps>`
+  padding: 10px 16px;
+  font-size: 12px;
+  cursor: pointer;
+  background-color: rgb(239, 246, 255);
+  color: ${({ active }) => (active ? 'rgb(33, 124, 249)' : 'rgb(133, 184, 253);')};
   transition: background-color 0.2s;
 `
 
 const Label = styled.p`
   margin: 4px 0 0;
-  font-size: 12px;
+  font-size: 10px;
   text-align: center;
+  white-space: nowrap;
 `
 
 const IconWrapper = styled.div`
-  font-size: 20px;
+  font-size: 12px;
   text-align: center;
 `
 
@@ -206,15 +217,15 @@ const GiftRanking = () => {
 
         <BlankSpace />
         <WishGroup>
-          <FilterButton active={wishType === WishType.WANT} onClick={() => handleWishClick(WishType.WANT)}>
+          <FilterButton2 active={wishType === WishType.WANT} onClick={() => handleWishClick(WishType.WANT)}>
             받고 싶어한
-          </FilterButton>
-          <FilterButton active={wishType === WishType.MANY_GIFT} onClick={() => handleWishClick(WishType.MANY_GIFT)}>
+          </FilterButton2>
+          <FilterButton2 active={wishType === WishType.MANY_GIFT} onClick={() => handleWishClick(WishType.MANY_GIFT)}>
             많이 선물한
-          </FilterButton>
-          <FilterButton active={wishType === WishType.MANY_WISH} onClick={() => handleWishClick(WishType.MANY_WISH)}>
+          </FilterButton2>
+          <FilterButton2 active={wishType === WishType.MANY_WISH} onClick={() => handleWishClick(WishType.MANY_WISH)}>
             위시로 받은
-          </FilterButton>
+          </FilterButton2>
         </WishGroup>
       </CategoryGroup>
       <BlankSpace />
