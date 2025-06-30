@@ -1,11 +1,12 @@
 import styled from '@emotion/styled';
 import PresentLogo from '@/assets/present.webp';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { ROUTES } from '@/constants/routes';
 
 const Navigation = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const isLoginPage = location.pathname === '/login';
+  const isLoginPage = location.pathname === ROUTES.LOGIN;
 
   return (
     <Nav>
