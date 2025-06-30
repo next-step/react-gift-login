@@ -14,7 +14,7 @@ const globalStyles = css`
     height: 100%;
     font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI',
       Roboto, 'Helvetica Neue', Arial, sans-serif;
-    background-color: #fff;
+    background-color: #f9f9f9;
     color: #222;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
@@ -24,6 +24,7 @@ const globalStyles = css`
   #root {
     width: 100%;
     max-width: 720px;
+    background-color: #fff;
     margin: 0 auto;
   }
 
