@@ -1,6 +1,5 @@
 import styled from '@emotion/styled'
 import { theme } from '@/styles/theme'
-import { Nav } from '@/components/home/Nav'
 import { Category } from '@/components/home/Category'
 import { Trend } from '@/components/home/Trend/Trend'
 import { Banner } from '@/components/home/Banner'
@@ -18,7 +17,7 @@ const Container = styled.div`
   margin: 0 auto;
   padding-top: 44px;
 
-  background-color: ${theme.colors.gray.gray00};
+  background-color: ${theme.semanticColors.background.default};
 
   display: flex;
   flex-direction: column;
@@ -30,8 +29,6 @@ const Container = styled.div`
 export const Home = () => {
   return (
     <Container>
-      {/* 네비게이션 */}
-      <Nav />
       {/* 선물할 친구 섹션 */}
       <Friends />
       {/* 카테고리 섹션 */}
