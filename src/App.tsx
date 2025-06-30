@@ -2,13 +2,14 @@ import { ThemeProvider } from '@emotion/react';
 import GlobalStyle from '@/styles/globalStyle';
 import GlobalReset from './styles/GlobalReset';
 import {theme} from '@/styles/theme';
-import Layout from '@/components/Layout';
-import NavigationBar from '@/components/NavigationBar/NavigationBar';
-import SelectFriend from './components/Section/SelectFriend';
-import GiftCategoryList from './components/Category/GiftCategoryList';
-import Banner from './components/Section/Banner';
-import GiftGrid from './components/GiftRanking/GiftGrid';   
-import GiftItem from './components/GiftRanking/GiftItem';
+import Layout from '@/Components/Layout';
+import NavigationBar from '@/Components/NavigationBar/NavigationBar';
+import SelectFriend from '@/Components/Section/SelectFriend';
+import GiftCategoryList from '@/Components/Category/GiftCategoryList';
+import Banner from '@/Components/Section/Banner';
+import GiftGrid from '@/Components/GiftRanking/GiftGrid';   
+import GiftItem from '@/Components/GiftRanking/GiftItem';
+
 
 function App() {
   return (

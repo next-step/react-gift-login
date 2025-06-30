@@ -8,7 +8,6 @@ interface GiftItemProps {
   brand: string;
 }
 
-// styled-components
 const Card = styled.div`
   width: 180px;
   display: flex;
@@ -57,7 +56,6 @@ const Price = styled.div`
   color: ${({ theme }) => theme.color.semantic.text.default};
 `;
 
-// main component
 const GiftItem = ({ rank, name, imageURL, price, brand }: GiftItemProps) => {
   return (
     <Card>
