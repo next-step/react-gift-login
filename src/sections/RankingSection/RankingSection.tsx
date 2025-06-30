@@ -12,7 +12,7 @@ import CardList from "@/components/CardList/CardList";
 import { cardData } from "@/mockdata/cardData.ts";
 import { AGE_SELECT } from "@/constants/age";
 import { RANK_SELECT } from "@/constants/tabs";
-import type { AgeType } from "@/constants/age";
+import type { TargetType } from "@/constants/age";
 import type { RankType } from "@/constants/tabs";
 
 const MIN_VISIBLE_CARDS = 6;
@@ -20,7 +20,8 @@ const MIN_VISIBLE_CARDS = 6;
 const RankingSection = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const selectedAge = (searchParams.get("targetType") as AgeType) ?? "ALL";
+  const selectedTarget =
+    (searchParams.get("targetType") as TargetType) ?? "ALL";
   const selectedRank =
     (searchParams.get("rankType") as RankType) ?? "MANY_WISH";
   const [showAll, setShowAll] = useState(false);
@@ -35,9 +36,9 @@ const RankingSection = () => {
 
   const visibleCards = showAll ? cards : cards.slice(0, MIN_VISIBLE_CARDS);
 
-  const handleAgeSelect = (age: AgeType) => {
+  const handleTargetSelect = (target: TargetType) => {
     const params = new URLSearchParams(searchParams);
-    params.set("targetType", age);
+    params.set("targetType", target);
     setSearchParams(params);
   };
 
@@ -56,8 +57,8 @@ const RankingSection = () => {
             ageType={btn.ageType}
             label={btn.label}
             emoji={btn.emoji}
-            selected={selectedAge === btn.ageType}
-            onClick={handleAgeSelect}
+            selected={selectedTarget === btn.ageType}
+            onClick={handleTargetSelect}
           />
         ))}
       </ButtonGroup>

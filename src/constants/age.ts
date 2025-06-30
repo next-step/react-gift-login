@@ -6,4 +6,4 @@ export const AGE_SELECT = [
 ];
 
 export type AgeTypeTemp = (typeof AGE_SELECT)[number];
-export type AgeType = AgeTypeTemp["ageType"];
+export type TargetType = AgeTypeTemp["ageType"];
