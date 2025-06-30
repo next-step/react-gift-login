@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 import { useState } from 'react'
 import { productMockData } from '@/mocks/products'
+import { useSearchParams } from 'react-router-dom'
 
 const genderTabs = ['전체', '여성이', '남성이', '청소년이']
 const rankTabs = ['받고 싶어한', '많이 선물한', '위시로 받은']
@@ -120,12 +121,29 @@ const ToggleButton = styled.button`
 `
 
 const RankingSection = () => {
-  const [selectedGender, setSelectedGender] = useState('남성이')
-  const [selectedRank, setSelectedRank] = useState('많이 선물한')
+  const [searchParams, setSearchParams] = useSearchParams()
+  const selectedGender = searchParams.get('gender') || '전체'
+  const selectedRank = searchParams.get('rank') || '많이 선물한'
   const [isExpanded, setIsExpanded] = useState(false)
 
   const handleToggle = () => {
     setIsExpanded((prev) => !prev)
+  }
+
+  const handleGenderClick = (gender: string) => {
+    setSearchParams(prev => {
+      const next = new URLSearchParams(prev)
+      next.set('gender', gender)
+      return next
+    })
+  }
+
+  const handleRankClick = (rank: string) => {
+    setSearchParams(prev => {
+      const next = new URLSearchParams(prev)
+      next.set('rank', rank)
+      return next
+    })
   }
 
   const visibleCount = isExpanded ? fullCount : initCount
@@ -143,7 +161,7 @@ const RankingSection = () => {
           <UserTab
             key={tab}
             isSelected={selectedGender === tab}
-            onClick={() => setSelectedGender(tab)}
+            onClick={() => handleGenderClick(tab)}
           >
             {tab === '전체' ? <span className="all">ALL</span> : <Avatar />}
             <span>{tab}</span>
@@ -156,7 +174,7 @@ const RankingSection = () => {
           <TrendTab
             key={tab}
             isSelected={selectedRank === tab}
-            onClick={() => setSelectedRank(tab)}
+            onClick={() => handleRankClick(tab)}
           >
             {tab}
           </TrendTab>
