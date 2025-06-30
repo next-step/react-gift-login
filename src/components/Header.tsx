@@ -1,6 +1,7 @@
 import type { Theme } from "@emotion/react";
 import { css, useTheme } from "@emotion/react";
 import { FiChevronLeft, FiUser } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 
 const headerWrapper = (theme: Theme) => css`
   position: sticky;
@@ -23,12 +24,20 @@ const titleStyle = (theme: Theme) => css`
 
 export default function Header() {
   const theme = useTheme();
+  const navigate = useNavigate();
 
   return (
     <header css={headerWrapper(theme)}>
-      <FiChevronLeft size={24} />
+      <button
+        onClick={() => navigate(-1)}
+        style={{ background: "none", border: "none", padding: 0 }}
+      >
+        <FiChevronLeft size={24} />
+      </button>
       <h1 css={titleStyle(theme)}>선물하기</h1>
-      <FiUser size={24} />
+      <button onClick={() => navigate("/login")}>
+        <FiUser size={24} />
+      </button>{" "}
     </header>
   );
 }

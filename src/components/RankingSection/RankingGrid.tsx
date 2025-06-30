@@ -1,6 +1,7 @@
 import { css, useTheme } from "@emotion/react";
 import type { Theme } from "@emotion/react";
 import { mockProduct } from "@/mocks/productData";
+import { useSearchParams } from "react-router-dom";
 
 const gridStyle = (theme: Theme) => css`
   display: grid;
@@ -43,10 +44,18 @@ const nameStyle = (theme: Theme) => css`
 
 export default function RankingGrid() {
   const theme = useTheme();
+  const [searchParams] = useSearchParams();
+  const genderFilter = searchParams.get("gender");
+  const filteredProducts =
+    genderFilter && genderFilter !== "전체"
+      ? (
+          mockProduct as Array<(typeof mockProduct)[0] & { gender?: string }>
+        ).filter((item) => item.gender === genderFilter)
+      : mockProduct;
 
   return (
     <div css={gridStyle(theme)}>
-      {mockProduct.map((item, index) => (
+      {filteredProducts.map((item, index) => (
         <div key={item.id} css={itemStyle}>
           <div css={rankStyle(theme)}>{index + 1}</div>
           <img src={item.imageURL} alt={item.name} css={imageStyle} />

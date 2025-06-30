@@ -1,5 +1,6 @@
 import type { Theme } from "@emotion/react";
 import { css, useTheme } from "@emotion/react";
+import { useSearchParams } from "react-router-dom";
 
 const FILTER_LABELS = ["전체", "여성", "남성", "청소년이"];
 const tabsWrapper = (theme: Theme) => css`
@@ -22,11 +23,27 @@ const tabItem = (theme: Theme) => css`
 
 export default function RankingFilterTabs() {
   const theme = useTheme();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const selectedFilter = searchParams.get("gender") || "전체";
+
+  const handleClick = (label: string) => {
+    searchParams.set("gender", label);
+    setSearchParams(searchParams);
+  };
 
   return (
     <div css={tabsWrapper(theme)}>
       {FILTER_LABELS.map((label) => (
-        <div key={label} css={tabItem(theme)}>
+        <div
+          key={label}
+          css={css`
+            ${tabItem(theme)};
+            background-color: ${label === selectedFilter
+              ? theme.colors.gray.gray300
+              : "transparent"};
+          `}
+          onClick={() => handleClick(label)}
+        >
           {label}
         </div>
       ))}
