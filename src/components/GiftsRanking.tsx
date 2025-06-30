@@ -3,16 +3,38 @@ import GiftPersonType from "./GiftPersonType";
 import { personType, presentType } from "@/data/giftType";
 import GiftItem from "./GiftItem";
 import { gifts } from "@/data/gift";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router";
 
 const GiftsRanking = () => {
-  const [selectedPersonType, setSelectedPersonType] = useState(
-    () => personType[0],
-  );
-  const [selectedPresentType, setSelectedPresentType] = useState(
-    () => presentType[0],
-  );
+  const navigate = useNavigate();
+  const location = useLocation();
+  const query = new URLSearchParams(location.search);
+
   const [showMore, setShowMore] = useState(false);
+  const [selectedTypes, setSelectedTypes] = useState({
+    personType: query.get("personType") ?? personType[0].id,
+    presentType: query.get("presentType") ?? personType[0].id,
+  });
+
+  const handleClickGiftType = (key: string, selectedType: string) => {
+    const newSelectedTypes = { ...selectedTypes, [key]: selectedType };
+    setSelectedTypes(newSelectedTypes);
+
+    const searchParams = new URLSearchParams(newSelectedTypes).toString();
+    navigate(`?${searchParams}`, { replace: true });
+  };
+
+  useEffect(() => {
+    const query = new URLSearchParams(location.search);
+    const personQueryType = query.get("personType") ?? personType[0].id;
+    const presentQueryType = query.get("presentType") ?? presentType[0].id;
+
+    setSelectedTypes(() => ({
+      personType: personQueryType,
+      presentType: presentQueryType,
+    }));
+  }, [location.search]);
 
   const duplicatedMockGifts = Array(21)
     .fill(null)
@@ -35,8 +57,8 @@ const GiftsRanking = () => {
             key={index}
             icon={type.icon}
             name={type.name}
-            selected={selectedPersonType === type}
-            onClick={() => setSelectedPersonType(type)}
+            selected={selectedTypes.personType === type.id}
+            onClick={() => handleClickGiftType("personType", type.id)}
           />
         ))}
       </GiftPersonTypeFlex>
@@ -44,10 +66,10 @@ const GiftsRanking = () => {
         {presentType.map((type, index) => (
           <PresentType
             key={index}
-            selected={selectedPresentType === type}
-            onClick={() => setSelectedPresentType(type)}
+            selected={selectedTypes.presentType === type.id}
+            onClick={() => handleClickGiftType("presentType", type.id)}
           >
-            {type}
+            {type.name}
           </PresentType>
         ))}
       </PresentTypeFlex>
