@@ -60,16 +60,30 @@ const GiftRanking = () => {
   const theme = useCustomTheme();
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const selectedTab = searchParams.get('gender') ?? '전체';
-  const selectedSubTab = searchParams.get('category') ?? '받고 싶어한';
+  const selectedTab = (() => {
+    const genderFromSearchParams = searchParams.get('gender');
+    if (genderFromSearchParams && tabs.includes(genderFromSearchParams)) {
+      return genderFromSearchParams;
+    }
+    return '전체';
+  })();
+
+  const selectedSubTab = (() => {
+    const categoryFromSearchParams = searchParams.get('category');
+    if (categoryFromSearchParams && subTabs.includes(categoryFromSearchParams)) {
+      return categoryFromSearchParams;
+    }
+    return '받고 싶어한';
+  })();
 
   const onTabClick = (tab: string) => {
-    setSearchParams({ gender: tab, category: selectedSubTab });
+    setSearchParams({ gender: tab, category: selectedSubTab }, { replace: true });
   };
-
+  
   const onSubTabClick = (subTab: string) => {
-    setSearchParams({ gender: selectedTab, category: subTab });
+    setSearchParams({ gender: selectedTab, category: subTab }, { replace: true });
   };
+  
 
   return (
     <section css={sectionStyle(theme)}>
