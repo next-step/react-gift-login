@@ -1,39 +1,6 @@
-import styled from '@emotion/styled';
-import { DataCategory } from '@/components/Category/DataCategory';
-
-const Wrapper = styled.div`
-  margin-top: 40px;
-`;
-
-const Title = styled.div`
-  font-size: 20px;
-  font-weight: 600;
-  color: ${({ theme }) => theme.color.semantic.text.default};
-  margin-bottom: 20px;
-`;
-
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-  gap: 28px 24px;
-`;
-
-const Item = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 13px;
-  color: #222;
-  gap: 8px;
-`;
-
-const ImageStyle = styled.img`
-  width: 70px;
-  height: 70px;
-  border-radius: 14px;
-  object-fit: cover;
-`;
-
+import { DataCategory } from '@/Components/Category/DataCategory';
+import { Grid, Item, ImageStyle } from '@/Components/Category/GiftCategoryGrid';
+import { Wrapper, Title } from '@/Components/Category/GiftCategoryStyle';
 
 const GiftCategoryList = () => {
 
