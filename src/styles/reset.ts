@@ -88,7 +88,6 @@ export const reset = css`
     border: 0;
     font-family: 'Pretendard Variable', sans-serif;
     font-size: 100%;
-    font: inherit;
     vertical-align: baseline;
   }
   /* HTML5 display-role reset for older browsers */
