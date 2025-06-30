@@ -1,41 +1,43 @@
 /** @jsxImportSource @emotion/react */
 import { css, useTheme } from "@emotion/react";
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { rankingList } from "@/mock/rankingList";
 
 type AudienceGroupKey = "ALL" | "FEMALE" | "MALE" | "TEEN";
+type ActionKey = "WANT" | "GIVE" | "WISH";
 
-interface AudienceGroupOption {
-  key: AudienceGroupKey;
-  label: string;
-  icon: string;
-}
+const GENDER_PARAM = "gender";
+const ACTION_PARAM = "action";
 
-const audienceGroupOptions: AudienceGroupOption[] = [
+const audienceGroupOptions = [
   { key: "ALL", label: "전체", icon: "ALL" },
   { key: "FEMALE", label: "여성이", icon: "👩🏻" },
   { key: "MALE", label: "남성이", icon: "👨🏻" },
   { key: "TEEN", label: "청소년이", icon: "👦🏻" },
-];
+] as const;
 
-type ActionKey = "WANT" | "GIVE" | "WISH";
-
-interface ActionOption {
-  key: ActionKey;
-  label: string;
-}
-
-const actionOptions: ActionOption[] = [
+const actionOptions = [
   { key: "WANT", label: "받고 싶어한" },
   { key: "GIVE", label: "많이 선물한" },
   { key: "WISH", label: "위시로 받은" },
-];
+] as const;
 
 export const RankingSection = () => {
   const theme = useTheme();
   const [isExpanded, setIsExpanded] = useState(false);
-  const [selectedUserGroup, setSelectedUserGroup] = useState<AudienceGroupKey>("ALL");
-  const [selectedAction, setSelectedAction] = useState<ActionKey>("WANT");
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const selectedUserGroup =
+    (searchParams.get(GENDER_PARAM) as AudienceGroupKey) ?? "ALL";
+  const selectedAction =
+    (searchParams.get(ACTION_PARAM) as ActionKey) ?? "WANT";
+
+  const updateParam = (key: string, value: string) => {
+    const newParams = new URLSearchParams(searchParams);
+    newParams.set(key, value);
+    setSearchParams(newParams);
+  };
 
   return (
     <section css={section(theme)}>
@@ -47,7 +49,7 @@ export const RankingSection = () => {
             <button
               key={key}
               css={genderButton}
-              onClick={() => setSelectedUserGroup(key)}
+              onClick={() => updateParam(GENDER_PARAM, key)}
             >
               <div css={genderIcon(theme, selectedUserGroup === key)}>{icon}</div>
               <p css={genderText(theme, selectedUserGroup === key)}>{label}</p>
@@ -60,7 +62,7 @@ export const RankingSection = () => {
             <button
               key={key}
               css={actionButton(theme, selectedAction === key)}
-              onClick={() => setSelectedAction(key)}
+              onClick={() => updateParam(ACTION_PARAM, key)}
             >
               {label}
             </button>
@@ -88,6 +90,7 @@ export const RankingSection = () => {
     </section>
   );
 };
+
 
 const section = (theme: any) => css`
   padding: ${theme.spacing.spacing4};
