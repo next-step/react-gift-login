@@ -3,13 +3,22 @@ import Divider from "@/components/Divider";
 import styled from "@emotion/styled";
 import type React from "react";
 import { useState } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 const Login = () => {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const [redirectUrl] = useSearchParams();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault;
+    event.preventDefault();
+    const redirect = redirectUrl.get("redirect")?.trim() || "/";
+    if (redirect === "/login") {
+      navigate("/");
+    } else {
+      navigate(`${redirect}`);
+    }
   };
   const handleIdChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setId(event.target.value);

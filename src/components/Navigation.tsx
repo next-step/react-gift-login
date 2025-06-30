@@ -1,21 +1,39 @@
 import styled from "@emotion/styled";
 import LeftArrow from "@/components/icons/LeftArrow";
 import Profile from "@/components/icons/Profile";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Navigation = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const handleBackClick = () => {
+    if (window.history.length > 1) {
+      navigate(-1);
+    } else {
+      navigate("/");
+    }
+  };
+  const handleHomeClick = () => {
+    navigate("/");
+  };
+  const handleLoginClick = () => {
+    navigate(`/login?redirect=${location.pathname}`);
+  };
   return (
     <Container>
       <Nav>
         <NavLeft>
-          <LinkBtn href="/">
+          <LinkBtn onClick={handleBackClick} disabled={false}>
             <LeftArrow />
           </LinkBtn>
         </NavLeft>
         <NavCenter>
-          <LinkBtn href="/">선물하기</LinkBtn>
+          <LinkBtn onClick={handleHomeClick} disabled={false}>
+            선물하기
+          </LinkBtn>
         </NavCenter>
         <NavRight>
-          <LinkBtn href="/login">
+          <LinkBtn onClick={handleLoginClick} disabled={location.pathname === "/login"}>
             <Profile />
           </LinkBtn>
         </NavRight>
@@ -55,9 +73,12 @@ const NavCenter = styled.div`
 const NavRight = styled.div`
   margin-left: auto;
 `;
-const LinkBtn = styled.a`
-  text-decoration: none;
+const LinkBtn = styled.button<{ disabled: boolean }>`
+  background-color: transparent;
+  border: none;
+  font: ${({ theme }) => theme.typography.body1Bold};
   color: ${({ theme }) => theme.color.textColor.default};
+  cursor: ${({ disabled }) => (disabled ? "default" : "pointer")};
 `;
 
 export default Navigation;
