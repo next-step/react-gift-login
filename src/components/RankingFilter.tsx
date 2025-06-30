@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
-
 import { useState, useEffect } from 'react';
+import FilterButton from '@/components/common/FilterButton';
 
 const Title = styled.h1`
   display: flex;
@@ -19,50 +19,6 @@ const FilterBar = styled.div`
   margin-bottom: 10px;
   align-items: flex-end;
   flex-wrap: wrap; // 한 줄에 다 안 들어가면 자동 줄바꿈
-`;
-
-const FilterBtn = styled.button<{ active?: boolean }>`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: none;
-  border: none;
-  cursor: pointer;
-
-  color: ${({ active }) => (active ? '#3182f6' : '#5a5a5a')};
-  font-weight: ${({ active }) => (active ? 'bold' : 'normal')};
-  font-size: 15px;
-
-  margin: auto;
-
-  .icon {
-    background: ${({ active }) => (active ? '#3182f6' : '#e0e6ff')};
-    color: ${({ active }) => (active ? '#fff' : '#3182f6')};
-    border-radius: 15px;
-    width: 44px;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 4px;
-    font-size: 15px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  outline: none;
-  box-shadow: none;
-  border: none;
-  &:focus {
-    outline: none;
-    box-shadow: none;
-    border: none;
-  }
-  &:active {
-    outline: none;
-    box-shadow: none;
-    border: none;
-  }
 `;
 
 const TabBar = styled.div`
@@ -131,14 +87,14 @@ function RankingFilter() {
 
       <FilterBar>
         {filterOptions.map((option) => (
-          <FilterBtn
+          <FilterButton
             key={option.type}
             active={targetType === option.type}
             onClick={() => setTargetType(option.type)}
           >
             {option.icon}
             {option.label}
-          </FilterBtn>
+          </FilterButton>
         ))}
       </FilterBar>
       <TabBar>
