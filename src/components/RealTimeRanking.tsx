@@ -12,27 +12,27 @@ interface RealTimeRankingProps {
 
 const INITIAL_PRODUCT_COUNT = 6;
 
-const TARGET_FILTER_MAP: Record<TargetFilter, string> = {
+const TARGET_KR_TO_EN_MAP: Record<TargetFilter, string> = {
   전체: 'ALL',
   여성이: 'FEMALE',
   남성이: 'MALE',
   청소년이: 'TEEN',
 };
 
-const CATEGORY_FILTER_MAP: Record<CategoryFilter, string> = {
+const CATEGORY_KR_TO_EN_MAP: Record<CategoryFilter, string> = {
   '받고 싶어한': 'WANT_TO_RECEIVE',
   '많이 선물한': 'MANY_GIFT',
   '위시로 받은': 'MANY_WISH',
 };
 
-const REVERSE_TARGET_MAP: Record<string, TargetFilter> = {
+const TARGET_EN_TO_KR_MAP: Record<string, TargetFilter> = {
   ALL: '전체',
   FEMALE: '여성이',
   MALE: '남성이',
   TEEN: '청소년이',
 };
 
-const REVERSE_CATEGORY_MAP: Record<string, CategoryFilter> = {
+const CATEGORY_EN_TO_KR_MAP: Record<string, CategoryFilter> = {
   WANT_TO_RECEIVE: '받고 싶어한',
   MANY_GIFT: '많이 선물한',
   MANY_WISH: '위시로 받은',
@@ -175,15 +175,15 @@ export function RealTimeRanking({
   // URL에서 초기 필터 값 읽기
   const getInitialTargetFilter = (): TargetFilter => {
     const targetType = searchParams.get('targetType');
-    return targetType && REVERSE_TARGET_MAP[targetType]
-      ? REVERSE_TARGET_MAP[targetType]
+    return targetType && TARGET_EN_TO_KR_MAP[targetType]
+      ? TARGET_EN_TO_KR_MAP[targetType]
       : '전체';
   };
 
   const getInitialCategoryFilter = (): CategoryFilter => {
     const categoryType = searchParams.get('categoryType');
-    return categoryType && REVERSE_CATEGORY_MAP[categoryType]
-      ? REVERSE_CATEGORY_MAP[categoryType]
+    return categoryType && CATEGORY_EN_TO_KR_MAP[categoryType]
+      ? CATEGORY_EN_TO_KR_MAP[categoryType]
       : '받고 싶어한';
   };
 
@@ -195,8 +195,8 @@ export function RealTimeRanking({
 
   // URL 업데이트 함수
   const updateURL = (target: TargetFilter, category: CategoryFilter) => {
-    const targetCode = TARGET_FILTER_MAP[target];
-    const categoryCode = CATEGORY_FILTER_MAP[category];
+    const targetCode = TARGET_KR_TO_EN_MAP[target];
+    const categoryCode = CATEGORY_KR_TO_EN_MAP[category];
 
     const newSearchParams = new URLSearchParams();
     newSearchParams.set('targetType', targetCode);
