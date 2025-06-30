@@ -11,7 +11,7 @@ const Container = styled.div`
   min-height: 100vh;
 
   margin: 0 auto;
-  padding-top: 44px;
+  padding-top: ${theme.spacing.spacing11};
 
   background-color: ${theme.semanticColors.background.default};
 
@@ -39,7 +39,7 @@ const LoginForm = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 16px;
+  gap: ${theme.spacing.spacing4};
 `
 
 // * 입력 란
