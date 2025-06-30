@@ -1,6 +1,6 @@
-import { css } from '@emotion/react'
+import { Global, css } from '@emotion/react'
 
-export const globalStyles = css`
+const globalStyles = css`
   *,
   *::before,
   *::after {
@@ -19,6 +19,12 @@ export const globalStyles = css`
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  #root {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
   }
 
   a {
@@ -41,3 +47,6 @@ export const globalStyles = css`
     display: block;
   }
 `
+export function GlobalStyle() {
+  return <Global styles={globalStyles} />
+}
