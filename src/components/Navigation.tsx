@@ -1,11 +1,16 @@
 import styled from '@emotion/styled';
 import PresentLogo from '@/assets/present.webp';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Navigation = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isLoginPage = location.pathname === '/login';
+
   return (
     <Nav>
       <div>
-        <IconButton aria-label="뒤로가기">
+        <IconButton onClick={() => navigate(-1)} aria-label="뒤로가기">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="28"
@@ -23,11 +28,19 @@ const Navigation = () => {
       </div>
 
       <div>
-        <Logo src={PresentLogo} alt="카카오 선물하기 로고" />
+        <Logo
+          src={PresentLogo}
+          alt="카카오 선물하기 로고"
+          onClick={() => navigate('/')}
+        />
       </div>
 
       <div>
-        <IconButton aria-label="로그인">
+        <IconButton
+          onClick={() => navigate('/login')}
+          aria-label="로그인"
+          disabled={isLoginPage}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -69,6 +82,10 @@ const IconButton = styled.button`
   justify-content: center;
   color: ${({ theme }) => theme.color.semantic.text.default};
   cursor: pointer;
+
+  &:disabled {
+    cursor: default;
+  }
 `;
 
 const Logo = styled.img`
