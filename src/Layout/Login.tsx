@@ -7,7 +7,7 @@ import {
 } from '@/styles/Login.styles';
 
 type LoginProps = {
-  onLogin?: () => void;
+  onLogin: () => void;
 };
 
 function Login({ onLogin }: LoginProps) {

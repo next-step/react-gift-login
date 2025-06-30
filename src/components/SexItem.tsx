@@ -7,7 +7,7 @@ function SexItem({
 }: {
   sex: string;
   selectSex: string;
-  onClick?: () => void;
+  onClick: () => void;
 }) {
   const selected = sex === selectSex;
   return (

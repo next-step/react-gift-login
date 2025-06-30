@@ -6,8 +6,8 @@ function Category({
   selectCategory,
 }: {
   category: string;
-  onClick?: () => void;
-  selectCategory?: string;
+  onClick: () => void;
+  selectCategory: string;
 }) {
   const selected = category === selectCategory;
   return (
