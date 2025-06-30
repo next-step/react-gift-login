@@ -1,15 +1,16 @@
-import { useState } from 'react';
 import styled from '@emotion/styled';
 
 const TEXT_CATEGORY_LIST = ['받고싶어한', '많이 선물한', '위시로 받은'] as const;
+type Props = {
+  selected: string;
+  onChange: (key: string) => void;
+};
 
-const RankingTextCategory = () => {
-  const [selected, setSelected] = useState('받고싶어한');
-
+const RankingTextCategory = ({ selected, onChange }: Props) => {
   return (
     <TextCategoryWrapper>
       {TEXT_CATEGORY_LIST.map((item) => (
-        <TextCategoryItem key={item} isActive={selected === item} onClick={() => setSelected(item)}>
+        <TextCategoryItem key={item} isActive={selected === item} onClick={() => onChange(item)}>
           {item}
         </TextCategoryItem>
       ))}
