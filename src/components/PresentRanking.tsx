@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { css, ThemeProvider } from '@emotion/react';
 import { theme } from '@/theme/theme';
 import productData from '../data/productData';
+import { useState } from 'react';
 
 const Wrapper = styled.section`
   padding: 0px 16px;
@@ -214,12 +215,16 @@ const MoreButtonFont = styled.p`
 `;
 
 const PresentRanking: React.FC = () => {
+  const [showAll, setShowAll] = useState(false);
+
   const {
     name,
     imageURL,
     price: { sellingPrice },
     brandInfo,
   } = productData;
+
+  const productsToShow = showAll ? 21 : 6;
 
   return (
     <ThemeProvider theme={theme}>
@@ -266,9 +271,17 @@ const PresentRanking: React.FC = () => {
         <MarginBox2 />
         <PresentDisplayContainer>
           <PresentDisplay>
-            {[1, 2, 3, 4, 5, 6].map((rank) => (
-              <ProductBox key={rank}>
-                <NumberLogo>{rank}</NumberLogo>
+            {Array.from({ length: productsToShow }, (_, index) => (
+              <ProductBox key={index}>
+                <NumberLogo
+                  css={css`
+                    background-color: ${index === 0 || index === 1 || index === 2
+                      ? 'rgb(252, 106, 102)'
+                      : 'rgb(176, 179, 186)'};
+                  `}
+                >
+                  {index + 1}
+                </NumberLogo>
                 <ProductInfo>
                   <ProductImage src={imageURL} alt={name}></ProductImage>
                   <div
@@ -310,8 +323,8 @@ const PresentRanking: React.FC = () => {
           `}
         ></div>
         <MoreButtonContainer>
-          <MoreButton>
-            <MoreButtonFont>더보기</MoreButtonFont>
+          <MoreButton onClick={() => setShowAll(!showAll)}>
+            <MoreButtonFont>{showAll ? '접기' : '더보기'}</MoreButtonFont>
           </MoreButton>
         </MoreButtonContainer>
       </Wrapper>

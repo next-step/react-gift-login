@@ -154,6 +154,7 @@ const GlobalStyle = () => (
         border: none;
         outline: none;
         appearance: none;
+        cursor: pointer;
       }
 
       * {
