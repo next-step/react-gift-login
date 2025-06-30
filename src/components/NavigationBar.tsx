@@ -4,7 +4,7 @@ import { ThemeProvider } from '@emotion/react';
 import { theme } from '@/theme/theme';
 import ChevronLeftIcon from '@/assets/ChevronLeftIcon';
 import User from '@/assets/User';
-import { useNavigate } from 'react-router-dom';
+import { replace, useNavigate } from 'react-router-dom';
 
 const Container = styled.nav`
   display: flex;
@@ -64,14 +64,23 @@ const Wrapper = styled.div`
   z-index: 1000;
 `;
 
-const NavigationBar = () => {
+const NavigationBar: React.FC = () => {
   const navigate = useNavigate();
+
+  const handleBack = () => {
+    if (window.history.length > 1) {
+      // 히스토리 스택이 있으면 한 칸 뒤로, 없으면 홈으로 이동
+      navigate(-1);
+    } else {
+      navigate('/', { replace: true });
+    }
+  };
   return (
     <ThemeProvider theme={theme}>
       <Wrapper>
         <Container>
           <BackButtonSection>
-            <BackButton>
+            <BackButton onClick={handleBack}>
               <ChevronLeftIcon />
             </BackButton>
           </BackButtonSection>
