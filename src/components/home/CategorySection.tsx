@@ -1,19 +1,13 @@
-/** @jsxImportSource @emotion/react */
 import styled from '@emotion/styled';
 import categories from '@/mock/categories'; 
 
-type Category = {
-  themeId: number;
-  name: string;
-  image: string;
-};
 
 const CategorySection = () => {
   return (
     <Section>
       <Title>선물 테마</Title>
       <Grid>
-        {categories.map((item:Category) => (
+        {categories.map((item) => (
           <CategoryItem key={item.themeId}>
             <img src={item.image} alt={item.name} />
             <span>{item.name}</span>

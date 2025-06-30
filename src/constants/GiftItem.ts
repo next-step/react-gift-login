@@ -13,5 +13,3 @@ export type GiftItem = {
     imageURL: string;
   };
 };
-
-export type GiftItem = (typeof giftItems)[number];

@@ -12,6 +12,7 @@ const filters = [
 const GiftRankingFilter = () => {
 
   const [selected, setSelected] = useState<(typeof filters)[number]['value']>('all');
+  
   return (
     <FilterContainer>
       {filters.map(filter => (
