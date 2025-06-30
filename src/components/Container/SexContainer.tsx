@@ -11,10 +11,18 @@ const SEX_TYPE = {
 } as const;
 
 function SexContainer() {
-  const [selectSex, setSelectsex] = useState<SexType>(SEX_TYPE.All);
+  const getInitialSex = (): SexType => {
+    const saved = localStorage.getItem('selectedSex');
+    return (saved as SexType) || SEX_TYPE.All;
+  };
+
+  const [selectSex, setSelectsex] = useState<SexType>(getInitialSex);
+
   function handleSelect(sex: SexType) {
     setSelectsex(sex);
+    localStorage.setItem('selectedSex', sex);
   }
+
   return (
     <SexContainerWrapper>
       <SexItem sex="All" selectSex={selectSex} onClick={() => handleSelect(SEX_TYPE.All)} />

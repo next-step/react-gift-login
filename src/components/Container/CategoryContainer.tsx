@@ -10,10 +10,16 @@ const CATEGORY_TYPE = {
 } as const;
 
 function CategoryContainer() {
-  const [selectCategory, setSelectCategory] = useState<CategoryType>(CATEGORY_TYPE.받고싶어한);
+  const getInitialCategory = (): CategoryType => {
+    const category = localStorage.getItem('selectedCategory');
+    return (category as CategoryType) || CATEGORY_TYPE.받고싶어한;
+  };
+  const [selectCategory, setSelectCategory] = useState<CategoryType>(getInitialCategory);
   function handleCategoryClick(category: CategoryType) {
     setSelectCategory(category);
+    localStorage.setItem('selectedCategory', category);
   }
+
   return (
     <CategoryContainerStyle>
       <Category
