@@ -11,10 +11,11 @@ const SEX_TYPE = {
 } as const;
 
 function SexContainer() {
-  const getInitialSex = (): SexType => {
+  function getInitialSex(): SexType {
     const saved = localStorage.getItem('selectedSex');
-    return (saved as SexType) || SEX_TYPE.All;
-  };
+    if (saved && Object.values(SEX_TYPE).includes(saved as SexType)) return saved as SexType;
+    return SEX_TYPE.All;
+  }
 
   const [selectSex, setSelectsex] = useState<SexType>(getInitialSex);
 
