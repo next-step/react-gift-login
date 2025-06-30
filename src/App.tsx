@@ -1,19 +1,20 @@
 import GlobalStyle from '@/styles/GlobalStyle';
-import Navigation from '@/components/Navigation';
-import FriendSelectSection from '@/components/FriendSelectSection';
-import CategorySection from '@/components/CategorySection';
-import BannerSection from '@/components/BannerSection';
-import RankingGroup from '@/components/RankingSection/RankingGroup';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import HomePage from '@/pages/HomePage';
+import LoginPage from '@/pages/LoginPage';
+import NotFoundPage from '@/pages/NotFoundPage';
 
 function App() {
   return (
     <>
       <GlobalStyle />
-      <Navigation />
-      <FriendSelectSection />
-      <CategorySection />
-      <BannerSection />
-      <RankingGroup />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
