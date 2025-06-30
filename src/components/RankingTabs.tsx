@@ -3,7 +3,7 @@ import { css } from '@emotion/react'
 import { colors } from '../styles/colors'
 import { spacing } from '../styles/spacing'
 import { typography } from '../styles/typography'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const tabs = [
   { label: '전체', value: 'all' ,icon: 'ALL' },
@@ -44,12 +44,19 @@ const iconStyle = css({ fontSize: 15 })
 const labelStyle = css({ marginTop: spacing.spacing2 })
 
 const RankingTabs = () => {
-  const [selected, setSelected] = useState('female') // 기본값 'female'로 변경
+  const [selected, setSelected] = useState(() => {
+    return localStorage.getItem('rankingTab') || 'female'
+  })
+
+  useEffect(() => {
+    localStorage.setItem('rankingTab', selected)
+  }, [selected])
+
   return (
     <>
       <h3 style={{
         ...typography.body1Bold,
-        color: colors.gray900, // 오류 수정: colors.text → colors.gray900
+        color: colors.gray900, 
         margin: 0,
         marginBottom: spacing.spacing4,
       }}>실시간 급상승 선물랭킹</h3>
