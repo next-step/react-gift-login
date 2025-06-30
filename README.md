@@ -2,52 +2,40 @@
 
 카카오 선물하기 메인 페이지를 React + TypeScript + Vite + Emotion으로 구현.
 
-## 개발 진행 과정
+## Step3 과제 완료
 
-### 1. Emotion에 Color, Typography 토큰 설정
+### 1. React Router 도입 및 기본 라우팅 설정
 
-- **Design Token 시스템 구축**: `src/styles/`
-- **색상 토큰**: Gray, Yellow, Brown, Blue, Red 색상 스케일 + 카카오 브랜드 컬러(#fee500)
-- **타이포그래피 토큰**: Title, Subtitle, Body, Label 체계
-- **간격 토큰**: spacing1~16 일관된 간격 시스템
-- **ThemeProvider**: 전역 테마 시스템 적용
+- **useState → Routes/Route**: 본격적인 SPA 라우팅 구현
+- **BrowserRouter**: main.tsx에서 전역 라우터 설정
+- **URL 기반 페이지 전환**: `/`, `/login` 경로 분리
+- **브라우저 히스토리**: 뒤로가기/앞으로가기 지원
 
-### 2. Mobile First Design 기반의 Layout 구현
+### 2. 로그인 페이지 라우팅 및 redirect 기능 구현
 
-- **720px 제한** 모바일 중심 UI 설계
-- **MobileLayout**: 전체 앱 레이아웃 컨테이너
-- **Header**: Sticky 네비게이션 헤더
-- **Main**: 메인 콘텐츠 영역
-- **Section**: 재사용 가능한 섹션 컴포넌트 (spacing 옵션)
-- **터치 친화적**: 44px 최소 터치 영역, iOS 스크롤 최적화
+- **이전 페이지 redirect**: `location.state.from` 활용
+- **useNavigate/useLocation**: React Router 훅 도입
+- **replace: true**: 로그인 페이지 히스토리 제거로 UX 개선
+- **브라우저 히스토리 기반**: navigate(-1) 뒤로가기 구현
 
-### 3. 상단 네비게이션 바 영역 구현
+### 3. Not Found 페이지 구현
 
-- **NavigationBar**: [<] [선물하기] [👤] 구조
-- **페이지 라우팅**: useState 기반 상태 관리
-- **LoginPage**: 카카오 브랜드 아이덴티티 로그인 페이지
-- **HomePage**: 메인 선물하기 페이지
-- 프로필 버튼 → 로그인, 뒤로가기 → 메인 페이지 이동
+- **404 처리**: 잘못된 경로 접근 시 Not Found 페이지 표시
+- **와일드카드 라우트**: `path="*"` 모든 잘못된 경로 처리
+- **카카오 브랜드 일관성**: 노란색 404 + 친근한 메시지
+- **홈으로 돌아가기**: 사용자 편의성 고려
 
-### 4. 카테고리 섹션 구현
+### 4. 실시간 급상승 선물랭킹 URL 연동
 
-- **CategoryGrid**: CSS Grid 기반 **5x3 그리드** 레이아웃
-- **CategoryItem**: 원형 아이콘 + 하단 라벨 구조
-- **"선물 테마"** 섹션으로 15개 카테고리 표시
-- 이미지 URL과 이모지 모두 지원, 터치 인터랙션 최적화
+- **useState → useSearchParams**: URL 쿼리 파라미터 기반 상태 관리
+- **새로고침 시 필터 유지**: `?target=FEMALE&rank=MANY_WISH` 형태
+- **유효성 검증**: 잘못된 쿼리 파라미터 시 기본값 사용
+- **브라우저 히스토리**: 필터 변경 시 뒤로가기/앞으로가기 지원
 
-### 5. 기타 섹션 (선물할 친구 선택, 카테캠 화이팅) UI 구현
+### 5. 재사용 가능한 Button 컴포넌트 통합
 
-- **FriendSelectSection**: 노란색 + 버튼 + "선물할 친구를 선택해 주세요."
-- **PromoSection**: 카카오 옐로우 배경 + "카카오 테크 캠퍼스 3기여러분 프론트엔드 2단계 과제 화이팅!"
-- 카카오 브랜드 컬러 활용한 일관된 디자인
-
-### 6. 실시간 급상승 선물랭킹 구현
-
-- **이중 필터 시스템**:
-  - 상단: 전체/여성이/남성이/청소년이
-  - 하단: 받고싶어한/많이선물한/위시로받은
-- **ProductGrid**: **3x2 → 3x7** 확장 가능한 반응형 그리드
-- **순위 배지**: 1,2,3등 빨간색 강조, 나머지 회색
-- **더보기 기능**: 6개 → 21개 상품 확장
-- BBQ 상품 데이터 활용한 랭킹 시스템
+- **`src/components/common/Button.tsx`**: 6가지 variant 통합 컴포넌트
+- **Variant 시스템**: primary, secondary, ghost, toggle, icon, category
+- **코드량 67% 감소**: ~600줄 → ~200줄 (8개 파일 → 1개 파일)
+- **브랜드 일관성**: 모든 버튼에 카카오 컬러 팔레트 통일 적용
+- **타입 안전성**: TypeScript variant 타입으로 컴파일 타임 체크
