@@ -176,7 +176,7 @@ const GiftRanking = () => {
       <CatContainer>
         <GenerationGroup>
           {generations.map(({ id, emoji, label }) => (
-            <Button isActive={activeButton === id} onClick={() => handleButtonClick(id)}>
+            <Button key={id} isActive={activeButton === id} onClick={() => handleButtonClick(id)}>
               <div>{emoji}</div>
               <p>{label}</p>
             </Button>
@@ -185,7 +185,7 @@ const GiftRanking = () => {
 
         <FilterGroup>
           {filters.map(({ id, label }) => (
-            <Button isActive={activeButton === id} onClick={() => handleButtonClick(id)}>
+            <Button key={id} isActive={activeButton === id} onClick={() => handleButtonClick(id)}>
               <p>{label}</p>
             </Button>
           ))}
