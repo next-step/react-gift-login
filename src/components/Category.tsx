@@ -4,17 +4,30 @@ import { categories } from '@/data/categories'
 export default function Category() {
   return (
     <>
-      <Block/>
+      <Block />
       <Section>
         <Title>선물 테마</Title>
         <Grid>
           {categories.map((item) => (
-            <CategoryItem key={item.themeId} {...item} />
+            <CategoryCard
+              key={item.themeId}
+              image={item.image}
+              name={item.name}
+            />
           ))}
         </Grid>
       </Section>
-      <Block/>
+      <Block />
     </>
+  )
+}
+
+function CategoryCard({ image, name }: { image: string; name: string }) {
+  return (
+    <CategoryItem>
+      <Image src={image} alt={name} />
+      <Label>{name}</Label>
+    </CategoryItem>
   )
 }
 
@@ -55,17 +68,17 @@ const CategoryItem = styled.div`
   cursor: pointer;
 `
 
-// const Image = styled.img`
-//   max-width: 50px;
-//   max-height: 50px;
-//   width: 100%;
-//   border-radius: 18px;
-//   object-fit: cover;
-//   overflow: hidden;
-// `
+const Image = styled.img`
+  max-width: 50px;
+  max-height: 50px;
+  width: 100%;
+  border-radius: 18px;
+  object-fit: cover;
+  overflow: hidden;
+`
 
-// const Label = styled.span`
-//   ${({ theme }) => theme.typography.label2Regular};
-//   margin: 0px;
-//   text-align: left;
-// `
+const Label = styled.span`
+  ${({ theme }) => theme.typography.label2Regular};
+  margin: 0px;
+  text-align: left;
+`

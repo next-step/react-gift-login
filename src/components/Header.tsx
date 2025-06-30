@@ -1,14 +1,17 @@
 import { FiChevronLeft, FiUser } from 'react-icons/fi';
 import styled from '@emotion/styled';
+import { useNavigate } from 'react-router-dom';
 
 export default function Header() {
+  const navigate = useNavigate();
+
   return (
     <Container>
-      <IconButton aria-label="뒤로가기">
+      <IconButton aria-label="뒤로가기" onClick={() => navigate(-1)}>
         <FiChevronLeft size={24} />
       </IconButton>
       <Title>선물하기</Title>
-      <IconButton aria-label="마이페이지">
+      <IconButton aria-label="마이페이지" onClick={() => navigate('/login')}>
         <FiUser size={24} />
       </IconButton>
     </Container>
