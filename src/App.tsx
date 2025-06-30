@@ -1,24 +1,12 @@
 import { Routes, Route } from 'react-router-dom'
-import { Navbar } from '@/components/Navbar/Navbar'
-import { CategorySection } from '@/components/Category/CategorySection'
-import { ProductListSection } from '@/components/Product/ProductListSection'
 import { LoginPage } from '@/pages/LoginPage'
 import { NotFoundPage } from '@/pages/NotFoundPage'
-import { Layout } from '@/components/Layout/Layout'
+import { Home } from '@/pages/Home'
 
 function App() {
   return (
     <Routes>
-      <Route
-        path="/"
-        element={
-          <Layout>
-            <Navbar />
-            <CategorySection />
-            <ProductListSection />
-          </Layout>
-        }
-      />
+      <Route path="/" element={<Home />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
