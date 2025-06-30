@@ -3,6 +3,7 @@ import { css } from '@emotion/react';
 import KakaoIconUrl from '../assets/KaKaoLogo.svg';
 import GlobalStyle from '@/styles/global';
 import NavigationBar from '@components/NavigationBar';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -77,7 +78,20 @@ const LoginButton = styled.button`
   transition: background-color 200ms;
 `;
 
-const Login = () => {
+interface LocationState {
+  from?: { pathname: string };
+}
+
+const Login: React.FC = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const state = location.state as LocationState | undefined;
+
+  const redirectTo = state?.from?.pathname ?? '/';
+
+  const handleClick = () => {
+    navigate(redirectTo, { replace: true });
+  };
   return (
     <>
       <GlobalStyle />
@@ -107,7 +121,7 @@ const Login = () => {
                   background-color: transparent;
                 `}
               />
-              <LoginButton>로그인</LoginButton>
+              <LoginButton onClick={handleClick}>로그인</LoginButton>
             </InputSection>
           </Container>
         </LoginPage>
