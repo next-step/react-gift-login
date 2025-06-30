@@ -5,6 +5,7 @@ import FriendSelectSection from '@/components/home/FriendSelectSection';
 import BannerSection from '@/components/home/BannerSection';
 import GiftRankingGrid from '@/components/GiftRanking/GiftRankingGrid';
 
+
 function App() {
   return (
     <AppContainer>
