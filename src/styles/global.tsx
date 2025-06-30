@@ -97,8 +97,8 @@ const GlobalStyle = () => (
         font-size: 100%;
         font: inherit;
         vertical-align: baseline;
-        font-family: 'Pretendard Variable', sans-serif;
       }
+
       /* HTML5 display-role reset for older browsers */
       article,
       aside,
@@ -134,6 +134,31 @@ const GlobalStyle = () => (
       table {
         border-collapse: collapse;
         border-spacing: 0;
+      }
+
+      /* global 스타일 지정 */
+      body {
+        max-width: 720px;
+        margin: 0 auto;
+        font-family: 'Pretendard Variable', sans-serif;
+      }
+
+      img,
+      svg {
+        display: block;
+        height: auto;
+      }
+
+      button {
+        background: none;
+        border: none;
+        outline: none;
+        appearance: none;
+        cursor: pointer;
+      }
+
+      * {
+        box-sizing: border-box;
       }
     `}
   />
