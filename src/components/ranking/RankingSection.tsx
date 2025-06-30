@@ -1,9 +1,10 @@
 /** @jsxImportSource @emotion/react */
 import { css, useTheme } from "@emotion/react";
-import type { Theme } from "@emotion/react";
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { rankingList } from "@/mock/rankingList";
+import { RankingCard } from "@/components/ranking/RankingCard";
+import type { ThemeType } from "@/styles/theme/theme";
 
 type GroupKey = "ALL" | "FEMALE" | "MALE" | "TEEN";
 type ActionKey = "WANT" | "GIVE" | "WISH";
@@ -29,10 +30,8 @@ export const RankingSection = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const selectedGroup =
-    (searchParams.get(GROUP_PARAM) as GroupKey) ?? "ALL";
-  const selectedAction =
-    (searchParams.get(ACTION_PARAM) as ActionKey) ?? "WANT";
+  const selectedGroup = (searchParams.get(GROUP_PARAM) as GroupKey) ?? "ALL";
+  const selectedAction = (searchParams.get(ACTION_PARAM) as ActionKey) ?? "WANT";
 
   const updateParam = (key: string, value: string) => {
     const newParams = new URLSearchParams(searchParams);
@@ -46,42 +45,47 @@ export const RankingSection = () => {
 
       <div css={filterContainer(theme)}>
         <div css={groupFilterContainer(theme)}>
-          {groupOptions.map(({ key, label, icon }) => (
-            <button
-              key={key}
-              css={groupButton}
-              onClick={() => updateParam(GROUP_PARAM, key)}
-            >
-              <div css={groupIcon(theme, selectedGroup === key)}>{icon}</div>
-              <p css={groupText(theme, selectedGroup === key)}>{label}</p>
-            </button>
-          ))}
+          {groupOptions.map(({ key, label, icon }) => {
+            const isSelected = selectedGroup === key;
+            return (
+              <button
+                key={key}
+                css={groupButton}
+                onClick={() => updateParam(GROUP_PARAM, key)}
+              >
+                <div css={groupIcon(theme, isSelected)}>{icon}</div>
+                <p css={groupText(theme, isSelected)}>{label}</p>
+              </button>
+            );
+          })}
         </div>
 
         <div css={actionFilter(theme)}>
-          {actionOptions.map(({ key, label }) => (
-            <button
-              key={key}
-              css={actionButton(theme, selectedAction === key)}
-              onClick={() => updateParam(ACTION_PARAM, key)}
-            >
-              {label}
-            </button>
-          ))}
+          {actionOptions.map(({ key, label }) => {
+            const isSelected = selectedAction === key;
+            return (
+              <button
+                key={key}
+                css={actionButton(theme, isSelected)}
+                onClick={() => updateParam(ACTION_PARAM, key)}
+              >
+                {label}
+              </button>
+            );
+          })}
         </div>
       </div>
 
       <div css={grid(theme)}>
         {(isExpanded ? rankingList : rankingList.slice(0, 6)).map((item, idx) => (
-          <div key={item.id} css={itemStyle}>
-            <span css={rankBadge(theme, idx + 1)}>{idx + 1}</span>
-            <img css={itemImg(theme)} src={item.imageURL} alt={item.name} />
-            <p css={brandName(theme)}>{item.brandInfo.name}</p>
-            <h6 css={productName(theme)}>{item.name}</h6>
-            <p css={priceStyle(theme)}>
-              {item.price.sellingPrice.toLocaleString()} <span>원</span>
-            </p>
-          </div>
+          <RankingCard
+            key={item.id}
+            rank={idx + 1}
+            imageURL={item.imageURL}
+            brandName={item.brandInfo.name}
+            productName={item.name}
+            price={item.price.sellingPrice}
+          />
         ))}
       </div>
 
@@ -92,23 +96,22 @@ export const RankingSection = () => {
   );
 };
 
-
-const section = (theme: Theme) => css`
+const section = (theme: ThemeType) => css`
   padding: ${theme.spacing.spacing4};
   background-color: white;
 `;
 
-const title = (theme: Theme) => css`
+const title = (theme: ThemeType) => css`
   ${theme.typography.title1Bold}
   color: ${theme.colors.textDefault};
   margin-bottom: ${theme.spacing.spacing4};
 `;
 
-const filterContainer = (theme: Theme) => css`
+const filterContainer = (theme: ThemeType) => css`
   margin-bottom: ${theme.spacing.spacing4};
 `;
 
-const groupFilterContainer = (theme: Theme) => css`
+const groupFilterContainer = (theme: ThemeType) => css`
   display: flex;
   justify-content: space-between;
   margin-bottom: ${theme.spacing.spacing3};
@@ -124,7 +127,7 @@ const groupButton = css`
   padding: 0;
 `;
 
-const groupIcon = (theme: Theme, isSelected: boolean) => css`
+const groupIcon = (theme: ThemeType, isSelected: boolean) => css`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -132,17 +135,17 @@ const groupIcon = (theme: Theme, isSelected: boolean) => css`
   height: 50px;
   margin-bottom: ${theme.spacing.spacing1};
   border-radius: 17px;
-  ${theme.typography.label1Bold}
+  ${theme.typography.label1Bold};
   background-color: ${isSelected ? theme.colors.blue700 : theme.colors.blue100};
   color: ${isSelected ? theme.colors.blue200 : theme.colors.blue400};
 `;
 
-const groupText = (theme: Theme, isSelected: boolean) => css`
-  ${isSelected ? theme.typography.label1Bold : theme.typography.label1Regular}
+const groupText = (theme: ThemeType, isSelected: boolean) => css`
+  ${isSelected ? theme.typography.label1Bold : theme.typography.label1Regular};
   color: ${isSelected ? theme.colors.blue700 : theme.colors.gray700};
 `;
 
-const actionFilter = (theme: Theme) => css`
+const actionFilter = (theme: ThemeType) => css`
   display: flex;
   justify-content: space-around;
   padding: ${theme.spacing.spacing4};
@@ -150,76 +153,26 @@ const actionFilter = (theme: Theme) => css`
   border-radius: 10px;
 `;
 
-const actionButton = (theme: Theme, isSelected: boolean) => css`
+const actionButton = (theme: ThemeType, isSelected: boolean) => css`
   cursor: pointer;
   color: ${isSelected ? theme.colors.blue700 : theme.colors.gray700};
-  ${isSelected ? theme.typography.label1Bold : theme.typography.label1Regular}
+  ${isSelected ? theme.typography.label1Bold : theme.typography.label1Regular};
 `;
 
-const grid = (theme: Theme) => css`
+const grid = (theme: ThemeType) => css`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: ${theme.spacing.spacing2};
   margin-bottom: ${theme.spacing.spacing4};
 `;
 
-const itemStyle = css`
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  cursor: pointer;
-`;
-
-const rankBadge = (theme: Theme, rank: number) => css`
-  position: absolute;
-  top: ${theme.spacing.spacing1};
-  left: ${theme.spacing.spacing1};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 30px;
-  height: 30px;
-  border-radius: 4px;
-  background-color: ${rank <= 3 ? theme.colors.red600 : theme.colors.gray600};
-  color: white;
-  ${theme.typography.label2Bold}
-`;
-
-const itemImg = (theme: Theme) => css`
-  width: 100%;
-  aspect-ratio: 1;
-  border-radius: 8px;
-  margin-bottom: ${theme.spacing.spacing2};
-  object-fit: cover;
-`;
-
-const brandName = (theme: Theme) => css`
-  ${theme.typography.label2Regular}
-  color: ${theme.colors.gray700};
-  margin-bottom: ${theme.spacing.spacing1};
-`;
-
-const productName = (theme: Theme) => css`
-  ${theme.typography.body2Bold}
-  color: ${theme.colors.textDefault};
-  margin-bottom: ${theme.spacing.spacing2};
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-`;
-
-const priceStyle = (theme: Theme) => css`
-  ${theme.typography.body2Bold}
-  color: ${theme.colors.textDefault};
-`;
-
-const moreButton = (theme: Theme) => css`
+const moreButton = (theme: ThemeType) => css`
   width: 100%;
   padding: ${theme.spacing.spacing3};
   border: 1px solid ${theme.colors.gray300};
   border-radius: 8px;
   background-color: white;
   cursor: pointer;
-  ${theme.typography.body1Regular}
+  ${theme.typography.body1Regular};
   color: ${theme.colors.textDefault};
 `;
