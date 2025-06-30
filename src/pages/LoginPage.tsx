@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import styled from '@emotion/styled';
 import { Section } from '@/components/layout';
 
@@ -82,10 +83,16 @@ const LoginButton = styled.button`
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleLogin = () => {
-    console.log('로그인 클릭 - redirect 구현 예정');
-    console.log('Email:', email, 'Password:', password);
+    // TODO: 현재는 항상 로그인 성공 처리 -> 실제 API 연동은 추후 구현
+    console.log('로그인 성공:', { email, password });
+
+    // 이전 페이지 정보가 있으면 그곳으로, 없으면 홈(/)으로 이동
+    const from = location.state?.from || '/';
+    navigate(from, { replace: true }); // replace로 로그인 페이지를 히스토리에서 제거
   };
 
   return (

@@ -33,11 +33,18 @@ function App() {
   const navConfig = getNavigationConfig();
 
   const handleBackClick = () => {
-    navigate('/');
+    if (window.history.length > 1) {
+      // 브라우저 히스토리가 있으면
+      navigate(-1); // 브라우저 뒤로가기
+    } else {
+      navigate('/'); // 홈(/)으로
+    }
   };
 
   const handleProfileClick = () => {
-    navigate('/login');
+    navigate('/login', {
+      state: { from: location.pathname },
+    });
   };
 
   return (
