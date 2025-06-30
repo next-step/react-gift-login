@@ -3,6 +3,7 @@ import { css, useTheme } from '@emotion/react'
 import type { Theme } from '@emotion/react'
 import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded'
 import PersonOutlineRoundedIcon from '@mui/icons-material/PersonOutlineRounded'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 const statusBarStyle = (theme: Theme) => css`
   width: 100%;
@@ -53,15 +54,25 @@ const logoStyle = (theme: Theme) => css`
 
 const Header = () => {
   const theme = useTheme()
+  const navigate = useNavigate()
+  const location = useLocation()
   return (
     <>
       <div css={statusBarStyle(theme)} />
       <header css={headerStyle(theme)}>
-        <button css={iconButtonStyle(theme)} aria-label="뒤로가기">
+        <button
+          css={iconButtonStyle(theme)}
+          aria-label="뒤로가기"
+          onClick={() => navigate(-1)}
+        >
           <ArrowBackIosNewRoundedIcon fontSize="inherit" />
         </button>
         <div css={logoStyle(theme)}>선물하기</div>
-        <button css={iconButtonStyle(theme)} aria-label="프로필">
+        <button
+          css={iconButtonStyle(theme)}
+          aria-label="프로필"
+          onClick={() => navigate('/login', { state: { from: location } })}
+        >
           <PersonOutlineRoundedIcon fontSize="inherit" />
         </button>
       </header>
