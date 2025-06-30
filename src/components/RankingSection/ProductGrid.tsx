@@ -1,5 +1,5 @@
 import CardGrid from '@/components/common/CardGrid';
-import ProductCard from './ProductCard';
+import ProductCard from '@/components/RankingSection/ProductCard';
 import type { Product } from '@/types/product';
 
 const ProductGrid = ({ products }: { products: Product[] }) => {
