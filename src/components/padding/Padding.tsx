@@ -6,10 +6,10 @@ export const PaddingSm = styled.div`
 export const PaddingMd = styled.div`
         width: 100%;
         height: ${({theme})=>theme.spacing.spacing8};
-        background-color: ${({theme})=>theme.colors.gray.gray00};
+        background-color: transparent;
 `;
 export const PaddingLg = styled.div`
   width: 100%;
   height: ${({ theme }) => theme.spacing.spacing10};
-  background-color: ${({ theme }) => theme.colors.gray.gray00};
+  background-color: transparent;
 `;
