@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 import { theme } from '../styles/theme';
 
@@ -10,6 +10,11 @@ const filters = [
 ] as const;
 
 type FilterKey = (typeof filters)[number]['key'];
+
+const tabOptions = ['받고 싶어한', '많이 선물한', '위시로 받은'];
+
+const LOCAL_FILTER_KEY = 'gift_filter_selected';
+const LOCAL_TAB_KEY = 'gift_tab_selected';
 
 const IconFilterContainer = styled.div`
   display: flex;
@@ -65,8 +70,6 @@ const IconFilterItem = ({
   );
 };
 
-const tabOptions = ['받고 싶어한', '많이 선물한', '위시로 받은'];
-
 const Container = styled.div`
   width: 100%;
   padding: 24px 16px;
@@ -99,8 +102,27 @@ const TabButton = styled.button<{ selected: boolean }>`
 `;
 
 export default function GiftRankingFilter() {
-  const [selected, setSelected] = useState<FilterKey>('all');
-  const [selectedTab, setSelectedTab] = useState('받고 싶어한');
+  const [selected, setSelected] = useState<FilterKey>(() => {
+    const saved = localStorage.getItem(LOCAL_FILTER_KEY);
+    return (
+      filters.some(f => f.key === saved) ? saved : 'all'
+    ) as FilterKey;
+  });
+
+  const [selectedTab, setSelectedTab] = useState(() => {
+    const saved = localStorage.getItem(LOCAL_TAB_KEY);
+    return tabOptions.includes(saved || '') ? saved! : tabOptions[0];
+  });
+
+  const handleFilterChange = (key: FilterKey) => {
+    setSelected(key);
+    localStorage.setItem(LOCAL_FILTER_KEY, key);
+  };
+
+  const handleTabChange = (tab: string) => {
+    setSelectedTab(tab);
+    localStorage.setItem(LOCAL_TAB_KEY, tab);
+  };
 
   return (
     <Container>
@@ -113,7 +135,7 @@ export default function GiftRankingFilter() {
             label={label}
             icon={icon}
             selected={selected === key}
-            onClick={() => setSelected(key)}
+            onClick={() => handleFilterChange(key)}
           />
         ))}
       </IconFilterContainer>
@@ -123,7 +145,7 @@ export default function GiftRankingFilter() {
           <TabButton
             key={tab}
             selected={selectedTab === tab}
-            onClick={() => setSelectedTab(tab)}
+            onClick={() => handleTabChange(tab)}
           >
             {tab}
           </TabButton>
