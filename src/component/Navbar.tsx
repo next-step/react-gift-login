@@ -50,7 +50,7 @@ const Navbar = () => {
     <NavContaier>
     <MyNav>
       <div>
-        <MyButton onClick={() => navigate('/')} aria-label="뒤로 가기">
+        <MyButton onClick={() => navigate(-1)} aria-label="뒤로 가기">
           <MySvg
             xmlns="http://www.w3.org/2000/svg"
             width="28"
