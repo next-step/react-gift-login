@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import styled from '@emotion/styled';
 import { theme } from '../styles/theme';
+import { IconFilterItem } from './common/IconFilterItem';
 
 const filters = [
   { key: 'all', label: '전체', icon: 'ALL' },
@@ -22,53 +23,6 @@ const IconFilterContainer = styled.div`
   width: 100%;
   padding: ${theme.typography.spacing.spacing4};
 `;
-
-const IconWrapper = styled.div<{ selected: boolean }>`
-  background-color: ${({ selected }) =>
-    selected ? theme.colors.blue700 : theme.colors.blue100};
-  width: 48px;
-  height: 48px;
-  border-radius: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  margin-bottom: 8px;
-`;
-
-const Label = styled.div<{ selected: boolean }>`
-  color: ${({ selected }) =>
-    selected ? theme.colors.blue700 : theme.colors.gray600};
-  ${theme.typography.body2Regular};
-  text-align: center;
-`;
-
-const Box = styled.button`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: ${theme.colors.gray00};
-  border: ${theme.colors.gray00};
-  cursor: pointer;
-`;
-const IconFilterItem = ({
-  label,
-  icon,
-  selected,
-  onClick,
-}: {
-  label: string;
-  icon: string;
-  selected: boolean;
-  onClick: () => void;
-}) => {
-  return (
-    <Box onClick={onClick}>
-      <IconWrapper selected={selected}>{icon}</IconWrapper>
-      <Label selected={selected}>{label}</Label>
-    </Box>
-  );
-};
 
 const Container = styled.div`
   width: 100%;
