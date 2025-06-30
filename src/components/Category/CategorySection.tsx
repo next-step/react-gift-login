@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
-import { categoryMock } from '@/components/categoryMock'
-import { CategoryItem } from '@/components/CategoryItem'
+import { categoryMock } from '@/components/Category/categoryMock'
+import { CategoryItem } from '@/components/Category/CategoryItem'
 import { FiPlus } from 'react-icons/fi'
 
 export function CategorySection() {

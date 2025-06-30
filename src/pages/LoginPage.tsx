@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { Navbar } from '@/components/Navbar'
+import { Navbar } from '@/components/Navbar/Navbar'
 import { useLocation, useNavigate } from 'react-router-dom'
 
 export function LoginPage() {

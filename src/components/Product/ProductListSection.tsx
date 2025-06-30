@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { useEffect, useState } from 'react'
-import { ProductItem } from '@/components/ProductItem'
+import { ProductItem } from '@/components/Product/ProductItem'
 
 const productMock = Array(21).fill({
   id: 123,

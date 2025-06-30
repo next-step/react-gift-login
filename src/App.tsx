@@ -1,10 +1,10 @@
 import { Routes, Route } from 'react-router-dom'
-import { Navbar } from '@/components/Navbar'
-import { CategorySection } from '@/components/CategorySection'
-import { ProductListSection } from '@/components/ProductListSection'
+import { Navbar } from '@/components/Navbar/Navbar'
+import { CategorySection } from '@/components/Category/CategorySection'
+import { ProductListSection } from '@/components/Product/ProductListSection'
 import { LoginPage } from '@/pages/LoginPage'
 import { NotFoundPage } from '@/pages/NotFoundPage'
-import { Layout } from '@/components/Layout'
+import { Layout } from '@/components/Layout/Layout'
 
 function App() {
   return (
