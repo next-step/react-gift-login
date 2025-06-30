@@ -30,7 +30,6 @@ export function ProductCard({
   );
 }
 
-// styled-components 정의
 const Card = styled.div`
   overflow: hidden;
   position: relative;
