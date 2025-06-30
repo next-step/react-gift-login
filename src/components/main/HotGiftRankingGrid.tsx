@@ -118,9 +118,9 @@ export const HotGiftRankingGrid = () => {
             variant="secondary"
             size="medium"
             width="75%"
-            onClick={() => setShowMore(true)}
+            onClick={() => setShowMore(false)}
           >
-            더보기
+            접기
           </Button>
         </ButtonContainer>
       )}
