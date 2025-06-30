@@ -33,16 +33,21 @@ const LogoLink = styled.a`
 
 const NavBar = ({ onBack, logoSrc, onLoginClick }: NavBarProps) => {
   const navigate = useNavigate()
-  const { isLoggedIn } = useAuth()
 
-  const handleLoginClick = onLoginClick ?? (() => {
-    navigate(isLoggedIn ? '/profile' : '/login')
-  })
+  const handleBack = () => {
+    if (onBack) return onBack()
+    navigate(-1)
+  }
+
+  const handleLoginClick = () => {
+    if (onLoginClick) return onLoginClick()
+    navigate('/login')
+  }
 
   
   return (
     <Nav>
-      <IconButton onClick={onBack} aria-label="back">
+      <IconButton onClick={handleBack} aria-label="back">
         <img src={backIcon} alt="back" height="28" />
       </IconButton>
       <LogoLink href="/">
@@ -50,11 +55,11 @@ const NavBar = ({ onBack, logoSrc, onLoginClick }: NavBarProps) => {
       </LogoLink>
       <IconButton
         onClick={handleLoginClick}
-        aria-label={isLoggedIn ? 'profile' : 'login'}
+        aria-label={'login'}
       >
         <img
           src={loginIcon}
-          alt={isLoggedIn ? 'profile' : 'login'}
+          alt={'login'}
           height="24"
         />     
         </IconButton>

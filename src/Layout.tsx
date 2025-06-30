@@ -1,6 +1,7 @@
 ﻿import type { PropsWithChildren } from 'react'
 import styled from '@emotion/styled'
 import NavBar from '@/components/NavBar'
+import { useNavigate } from 'react-router-dom'
 import { spacing } from '@/theme/spacing'
 
 const Container = styled.div`
@@ -8,17 +9,28 @@ const Container = styled.div`
   margin: 0 auto;
   padding: 0 ${spacing.spacing4};
 `
-  interface LayoutProps extends PropsWithChildren {
-  onBack?: () => void
+interface LayoutProps extends PropsWithChildren {
   logoSrc: string
-  onLoginClick?: () => void
  }
 
-const Layout = ({ children, onBack, logoSrc, onLoginClick }: LayoutProps) => {
+const Layout = ({ children, logoSrc }: LayoutProps) => {
+  const navigate = useNavigate()
+
+  const handleBack = () => {
+    navigate(-1)
+  }
+
+  const handleLoginClick = () => {
+    navigate('/login')
+  }
   return (
     <Container>
-      <NavBar onBack={onBack} logoSrc={logoSrc} onLoginClick={onLoginClick} />
-      {children}
+      <NavBar
+        onBack={handleBack}
+        logoSrc={logoSrc}
+        onLoginClick={handleLoginClick}
+      />
+        {children}
     </Container>
   )
 }
