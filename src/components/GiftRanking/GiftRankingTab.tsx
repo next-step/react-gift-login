@@ -1,22 +1,21 @@
-import { useState } from 'react';
 import styled from '@emotion/styled';
+import { tabs } from '@/constants/RankingTabs';
+import type { TabValue } from '@/constants/RankingTabs';
 
-const tabs = [
-  { label: '받고 싶어한', value: 'wish' },
-  { label: '많이 선물한', value: 'sent' },
-  { label: '위시로 받은', value: 'wishlist' },
-];
 
-const GiftRankingTab = () => {
-  const [selected, setSelected] = useState('wish');
+type Props = {
+  selected: TabValue;
+  onChange: (value: TabValue) => void;
+};
 
+const GiftRankingTab = ({selected, onChange}:Props) => {
   return (
     <TabContainer>
       {tabs.map(tab => (
         <TabButton
           key={tab.value}
           selected={selected === tab.value}
-          onClick={() => setSelected(tab.value)}
+          onClick={() => onChange(tab.value)}
         >
           {tab.label}
         </TabButton>

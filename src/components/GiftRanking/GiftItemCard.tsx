@@ -1,21 +1,6 @@
 import styled from '@emotion/styled';
 
-type GiftItem = {
-  id: number;
-  name: string;
-  imageURL: string;
-  price: {
-    basicPrice: number;
-    discountRate: number;
-    sellingPrice: number;
-  };
-  brandInfo: {
-    id: number;
-    name: string;
-    imageURL: string;
-  };
-};
-
+import type { GiftItem } from '@/constants/GiftItem';
 
 
 const GiftItemCard = ({ item }: { item: GiftItem }) => {

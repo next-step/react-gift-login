@@ -391,3 +391,5 @@ export const giftItems = [
     },
   },
 ];
+
+export type GiftItem = (typeof giftItems)[number];

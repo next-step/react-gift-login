@@ -6,11 +6,12 @@ const filters = [
   { label: '여성이', value: 'female', icon: '👩' },
   { label: '남성이', value: 'male', icon: '👨' },
   { label: '청소년이', value: 'teen', icon: '🧒' },
-];
+] as const;
+
 
 const GiftRankingFilter = () => {
-  const [selected, setSelected] = useState('all');
 
+  const [selected, setSelected] = useState<(typeof filters)[number]['value']>('all');
   return (
     <FilterContainer>
       {filters.map(filter => (

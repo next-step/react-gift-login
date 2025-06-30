@@ -4,13 +4,16 @@ import GiftItemCard from './GiftItemCard';
 import GiftRankingFilter from './GiftRankingFilter';
 import GiftRankingTab from './GiftRankingTab';
 import { giftItems } from '@/mock/giftItems';
+import type { TabValue } from '@/constants/RankingTabs';
+
 
 type GiftItem = typeof giftItems[number];
-
 const INITIAL_VISIBLE_COUNT = 6;
 
 const GiftRankingGrid = () => {
+
   const [showAll, setShowAll] = useState(false);
+  const [selectedTab, setSelectedTab] = useState<TabValue>('wish');
   const visibleItems = showAll ? giftItems : giftItems.slice(0, INITIAL_VISIBLE_COUNT);
 
   return (
@@ -18,7 +21,7 @@ const GiftRankingGrid = () => {
       <Title>실시간 급상승 선물랭킹</Title>
 
       <GiftRankingFilter />
-      <GiftRankingTab />
+      <GiftRankingTab selected={selectedTab} onChange={setSelectedTab} />
 
       <Container>
         {visibleItems.map((item: GiftItem) => (
