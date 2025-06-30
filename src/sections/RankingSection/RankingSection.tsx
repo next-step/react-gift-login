@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import {
   Wrapper,
   Title,
@@ -17,8 +18,11 @@ import type { RankType } from "@/constants/tabs";
 const MIN_VISIBLE_CARDS = 6;
 
 const RankingSection = () => {
-  const [selectedAge, setSelectedAge] = useState<AgeType>("ALL");
-  const [selectedTab, setSelectedTab] = useState<RankType>("MANY_WISH");
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const selectedAge = (searchParams.get("targetType") as AgeType) ?? "ALL";
+  const selectedRank =
+    (searchParams.get("rankType") as RankType) ?? "MANY_WISH";
   const [showAll, setShowAll] = useState(false);
 
   const cards = cardData.map((item) => ({
@@ -31,6 +35,17 @@ const RankingSection = () => {
 
   const visibleCards = showAll ? cards : cards.slice(0, MIN_VISIBLE_CARDS);
 
+  const handleAgeSelect = (age: AgeType) => {
+    const params = new URLSearchParams(searchParams);
+    params.set("targetType", age);
+    setSearchParams(params);
+  };
+
+  const handleRankSelect = (rank: RankType) => {
+    const params = new URLSearchParams(searchParams);
+    params.set("rankType", rank);
+    setSearchParams(params);
+  };
   return (
     <Wrapper>
       <Title>실시간 급상승 선물랭킹</Title>
@@ -42,14 +57,14 @@ const RankingSection = () => {
             label={btn.label}
             emoji={btn.emoji}
             selected={selectedAge === btn.ageType}
-            onClick={setSelectedAge}
+            onClick={handleAgeSelect}
           />
         ))}
       </ButtonGroup>
       <RankSelectionBar
         tabs={RANK_SELECT}
-        selected={selectedTab}
-        onSelect={setSelectedTab}
+        selected={selectedRank}
+        onSelect={handleRankSelect}
       />
       <section>
         <CardList cards={visibleCards} />
