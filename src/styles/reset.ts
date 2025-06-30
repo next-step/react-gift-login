@@ -107,6 +107,9 @@ export const reset = css`
   }
   body {
     line-height: 1;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 16px;
   }
   ol,
   ul {
