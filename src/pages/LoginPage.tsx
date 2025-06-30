@@ -2,6 +2,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import styled from '@emotion/styled';
 import NavBar from '@/components/NavBar';
 import logo from '@/assets/logo.svg';
+import KakaoButton from '@/components/common/KakaoButton';
 
 const Wrapper = styled.div`
   display: flex;
@@ -48,14 +49,7 @@ const Input = styled.input`
   }
 `;
 
-const Button = styled.button`
-  ${({ theme }) => theme.typography.body2Regular};
-  height: 44px;
-  border: 0;
-  border-radius: 4px;
-  background: ${({ theme }) => theme.colors.semantic.kakaoYellow};
-  color: ${({ theme }) => theme.colors.semantic.kakaoBrown};
-  cursor: pointer;
+const ButtonWrapper = styled.div`
   margin-top: 32px;
 `;
 
@@ -77,7 +71,11 @@ export default function LoginPage() {
         <Form onSubmit={handleSubmit}>
           <Input placeholder="이메일" type="email" />
           <Input placeholder="비밀번호" type="password" />
-          <Button type="submit">로그인</Button>
+          <ButtonWrapper>
+            <KakaoButton type="submit" fullWidth>
+              로그인
+            </KakaoButton>
+          </ButtonWrapper>
         </Form>
       </Content>
     </Wrapper>
