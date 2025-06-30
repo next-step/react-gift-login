@@ -2,11 +2,13 @@ import Navigation from '@/components/Navigation';
 import styled from '@emotion/styled';
 import { useNavigate, useLocation } from 'react-router-dom';
 import KakaoLogo from '@/assets/kakao.webp';
+import { LOCATION_STATE_KEYS } from '@/constants/navigationState';
+import { ROUTES } from '@/constants/routes';
 
 const LoginPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from;
+  const from = location.state?.[LOCATION_STATE_KEYS.FROM] ?? ROUTES.HOME;
 
   const handleLogin = () => {
     const redirectTo = from ? from.pathname + from.search : '/';
