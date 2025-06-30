@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { useSearchParams, useNavigate } from 'react-router-dom';
 
 const PageBackground = styled.div`
   min-height: 100vh;
@@ -66,11 +67,23 @@ const Button = styled.button`
 `;
 
 function LoginPage() {
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+
+  // URL에서 이전 페이지 정보를 가져옴 (기본값: '/')
+  const from = searchParams.get('from') || '/';
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // 로그인 성공 후 이전 페이지로 리다이렉트
+    navigate(from, { replace: true });
+  };
+
   return (
     <PageBackground>
       <Card>
         <Title>kakao</Title>
-        <Form>
+        <Form onSubmit={handleSubmit}>
           <Input type="email" placeholder="이메일" />
           <Input type="password" placeholder="비밀번호" />
           <Button type="submit">로그인</Button>

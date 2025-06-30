@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { FiChevronLeft, FiUser } from 'react-icons/fi';
 
 const HeaderBar = styled.header`
@@ -41,6 +41,17 @@ const IconButton = styled.button`
 
 function Header() {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleLoginClick = () => {
+    // 현재 페이지가 로그인 페이지가 아닐 때만 이전 페이지 정보를 전달
+    if (location.pathname !== '/login') {
+      navigate(`/login?from=${encodeURIComponent(location.pathname)}`);
+    } else {
+      navigate('/login');
+    }
+  };
+
   return (
     <HeaderBar>
       <IconButton
@@ -52,7 +63,7 @@ function Header() {
       </IconButton>
       <Title>선물하기</Title>
       <IconButton
-        onClick={() => navigate('/login')}
+        onClick={handleLoginClick}
         aria-label="로그인"
         style={{ width: 32, justifyContent: 'flex-end' }}
       >
