@@ -7,6 +7,8 @@ import CategorySection from '@/components/CategorySection/CategorySection';
 import AddFriend from '@/components/OtherSection/AddFriend';
 import Fighting from '@/components/OtherSection/Fighting';
 import RisingSection from '@/components/RisingSection/RisingSection';
+import { Routes, Route } from 'react-router-dom';
+import LoginPage from '@/pages/LoginPage';
 
 function App() {
   return (
@@ -14,10 +16,20 @@ function App() {
       <GlobalStyle />
       <Layout>
         <NavigationBar />
-        <AddFriend />
-        <CategorySection />
-        <Fighting />
-        <RisingSection />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <AddFriend />
+                <CategorySection />
+                <Fighting />
+                <RisingSection />
+              </>
+            }
+          />
+          <Route path="/login" element={<LoginPage />} />
+        </Routes>
       </Layout>
     </ThemeProvider>
   );
