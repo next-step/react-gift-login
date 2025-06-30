@@ -165,6 +165,24 @@ const categoryFilter: CategoryFilter[] = [
   '위시로 받은',
 ];
 
+export function getInitialTargetFilter(
+  searchParams: URLSearchParams
+): TargetFilter {
+  const targetType = searchParams.get('targetType');
+  return targetType && TARGET_EN_TO_KR_MAP[targetType]
+    ? TARGET_EN_TO_KR_MAP[targetType]
+    : '전체';
+}
+
+export function getInitialCategoryFilter(
+  searchParams: URLSearchParams
+): CategoryFilter {
+  const categoryType = searchParams.get('categoryType');
+  return categoryType && CATEGORY_EN_TO_KR_MAP[categoryType]
+    ? CATEGORY_EN_TO_KR_MAP[categoryType]
+    : '받고 싶어한';
+}
+
 export function RealTimeRanking({
   products,
   ProductCardComponent = ProductCard,
@@ -172,28 +190,12 @@ export function RealTimeRanking({
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
 
-  // URL에서 초기 필터 값 읽기
-  const getInitialTargetFilter = (): TargetFilter => {
-    const targetType = searchParams.get('targetType');
-    return targetType && TARGET_EN_TO_KR_MAP[targetType]
-      ? TARGET_EN_TO_KR_MAP[targetType]
-      : '전체';
-  };
-
-  const getInitialCategoryFilter = (): CategoryFilter => {
-    const categoryType = searchParams.get('categoryType');
-    return categoryType && CATEGORY_EN_TO_KR_MAP[categoryType]
-      ? CATEGORY_EN_TO_KR_MAP[categoryType]
-      : '받고 싶어한';
-  };
-
   const [showAll, setShowAll] = useState(false);
 
-  // URL에서 현재 필터 값 읽기
-  const selectedTarget: TargetFilter = getInitialTargetFilter();
-  const selectedCategory: CategoryFilter = getInitialCategoryFilter();
+  const selectedTarget: TargetFilter = getInitialTargetFilter(searchParams);
+  const selectedCategory: CategoryFilter =
+    getInitialCategoryFilter(searchParams);
 
-  // URL 업데이트 함수
   const updateURL = (target: TargetFilter, category: CategoryFilter) => {
     const targetCode = TARGET_KR_TO_EN_MAP[target];
     const categoryCode = CATEGORY_KR_TO_EN_MAP[category];
