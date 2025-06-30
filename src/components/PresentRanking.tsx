@@ -161,11 +161,27 @@ const SubProductName = styled.p`
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.1875rem;
+  color: rgb(176, 179, 186);
+  margin: 0px;
+  text-align: left;
 `;
+
 const ProdudctName = styled.h6`
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.1875rem;
+  color: rgb(42, 48, 56);
+  margin: 0px;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
 `;
 
 const ProductPrice = styled.p`
@@ -274,7 +290,7 @@ const PresentRanking: React.FC = () => {
                     `}
                   ></div>
                   <SubProductName>{brandInfo.name}</SubProductName>
-                  <ProdudctName>{name}</ProdudctName>
+                  <ProdudctName>{brandInfo.name}</ProdudctName>
                   <div
                     css={css`
                       width: 100%;
