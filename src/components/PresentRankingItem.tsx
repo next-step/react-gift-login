@@ -1,6 +1,9 @@
-import { GOODS_DATA } from '@assets/GOODS_DATA';
-import type { Goods } from '@assets/GOODS_DATA';
+import { GOODS_DATA } from '@/assets/goodsData';
+import type { Goods } from '@/assets/goodsData';
 import styled from '@emotion/styled';
+const basicRankingComponentNumber = 6;
+const ManyRankingComponentNumber = 18;
+
 const StyledPresentRankingItemDiv = styled.div`
   display: flex;
   flex-direction: column;
@@ -38,7 +41,7 @@ const StyledPresentRankingNumContainer = styled.div<{ index: number }>`
   ${({ theme }) => theme.typography.label2Bold}
 `;
 const PresentItem = ({ isVisible }: { isVisible: boolean }) => {
-  const repeatCnt = isVisible ? 6 : 18;
+  const repeatCnt = isVisible ? ManyRankingComponentNumber : basicRankingComponentNumber;
   const repeatItems = Array.from({ length: repeatCnt }, (_, i) => GOODS_DATA[i % GOODS_DATA.length]);
   return (
     <>

@@ -16,11 +16,11 @@ function App() {
   return (
     <>
       <StyledTopestDiv>
-        <NavigationBar></NavigationBar>
+        <NavigationBar />
         <Spacer />
-        <SelectFriendContainer></SelectFriendContainer>
-        <PresentThemeContainer></PresentThemeContainer>
-        <PresentRankingContainer></PresentRankingContainer>
+        <SelectFriendContainer />
+        <PresentThemeContainer />
+        <PresentRankingContainer />
       </StyledTopestDiv>
     </>
   );

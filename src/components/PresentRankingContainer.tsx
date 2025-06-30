@@ -35,7 +35,7 @@ const StyledPresentRankingContainerTitle = styled.p`
   padding: ${({ theme }) => theme.spacing.spacing2};
 `;
 const PresentRankingContainer = () => {
-  const [isVisible, setisVisible] = useState(true);
+  const [isVisible, setisVisible] = useState(false);
   //기본값을 false라고 정의했더니 상품 랭킹 컴포넌트들이 많이 등장하게 되었다. -> 의도와는 다른 부분
   //왜 기본값을 false라고 주었는데도 true인 상태로 PresentRankingItem에 보내지게 될까요?
 

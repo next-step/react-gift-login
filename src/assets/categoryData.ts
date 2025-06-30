@@ -1,4 +1,4 @@
-export const category_data = [
+export const CATEGORY_DATA = [
   {
     themeId: 3715,
     name: '생일',
