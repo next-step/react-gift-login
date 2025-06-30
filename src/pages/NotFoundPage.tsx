@@ -1,3 +1,5 @@
+'use client';
+
 import { useNavigate, useLocation } from 'react-router-dom';
 import styled from '@emotion/styled';
 import { theme } from '@/styles/theme';
@@ -37,6 +39,17 @@ const NotFoundContainer = styled.div`
   min-height: calc(100vh - 60px);
   padding: ${theme.spacing.spacing8} ${theme.spacing.spacing6};
   text-align: center;
+`;
+
+const NotFoundImage = styled.img`
+  width: 200px;
+  height: auto;
+  margin-bottom: ${theme.spacing.spacing6};
+  object-fit: contain;
+
+  @media (max-width: 480px) {
+    width: 160px;
+  }
 `;
 
 const ErrorTitle = styled.h2`
@@ -91,6 +104,7 @@ export default function NotFoundPage() {
   const handleGoHome = () => {
     navigate('/', { replace: true });
   };
+
   const handleBackClick = () => {
     // 이전 페이지로 이동하거나 홈으로 이동
     const from = location.state?.from || '/';
@@ -102,6 +116,10 @@ export default function NotFoundPage() {
       <MobileViewport>
         <NavigationHeader title="선물하기" onBackClick={handleBackClick} />
         <NotFoundContainer>
+          <NotFoundImage
+            src="https://gift-s.kakaocdn.net/dn/gift/webapp/images/m640/img_not_found.png"
+            alt="not found"
+          />
           <ErrorTitle>잘못된 접근입니다.</ErrorTitle>
           <ErrorMessage>찾으시는 페이지가 존재하지 않습니다.</ErrorMessage>
 
