@@ -11,6 +11,7 @@ const fullCount = 12
 
 const SectionWrapper = styled.section`
   margin-top: ${({ theme }) => theme.spacing.spacing6};
+  padding: 0 ${({ theme }) => theme.spacing.spacing4};
 `
 
 const Title = styled.h2`
@@ -67,6 +68,7 @@ const ProductGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: ${({ theme }) => theme.spacing.spacing4};
+  margin-bottom: ${({ theme }) => theme.spacing.spacing4};
 `
 
 const ProductCard = styled.div`
@@ -78,6 +80,7 @@ const ProductCard = styled.div`
   img {
     width: 100%;
   }
+  margin-bottom: ${({ theme }) => theme.spacing.spacing4};
 `
 
 const Badge = styled.div<{ isTop3: boolean }>`
@@ -110,7 +113,10 @@ const Price = styled.div`
 `
 
 const ToggleButton = styled.button`
+  display: block;
   width: 100%;
+  max-width: 400px; 
+  margin: 0 auto;
   padding: ${({ theme }) => theme.spacing.spacing3};
   border: 1px solid ${({ theme }) => theme.colors.semantic.borderDefault};
   border-radius: ${({ theme }) => theme.spacing.spacing2};
