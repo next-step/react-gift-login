@@ -5,7 +5,6 @@ const GlobalStyles = () => {
   return( 
     <Global
       styles={css`
-        /* Reset CSS */
         *, *::before, *::after {
           box-sizing: border-box;
           margin: 0;
