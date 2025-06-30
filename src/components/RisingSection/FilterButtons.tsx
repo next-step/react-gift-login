@@ -20,9 +20,18 @@ const PREFERENCE_OPTIONS: PreferenceFilter[] = [
 ];
 
 export default function FilterButtons() {
-  const [selected, setSelected] = useState<TargetGroupFilter>('전체');
-  const [subSelected, setSubSelected] =
-    useState<PreferenceFilter>('받고 싶어한');
+  const [selected, setSelected] = useState<TargetGroupFilter>(() => {
+    return (
+      (localStorage.getItem('selectedTargetGroup') as TargetGroupFilter) ||
+      '전체'
+    );
+  });
+  const [subSelected, setSubSelected] = useState<PreferenceFilter>(() => {
+    return (
+      (localStorage.getItem('selectedPreference') as PreferenceFilter) ||
+      '받고 싶어한'
+    );
+  });
 
   return (
     <>
@@ -31,7 +40,10 @@ export default function FilterButtons() {
           <Button
             key={label}
             isActive={selected === label}
-            onClick={() => setSelected(label)}
+            onClick={() => {
+              setSelected(label);
+              localStorage.setItem('selectedTargetGroup', label);
+            }}
           >
             <Icon>{icon}</Icon>
             <Label isActive={selected === label}>{label}</Label>
@@ -43,7 +55,10 @@ export default function FilterButtons() {
           <Button
             key={label}
             isActive={subSelected === label}
-            onClick={() => setSubSelected(label)}
+            onClick={() => {
+              setSubSelected(label);
+              localStorage.setItem('selectedPreference', label);
+            }}
           >
             <Label isActive={subSelected === label}>{label}</Label>
           </Button>
