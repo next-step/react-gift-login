@@ -10,7 +10,7 @@ const RankingTextCategory = ({ selected, onChange }: Props) => {
   return (
     <TextCategoryWrapper>
       {TEXT_CATEGORY_LIST.map((item) => (
-        <TextCategoryItem key={item} isActive={selected === item} onClick={() => onChange(item)}>
+        <TextCategoryItem key={item} active={selected === item} onClick={() => onChange(item)}>
           {item}
         </TextCategoryItem>
       ))}
@@ -31,7 +31,7 @@ const TextCategoryWrapper = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.blue400};
 `;
 
-const TextCategoryItem = styled.button<{ isActive: boolean }>`
+const TextCategoryItem = styled.button<{ active: boolean }>`
   flex: 1;
   border: none;
   border-radius: 12px;
@@ -40,7 +40,7 @@ const TextCategoryItem = styled.button<{ isActive: boolean }>`
   font-weight: ${({ theme }) => theme.font.body1Regular.weight};
   line-height: ${({ theme }) => theme.font.body1Regular.lineHeight};
   background-color: transparent;
-  color: ${({ isActive, theme }) => (isActive ? theme.colors.blue700 : theme.colors.blue400)};
+  color: ${({ active, theme }) => (active ? theme.colors.blue700 : theme.colors.blue400)};
   cursor: pointer;
   border: none;
   &:focus {
