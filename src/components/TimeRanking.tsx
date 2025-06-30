@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 import { useState } from 'react'
 import { ranking } from '@/data/ranking'
 import { useSearchParams } from 'react-router-dom'
+import Spacing from './Spacing'
 
 const genderOptions = [
   { label: 'ALL', icon: 'ALL', value: 'ALL' },
@@ -30,15 +31,13 @@ export default function TimeRanking() {
     setSearchParams(searchParams)
   }
 
-  const filteredRanking = ranking.filter((item) => {
-    return true
-  })
+  const filteredRanking = ranking.filter((item) => true)
 
   return (
     <Container>
-      <Block />
+      <Spacing height="40px" />
       <Title>실시간 급상승 선물랭킹</Title>
-      <SmallBlock />
+      <Spacing height="20px" />
 
       <GenderBox>
         {genderOptions.map(({ label, icon, value }) => (
@@ -54,7 +53,7 @@ export default function TimeRanking() {
         ))}
       </GenderBox>
 
-      <UndergenderandrankingBox />
+      <Spacing height="16px" />
 
       <RankingBox>
         {rankTypeTabs.map((tab) => (
@@ -68,14 +67,14 @@ export default function TimeRanking() {
         ))}
       </RankingBox>
 
-      <UndergenderandrankingBox />
+      <Spacing height="16px" />
 
       <CardGrid>
         {filteredRanking.map((item, index) => (
           <Card key={item.id}>
             <RankLabel>{index + 1}</RankLabel>
             <Image src={item.imageURL} alt={item.name} />
-            <UnderimageBox />
+            <Spacing height="12px" />
             <Brand>{item.brandInfo.name}</Brand>
             <Name>{item.name}</Name>
             <Price>{item.price.sellingPrice.toLocaleString()}원</Price>
@@ -86,12 +85,6 @@ export default function TimeRanking() {
   )
 }
 
-
-const Block = styled.div`
-  width: 100%;
-  height: 40px;
-`
-
 const Container = styled.section`
   padding: 0 16px;
 `
@@ -99,10 +92,6 @@ const Container = styled.section`
 const Title = styled.h2`
   ${({ theme }) => theme.typography.title1Bold};
   margin: 0;
-`
-
-const SmallBlock = styled.div`
-  height: 20px;
 `
 
 const GenderBox = styled.div`
@@ -141,12 +130,6 @@ const GenderText = styled.p`
   ${({ theme }) => theme.typography.label1Regular};
   color: ${({ theme }) => theme.colors.gray[700]};
   text-align: left;
-`
-
-const UndergenderandrankingBox = styled.div`
-  width: 100%;
-  height: 16px;
-  background-color: transparent;
 `
 
 const RankingBox = styled.div`
@@ -208,12 +191,6 @@ const Image = styled.img`
   object-fit: cover;
   object-position: center;
   border-radius: 4px;
-`
-
-const UnderimageBox = styled.div`
-  width: 100%;
-  height: 12px;
-  background-color: transparent;
 `
 
 const Brand = styled.p`

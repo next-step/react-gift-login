@@ -1,9 +1,6 @@
 import { useNavigate, useLocation } from 'react-router-dom'
-import { Global, ThemeProvider } from '@emotion/react'
 import styled from '@emotion/styled'
-import Header from '@/components/Header'
-import { resetStyle } from '@/styles/reset'
-import theme from '@/styles/theme'
+import Spacing from '@/components/Spacing'
 
 export default function LoginPage() {
   const navigate = useNavigate()
@@ -15,36 +12,33 @@ export default function LoginPage() {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <Global styles={resetStyle} />
-      <PageWrapper>
-        <LoginForm>
+    <Wrapper>
+        <Form>
           <Logo src="/loginlogo.svg" alt="kakao logo" />
-          <LoginBox>
+          <FormBox>
             <Input type="email" placeholder="이메일" />
-            <Spacer />
+            <Spacing />
             <Input type="password" placeholder="비밀번호" />
-            <Spacer height="48px" />
+            <Spacing height="48px" />
             <LoginButton onClick={handleLogin}>로그인</LoginButton>
-          </LoginBox>
-        </LoginForm>
-      </PageWrapper>
-    </ThemeProvider>
+          </FormBox>
+        </Form>
+      </Wrapper>
   )
 }
 
-const PageWrapper = styled.div`
+const Wrapper = styled.div`
   max-width: 720px;
   width: 100%;
   margin: 0 auto;
-  min-height: calc(100vh - 56px); 
+  min-height: calc(100vh - 56px); // Header 높이 제외
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0 16px;
 `
 
-const LoginForm = styled.div`
+const Form = styled.div`
   width: 100%;
   max-width: 420px;
   display: flex;
@@ -57,7 +51,7 @@ const Logo = styled.img`
   margin-bottom: 2rem;
 `
 
-const LoginBox = styled.div`
+const FormBox = styled.div`
   width: 100%;
 `
 
@@ -73,10 +67,6 @@ const Input = styled.input`
     outline: none;
     border-color: black;
   }
-`
-
-const Spacer = styled.div<{ height?: string }>`
-  height: ${({ height }) => height || '16px'};
 `
 
 const LoginButton = styled.button`

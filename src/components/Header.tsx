@@ -1,9 +1,10 @@
-import { FiChevronLeft, FiUser } from 'react-icons/fi';
-import styled from '@emotion/styled';
-import { useNavigate } from 'react-router-dom';
+import { FiChevronLeft, FiUser } from 'react-icons/fi'
+import styled from '@emotion/styled'
+import { useNavigate } from 'react-router-dom'
+import IconButton from './IconButton'
 
 export default function Header() {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   return (
     <Container>
@@ -17,7 +18,7 @@ export default function Header() {
         </IconButton>
       </Inner>
     </Container>
-  );
+  )
 }
 
 const Container = styled.header`
@@ -27,7 +28,7 @@ const Container = styled.header`
   justify-content: center;
   background-color: white;
   position: relative;
-`;
+`
 
 const Inner = styled.div`
   width: 100%;
@@ -36,20 +37,11 @@ const Inner = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0 16px;
-`;
-
-const IconButton = styled.button`
-  background: none;
-  border: none;
-  padding: 4px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-`;
+`
 
 const Title = styled.h1`
   font-size: ${({ theme }) => theme.typography.title1Bold.fontSize};
   font-weight: ${({ theme }) => theme.typography.title1Bold.fontWeight};
   line-height: ${({ theme }) => theme.typography.title1Bold.lineHeight};
   color: ${({ theme }) => theme.colors.text.default};
-`;
+`
