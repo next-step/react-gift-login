@@ -11,7 +11,7 @@ const HotGiftRankingGridContainer = styled.div(props => ({
 }));
 
 const HotGiftRankingGridItem = styled.div(props => ({
-  backgroundColor: "white",
+  backgroundColor: `${props.theme.color.gray[0]}`,
   borderRadius: `${props.theme.spacing3}`,
   cursor: "pointer",
   position: "relative",
@@ -34,7 +34,7 @@ const RankBadge = styled.div<{ rank: number }>(({ theme, rank }) => ({
   width: "20px",
   height: "20px",
   backgroundColor: rank <= 3 ? theme.color.red[600] : theme.color.gray[600],
-  color: "white",
+  color: `${theme.color.gray[0]}`,
   fontSize: `${theme.typography.label2Bold.fontSize}`,
   fontWeight: `${theme.typography.label2Bold.fontWeight}`,
   borderRadius: "4px",

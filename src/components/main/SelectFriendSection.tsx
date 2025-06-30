@@ -14,7 +14,7 @@ const FriendSectionContainer = styled.div(props => ({
   width: "100%",
   height: "74px",
   padding: `${props.theme.spacing4}`,
-  backgroundColor: "white",
+  backgroundColor: `${props.theme.color.gray[0]}`,
   borderRadius: "18px",
 }));
 

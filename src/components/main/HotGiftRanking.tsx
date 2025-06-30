@@ -11,7 +11,7 @@ const HotGiftRankingSectionContainer = styled.section(props => ({
   width: "100%",
   flexDirection: "column",
   padding: `0 ${props.theme.spacing4}`,
-  backgroundColor: "white",
+  backgroundColor: `${props.theme.color.gray[0]}`,
 }));
 
 const HotGiftRankingSectionTitle = styled.h3(props => ({

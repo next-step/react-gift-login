@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 const CheerUpSectionWrapper = styled.section(props => ({
   display: "flex",
-  backgroundColor: "white",
+  backgroundColor: `${props.theme.color.gray[0]}`,
   padding: `0 ${props.theme.spacing4}`,
 }));
 
@@ -30,11 +30,11 @@ const CheerUpDescription = styled.p(props => ({
   color: `${props.theme.color.gray[900]}`,
 }));
 
-const CheerUpSectionPadding = styled.div({
+const CheerUpSectionPadding = styled.div(props => ({
   display: "flex",
   height: "40px",
-  backgroundColor: "white",
-});
+  backgroundColor: `${props.theme.color.gray[0]}`,
+}));
 
 export const CheerUpSection = () => {
   return (

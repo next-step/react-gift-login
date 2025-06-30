@@ -2,17 +2,17 @@ import { category } from "@/__mock__";
 import { ThemeItem } from "@/components/main";
 import styled from "@emotion/styled";
 
-const PresentSectionPadding = styled.div({
+const PresentSectionPadding = styled.div(props => ({
   width: "100%",
   height: "24px",
-  backgroundColor: "white",
-});
+  backgroundColor: `${props.theme.color.gray[0]}`,
+}));
 
 const PresentSectionContainer = styled.section(props => ({
   width: "100%",
   height: "313px",
   padding: `${props.theme.spacing2}`,
-  backgroundColor: "white",
+  backgroundColor: `${props.theme.color.gray[0]}`,
 }));
 
 const PresentSectionTitleWrapper = styled.div(props => ({

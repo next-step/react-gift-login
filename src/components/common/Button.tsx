@@ -35,7 +35,7 @@ const StyledButton = styled.button<ButtonProps>(
       border: "none",
     }),
     ...(variant === "secondary" && {
-      backgroundColor: "white",
+      backgroundColor: theme.color.gray[0],
       color: theme.color.gray[900],
       border: "1px solid rgb(220,222,227)",
     }),

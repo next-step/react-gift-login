@@ -35,7 +35,7 @@ const HotGiftTagWrapper = styled.div<{ isSelected: boolean }>(
     height: "44px",
     borderRadius: "16px",
     backgroundColor: isSelected ? theme.color.blue[700] : theme.color.blue[100],
-    color: isSelected ? "white" : theme.color.gray[700],
+    color: isSelected ? theme.color.gray[0] : theme.color.gray[700],
     fontSize: "14px",
     transition: "all 0.2s ease",
     transform: isSelected ? "scale(1.05)" : "scale(1)",
