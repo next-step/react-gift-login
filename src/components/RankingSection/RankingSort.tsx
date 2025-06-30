@@ -1,5 +1,10 @@
 import SegmentedControl from '@/components/common/SegmentedControl';
 
+interface RankingSortProps {
+  selectedSort: string;
+  onSelect: (value: string) => void;
+}
+
 const RankingSort = ({ selectedSort, onSelect }: RankingSortProps) => {
   const options = [
     { label: '받고 싶어한', value: 'MANY_WISH' },
@@ -17,8 +22,3 @@ const RankingSort = ({ selectedSort, onSelect }: RankingSortProps) => {
 };
 
 export default RankingSort;
-
-interface RankingSortProps {
-  selectedSort: string;
-  onSelect: (value: string) => void;
-}

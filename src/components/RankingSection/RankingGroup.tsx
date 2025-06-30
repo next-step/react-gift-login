@@ -7,6 +7,8 @@ import ProductGrid from '@/components/RankingSection/ProductGrid';
 import ExpandButton from '@/components/RankingSection/ExpandButton';
 import { useState } from 'react';
 
+const INITIAL_VISIBLE_COUNT = 6;
+
 const RankingGroup = () => {
   const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE_COUNT);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -50,8 +52,6 @@ const RankingGroup = () => {
 };
 
 export default RankingGroup;
-
-const INITIAL_VISIBLE_COUNT = 6;
 
 const Section = styled.section`
   padding: ${({ theme }) => `${theme.spacing[0]} ${theme.spacing[4]}`};

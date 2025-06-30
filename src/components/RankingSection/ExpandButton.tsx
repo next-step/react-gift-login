@@ -1,5 +1,10 @@
 import styled from '@emotion/styled';
 
+interface ExpandButtonProps {
+  isExpanded: boolean;
+  onToggle: () => void;
+}
+
 const ExpandButton = ({ isExpanded, onToggle }: ExpandButtonProps) => {
   return (
     <Wrapper>
@@ -9,11 +14,6 @@ const ExpandButton = ({ isExpanded, onToggle }: ExpandButtonProps) => {
 };
 
 export default ExpandButton;
-
-interface ExpandButtonProps {
-  isExpanded: boolean;
-  onToggle: () => void;
-}
 
 const Wrapper = styled.div`
   width: 100%;

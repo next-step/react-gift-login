@@ -1,6 +1,11 @@
 import styled from '@emotion/styled';
 import type { Product } from '@/types/product';
 
+interface ProductCardProps {
+  item: Product;
+  rank: number;
+}
+
 const ProductCard = ({ item, rank }: ProductCardProps) => {
   return (
     <Card>
@@ -16,11 +21,6 @@ const ProductCard = ({ item, rank }: ProductCardProps) => {
 };
 
 export default ProductCard;
-
-interface ProductCardProps {
-  item: Product;
-  rank: number;
-}
 
 const Card = styled.div`
   display: flex;

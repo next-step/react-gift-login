@@ -1,5 +1,10 @@
 import styled from '@emotion/styled';
 
+interface RankingFilterProps {
+  selectedFilter: string;
+  onSelect: (label: string) => void;
+}
+
 const RankingFilter = ({ selectedFilter, onSelect }: RankingFilterProps) => {
   const filters = [
     { emoji: 'ALL', label: '전체', value: 'ALL' },
@@ -27,11 +32,6 @@ const RankingFilter = ({ selectedFilter, onSelect }: RankingFilterProps) => {
 };
 
 export default RankingFilter;
-
-interface RankingFilterProps {
-  selectedFilter: string;
-  onSelect: (label: string) => void;
-}
 
 const FilterWrapper = styled.div`
   display: flex;
