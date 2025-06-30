@@ -21,61 +21,63 @@ const PREFERENCE_OPTIONS: PreferenceFilter[] = [
 ];
 
 export default function FilterButtons() {
-  const [selected, setSelected] = useState<TargetGroupFilter>(() => {
-    return (
-      (localStorage.getItem('selectedTargetGroup') as TargetGroupFilter) ||
-      '전체'
-    );
-  });
-  const [subSelected, setSubSelected] = useState<PreferenceFilter>(() => {
-    return (
-      (localStorage.getItem('selectedPreference') as PreferenceFilter) ||
-      '받고 싶어한'
-    );
-  });
+  const [targetGroupselected, setTargetGroupSelected] =
+    useState<TargetGroupFilter>(() => {
+      return (
+        (localStorage.getItem('selectedTargetGroup') as TargetGroupFilter) ||
+        '전체'
+      );
+    });
+  const [preferenceSelected, setPreferenceSubSelected] =
+    useState<PreferenceFilter>(() => {
+      return (
+        (localStorage.getItem('selectedPreference') as PreferenceFilter) ||
+        '받고 싶어한'
+      );
+    });
 
   return (
     <>
-      <Container>
+      <TargetGroupfilterContainer>
         {TARGET_GROUP_OPTIONS.map(({ icon, label }) => (
           <SelectableButton
             key={label}
             icon={icon}
             label={label}
-            isActive={selected === label}
+            isActive={targetGroupselected === label}
             onClick={() => {
-              setSelected(label);
+              setTargetGroupSelected(label);
               localStorage.setItem('selectedTargetGroup', label);
             }}
             direction="vertical"
           />
         ))}
-      </Container>
-      <SubContainer>
+      </TargetGroupfilterContainer>
+      <PreferencefilterContainer>
         {PREFERENCE_OPTIONS.map((label) => (
           <SelectableButton
             key={label}
             label={label}
-            isActive={subSelected === label}
+            isActive={preferenceSelected === label}
             onClick={() => {
-              setSubSelected(label);
+              setPreferenceSubSelected(label);
               localStorage.setItem('selectedPreference', label);
             }}
           />
         ))}
-      </SubContainer>
+      </PreferencefilterContainer>
     </>
   );
 }
 
-const Container = styled.div`
+const TargetGroupfilterContainer = styled.div`
   display: flex;
   justify-content: space-between;
   width: 90%;
   margin: 0 auto;
 `;
 
-const SubContainer = styled.div`
+const PreferencefilterContainer = styled.div`
   display: flex;
   margin: 0 auto;
   justify-content: space-between;
