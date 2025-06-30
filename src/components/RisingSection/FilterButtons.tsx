@@ -1,33 +1,33 @@
 /** @jsxImportSource @emotion/react */
 import styled from '@emotion/styled';
 
-type MainFilterOption = '전체' | '여성이' | '남성이' | '청소년이';
-type SubFilterOption = '받고 싶어한' | '많이 선물한' | '위시로 받은';
+type TargetGroupFilter = '전체' | '여성이' | '남성이' | '청소년이';
+type PreferenceFilter = '받고 싶어한' | '많이 선물한' | '위시로 받은';
 
 import { useState } from 'react';
 
-const OPTIONS: { icon: string; label: MainFilterOption }[] = [
+const TARGET_GROUP_OPTIONS: { icon: string; label: TargetGroupFilter }[] = [
   { icon: 'ALL', label: '전체' },
   { icon: '💁‍♀️', label: '여성이' },
   { icon: '🙋‍♂️', label: '남성이' },
   { icon: '🧒', label: '청소년이' },
 ];
 
-const SUB_OPTIONS: SubFilterOption[] = [
+const PREFERENCE_OPTIONS: PreferenceFilter[] = [
   '받고 싶어한',
   '많이 선물한',
   '위시로 받은',
 ];
 
 export default function FilterButtons() {
-  const [selected, setSelected] = useState<MainFilterOption>('전체');
+  const [selected, setSelected] = useState<TargetGroupFilter>('전체');
   const [subSelected, setSubSelected] =
-    useState<SubFilterOption>('받고 싶어한');
+    useState<PreferenceFilter>('받고 싶어한');
 
   return (
     <>
       <Container>
-        {OPTIONS.map(({ icon, label }) => (
+        {TARGET_GROUP_OPTIONS.map(({ icon, label }) => (
           <Button
             key={label}
             isActive={selected === label}
@@ -39,7 +39,7 @@ export default function FilterButtons() {
         ))}
       </Container>
       <SubContainer>
-        {SUB_OPTIONS.map((label) => (
+        {PREFERENCE_OPTIONS.map((label) => (
           <Button
             key={label}
             isActive={subSelected === label}
