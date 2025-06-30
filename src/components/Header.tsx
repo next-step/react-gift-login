@@ -7,24 +7,34 @@ export default function Header() {
 
   return (
     <Container>
-      <IconButton aria-label="뒤로가기" onClick={() => navigate(-1)}>
-        <FiChevronLeft size={24} />
-      </IconButton>
-      <Title>선물하기</Title>
-      <IconButton aria-label="마이페이지" onClick={() => navigate('/login')}>
-        <FiUser size={24} />
-      </IconButton>
+      <Inner>
+        <IconButton aria-label="뒤로가기" onClick={() => navigate(-1)}>
+          <FiChevronLeft size={24} />
+        </IconButton>
+        <Title>선물하기</Title>
+        <IconButton aria-label="마이페이지" onClick={() => navigate('/login')}>
+          <FiUser size={24} />
+        </IconButton>
+      </Inner>
     </Container>
   );
 }
 
 const Container = styled.header`
-  position: relative;
   width: 100%;
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  position: relative;
+`;
+
+const Inner = styled.div`
+  width: 100%;
+  max-width: 720px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 56px;
   padding: 0 16px;
 `;
 
