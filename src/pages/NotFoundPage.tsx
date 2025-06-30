@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
+import MobileLayout from '@/layouts/MobileLayout';
 import NavBar from '@/components/NavBar';
 import errorImg from '@/assets/ErrorImg.png';
 
@@ -50,14 +51,16 @@ const HomeLink = styled(Link)`
 
 export default function NotFoundPage() {
   return (
-    <Wrapper>
-      <NavBar />
-      <Content>
-        <ErrorImg src={errorImg} alt="kakao 이미지" />
-        <Title>잘못된 접근입니다.</Title>
-        <SubTitle>찾으시는 페이지가 존재하지 않습니다.</SubTitle>
-        <HomeLink to="/">홈으로</HomeLink>
-      </Content>
-    </Wrapper>
+    <MobileLayout>
+      <Wrapper>
+        <NavBar />
+        <Content>
+          <ErrorImg src={errorImg} alt="kakao 이미지" />
+          <Title>잘못된 접근입니다.</Title>
+          <SubTitle>찾으시는 페이지가 존재하지 않습니다.</SubTitle>
+          <HomeLink to="/">홈으로</HomeLink>
+        </Content>
+      </Wrapper>
+    </MobileLayout>
   );
 }

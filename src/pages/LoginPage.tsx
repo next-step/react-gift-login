@@ -1,5 +1,6 @@
 import { useNavigate, useLocation } from 'react-router-dom';
 import styled from '@emotion/styled';
+import MobileLayout from '@/layouts/MobileLayout';
 import NavBar from '@/components/NavBar';
 import logo from '@/assets/logo.svg';
 import KakaoButton from '@/components/common/KakaoButton';
@@ -64,20 +65,22 @@ export default function LoginPage() {
   };
 
   return (
-    <Wrapper>
-      <NavBar />
-      <Content>
-        <LogoImg src={logo} alt="kakao 로고" />
-        <Form onSubmit={handleSubmit}>
-          <Input placeholder="이메일" type="email" />
-          <Input placeholder="비밀번호" type="password" />
-          <ButtonWrapper>
-            <KakaoButton type="submit" fullWidth>
-              로그인
-            </KakaoButton>
-          </ButtonWrapper>
-        </Form>
-      </Content>
-    </Wrapper>
+    <MobileLayout>
+      <Wrapper>
+        <NavBar />
+        <Content>
+          <LogoImg src={logo} alt="kakao 로고" />
+          <Form onSubmit={handleSubmit}>
+            <Input placeholder="이메일" type="email" />
+            <Input placeholder="비밀번호" type="password" />
+            <ButtonWrapper>
+              <KakaoButton type="submit" fullWidth>
+                로그인
+              </KakaoButton>
+            </ButtonWrapper>
+          </Form>
+        </Content>
+      </Wrapper>
+    </MobileLayout>
   );
 }
