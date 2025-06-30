@@ -3,6 +3,7 @@ import { css } from '@emotion/react'
 import { colors } from '../styles/colors'
 import { typography } from '../styles/typography'
 import { spacing } from '../styles/spacing'
+import { useNavigate } from 'react-router-dom'
 
 const headerStyle = css({
   display: 'flex',
@@ -26,16 +27,27 @@ const buttonStyle = (side: 'left' | 'right') => css({
 
 const titleStyle = css({ ...typography.title1Bold, color: colors.textDefault })
 
-const Header = () => (
-  <header css={headerStyle}>
-    <button css={buttonStyle('left')} aria-label="뒤로가기">
-      &lt;
-    </button>
-    <h1 css={titleStyle}>선물하기</h1>
-    <button css={buttonStyle('right')} aria-label="즐겨찾기">
-      ⭑
-    </button>
-  </header>
-)
+interface HeaderProps {
+  onBack?: () => void
+}
+
+const Header = ({ onBack }: HeaderProps) => {
+  const navigate = useNavigate()
+  return (
+    <header css={headerStyle}>
+      <button css={buttonStyle('left')} aria-label="뒤로가기" onClick={onBack}>
+        &lt;
+      </button>
+      <h1 css={titleStyle}>선물하기</h1>
+      <button
+        css={buttonStyle('right')}
+        aria-label="로그인"
+        onClick={() => navigate('/login')}
+      >
+        ⭑
+      </button>
+    </header>
+  )
+}
 
 export default Header
