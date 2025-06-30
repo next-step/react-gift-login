@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { FiArrowLeft, FiUser } from 'react-icons/fi';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const PageWrapper = styled.div`
   display: flex;
@@ -74,6 +74,14 @@ const LoginButton = styled.button`
 `;
 
 const Login = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleLogin = () => {
+    const from = location.state?.from?.pathname || '/';
+    navigate(from, { replace: true });
+  };
+
   return (
     <>
       <PageWrapper>
@@ -95,7 +103,7 @@ const Login = () => {
             <br />
             <InputStyle type="password" placeholder="비밀번호" />
             <br />
-            <LoginButton>로그인</LoginButton>
+            <LoginButton onClick={handleLogin}>로그인</LoginButton>
           </LoginContainer>
         </MainContent>
       </PageWrapper>
