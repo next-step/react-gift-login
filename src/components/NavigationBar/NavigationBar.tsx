@@ -1,12 +1,19 @@
 /** @jsxImportSource @emotion/react */
 import styled from '@emotion/styled';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 export default function NavigationBar() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleBack = () => navigate(-1);
+  const handleLogin = () => navigate('/login', { state: { from: location } });
+
   return (
     <NavBar>
-      <BackButton>←</BackButton>
+      <BackButton onClick={handleBack}>←</BackButton>
       <NavTitle>선물하기</NavTitle>
-      <LoginButton>로그인</LoginButton>
+      <LoginButton onClick={handleLogin}>로그인</LoginButton>
     </NavBar>
   );
 }
