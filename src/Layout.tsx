@@ -1,7 +1,7 @@
 ﻿import type { PropsWithChildren } from 'react'
 import styled from '@emotion/styled'
 import NavBar from '@/components/NavBar'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { spacing } from '@/theme/spacing'
 
 const Container = styled.div`
@@ -15,14 +15,15 @@ interface LayoutProps extends PropsWithChildren {
 
 const Layout = ({ children, logoSrc }: LayoutProps) => {
   const navigate = useNavigate()
+  const location = useLocation()
+
 
   const handleBack = () => {
     navigate(-1)
   }
 
   const handleLoginClick = () => {
-    navigate('/login')
-  }
+    navigate('/login', { state: { from: location.pathname } })  }
   return (
     <Container>
       <NavBar
