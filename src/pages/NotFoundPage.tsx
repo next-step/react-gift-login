@@ -39,9 +39,9 @@ const NotFoundPage = () => {
 
   return (
     <Wrapper>
-      <Title>404 Not Found</Title>
-      <Description>페이지를 찾을 수 없습니다.</Description>
-      <Button onClick={() => navigate('/')}>홈으로 돌아가기</Button>
+      <Title>잘못된 접근입니다.</Title>
+      <Description>찾으시는 페이지가 존재하지 않습니다.</Description>
+      <Button onClick={() => navigate('/')}>홈으로</Button>
     </Wrapper>
   )
 }

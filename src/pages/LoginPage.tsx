@@ -1,7 +1,6 @@
 // pages/LoginPage.tsx
 import styled from '@emotion/styled'
 import { useNavigate, useLocation } from 'react-router-dom'
-import Header from '@/components/Header'
 
 const Wrapper = styled.section`
   display: flex;
@@ -66,7 +65,6 @@ const LoginPage = () => {
 
   return (
     <>
-      <Header/>
       <Wrapper>
         <Title>kakao</Title>
         <Input placeholder="이메일" />

@@ -7,10 +7,16 @@ const HeaderWrapper = styled.header`
   align-items: center;
   justify-content: space-between;
   height: ${({ theme }) => theme.spacing.spacing14};
-  padding: 0 ${({ theme }) => theme.spacing.spacing4};
+  padding: 0 ${({ theme }) => theme.spacing.spacing14};
   background-color: ${({ theme }) => theme.colors.semantic.backgroundDefault};
   border-bottom: 1px solid ${({ theme }) => theme.colors.semantic.borderDefault};
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 720px;
+  z-index: 999;
 `
 
 const Title = styled.h1`
