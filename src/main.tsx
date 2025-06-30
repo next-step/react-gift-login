@@ -1,17 +1,13 @@
 import { createRoot } from 'react-dom/client';
-import './index.css';
+import '@styles/globalStyles.css';
 import App from './App.tsx';
 import { reset } from '@styles/reset';
 import { Global, ThemeProvider } from '@emotion/react';
 import { theme } from './theme/theme';
-import { BrowserRouter } from 'react-router-dom';
 
 createRoot(document.getElementById('root')!).render(
-  <BrowserRouter>
-    <ThemeProvider theme={theme}>
-      <Global styles={reset} />
-      <App />
-    </ThemeProvider>
-  </BrowserRouter>
+  <ThemeProvider theme={theme}>
+    <Global styles={reset} />
+    <App />
+  </ThemeProvider>
 );
-

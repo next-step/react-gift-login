@@ -11,7 +11,7 @@ const StyledNavbar = styled.div`
   background-color: ${({ theme }) => theme.sementicPalette.backgroundDefault};
 `;
 
-const StyledNavIcon = styled.li`
+const StyledNavIcon = styled.div`
   a {
     color: black;
     text-decoration: none;
@@ -22,7 +22,7 @@ const StyledNavIcon = styled.li`
   padding: 12px 30px;
 `;
 
-const StyledNavTextLi = styled.li`
+const StyledNavTextLi = styled.div`
   a {
     color: black;
   }
