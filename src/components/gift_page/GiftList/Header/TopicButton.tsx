@@ -10,18 +10,12 @@ const Button = styled.div`
   background-color: ${({ theme }) => theme.colors.blue100};
 `;
 
-const Text = styled.button`
+const Text = styled.button<{ isClicked: boolean }>`
   all: unset;
   cursor: pointer;
   ${({ theme }) => theme.typography.label1Bold}
-  color: ${({ theme }) => theme.colors.blue400};
-`;
-
-const ClickedText = styled.button`
-  all: unset;
-  cursor: pointer;
-  ${({ theme }) => theme.typography.label1Bold}
-  color: ${({ theme }) => theme.colors.blue700};
+  color: ${({ theme, isClicked }) => (isClicked ? theme.colors.blue700 : theme.colors.blue400)};
+  transition: color 0.3s;
 `;
 
 export const TopicButton = ({ type, isClicked, setCurrentTopic }: TopicButtonType) => {
@@ -41,7 +35,7 @@ export const TopicButton = ({ type, isClicked, setCurrentTopic }: TopicButtonTyp
         setCurrentTopic(type);
       }}
     >
-      {isClicked ? <ClickedText>{text}</ClickedText> : <Text>{text}</Text>}
+      <Text isClicked={isClicked}>{text}</Text>
     </Button>
   );
 };

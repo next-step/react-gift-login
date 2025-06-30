@@ -4,6 +4,7 @@ import { Category } from '@/components/gift_page/Category';
 import { SelectFriend } from '@/components/gift_page/SelectFriend';
 import { Banner } from '@/components/gift_page/Banner';
 import { GiftList } from '@/components/gift_page/GiftList';
+import type { Path } from '@/types/path';
 
 const Container = styled.div`
   display: flex;
@@ -18,10 +19,10 @@ const Container = styled.div`
   background-color: ${({ theme }) => theme.colors.gray200};
 `;
 
-const GiftShop = () => {
+const GiftShop = ({ prevPath, setPrevPath }: Path) => {
   return (
     <Container>
-      <Header title="선물하기" />
+      <Header title="선물하기" mainPath="/" prevPath={prevPath} setPrevPath={setPrevPath} />
       <SelectFriend />
       <Category />
       <Banner />

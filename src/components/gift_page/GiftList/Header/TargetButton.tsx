@@ -12,36 +12,27 @@ const Button = styled.button`
   height: 100%;
 `;
 
-const Icon = styled.div`
+const Icon = styled.div<{ isClicked: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 2.8rem;
   aspect-ratio: 1 / 1;
-  background-color: ${({ theme }) => theme.colors.blue100};
+  color: ${({ isClicked }) => (isClicked ? '#FFF' : '#aacefd')};
+  background-color: ${({ theme, isClicked }) =>
+    isClicked ? theme.colors.blue700 : theme.colors.blue100};
   border-radius: 1rem;
+  font-size: 14;
+  font-weight: 600;
+  transition: background-color 0.3s;
 `;
 
-const ClickedIcon = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 2.8rem;
-  aspect-ratio: 1 / 1;
-  background-color: ${({ theme }) => theme.colors.blue700};
-  border-radius: 1rem;
-`;
-
-const Text = styled.div`
-  ${({ theme }) => theme.typography.label1Regular}
-  color: ${({ theme }) => theme.colors.gray700};
+const Text = styled.div<{ isClicked: boolean }>`
+  ${({ theme, isClicked }) =>
+    isClicked ? theme.typography.label1Bold : theme.typography.label1Regular}
+  color: ${({ theme, isClicked }) => (isClicked ? theme.colors.blue700 : theme.colors.gray700)};
   margin-top: ${({ theme }) => theme.spacing.spacing1};
-`;
-
-const ClickedText = styled.div`
-  ${({ theme }) => theme.typography.label1Bold}
-  color: ${({ theme }) => theme.colors.blue700};
-  margin-top: ${({ theme }) => theme.spacing.spacing1};
+  transition: color 0.3s;
 `;
 
 export const TargetButton = ({ type, isClicked, setCurrentTarget }: TargetButtonType) => {
@@ -70,12 +61,8 @@ export const TargetButton = ({ type, isClicked, setCurrentTarget }: TargetButton
         setCurrentTarget(type);
       }}
     >
-      {isClicked ? (
-        <ClickedIcon style={{ color: 'white', fontSize: 14, fontWeight: 600 }}>{icon}</ClickedIcon>
-      ) : (
-        <Icon style={{ color: '#aacefd', fontSize: 14, fontWeight: 600 }}>{icon}</Icon>
-      )}
-      {isClicked ? <ClickedText>{text}</ClickedText> : <Text>{text}</Text>}
+      <Icon isClicked={isClicked}>{icon}</Icon>
+      <Text isClicked={isClicked}>{text}</Text>
     </Button>
   );
 };

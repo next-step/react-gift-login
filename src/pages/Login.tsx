@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import styled from '@emotion/styled';
 import { Header } from '@/components/Header';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import type { Path } from '@/types/path';
 
 const Container = styled.div`
   display: flex;
@@ -65,7 +66,8 @@ const Button = styled.button`
   }
 `;
 
-const Login = () => {
+const Login = ({ prevPath, setPrevPath }: Path) => {
+  const url = useLocation();
   const navigate = useNavigate();
   const [emailIsClicked, setEmailIsClicked] = useState(false);
   const [passwordIsClicked, setPasswordIsClicked] = useState(false);
@@ -74,7 +76,7 @@ const Login = () => {
 
   return (
     <Container>
-      <Header title="선물하기" />
+      <Header title="선물하기" mainPath="/" prevPath={prevPath} setPrevPath={setPrevPath} />
       <Body>
         <Logo>kakao</Logo>
         <Input
@@ -95,7 +97,16 @@ const Login = () => {
           onFocus={() => setPasswordIsClicked(true)}
           onBlur={() => setPasswordIsClicked(false)}
         />
-        <Button onClick={() => navigate('/')}>로그인</Button>
+        <Button
+          onClick={() => {
+            if (url.pathname !== prevPath) {
+              setPrevPath(url.pathname);
+            }
+            navigate(prevPath);
+          }}
+        >
+          로그인
+        </Button>
       </Body>
     </Container>
   );

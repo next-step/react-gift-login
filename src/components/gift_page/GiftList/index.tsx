@@ -23,8 +23,6 @@ const List = styled.div`
   width: calc(100% - ${({ theme }) => theme.spacing.spacing8});
   height: fit-content;
   margin-top: ${({ theme }) => theme.spacing.spacing4};
-  margin-top: ${({ theme }) => theme.spacing.spacing4};
-  margin-top: ${({ theme }) => theme.spacing.spacing4};
   background-color: white;
 `;
 
