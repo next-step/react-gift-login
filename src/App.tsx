@@ -1,22 +1,21 @@
-import { useState } from 'react';
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { MobileLayout, Main } from '@/components/layout';
 import { NavigationBar } from '@/components/navigation';
 import { HomePage, LoginPage } from '@/pages';
 
-type PageType = 'home' | 'login';
-
 function App() {
-  const [currentPage, setCurrentPage] = useState<PageType>('home');
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const getNavigationConfig = () => {
-    switch (currentPage) {
-      case 'home':
+    switch (location.pathname) {
+      case '/':
         return {
           title: '선물하기',
           showBackButton: true,
           showProfileButton: true,
         };
-      case 'login':
+      case '/login':
         return {
           title: '로그인',
           showBackButton: true,
@@ -34,22 +33,11 @@ function App() {
   const navConfig = getNavigationConfig();
 
   const handleBackClick = () => {
-    setCurrentPage('home');
+    navigate('/');
   };
 
   const handleProfileClick = () => {
-    setCurrentPage('login');
-  };
-
-  const renderCurrentPage = () => {
-    switch (currentPage) {
-      case 'home':
-        return <HomePage />;
-      case 'login':
-        return <LoginPage onLoginSuccess={() => setCurrentPage('home')} />;
-      default:
-        return <HomePage />;
-    }
+    navigate('/login');
   };
 
   return (
@@ -62,7 +50,12 @@ function App() {
         onProfileClick={handleProfileClick}
       />
 
-      <Main>{renderCurrentPage()}</Main>
+      <Main>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
+        </Routes>
+      </Main>
     </MobileLayout>
   );
 }

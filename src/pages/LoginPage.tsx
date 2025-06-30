@@ -79,19 +79,13 @@ const LoginButton = styled.button`
   }
 `;
 
-interface LoginPageProps {
-  onLoginSuccess?: () => void;
-}
-
-const LoginPage = ({ onLoginSuccess }: LoginPageProps) => {
+const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    // TODO: 실제 로그인 API 연동 및 사용자 인증 로직 구현
-    if (onLoginSuccess) {
-      onLoginSuccess();
-    }
+    console.log('로그인 클릭 - redirect 구현 예정');
+    console.log('Email:', email, 'Password:', password);
   };
 
   return (
