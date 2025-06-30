@@ -2,6 +2,7 @@ import { useState } from "react";
 import styled from "@emotion/styled";
 import { giftRankingData } from "@/mocks/giftRankingData";
 import ProductCard from "@/components/ProductCard";
+import { useSearchParams } from "react-router";
 
 const Wrapper = styled.section`
   padding: ${({ theme }) => theme.spacing.spacing5};
@@ -26,7 +27,7 @@ const FilterButton = styled.button<{ active?: boolean }>`
   background: none;
   cursor: pointer;
   color: ${({ theme, active }) =>
-        active ? theme.color.blue.blue700 : theme.color.semantic.textSub};
+    active ? theme.color.blue.blue700 : theme.color.semantic.textSub};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,7 +40,7 @@ const Icon = styled.div<{ active?: boolean }>`
   height: 40px;
   border-radius: 12px;
   background-color: ${({ theme, active }) =>
-        active ? theme.color.blue.blue700 : theme.color.blue.blue100};
+    active ? theme.color.blue.blue700 : theme.color.blue.blue100};
   color: ${({ active }) => (active ? "#fff" : "#555")};
   display: flex;
   align-items: center;
@@ -63,7 +64,7 @@ const TabButton = styled.button<{ active?: boolean }>`
   border: none;
   font-weight: ${({ active }) => (active ? 700 : 400)};
   color: ${({ theme, active }) =>
-        active ? theme.color.blue.blue700 : theme.color.semantic.textSub};
+    active ? theme.color.blue.blue700 : theme.color.semantic.textSub};
   cursor: pointer;
 `;
 
@@ -89,64 +90,90 @@ const LoadMore = styled.button`
 `;
 
 export default function GiftRankingSection() {
-    const [selectedFilter, setSelectedFilter] = useState("전체");
-    const [selectedTab, setSelectedTab] = useState("받고 싶어한");
-    const [showAll, setShowAll] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
 
-    const filters = [
-        { label: "전체", icon: "ALL" },
-        { label: "여성이", icon: "👩🏻" },
-        { label: "남성이", icon: "👨🏻" },
-        { label: "청소년이", icon: "👦🏻" },
-    ];
+  const initialFilter = searchParams.get("targetType") || "ALL";
+  const initialTab = searchParams.get("rankType") || "WANT";
 
-    const tabs = ["받고 싶어한", "많이 선물한", "위시로 받은"];
+  const [selectedFilter, setSelectedFilter] = useState(initialFilter);
+  const [selectedTab, setSelectedTab] = useState(initialTab);
+  const [showAll, setShowAll] = useState(false);
 
-    const repeatedData = [...giftRankingData, ...giftRankingData, ...giftRankingData, ...giftRankingData, ...giftRankingData, ...giftRankingData, ...giftRankingData, ...giftRankingData, ...giftRankingData, ...giftRankingData, ...giftRankingData, ...giftRankingData].slice(0, 12);
-    const visibleData = showAll ? repeatedData : repeatedData.slice(0, 6);
+  const filters = [
+    { label: "전체", icon: "ALL", value: "ALL" },
+    { label: "여성이", icon: "👩🏻", value: "FEMALE" },
+    { label: "남성이", icon: "👨🏻", value: "MALE" },
+    { label: "청소년이", icon: "👦🏻", value: "TEEN" },
+  ];
 
-    return (
-        <Wrapper>
-            <Title>실시간 급상승 선물랭킹</Title>
+  const tabs = [
+    { label: "받고 싶어한", value: "WANT" },
+    { label: "많이 선물한", value: "MANY_RECEIVE" },
+    { label: "위시로 받은", value: "WISH" },
+  ];
 
-            <FilterRow>
-                {filters.map(({ label, icon }) => (
-                    <FilterButton
-                        key={label}
-                        active={selectedFilter === label}
-                        onClick={() => setSelectedFilter(label)}
-                    >
-                        <Icon active={selectedFilter === label}>{icon}</Icon>
-                        {label}
-                    </FilterButton>
-                ))}
-            </FilterRow>
+  const updateParams = (target: string, rank: string) => {
+    setSearchParams({
+      targetType: target,
+      rankType: rank,
+    });
+  };
 
-            <TabWrapper>
-                {tabs.map((tab) => (
-                    <TabButton
-                        key={tab}
-                        active={selectedTab === tab}
-                        onClick={() => setSelectedTab(tab)}
-                    >
-                        {tab}
-                    </TabButton>
-                ))}
-            </TabWrapper>
+  const handleFilterClick = (value: string) => {
+    setSelectedFilter(value);
+    updateParams(value, selectedTab);
+  };
 
-            <Grid>
-                {visibleData.map((item, index) => (
-                    <ProductCard
-                        key={`${item.id}-${index}`}
-                        item={item}
-                        rank={index + 1}
-                    />
-                ))}
-            </Grid>
+  const handleTabClick = (value: string) => {
+    setSelectedTab(value);
+    updateParams(selectedFilter, value);
+  };
 
-            <LoadMore onClick={() => setShowAll(!showAll)}>
-                {showAll ? "접기" : "더보기"}
-            </LoadMore>
-        </Wrapper>
-    );
+  const repeatedData = [...giftRankingData, ...giftRankingData, ...giftRankingData, ...giftRankingData, ...giftRankingData, ...giftRankingData, ...giftRankingData, ...giftRankingData, ...giftRankingData, ...giftRankingData, ...giftRankingData, ...giftRankingData].slice(0, 12);
+  const visibleData = showAll ? repeatedData : repeatedData.slice(0, 6);
+
+  return (
+    <Wrapper>
+      <Title>실시간 급상승 선물랭킹</Title>
+
+      <FilterRow>
+        {filters.map(({ label, icon, value }) => (
+          <FilterButton
+            key={value}
+            active={selectedFilter === value}
+            onClick={() => handleFilterClick(value)}
+          >
+            <Icon active={selectedFilter === value}>{icon}</Icon>
+            {label}
+          </FilterButton>
+        ))}
+      </FilterRow>
+
+      <TabWrapper>
+        {tabs.map(({ label, value }) => (
+          <TabButton
+            key={label}
+            active={selectedTab === value}
+            onClick={() => handleTabClick(value)}
+          >
+            {label}
+          </TabButton>
+        ))}
+      </TabWrapper>
+
+      <Grid>
+        {visibleData.map((item, index) => (
+          <ProductCard
+            key={`${item.id}-${index}`}
+            item={item}
+            rank={index + 1}
+          />
+        ))}
+      </Grid>
+
+      <LoadMore onClick={() => setShowAll(!showAll)}>
+        {showAll ? "접기" : "더보기"}
+      </LoadMore>
+    </Wrapper>
+  );
 }

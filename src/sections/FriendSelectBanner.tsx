@@ -35,7 +35,7 @@ const Text = styled.p`
   margin: 0;
 `;
 
-export default function SelectFriendSection() {
+export default function FriendSelectBanner() {
     return (
         <Wrapper>
             <FriendButton>
