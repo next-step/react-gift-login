@@ -3,7 +3,8 @@ import {ThemeProvider} from "@emotion/react";
 import theme from './styles/theme'
 import Main from './page/Main';
 import Navbar from './component/Navbar';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Login from './page/Login';
 
 function App() {
   return (
@@ -11,7 +12,10 @@ function App() {
         <ThemeProvider theme={theme}>      
           <GlobalStyle />  
           <Navbar />
-          <Main />
+          <Routes>               
+            <Route path="/" element={<Main />} />
+            <Route path="/Login" element={<Login />} />
+          </Routes>
         </ThemeProvider>
       </BrowserRouter>
 
