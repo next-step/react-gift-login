@@ -1,6 +1,6 @@
 import theme from '@/styles/theme'
 import styled from '@emotion/styled'
-import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 
 const MYDiv = styled.div`
@@ -66,6 +66,8 @@ const HomeButton = styled.button`
 
 
 const Notfound = () => {
+
+    const navigate = useNavigate();
   return (
     <MYDiv>
       <NotFoundmain>
@@ -75,7 +77,7 @@ const Notfound = () => {
         />
         <Myh3>잘못된 접근입니다.</Myh3>
         <MyP>찾으시는 페이지가 존재하지 않습니다.</MyP>
-        <HomeButton>홈으로</HomeButton>
+        <HomeButton onClick={()=> navigate('/')}>홈으로</HomeButton>
       </NotFoundmain>
     </MYDiv>
   )

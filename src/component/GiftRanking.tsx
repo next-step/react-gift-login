@@ -1,7 +1,24 @@
 import { Gift } from '@/mock/Gift';
 import styled from '@emotion/styled';
-import React, { useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useState } from 'react';
+
+
+
+const GIFTLENGTH = 6;
+
+const enum PeopleType{
+  ALL = 'ALL',
+  FEMALE = 'FEMALE',
+  MALE = 'MALE',
+  TEEN = 'TEEN',
+}
+
+
+const enum WishType{
+  WANT = 'WANT',
+  MANY_GIFT = 'MANY_GIFT',
+  MANY_WISH = 'MANY_WISH',
+}
 
 const GiftRanKingSection = styled.div`
   padding: 0px 16px;
@@ -132,21 +149,20 @@ const LoadMoreButton = styled.button`
 
 
 const GiftRanking = () => {
-  const [params, setParams] = useSearchParams();
 
   const [isExpanded, setIsExpanded] = useState(false);
 
 
 
-  const targetType = params.get('targetType') || 'ALL';
-  const rankType = params.get('rankType') || 'MANY_WISH';
+  const [peopleType, setPeopleType] = useState<PeopleType>(PeopleType.ALL);
+  const [wishType, setWishType] = useState<WishType>(WishType.WANT);
 
-  const handleTargetClick = (type: string) => {
-    setParams({ targetType: type, rankType });
+  const handlePeopleClick = (type: PeopleType) => {
+    setPeopleType(type);
   };
 
-  const handleRankClick = (type: string) => {
-    setParams({ targetType, rankType: type });
+  const handleWishClick = (type: WishType) => {
+    setWishType(type);
   };
 
 
@@ -158,9 +174,10 @@ const GiftRanking = () => {
   }));
 
 
-  const visibleCount = isExpanded ? GiftList.length : 6;
+  const visibleCount = isExpanded ? GiftList.length : GIFTLENGTH;
 
   const shownProducts = GiftList.slice(0, visibleCount);
+
 
   return (
     <GiftRanKingSection>
@@ -169,19 +186,19 @@ const GiftRanking = () => {
       <BlankSpace />
       <CategoryGroup>
         <PeopleGroup>
-          <FilterButton active={targetType === 'ALL'} onClick={() => handleTargetClick('ALL')}>
+          <FilterButton active={peopleType === PeopleType.ALL} onClick={() => handlePeopleClick(PeopleType.ALL)}>
             <IconWrapper>ALL</IconWrapper>
             <Label>전체</Label>
           </FilterButton>
-          <FilterButton active={targetType === 'FEMALE'} onClick={() => handleTargetClick('FEMALE')}>
+          <FilterButton active={peopleType === PeopleType.FEMALE} onClick={() => handlePeopleClick(PeopleType.FEMALE)}>
             <IconWrapper>👩🏻</IconWrapper>
             <Label>여성이</Label>
           </FilterButton>
-          <FilterButton active={targetType === 'MALE'} onClick={() => handleTargetClick('MALE')}>
+          <FilterButton active={peopleType === PeopleType.MALE} onClick={() => handlePeopleClick(PeopleType.MALE)}>
             <IconWrapper>👨🏻</IconWrapper>
             <Label>남성이</Label>
           </FilterButton>
-          <FilterButton active={targetType === 'TEEN'} onClick={() => handleTargetClick('TEEN')}>
+          <FilterButton active={peopleType === PeopleType.TEEN} onClick={() => handlePeopleClick(PeopleType.TEEN)}>
             <IconWrapper>👦🏻</IconWrapper>
             <Label>청소년이</Label>
           </FilterButton>
@@ -189,13 +206,13 @@ const GiftRanking = () => {
 
         <BlankSpace />
         <WishGroup>
-          <FilterButton active={rankType === 'WANT'} onClick={() => handleRankClick('WANT')}>
+          <FilterButton active={wishType === WishType.WANT} onClick={() => handleWishClick(WishType.WANT)}>
             받고 싶어한
           </FilterButton>
-          <FilterButton active={rankType === 'MANY_GIFT'} onClick={() => handleRankClick('MANY_GIFT')}>
+          <FilterButton active={wishType === WishType.MANY_GIFT} onClick={() => handleWishClick(WishType.MANY_GIFT)}>
             많이 선물한
           </FilterButton>
-          <FilterButton active={rankType === 'MANY_WISH'} onClick={() => handleRankClick('MANY_WISH')}>
+          <FilterButton active={wishType === WishType.MANY_WISH} onClick={() => handleWishClick(WishType.MANY_WISH)}>
             위시로 받은
           </FilterButton>
         </WishGroup>
@@ -226,7 +243,7 @@ const GiftRanking = () => {
 
       <BlankSpace />
       <LoadMoreButtonDiv>
-      {GiftList.length > 6 && (
+      {GiftList.length > GIFTLENGTH && (
         <LoadMoreButton onClick={() => setIsExpanded((prev) => !prev)}>
           {isExpanded ? '접기' : '더보기'}
         </LoadMoreButton>
