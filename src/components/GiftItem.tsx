@@ -1,23 +1,5 @@
 import styled from "@emotion/styled";
-interface Price {
-  basicPrice: number;
-  discountRate: number;
-  sellingPrice: number;
-}
-
-interface BrandInfo {
-  id: number;
-  name: string;
-  imageURL: string;
-}
-
-interface Gift {
-  id: number;
-  name: string;
-  imageURL: string;
-  price: Price;
-  brandInfo: BrandInfo;
-}
+import type { Gift } from "@/types/gift";
 
 type GiftItemProps<TElement extends React.ElementType = "div"> = {
   gift: Gift;

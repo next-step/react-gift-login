@@ -1,23 +1,22 @@
 import styled from "@emotion/styled";
 import GiftPersonType from "./GiftPersonType";
 import { personType, presentType } from "@/data/giftType";
-import GiftItem from "./GiftItem";
 import { gifts } from "@/data/gift";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
+import GiftsList from "./GiftsList";
 
 const GiftsRanking = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const query = new URLSearchParams(location.search);
 
-  const [showMore, setShowMore] = useState(false);
   const [selectedTypes, setSelectedTypes] = useState({
     personType: query.get("personType") ?? personType[0].id,
     presentType: query.get("presentType") ?? personType[0].id,
   });
 
-  const handleClickGiftType = (key: string, selectedType: string) => {
+  const handleFilterChange = (key: string, selectedType: string) => {
     const newSelectedTypes = { ...selectedTypes, [key]: selectedType };
     setSelectedTypes(newSelectedTypes);
 
@@ -44,9 +43,6 @@ const GiftsRanking = () => {
         id: gift.id + i,
       })),
     );
-  const visibleGifts = showMore
-    ? duplicatedMockGifts
-    : duplicatedMockGifts.slice(0, 6);
 
   return (
     <Background>
@@ -58,7 +54,7 @@ const GiftsRanking = () => {
             icon={type.icon}
             name={type.name}
             selected={selectedTypes.personType === type.id}
-            onClick={() => handleClickGiftType("personType", type.id)}
+            onClick={() => handleFilterChange("personType", type.id)}
           />
         ))}
       </GiftPersonTypeFlex>
@@ -67,28 +63,13 @@ const GiftsRanking = () => {
           <PresentType
             key={index}
             selected={selectedTypes.presentType === type.id}
-            onClick={() => handleClickGiftType("presentType", type.id)}
+            onClick={() => handleFilterChange("presentType", type.id)}
           >
             {type.name}
           </PresentType>
         ))}
       </PresentTypeFlex>
-      <GiftsGrid>
-        {visibleGifts.map((gift, index) => (
-          <GiftItem
-            key={gift.id}
-            gift={gift}
-            rank={index + 1}
-            as="button"
-            type="button"
-          />
-        ))}
-      </GiftsGrid>
-      <GiftsToggle>
-        <GiftsButton onClick={() => setShowMore(!showMore)}>
-          {showMore ? "접기" : "더보기"}
-        </GiftsButton>
-      </GiftsToggle>
+      <GiftsList gifts={duplicatedMockGifts} />
     </Background>
   );
 };
@@ -151,30 +132,4 @@ const PresentType = styled.p<{ selected: boolean }>`
     color 200ms,
     font-weight 200ms;
   cursor: pointer;
-`;
-
-const GiftsGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: ${({ theme }) => `${theme.spacing.spacing6} ${theme.spacing.spacing2}`};
-  padding: ${({ theme }) => `${theme.spacing.spacing4} 0`};
-`;
-
-const GiftsToggle = styled.p`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-`;
-
-const GiftsButton = styled.button`
-  max-width: 480px;
-  width: 100%;
-  text-align: center;
-  padding: ${({ theme }) => theme.spacing.spacing3};
-  border-radius: 4px;
-  border: 1px solid ${({ theme }) => theme.colors.gray.gray400};
-  font-size: ${({ theme }) => theme.typography.body2Regular.fontSize};
-  font-weight: ${({ theme }) => theme.typography.body2Regular.fontWeight};
-  line-height: ${({ theme }) => theme.typography.body2Regular.lineHeight};
-  color: ${({ theme }) => theme.colors.semantic.text.default};
 `;
