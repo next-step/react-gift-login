@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { useNavigate } from 'react-router-dom';
 
 const Container = styled.div(({ theme }) => ({
   display: 'flex',
@@ -60,12 +61,22 @@ const Button = styled.button(({ theme }) => ({
 }));
 
 const Login = () => {
+  const navigate = useNavigate();
+
+  const loginButtunHandler = () => {
+    if (window.history.length > 2) {
+      navigate(-1);
+    } else {
+      navigate('/');
+    }
+  };
+
   return (
     <Container>
       <Title>kakao</Title>
       <Input type="email" placeholder="이메일" />
       <Input type="password" placeholder="비밀번호" />
-      <Button>로그인</Button>
+      <Button onClick={loginButtunHandler}>로그인</Button>
     </Container>
   );
 };
