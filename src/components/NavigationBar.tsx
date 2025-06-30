@@ -4,7 +4,7 @@ import { ThemeProvider } from '@emotion/react';
 import { theme } from '@/theme/theme';
 import ChevronLeftIcon from '@/assets/ChevronLeftIcon';
 import User from '@/assets/User';
-import { replace, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Container = styled.nav`
   display: flex;
