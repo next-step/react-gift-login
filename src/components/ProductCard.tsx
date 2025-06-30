@@ -9,6 +9,28 @@ interface ProductCardProps {
   showRankBadge?: boolean;
 }
 
+const formatPrice = (price: number) => `${price} 원`;
+
+export function ProductCard({
+  product,
+  rank,
+  onClick,
+  showRankBadge = false,
+}: ProductCardProps) {
+  return (
+    <Card onClick={() => onClick?.(product)}>
+      {showRankBadge && rank !== undefined && <RankBadge>{rank}</RankBadge>}
+      <ProductImage src={product.imageURL} alt={product.name} />
+      <ProductInfo>
+        <BrandName>{product.brandInfo.name}</BrandName>
+        <StrongBrandName>{product.brandInfo.name}</StrongBrandName>
+        <Price>{formatPrice(product.price.sellingPrice)}</Price>
+      </ProductInfo>
+    </Card>
+  );
+}
+
+// styled-components 정의
 const Card = styled.div`
   overflow: hidden;
   position: relative;
@@ -69,24 +91,3 @@ const Price = styled.div`
     font-size: ${theme.typography.label1Bold.fontSize};
   }
 `;
-
-const formatPrice = (price: number) => `${price} 원`;
-
-export function ProductCard({
-  product,
-  rank,
-  onClick,
-  showRankBadge = false,
-}: ProductCardProps) {
-  return (
-    <Card onClick={() => onClick?.(product)}>
-      {showRankBadge && rank !== undefined && <RankBadge>{rank}</RankBadge>}
-      <ProductImage src={product.imageURL} alt={product.name} />
-      <ProductInfo>
-        <BrandName>{product.brandInfo.name}</BrandName>
-        <StrongBrandName>{product.brandInfo.name}</StrongBrandName>
-        <Price>{formatPrice(product.price.sellingPrice)}</Price>
-      </ProductInfo>
-    </Card>
-  );
-}
