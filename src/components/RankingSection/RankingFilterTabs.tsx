@@ -1,7 +1,7 @@
-const FILTER_LABELS = ['전체', '여성', '남성', '청소년이'];
-import type { Theme } from '@emotion/react';
-import { css, useTheme } from '@emotion/react';
+import type { Theme } from "@emotion/react";
+import { css, useTheme } from "@emotion/react";
 
+const FILTER_LABELS = ["전체", "여성", "남성", "청소년이"];
 const tabsWrapper = (theme: Theme) => css`
   display: flex;
   justify-content: space-around;

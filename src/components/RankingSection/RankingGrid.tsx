@@ -1,6 +1,6 @@
-import { css, useTheme } from '@emotion/react';
-import type { Theme } from '@emotion/react';
-import { mockProduct } from '@/mocks/productData';
+import { css, useTheme } from "@emotion/react";
+import type { Theme } from "@emotion/react";
+import { mockProduct } from "@/mocks/productData";
 
 const gridStyle = (theme: Theme) => css`
   display: grid;

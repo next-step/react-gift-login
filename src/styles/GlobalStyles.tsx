@@ -1,4 +1,4 @@
-import { Global, css } from '@emotion/react';
+import { Global, css } from "@emotion/react";
 
 const GlobalStyles = () => (
   <Global
@@ -16,7 +16,7 @@ const GlobalStyles = () => (
       }
       body {
         height: 100%;
-        font-family: 'Pretendard';
+        font-family: "Pretendard";
         line-height: 1.5;
         -webkit-font-smoothing: antialiased;
         max-width: 720px;

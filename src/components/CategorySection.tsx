@@ -1,6 +1,6 @@
-import { css, useTheme } from '@emotion/react';
-import { categoryData } from '@/mocks/categoryData';
-import type { Theme } from '@emotion/react';
+import { css, useTheme } from "@emotion/react";
+import { categoryData } from "@/mocks/categoryData";
+import type { Theme } from "@emotion/react";
 
 const sectionStyle = (theme: Theme) => css`
   padding: ${theme.spacing.spacing6} ${theme.spacing.spacing4};

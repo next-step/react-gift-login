@@ -1,17 +1,16 @@
-/** @jsxImportSource @emotion/react */
-import type { Theme } from '@emotion/react';
-import { css, useTheme } from '@emotion/react';
-import { useState } from 'react';
+import type { Theme } from "@emotion/react";
+import { css, useTheme } from "@emotion/react";
+import { useState } from "react";
 
-const FILTER_OPTIONS = ['받고 싶어한', '많이 선물한', '위시로 받은'];
+const FILTER_OPTIONS = ["받고 싶어한", "많이 선물한", "위시로 받은"];
 
 export default function RankingSubFilterTabs() {
   const theme = useTheme();
-  const [selected, setSelected] = useState('위시로 받은'); 
+  const [selected, setSelected] = useState(FILTER_OPTIONS[0]);
 
   return (
     <div css={containerStyle(theme)}>
-      {FILTER_OPTIONS.map(option => (
+      {FILTER_OPTIONS.map((option) => (
         <button
           key={option}
           onClick={() => setSelected(option)}
