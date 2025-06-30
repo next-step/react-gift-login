@@ -51,43 +51,30 @@ const TypeButton = styled.button`
   gap: 4px;
 `;
 
-const AllButtonLogo = styled.div`
+const ButtonLogo = styled.div<{ selected: boolean }>`
   width: 2.75rem;
   height: 2.75rem;
   border-radius: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgb(255, 255, 255);
+  color: ${({ selected }) => (selected ? 'rgb(255, 255, 255)' : 'rgb(170, 206, 253)')};
   font-size: 0.875rem;
   font-weight: 700;
   line-height: 1.1875rem;
-  background-color: rgb(33, 124, 249);
-  transition: background-color 200ms;
+  background-color: ${({ selected }) => (selected ? 'rgb(33, 124, 249)' : 'rgb(239, 246, 255)')};
+  transition:
+    background-color 200ms,
+    color 200ms;
 `;
 
-const ButtonLogo = styled.div`
-  width: 2.75rem;
-  height: 2.75rem;
-  border-radius: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgb(170, 206, 253);
+const TypeTitle = styled.p<{ selected: boolean }>`
   font-size: 0.875rem;
-  font-weight: 700;
+  font-weight: ${({ selected }) => (selected ? 700 : 400)};
   line-height: 1.1875rem;
-  background-color: rgb(239, 246, 255);
-  transition: background-color 200ms;
-`;
-
-const TypeTitle = styled.p`
-  font-size: 0.875rem;
-  font-weight: 400;
-  line-height: 1.1875rem;
-  color: rgb(134, 139, 148);
   margin: 0px;
   text-align: left;
+  color: ${({ selected }) => (selected ? 'rgb(33, 124, 249)' : 'rgb(134, 139, 148)')};
 `;
 
 const MarginBox2 = styled.div`
@@ -106,19 +93,20 @@ const PresentType = styled.div`
   padding: 12px 16px;
 `;
 
-const PresentTypeButton = styled.div`
+const PresentTypeButton = styled.button<{ selected: boolean }>`
   width: 100%;
   flex: 1 1 0%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 0.875rem;
-  font-weight: 700;
+  font-weight: ${({ selected }) => (selected ? 700 : 400)};
   line-height: 1.1875rem;
-  color: rgb(33, 124, 249);
+  color: ${({ selected }) => (selected ? 'rgb(33, 124, 249)' : 'rgb(133, 184, 253)')};
   transition:
     color 200ms,
     font-weight 200ms;
+  cursor: pointer;
 `;
 
 const PresentDisplayContainer = styled.div`
@@ -216,6 +204,8 @@ const MoreButtonFont = styled.p`
 
 const PresentRanking: React.FC = () => {
   const [showAll, setShowAll] = useState(false);
+  const [selectedType, setSelectedType] = useState<'all' | 'female' | 'male' | 'teen'>('all');
+  const [selectedPresentType, setSelectedPresentType] = useState<number>(0);
 
   const {
     name,
@@ -226,6 +216,15 @@ const PresentRanking: React.FC = () => {
 
   const productsToShow = showAll ? 21 : 6;
 
+  const typeOptions = [
+    { key: 'all', label: '전체', icon: 'ALL' },
+    { key: 'female', label: '여성이', icon: '👩🏻' },
+    { key: 'male', label: '남성이', icon: '👨🏻' },
+    { key: 'teen', label: '청소년이', icon: '👦🏻' },
+  ] as const;
+
+  const presentTypes = ['받고 싶어한', '많이 선물한', '위시로 받은'];
+
   return (
     <ThemeProvider theme={theme}>
       <Wrapper>
@@ -233,40 +232,25 @@ const PresentRanking: React.FC = () => {
         <MarginBox1 />
         <SelectionBanner>
           <ReceiverType>
-            <TypeButton>
-              <AllButtonLogo>ALL</AllButtonLogo>
-              <p
-                css={css`
-                  font-size: 0.875rem;
-                  font-weight: 700;
-                  line-height: 1.1875rem;
-                  color: rgb(33, 124, 249);
-                  margin: 0px;
-                  text-align: left;
-                `}
-              >
-                전체
-              </p>
-            </TypeButton>
-            <TypeButton>
-              <ButtonLogo>👩🏻</ButtonLogo>
-              <TypeTitle>여성이</TypeTitle>
-            </TypeButton>
-            <TypeButton>
-              <ButtonLogo>👨🏻</ButtonLogo>
-              <TypeTitle>남성이</TypeTitle>
-            </TypeButton>
-            <TypeButton>
-              <ButtonLogo>👦🏻</ButtonLogo>
-              <TypeTitle>청소년이</TypeTitle>
-            </TypeButton>
+            {typeOptions.map((type) => (
+              <TypeButton key={type.key} onClick={() => setSelectedType(type.key)}>
+                <ButtonLogo selected={selectedType === type.key}>{type.icon}</ButtonLogo>
+                <TypeTitle selected={selectedType === type.key}>{type.label}</TypeTitle>
+              </TypeButton>
+            ))}
           </ReceiverType>
         </SelectionBanner>
         <MarginBox2 />
         <PresentType>
-          <PresentTypeButton>받고 싶어한</PresentTypeButton>
-          <PresentTypeButton>많이 선물한</PresentTypeButton>
-          <PresentTypeButton>위시로 받은</PresentTypeButton>
+          {presentTypes.map((text, index) => (
+            <PresentTypeButton
+              key={text}
+              selected={selectedPresentType === index}
+              onClick={() => setSelectedPresentType(index)}
+            >
+              {text}
+            </PresentTypeButton>
+          ))}
         </PresentType>
         <MarginBox2 />
         <PresentDisplayContainer>
@@ -275,9 +259,7 @@ const PresentRanking: React.FC = () => {
               <ProductBox key={index}>
                 <NumberLogo
                   css={css`
-                    background-color: ${index === 0 || index === 1 || index === 2
-                      ? 'rgb(252, 106, 102)'
-                      : 'rgb(176, 179, 186)'};
+                    background-color: ${index <= 2 ? 'rgb(252, 106, 102)' : 'rgb(176, 179, 186)'};
                   `}
                 >
                   {index + 1}
@@ -292,7 +274,7 @@ const PresentRanking: React.FC = () => {
                     `}
                   ></div>
                   <SubProductName>{brandInfo.name}</SubProductName>
-                  <ProdudctName>{brandInfo.name}</ProdudctName>
+                  <ProdudctName>{name}</ProdudctName>
                   <div
                     css={css`
                       width: 100%;
