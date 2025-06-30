@@ -19,18 +19,6 @@ const Warpper = styled.div`
   background-color: ${(props) => props.theme.semanticColors.background.fill};
 `;
 
-const TopArea = styled.div`
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  margin: 0px auto;
-  max-width: 720px;
-  width: 100%;
-  background-color: ${(props) => props.theme.semanticColors.background.default};
-  z-index: 1000;
-`;
-
 const MainArea = styled.div`
   max-width: 720px;
   width: 100%;
@@ -52,9 +40,7 @@ const Home: React.FC = () => {
       <GlobalStyle />
       <ThemeProvider theme={theme}>
         <Warpper>
-          <TopArea>
-            <NavigationBar />
-          </TopArea>
+          <NavigationBar />
           <MainArea>
             <main>
               <ReceiverSelection />

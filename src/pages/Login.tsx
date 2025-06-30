@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import KakaoIconUrl from '../assets/KaKaoLogo.svg';
 import GlobalStyle from '@/styles/global';
+import NavigationBar from '@components/NavigationBar';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -81,6 +82,7 @@ const Login = () => {
     <>
       <GlobalStyle />
       <Wrapper>
+        <NavigationBar />
         <LoginPage>
           <Container>
             <Logo src={KakaoIconUrl} alt="카카오 로고"></Logo>
