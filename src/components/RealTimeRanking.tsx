@@ -1,13 +1,41 @@
 import { useState } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import styled from '@emotion/styled';
 import { theme } from '@/styles/theme';
 import type { Product, TargetFilter, CategoryFilter } from '@/types';
+import { GiftProductCard } from './GiftProductCard';
 
 interface RealTimeRankingProps {
   products: Product[];
 }
 
 const INITIAL_PRODUCT_COUNT = 6;
+
+const TARGET_FILTER_MAP: Record<TargetFilter, string> = {
+  전체: 'ALL',
+  여성이: 'FEMALE',
+  남성이: 'MALE',
+  청소년이: 'TEEN',
+};
+
+const CATEGORY_FILTER_MAP: Record<CategoryFilter, string> = {
+  '받고 싶어한': 'WANT_TO_RECEIVE',
+  '많이 선물한': 'MANY_GIFT',
+  '위시로 받은': 'MANY_WISH',
+};
+
+const REVERSE_TARGET_MAP: Record<string, TargetFilter> = {
+  ALL: '전체',
+  FEMALE: '여성이',
+  MALE: '남성이',
+  TEEN: '청소년이',
+};
+
+const REVERSE_CATEGORY_MAP: Record<string, CategoryFilter> = {
+  WANT_TO_RECEIVE: '받고 싶어한',
+  MANY_GIFT: '많이 선물한',
+  MANY_WISH: '위시로 받은',
+};
 
 const formatPrice = (price: number) => {
   return `${price} 원`;
@@ -115,70 +143,6 @@ const ProductGrid = styled.div`
   margin-bottom: ${theme.spacing.spacing4};
 `;
 
-const ProductCard = styled.div`
-  overflow: hidden;
-  position: relative;
-  transition: all 0.2s ease;
-  border-radius: 6px;
-`;
-
-const RankBadge = styled.div`
-  position: absolute;
-  top: ${theme.spacing.spacing2};
-  left: ${theme.spacing.spacing2};
-  width: 20px;
-  height: 20px;
-  background: ${theme.colors.red700};
-  color: white;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: ${theme.typography.label2Bold.fontSize};
-  font-weight: ${theme.typography.label2Bold.fontWeight};
-  z-index: 1;
-`;
-
-const ProductImage = styled.img`
-  width: 100%;
-  height: 224px;
-  object-fit: cover;
-  display: block;
-
-  @media (max-width: 480px) {
-    height: 100px;
-  }
-`;
-
-const ProductInfo = styled.div`
-  padding: ${theme.spacing.spacing2} ${theme.spacing.spacing3}
-    ${theme.spacing.spacing3} 0;
-`;
-
-const BrandName = styled.div`
-  font-size: ${theme.typography.label2Regular.fontSize};
-  color: ${theme.colors.textSub}; /* 첫 번째 BBQ는 이 색상 */
-  line-height: 1.2;
-  margin-bottom: ${theme.spacing.spacing1};
-`;
-
-const StrongBrandName = styled(BrandName)`
-  color: ${theme.colors
-    .gray1000}; /* 더 진한 색상으로 변경, 예: theme.colors.gray1000 */
-  /* 필요하다면 font-weight도 변경 가능: font-weight: ${theme.typography
-    .label2Bold.fontWeight}; */
-`;
-
-const Price = styled.div`
-  font-size: ${theme.typography.title2Bold.fontSize};
-  font-weight: ${theme.typography.title2Bold.fontWeight};
-  color: ${theme.colors.gray1000};
-
-  @media (max-width: 480px) {
-    font-size: ${theme.typography.label1Bold.fontSize};
-  }
-`;
-
 const MoreButton = styled.button`
   width: 70%;
   padding: ${theme.spacing.spacing3};
@@ -205,14 +169,53 @@ const categoryFilter: CategoryFilter[] = [
 ];
 
 export function RealTimeRanking({ products }: RealTimeRankingProps) {
-  const [selectedTarget, setSelectedTarget] = useState<TargetFilter>('전체');
-  const [selectedCategory, setSelectedCategory] =
-    useState<CategoryFilter>('받고 싶어한');
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+
+  // URL에서 초기 필터 값 읽기
+  const getInitialTargetFilter = (): TargetFilter => {
+    const targetType = searchParams.get('targetType');
+    return targetType && REVERSE_TARGET_MAP[targetType]
+      ? REVERSE_TARGET_MAP[targetType]
+      : '전체';
+  };
+
+  const getInitialCategoryFilter = (): CategoryFilter => {
+    const categoryType = searchParams.get('categoryType');
+    return categoryType && REVERSE_CATEGORY_MAP[categoryType]
+      ? REVERSE_CATEGORY_MAP[categoryType]
+      : '받고 싶어한';
+  };
+
   const [showAll, setShowAll] = useState(false);
+
+  // URL에서 현재 필터 값 읽기
+  const selectedTarget: TargetFilter = getInitialTargetFilter();
+  const selectedCategory: CategoryFilter = getInitialCategoryFilter();
+
+  // URL 업데이트 함수
+  const updateURL = (target: TargetFilter, category: CategoryFilter) => {
+    const targetCode = TARGET_FILTER_MAP[target];
+    const categoryCode = CATEGORY_FILTER_MAP[category];
+
+    const newSearchParams = new URLSearchParams();
+    newSearchParams.set('targetType', targetCode);
+    newSearchParams.set('categoryType', categoryCode);
+
+    navigate(`?${newSearchParams.toString()}`, { replace: true });
+  };
 
   const displayedProducts = showAll
     ? products
     : products.slice(0, INITIAL_PRODUCT_COUNT);
+
+  const handleTargetFilterChange = (filter: TargetFilter) => {
+    updateURL(filter, selectedCategory);
+  };
+
+  const handleCategoryFilterChange = (category: CategoryFilter) => {
+    updateURL(selectedTarget, category);
+  };
 
   const handleProductClick = (product: Product) => {
     console.log('상품 클릭:', product.name);
@@ -227,7 +230,7 @@ export function RealTimeRanking({ products }: RealTimeRankingProps) {
           <FilterTab
             key={filter}
             isActive={selectedTarget === filter}
-            onClick={() => setSelectedTarget(filter)}
+            onClick={() => handleTargetFilterChange(filter)}
           >
             <ProfileIcon isActive={selectedTarget === filter}>
               {getProfileIconText(filter)}
@@ -244,7 +247,7 @@ export function RealTimeRanking({ products }: RealTimeRankingProps) {
           <SortButton
             key={category}
             isActive={selectedCategory === category}
-            onClick={() => setSelectedCategory(category)}
+            onClick={() => handleCategoryFilterChange(category)}
           >
             {category}
           </SortButton>
@@ -253,18 +256,13 @@ export function RealTimeRanking({ products }: RealTimeRankingProps) {
 
       <ProductGrid>
         {displayedProducts.map((product, index) => (
-          <ProductCard
+          <GiftProductCard
             key={product.id}
-            onClick={() => handleProductClick(product)}
-          >
-            <RankBadge>{index + 1}</RankBadge>
-            <ProductImage src={product.imageURL} alt={product.name} />
-            <ProductInfo>
-              <BrandName>{product.brandInfo.name}</BrandName>
-              <StrongBrandName>{product.brandInfo.name}</StrongBrandName>
-              <Price>{formatPrice(product.price.sellingPrice)}</Price>
-            </ProductInfo>
-          </ProductCard>
+            product={product}
+            rank={index + 1}
+            onClick={handleProductClick}
+            showRankBadge
+          />
         ))}
       </ProductGrid>
 
