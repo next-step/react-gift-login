@@ -37,7 +37,6 @@ export default function LoginPage() {
 const Container = styled.div`
   max-width: 720px;
   width: 100%;
-  min-height: calc(-56px + 100vh);
   height: 100%;
   background-color: ${({ theme }) => theme.colors.gray.white};
   padding-top: 2.75rem;
