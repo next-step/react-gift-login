@@ -5,7 +5,7 @@ import GiftCategoryList from '@/Components/Category/GiftCategoryList';
 import Banner from '@/Components/Section/Banner';
 import GiftGrid from '@/Components/GiftRanking/GiftGrid';   
 import GiftItem from '@/Components/GiftRanking/GiftItem';
-
+import Filter from '@/Components/Filter/Filter';
 
 function Home() {
   return (
@@ -14,6 +14,7 @@ function Home() {
         <SelectFriend />
         <GiftCategoryList />
         <Banner />
+        <Filter />
         <GiftGrid/>
           <GiftItem
             rank={1}

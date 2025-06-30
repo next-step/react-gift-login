@@ -1,5 +1,3 @@
-// src/styles/tokens/color.ts
-
 const color = {
   gray: {
     gray00: '#ffffff',
