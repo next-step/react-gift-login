@@ -1,27 +1,5 @@
 import styled from '@emotion/styled';
-
-const ItemWrapper = styled.button`
-  background: none;
-  border: none;
-  padding: ${(props) => props.theme.spacing.spacing3};
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 80px; /* 터치 친화적 최소 높이 */
-  border-radius: 12px;
-  transition: background-color 0.2s;
-
-  &:hover {
-    background-color: ${(props) => props.theme.semanticColors.background.fill};
-  }
-
-  &:active {
-    background-color: ${(props) => props.theme.colors.gray200};
-    transform: scale(0.98);
-  }
-`;
+import { Button } from '@/components/common';
 
 const IconWrapper = styled.div`
   width: 48px;
@@ -66,19 +44,17 @@ interface CategoryItemProps {
 }
 
 const CategoryItem = ({ icon, label, onClick }: CategoryItemProps) => {
-  const isImageUrl = icon.startsWith('http');
-
   return (
-    <ItemWrapper onClick={onClick} aria-label={`${label} 카테고리`}>
+    <Button variant="category" onClick={onClick}>
       <IconWrapper>
-        {isImageUrl ? (
+        {icon.startsWith('http') ? (
           <IconImage src={icon} alt={label} />
         ) : (
           <IconEmoji>{icon}</IconEmoji>
         )}
       </IconWrapper>
       <Label>{label}</Label>
-    </ItemWrapper>
+    </Button>
   );
 };
 

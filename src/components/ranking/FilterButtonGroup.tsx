@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { Button } from '@/components/common';
 
 interface FilterOption {
   value: string;
@@ -18,42 +19,6 @@ const FilterContainer = styled.div`
   margin-bottom: ${(props) => props.theme.spacing.spacing4};
 `;
 
-const FilterButton = styled.button<{ isActive: boolean }>`
-  padding: ${(props) => props.theme.spacing.spacing2}
-    ${(props) => props.theme.spacing.spacing4};
-  border-radius: 20px;
-  border: 1px solid
-    ${(props) =>
-      props.isActive
-        ? props.theme.semanticColors.kakaoYellow
-        : props.theme.colors.gray300};
-  background-color: ${(props) =>
-    props.isActive ? props.theme.semanticColors.kakaoYellow : 'white'};
-  color: ${(props) =>
-    props.isActive ? props.theme.colors.gray900 : props.theme.colors.gray600};
-  font-size: ${(props) => props.theme.typography.body2Regular.fontSize};
-  font-weight: ${(props) => (props.isActive ? 600 : 400)};
-  font-family: 'Pretendard', sans-serif;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  min-height: 36px;
-
-  &:hover {
-    background-color: ${(props) =>
-      props.isActive
-        ? props.theme.semanticColors.kakaoYellowHover
-        : props.theme.colors.gray100};
-    border-color: ${(props) =>
-      props.isActive
-        ? props.theme.semanticColors.kakaoYellowHover
-        : props.theme.colors.gray400};
-  }
-
-  &:active {
-    transform: scale(0.98);
-  }
-`;
-
 const FilterButtonGroup = ({
   options,
   selected,
@@ -62,13 +27,15 @@ const FilterButtonGroup = ({
   return (
     <FilterContainer>
       {options.map((option) => (
-        <FilterButton
+        <Button
           key={option.value}
-          isActive={selected === option.value}
+          variant="toggle"
+          size="sm"
+          active={selected === option.value}
           onClick={() => onChange(option.value)}
         >
           {option.label}
-        </FilterButton>
+        </Button>
       ))}
     </FilterContainer>
   );

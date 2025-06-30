@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import styled from '@emotion/styled';
 import { Section } from '@/components/layout';
+import { Button } from '@/components/common';
 
 const NotFoundContainer = styled.div`
   display: flex;
@@ -37,29 +38,6 @@ const ErrorMessage = styled.p`
   line-height: 1.5;
 `;
 
-const HomeButton = styled.button`
-  background-color: ${(props) => props.theme.semanticColors.kakaoYellow};
-  color: ${(props) => props.theme.colors.gray900};
-  border: none;
-  padding: ${(props) => props.theme.spacing.spacing4}
-    ${(props) => props.theme.spacing.spacing6};
-  border-radius: 6px;
-  font-size: ${(props) => props.theme.typography.body1Bold.fontSize};
-  font-weight: ${(props) => props.theme.typography.body1Bold.fontWeight};
-  cursor: pointer;
-  transition: background-color 0.2s;
-  font-family: 'Pretendard', sans-serif;
-
-  &:hover {
-    background-color: ${(props) => props.theme.semanticColors.kakaoYellowHover};
-  }
-
-  &:active {
-    background-color: ${(props) =>
-      props.theme.semanticColors.kakaoYellowActive};
-  }
-`;
-
 const NotFoundPage = () => {
   const navigate = useNavigate();
 
@@ -77,7 +55,9 @@ const NotFoundPage = () => {
           <br />
           일시적으로 사용할 수 없습니다.
         </ErrorMessage>
-        <HomeButton onClick={handleGoHome}>홈으로 돌아가기</HomeButton>
+        <Button variant="primary" size="lg" onClick={handleGoHome}>
+          홈으로 돌아가기
+        </Button>
       </NotFoundContainer>
     </Section>
   );
