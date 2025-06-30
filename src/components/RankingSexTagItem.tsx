@@ -31,14 +31,14 @@ const RankingSexTagItem = () => {
 
   useEffect(() => {
     const params = new URLSearchParams(search);
-    const value = params.get('selected');
+    const value = params.get('SexTagSelected');
     if (value) {
       setSelected(value);
     }
   }, [search]);
   const handleClick = (value: string) => {
     const params = new URLSearchParams(search);
-    params.set('selected', value);
+    params.set('SexTagSelected', value);
     navigate(`?${params.toString()}`, { replace: true });
   };
   return (

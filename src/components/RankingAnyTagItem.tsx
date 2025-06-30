@@ -11,7 +11,7 @@ const RankingAnyTagItem = () => {
 
   useEffect(() => {
     const params = new URLSearchParams(search);
-    const value = params.get('selected');
+    const value = params.get('anyTagSelected');
     if (value) {
       setSelected(value);
     }
@@ -19,7 +19,7 @@ const RankingAnyTagItem = () => {
 
   const handleClick = (value: string) => {
     const params = new URLSearchParams(search);
-    params.set('selected', value);
+    params.set('anyTagSelected', value);
     navigate(`?${params.toString()}`, { replace: true });
   };
 
