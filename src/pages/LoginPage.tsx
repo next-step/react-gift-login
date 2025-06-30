@@ -34,23 +34,19 @@ export default function LoginPage() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const handleBackClick = () => {
-    // 이전 페이지로 이동하거나 홈으로 이동
+  const handleRedirect = (replace: boolean = true) => {
     const from = location.state?.from || '/';
-    navigate(from);
-  };
-
-  const handleLogin = (_email: string, _password: string) => {
-    // 이전 페이지가 있으면 그곳으로, 없으면 홈으로
-    const from = location.state?.from || '/';
-    navigate(from, { replace: true });
+    navigate(from, { replace });
   };
 
   return (
     <AppContainer>
       <MobileViewport>
-        <NavigationHeader title="선물하기" onBackClick={handleBackClick} />
-        <LoginForm onSubmit={handleLogin} />
+        <NavigationHeader
+          title="선물하기"
+          onBackClick={() => handleRedirect(false)}
+        />
+        <LoginForm onSubmit={() => handleRedirect(true)} />
       </MobileViewport>
     </AppContainer>
   );
