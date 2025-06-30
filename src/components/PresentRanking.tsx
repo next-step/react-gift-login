@@ -75,6 +75,9 @@ const TypeTitle = styled.p<{ selected: boolean }>`
   margin: 0px;
   text-align: left;
   color: ${({ selected }) => (selected ? 'rgb(33, 124, 249)' : 'rgb(134, 139, 148)')};
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 const MarginBox2 = styled.div`
