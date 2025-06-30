@@ -4,6 +4,7 @@ import MainPage from '@/pages/MainPage';
 import LoginPage from '@/pages/LoginPage';
 import Header from '@/components/Header';
 import { ROUTE_PATH } from '@/constants/routes';
+import NotFoundPage from '@/pages/NotFoundPage';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path={ROUTE_PATH.LOGIN} element={<LoginPage />} />
         <Route path={ROUTE_PATH.HOME} element={<MainPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );
