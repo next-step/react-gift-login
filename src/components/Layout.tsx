@@ -1,21 +1,5 @@
 import styled from '@emotion/styled'
-<<<<<<< HEAD
-import type { ReactNode } from 'react'
 
-const Wrapper = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-
-  
-  & > .inner {
-    width: 100%;
-    max-width: 720px;
-    padding: 0 16px; 
-    box-sizing: border-box;
-  }
-`
-=======
 import { Navbar } from './Navbar'
 import type { ReactNode } from 'react'
 
@@ -33,7 +17,7 @@ const Inner = styled.div`
   box-sizing: border-box;
   flex: 1;
 `;
->>>>>>> 5b4be5d (style: 로그인 화면 구현 완료)
+
 
 interface Props {
   children: ReactNode
@@ -41,13 +25,7 @@ interface Props {
 
 export const Layout = ({ children }: Props) => {
   return (
-<<<<<<< HEAD
-  <Wrapper>
-    <div className="inner">{children}</div>
-  </Wrapper>
-  )
-}
-=======
+
     <Wrapper>
       
       <Inner>
@@ -58,4 +36,4 @@ export const Layout = ({ children }: Props) => {
   )
 }
 export default Layout;
->>>>>>> 5b4be5d (style: 로그인 화면 구현 완료)
+
