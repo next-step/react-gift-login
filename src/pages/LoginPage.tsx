@@ -6,10 +6,11 @@ import KakaoLogo from '@/assets/kakao.webp';
 const LoginPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || '/';
+  const from = location.state?.from;
 
   const handleLogin = () => {
-    navigate(from);
+    const redirectTo = from ? from.pathname + from.search : '/';
+    navigate(redirectTo, { replace: true });
   };
 
   return (

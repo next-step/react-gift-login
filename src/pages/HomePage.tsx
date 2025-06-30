@@ -1,4 +1,3 @@
-// src/pages/HomePage.tsx
 import Navigation from '@/components/Navigation';
 import FriendSelectSection from '@/components/FriendSelectSection';
 import CategorySection from '@/components/CategorySection';

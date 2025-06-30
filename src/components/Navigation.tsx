@@ -37,7 +37,11 @@ const Navigation = () => {
 
       <div>
         <IconButton
-          onClick={() => navigate('/login')}
+          onClick={() =>
+            navigate('/login', {
+              state: { from: location },
+            })
+          }
           aria-label="로그인"
           disabled={isLoginPage}
         >
