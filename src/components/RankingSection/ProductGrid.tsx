@@ -1,27 +1,15 @@
-import styled from '@emotion/styled';
+import CardGrid from '@/components/common/CardGrid';
+import ProductCard from './ProductCard';
 import type { Product } from '@/types/product';
-import ProductCard from '@/components/RankingSection/ProductCard';
 
-const ProductGrid = ({ products }: ProductGridProps) => {
+const ProductGrid = ({ products }: { products: Product[] }) => {
   return (
-    <Grid>
+    <CardGrid columns={3}>
       {products.map((item, index) => (
         <ProductCard key={item.id} item={item} rank={index + 1} />
       ))}
-    </Grid>
+    </CardGrid>
   );
 };
 
 export default ProductGrid;
-
-interface ProductGridProps {
-  products: Product[];
-}
-
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: ${({ theme }) => theme.spacing[2]};
-  row-gap: ${({ theme }) => theme.spacing[7]};
-  margin-bottom: ${({ theme }) => theme.spacing[4]};
-`;
