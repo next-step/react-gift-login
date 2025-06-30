@@ -20,7 +20,7 @@ import {
 const categoryTabs = ['전체', '여성이', '남성이', '청소년이'] as const;
 const sortTabs = ['받고 싶어한', '많이 선물한', '위시로 받은'] as const;
 
-type Category = typeof categoryTabs[number]; 
+type Category = typeof categoryTabs[number];
 type Sort = typeof sortTabs[number];
 
 const categoryEmojis: Record<Category, string> = {
@@ -44,9 +44,28 @@ const allItems = Array.from({ length: 21 }, (_, i) => ({
 }));
 
 const GiftRankingSection = () => {
-  const [selectedCategory, setSelectedCategory] = useState<Category>('전체');
-  const [selectedSort, setSelectedSort] = useState<Sort>('받고 싶어한');
+  const getInitialCategory = (): Category => {
+    const stored = localStorage.getItem('selectedCategory');
+    return categoryTabs.includes(stored as Category) ? (stored as Category) : '전체';
+  };
+
+  const getInitialSort = (): Sort => {
+    const stored = localStorage.getItem('selectedSort');
+    return sortTabs.includes(stored as Sort) ? (stored as Sort) : '받고 싶어한';
+  };
+
+  const [selectedCategory, setSelectedCategory] = useState<Category>(getInitialCategory);
+  const [selectedSort, setSelectedSort] = useState<Sort>(getInitialSort);
   const [expanded, setExpanded] = useState(false);
+
+  const handleCategoryChange = (tab: Category) => {
+    setSelectedCategory(tab);
+    localStorage.setItem('selectedCategory', tab);
+  };
+  const handleSortChange = (tab: Sort) => {
+    setSelectedSort(tab);
+    localStorage.setItem('selectedSort', tab);
+  };
 
   const visibleItems = expanded ? allItems : allItems.slice(0, 6);
 
@@ -59,7 +78,7 @@ const GiftRankingSection = () => {
           <CategoryTab
             key={tab}
             isSelected={selectedCategory === tab}
-            onClick={() => setSelectedCategory(tab)}
+            onClick={() => handleCategoryChange(tab)}
           >
             <TabCircle isSelected={selectedCategory === tab}>
               {categoryEmojis[tab]}
@@ -74,7 +93,7 @@ const GiftRankingSection = () => {
           <SortTab
             key={tab}
             isSelected={selectedSort === tab}
-            onClick={() => setSelectedSort(tab)}
+            onClick={() => handleSortChange(tab)}
           >
             {tab}
           </SortTab>
