@@ -66,7 +66,6 @@ interface CategoryItemProps {
 }
 
 const CategoryItem = ({ icon, label, onClick }: CategoryItemProps) => {
-  // 이미지 URL인지 이모지인지 판단
   const isImageUrl = icon.startsWith('http');
 
   return (

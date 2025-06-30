@@ -6,7 +6,6 @@ import MoreButton from './MoreButton';
 import { type Product } from './ProductCard';
 import { products } from '@/data';
 
-// 상수에서 타입을 추출하는 방식으로 변경
 const targetOptions = [
   { value: 'ALL', label: '전체' },
   { value: 'FEMALE', label: '여성이' },
@@ -20,11 +19,10 @@ const rankOptions = [
   { value: 'MANY_WISH_RECEIVE', label: '위시로 받은' },
 ] as const;
 
-// 상수에서 타입 추출
 type TargetType = (typeof targetOptions)[number]['value'];
 type RankType = (typeof rankOptions)[number]['value'];
 
-// BBQ 데이터를 21개로 복제하여 랭킹 데이터 생성
+// TODO: 실제 랭킹 API에서 데이터 가져오도록 구현 (현재는 BBQ 데이터 21개 복제)
 const generateRankingProducts = (): Product[] => {
   const baseProduct = products.find((p) => p.brandInfo.name === 'BBQ');
   if (!baseProduct) {
@@ -33,6 +31,7 @@ const generateRankingProducts = (): Product[] => {
   }
 
   return Array.from({ length: 21 }, (_, index) => ({
+    // BBQ 데이터를 21개로 복제
     id: `${baseProduct.id}-${index + 1}`,
     productId: baseProduct.id,
     productName: baseProduct.name,
@@ -53,13 +52,13 @@ const RankingSection = () => {
 
   const handleTargetChange = (value: string) => {
     setTargetType(value as TargetType);
-    // URL 파라미터 업데이트는 추후 라우팅 시 구현
+    // TODO: URL 파라미터 업데이트 및 라우팅 구현
     console.log(`Target changed: ${value}, Rank: ${rankType}`);
   };
 
   const handleRankChange = (value: string) => {
     setRankType(value as RankType);
-    // URL 파라미터 업데이트는 추후 라우팅 시 구현
+    // TODO: URL 파라미터 업데이트 및 라우팅 구현
     console.log(`Target: ${targetType}, Rank changed: ${value}`);
   };
 

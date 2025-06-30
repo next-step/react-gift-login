@@ -88,7 +88,7 @@ const LoginPage = ({ onLoginSuccess }: LoginPageProps) => {
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    // 임시 로그인 처리 - 단순히 메인 페이지로 이동
+    // TODO: 실제 로그인 API 연동 및 사용자 인증 로직 구현
     if (onLoginSuccess) {
       onLoginSuccess();
     }

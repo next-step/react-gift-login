@@ -63,8 +63,7 @@ const NavigationBar = ({
     if (onBackClick) {
       onBackClick();
     } else {
-      // 기본 뒤로가기 동작 (브라우저 히스토리)
-      window.history.back();
+      window.history.back();  // 기본 뒤로가기 동작 (브라우저 히스토리)
     }
   };
 
