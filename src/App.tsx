@@ -1,5 +1,6 @@
 import { Navbar } from '@/components/Navbar';
 import { CategorySection } from '@/components/CategorySection';
+import { ProductListSection } from '@/components/ProductListSection';
 
 function App() {
   return (
@@ -7,6 +8,7 @@ function App() {
       <Navbar />
       <main>
         <CategorySection />
+        <ProductListSection />
       </main>
     </>
   );
