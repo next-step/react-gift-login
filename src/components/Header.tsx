@@ -1,8 +1,23 @@
+import { useNavigate } from "react-router-dom";
+import { PATHS } from "../constants/paths";
+
 const Header = () => {
+  const navigate = useNavigate();
+
+  const handleProfileClick = () => {
+    navigate(PATHS.LOGIN); // 예를 들어 '/profile' 페이지로 이동
+  };
+
+  const handleBackClick = () => {
+    navigate(PATHS.HOME);
+  };
   return (
     <header className="bg-white shadow-sm p-4 flex justify-between items-center sticky top-0 z-20">
       <div className="flex items-center">
-        <button className="text-gray-600 mr-4 p-1 rounded-full hover:bg-gray-100 transition-colors">
+        <button
+          onClick={handleBackClick}
+          className="text-gray-600 mr-4 p-1 rounded-full hover:bg-gray-100 transition-colors"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6"
@@ -20,7 +35,10 @@ const Header = () => {
         </button>
         <h1 className="text-xl font-bold text-gray-800">선물하기</h1>
       </div>
-      <button className="text-gray-600 p-1 rounded-full hover:bg-gray-100 transition-colors">
+      <button
+        onClick={handleProfileClick}
+        className="text-gray-600 p-1 rounded-full hover:bg-gray-100 transition-colors"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-6 w-6"
