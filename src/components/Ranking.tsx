@@ -1,9 +1,10 @@
 import type { ThemeType } from "@/types/ThemeType";
 import { useTheme } from "@emotion/react";
 import styled from "@emotion/styled";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import RankingList from "@/components/RankingList";
 import { rankingTargetCategory } from "@/assets/rankingTargetCategory";
+import { useSearchParams } from "react-router-dom";
 
 const rankingRankCategoryList = {
   MANY_WISH: "받고 싶어한",
@@ -12,12 +13,22 @@ const rankingRankCategoryList = {
 } as const;
 
 const Ranking = () => {
-  const [selectedTargetCategory, setSelectedTargetCategory] = useState(rankingTargetCategory[0].targetType);
-  const [selectedRankCategory, setSelectedRankCategory] = useState(Object.keys(rankingRankCategoryList)[0]);
+  const [rankingCategoryParams, setRankCategoryParams] = useSearchParams();
+  const targetTypeCategory = rankingCategoryParams.get("targetType") || rankingTargetCategory[0].targetType;
+  const rankTypeCategory = rankingCategoryParams.get("rankType")?.trim() || Object.keys(rankingRankCategoryList)[0];
+
+  const [selectedTargetCategory, setSelectedTargetCategory] = useState(targetTypeCategory);
+  const [selectedRankCategory, setSelectedRankCategory] = useState(rankTypeCategory);
   const theme = useTheme();
   const isSelected = (element: string, selected: string) => {
     return element === selected;
   };
+
+  useEffect(() => {
+    rankingCategoryParams.set("targetType", selectedTargetCategory);
+    rankingCategoryParams.set("rankType", selectedRankCategory);
+    setRankCategoryParams(rankingCategoryParams);
+  }, [selectedTargetCategory, selectedRankCategory]);
   return (
     <Container>
       <Title>실시간 급상승 선물랭킹</Title>
