@@ -1,12 +1,12 @@
 import { ThemeImage, ThemeItemWrapper, ThemeItemText } from '@/styles/Theme/ThemeItem.styles';
 
-type Themetype = {
+type ThemeProps = {
   themeId: number;
   name: string;
   image: string;
 };
 
-function ThemeItem({ theme }: { theme: Themetype }) {
+function ThemeItem({ theme }: { theme: ThemeProps }) {
   return (
     <ThemeItemWrapper>
       <ThemeImage src={theme.image} alt={theme.name} />

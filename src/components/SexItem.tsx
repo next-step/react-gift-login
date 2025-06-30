@@ -1,12 +1,12 @@
 import { SexContainerWrapperItem } from '@/styles/Sex/SexItemStyle.styles';
 
-type SexType = {
+type SexProps = {
   sex: string;
   selectSex: string;
   onClick: () => void;
 };
 
-function SexItem({ sex, selectSex, onClick }: SexType) {
+function SexItem({ sex, selectSex, onClick }: SexProps) {
   const selected = sex === selectSex;
   return (
     <SexContainerWrapperItem selected={selected} onClick={onClick}>
