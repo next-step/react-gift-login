@@ -1,6 +1,11 @@
 import styled from '@emotion/styled';
 import BackArrow from '@/assets/chevron_left.svg?react';
 import User from '@/assets/user.svg?react';
+import { useNavigate } from 'react-router-dom';
+
+interface HeaderType {
+  title: string;
+}
 
 const Container = styled.div`
   position: fixed;
@@ -24,18 +29,19 @@ const Btn = styled.button`
   cursor: pointer;
 `;
 
-export const Header = () => {
+export const Header = ({ title }: HeaderType) => {
   const svgSize = 30;
+  const navigate = useNavigate();
 
   return (
     <Container>
-      <Btn>
+      <Btn onClick={() => navigate('/')}>
         <BackArrow width={svgSize} height={svgSize} fill="black" style={{ marginLeft: '10px' }} />
       </Btn>
       <Btn>
-        <Text>선물하기</Text>
+        <Text onClick={() => navigate('/')}>{title}</Text>
       </Btn>
-      <Btn>
+      <Btn onClick={() => navigate('/login')}>
         <User width={svgSize} height={svgSize} fill="black" style={{ marginRight: '10px' }} />
       </Btn>
     </Container>
