@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { IoArrowBack, IoPersonOutline } from 'react-icons/io5';
+import { useNavigate } from 'react-router-dom';
 
 const FixedHeader = styled.header`
   position: fixed;
@@ -33,14 +34,16 @@ const Title = styled.button`
 `;
 
 const NavigationBar = () => {
+  const navigate = useNavigate();
+
   return (
     <FixedHeader>
       <Container>
-        <Icon>
+        <Icon onClick={() => navigate(-1)}>
           <IoArrowBack size={24} />
         </Icon>
         <Title>선물하기</Title>
-        <Icon>
+        <Icon onClick={() => navigate('/login')}>
           <IoPersonOutline size={24} />
         </Icon>
       </Container>
