@@ -12,7 +12,7 @@ export const NavigationSection = styled.section`
 
   padding: 0 ${({ theme }) => theme.spacing[2]};
   box-sizing: border-box;
-  z-index: ${({ theme }) => theme.components.navigationBar.zIndex};
+  z-index: 10000;
   background-color: ${({ theme }) => theme.colors.background.default};
 `;
 
@@ -21,18 +21,18 @@ export const SectionTitle = styled.h2`
   font-weight: ${({ theme }) => theme.typography.title.title1Bold.fontWeight};
 `;
 
-export const IconButton = styled.button`
+export const UnstyledButton = styled.button`
   cursor: pointer;
   border: 0;
   background-color: transparent;
 `;
 
 export const LeftIcon = styled.img`
-  width: ${({ theme }) => theme.components.navigationBar.leftIconSize};
-  height: ${({ theme }) => theme.components.navigationBar.leftIconSize};
+  width: 24px;
+  height: 24px;
 `;
 
 export const ProfileIcon = styled.img`
-  width: ${({ theme }) => theme.components.navigationBar.profileIconSize};
-  height: ${({ theme }) => theme.components.navigationBar.profileIconSize};
+  width: 20px;
+  height: 20px;
 `;

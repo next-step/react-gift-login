@@ -11,7 +11,7 @@ function Category() {
       </SectionHeader>
       <ThemeGrid>
         {categoryMockData.map((theme) => (
-          <ThemeCard key={theme.themeId} theme={theme} />
+          <ThemeCard key={theme.themeId} name={theme.name} image={theme.image} />
         ))}
       </ThemeGrid>
     </GiftThemeSection>

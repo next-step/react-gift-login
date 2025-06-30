@@ -17,35 +17,6 @@ export const theme = {
   components: {
     navigationBar: {
       height: '3rem',
-      leftIconSize: spacing[6],
-      profileIconSize: spacing[5],
-      zIndex: 10000,
-    },
-    giftBanner: {
-      height: '7rem',
-      width: '95%',
-      AddIconSize: spacing[5],
-    },
-    category: {
-      themeCardWidth: '8rem',
-      themeCardHeight: '5rem',
-      themeCardImageSize: '50px',
-    },
-    eventBanner: {
-      bannerCardWidth: '95%',
-      bannerCardHeight: '4rem',
-      labelGap: '5px',
-    },
-    trendingGifts: {
-      contentWidth: '95%',
-      moreInfoWidth: '65%',
-      productCard: {
-        rankBadgePadding: '2px',
-        imageRatio: '1',
-      },
-      subTab: {
-        borderWidth: '1px',
-      },
     },
   },
 } as const;

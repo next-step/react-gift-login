@@ -1,13 +1,13 @@
 import styled from '@emotion/styled';
+import { TRENDING_GIFTS_SUB_TABS } from '../constants/labels';
 
 const SubTabContainer = styled.div`
   display: flex;
-  width: ${({ theme }) => theme.components.trendingGifts.contentWidth};
+  width: 95%;
   justify-content: space-around;
   align-items: center;
   background-color: ${({ theme }) => theme.colors.blue[100]};
-  border: ${({ theme }) => theme.components.trendingGifts.subTab.borderWidth} solid
-    ${({ theme }) => theme.colors.blue[300]};
+  border: 1px solid ${({ theme }) => theme.colors.blue[300]};
   box-sizing: border-box;
   padding: ${({ theme }) => theme.spacing[3]};
   border-radius: ${({ theme }) => theme.borderRadius.xs};
@@ -27,21 +27,15 @@ const SubTabButton = styled.button<{ isSelected: boolean }>`
 `;
 
 interface SubTabPropsType {
-  selectedTabIdx: number;
-  setSelectedTabIdx: (idx: number) => void;
+  subTabIdx: number;
+  setSubTabIdx: (idx: number) => void;
 }
 
-function SubTab({ selectedTabIdx, setSelectedTabIdx }: SubTabPropsType) {
-  const tabs = ['받고 싶어한', '많이 선물한', '위시로 받은'];
-
+function SubTab({ subTabIdx, setSubTabIdx }: SubTabPropsType) {
   return (
     <SubTabContainer>
-      {tabs.map((el, idx) => (
-        <SubTabButton
-          key={idx}
-          isSelected={idx === selectedTabIdx}
-          onClick={() => setSelectedTabIdx(idx)}
-        >
+      {TRENDING_GIFTS_SUB_TABS.map((el, idx) => (
+        <SubTabButton key={idx} isSelected={idx === subTabIdx} onClick={() => setSubTabIdx(idx)}>
           {el}
         </SubTabButton>
       ))}
