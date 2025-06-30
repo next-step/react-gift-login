@@ -1,58 +1,50 @@
-import { useState } from 'react';
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { MobileLayout, Main } from '@/components/layout';
 import { NavigationBar } from '@/components/navigation';
-import { HomePage, LoginPage } from '@/pages';
-
-type PageType = 'home' | 'login';
+import { HomePage, LoginPage, NotFoundPage } from '@/pages';
 
 function App() {
-  const [currentPage, setCurrentPage] = useState<PageType>('home');
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  // 페이지별 네비게이션 설정
   const getNavigationConfig = () => {
-    switch (currentPage) {
-      case 'home':
+    switch (location.pathname) {
+      case '/':
         return {
           title: '선물하기',
-          showBackButton: true, // 메인 페이지에서도 뒤로가기 표시
+          showBackButton: true,
           showProfileButton: true,
         };
-      case 'login':
+      case '/login':
         return {
           title: '로그인',
           showBackButton: true,
-          showProfileButton: false, // 로그인 페이지에서는 프로필 버튼 숨김
+          showProfileButton: false,
         };
       default:
         return {
-          title: '카카오 선물하기',
+          title: 'Page Not Found',
           showBackButton: true,
-          showProfileButton: true,
+          showProfileButton: false,
         };
     }
   };
 
   const navConfig = getNavigationConfig();
 
-  // 네비게이션 핸들러들
   const handleBackClick = () => {
-    setCurrentPage('home'); // 뒤로가기는 항상 홈으로
+    if (window.history.length > 1) {
+      // 브라우저 히스토리가 있으면
+      navigate(-1); // 브라우저 뒤로가기
+    } else {
+      navigate('/'); // 홈(/)으로
+    }
   };
 
   const handleProfileClick = () => {
-    setCurrentPage('login'); // 프로필 클릭시 로그인 페이지로
-  };
-
-  // 페이지 렌더링
-  const renderCurrentPage = () => {
-    switch (currentPage) {
-      case 'home':
-        return <HomePage />;
-      case 'login':
-        return <LoginPage onLoginSuccess={() => setCurrentPage('home')} />;
-      default:
-        return <HomePage />;
-    }
+    navigate('/login', {
+      state: { from: location.pathname },
+    });
   };
 
   return (
@@ -65,7 +57,13 @@ function App() {
         onProfileClick={handleProfileClick}
       />
 
-      <Main>{renderCurrentPage()}</Main>
+      <Main>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </Main>
     </MobileLayout>
   );
 }

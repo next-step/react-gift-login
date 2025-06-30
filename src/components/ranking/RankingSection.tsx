@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { Section } from '@/components/layout';
 import FilterButtonGroup from './FilterButtonGroup';
 import ProductGrid from './ProductGrid';
@@ -6,7 +7,6 @@ import MoreButton from './MoreButton';
 import { type Product } from './ProductCard';
 import { products } from '@/data';
 
-// 상수에서 타입을 추출하는 방식으로 변경
 const targetOptions = [
   { value: 'ALL', label: '전체' },
   { value: 'FEMALE', label: '여성이' },
@@ -20,11 +20,10 @@ const rankOptions = [
   { value: 'MANY_WISH_RECEIVE', label: '위시로 받은' },
 ] as const;
 
-// 상수에서 타입 추출
 type TargetType = (typeof targetOptions)[number]['value'];
 type RankType = (typeof rankOptions)[number]['value'];
 
-// BBQ 데이터를 21개로 복제하여 랭킹 데이터 생성
+// TODO: 실제 랭킹 API에서 데이터 가져오도록 구현 (현재는 BBQ 데이터 21개 복제)
 const generateRankingProducts = (): Product[] => {
   const baseProduct = products.find((p) => p.brandInfo.name === 'BBQ');
   if (!baseProduct) {
@@ -33,6 +32,7 @@ const generateRankingProducts = (): Product[] => {
   }
 
   return Array.from({ length: 21 }, (_, index) => ({
+    // BBQ 데이터를 21개로 복제
     id: `${baseProduct.id}-${index + 1}`,
     productId: baseProduct.id,
     productName: baseProduct.name,
@@ -45,22 +45,45 @@ const generateRankingProducts = (): Product[] => {
 };
 
 const RankingSection = () => {
-  const [targetType, setTargetType] = useState<TargetType>('ALL');
-  const [rankType, setRankType] = useState<RankType>('MANY_WISH');
-  const [showMore, setShowMore] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [showMore, setShowMore] = useState(false); // 더보기는 URL에 저장하지 않음 (UX 고려)
+
+  // URL 쿼리 파라미터에서 필터 상태 읽기 및 유효성 검증
+  const getValidTargetType = (param: string | null): TargetType => {
+    const validValues = targetOptions.map((option) => option.value);
+    return validValues.includes(param as TargetType)
+      ? (param as TargetType)
+      : 'ALL';
+  };
+
+  const getValidRankType = (param: string | null): RankType => {
+    const validValues = rankOptions.map((option) => option.value);
+    return validValues.includes(param as RankType)
+      ? (param as RankType)
+      : 'MANY_WISH';
+  };
+
+  const targetType = getValidTargetType(searchParams.get('target'));
+  const rankType = getValidRankType(searchParams.get('rank'));
 
   const rankingProducts = generateRankingProducts();
 
   const handleTargetChange = (value: string) => {
-    setTargetType(value as TargetType);
-    // URL 파라미터 업데이트는 추후 라우팅 시 구현
-    console.log(`Target changed: ${value}, Rank: ${rankType}`);
+    // URL 쿼리 파라미터 업데이트: ?target=value&rank=기존값
+    setSearchParams((prev) => {
+      const newParams = new URLSearchParams(prev);
+      newParams.set('target', value);
+      return newParams;
+    });
   };
 
   const handleRankChange = (value: string) => {
-    setRankType(value as RankType);
-    // URL 파라미터 업데이트는 추후 라우팅 시 구현
-    console.log(`Target: ${targetType}, Rank changed: ${value}`);
+    // URL 쿼리 파라미터 업데이트: ?target=기존값&rank=value
+    setSearchParams((prev) => {
+      const newParams = new URLSearchParams(prev);
+      newParams.set('rank', value);
+      return newParams;
+    });
   };
 
   return (

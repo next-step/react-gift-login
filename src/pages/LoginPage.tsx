@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import styled from '@emotion/styled';
 import { Section } from '@/components/layout';
+import { Button } from '@/components/common';
 
 const LoginContainer = styled.div`
   display: flex;
@@ -53,45 +55,25 @@ const Input = styled.input`
   }
 `;
 
-const LoginButton = styled.button`
+const ButtonContainer = styled.div`
   width: 100%;
   max-width: 280px;
-  background-color: ${(props) => props.theme.semanticColors.kakaoYellow};
-  color: ${(props) => props.theme.colors.gray900};
-  border: none;
-  padding: ${(props) => props.theme.spacing.spacing4}
-    ${(props) => props.theme.spacing.spacing6};
-  border-radius: 6px;
-  font-size: ${(props) => props.theme.typography.body1Bold.fontSize};
-  font-weight: ${(props) => props.theme.typography.body1Bold.fontWeight};
-  cursor: pointer;
-  transition: background-color 0.2s;
-  font-family: 'Pretendard', sans-serif;
   margin-top: ${(props) => props.theme.spacing.spacing6};
-
-  &:hover {
-    background-color: ${(props) => props.theme.semanticColors.kakaoYellowHover};
-  }
-
-  &:active {
-    background-color: ${(props) =>
-      props.theme.semanticColors.kakaoYellowActive};
-  }
 `;
 
-interface LoginPageProps {
-  onLoginSuccess?: () => void;
-}
-
-const LoginPage = ({ onLoginSuccess }: LoginPageProps) => {
+const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleLogin = () => {
-    // 임시 로그인 처리 - 단순히 메인 페이지로 이동
-    if (onLoginSuccess) {
-      onLoginSuccess();
-    }
+    // TODO: 현재는 항상 로그인 성공 처리 -> 실제 API 연동은 추후 구현
+    console.log('로그인 성공:', { email, password });
+
+    // 이전 페이지 정보가 있으면 그곳으로, 없으면 홈(/)으로 이동
+    const from = location.state?.from || '/';
+    navigate(from, { replace: true }); // replace로 로그인 페이지를 히스토리에서 제거
   };
 
   return (
@@ -121,7 +103,11 @@ const LoginPage = ({ onLoginSuccess }: LoginPageProps) => {
           />
         </InputGroup>
 
-        <LoginButton onClick={handleLogin}>로그인</LoginButton>
+        <ButtonContainer>
+          <Button variant="primary" size="lg" fullWidth onClick={handleLogin}>
+            로그인
+          </Button>
+        </ButtonContainer>
       </LoginContainer>
     </Section>
   );
