@@ -1,7 +1,7 @@
-/** @jsxImportSource @emotion/react */
 import styled from '@emotion/styled';
 import { IoIosArrowBack } from 'react-icons/io';
-import { GoPerson } from "react-icons/go";
+import { GoPerson } from 'react-icons/go';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Nav = styled.header`
   position: sticky;
@@ -21,11 +21,18 @@ const Title = styled.header`
 `;
 
 export default function NavBar() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   return (
     <Nav>
-      <IoIosArrowBack size={24} />
+      <IoIosArrowBack size={24} css={{ cursor: 'pointer' }} onClick={() => navigate(-1)} />
       <Title>선물하기</Title>
-      <GoPerson size={24} />
+      <GoPerson
+        size={24}
+        css={{ cursor: 'pointer' }}
+        onClick={() => navigate('/login', { state: { from: location.pathname } })}
+      />
     </Nav>
   );
 }

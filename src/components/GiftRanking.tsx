@@ -1,5 +1,5 @@
-/** @jsxImportSource @emotion/react */
 import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import styled from '@emotion/styled';
 import type { Product } from '@/types/Product';
 import { products } from '@/mock/productsData';
@@ -39,16 +39,15 @@ const IconBox = styled.div<{ active: boolean }>`
   align-items: center;
   justify-content: center;
   ${({ theme }) => theme.typography.body2Bold};
-  background: ${({ active, theme }) =>
-    active ? theme.colors.blue[700] : theme.colors.blue[100]};
+  background: ${({ active, theme }) => (active ? theme.colors.blue[700] : theme.colors.blue[100])};
   color: ${({ active, theme }) => (active ? '#fff' : theme.colors.blue[400])};
+  transition: background-color 200ms;
 `;
 
 const Label = styled.span<{ active: boolean }>`
-  ${({ active, theme }) => active ? theme.typography.body2Bold :theme.typography.body2Regular};
+  ${({ active, theme }) => (active ? theme.typography.body2Bold : theme.typography.body2Regular)};
   margin-top: ${({ theme }) => theme.spacing.spacing1};
-  color: ${({ active, theme }) =>
-    active ? theme.colors.blue[700] : theme.colors.gray[700]};
+  color: ${({ active, theme }) => (active ? theme.colors.blue[700] : theme.colors.gray[700])};
 `;
 
 /* 탭 */
@@ -64,12 +63,14 @@ const TabRow = styled.div`
 const TabBtn = styled.button<{ active: boolean }>`
   flex: 1 0 0;
   text-align: center;
-  ${({ active, theme }) => active ? theme.typography.body2Bold :theme.typography.body2Regular};
-  color: ${({ active, theme }) =>
-    active ? theme.colors.blue[700] : theme.colors.blue[400]};
+  ${({ active, theme }) => (active ? theme.typography.body2Bold : theme.typography.body2Regular)};
+  color: ${({ active, theme }) => (active ? theme.colors.blue[700] : theme.colors.blue[400])};
   cursor: pointer;
   border: none;
   background: none;
+  transition:
+    color 200ms,
+    font-weight 200ms;
 `;
 
 /* 그리드 */
@@ -91,7 +92,6 @@ const MoreBtn = styled.button`
   cursor: pointer;
 `;
 
-
 const ageGenderFilters = [
   { key: 'all', icon: 'ALL', label: '전체' },
   { key: 'female', icon: '👩🏻', label: '여성이' },
@@ -105,11 +105,29 @@ const rankingTabs = [
   { key: 'wish', label: '위시로 받은' },
 ];
 
-
 export default function GiftRankingSection() {
-  const [filter, setFilter] = useState('all');
-  const [tab, setTab] = useState('want');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const initGender = searchParams.get('gender') ?? 'all';
+  const initType = searchParams.get('type') ?? 'want';
+
+  const [filter, setFilter] = useState(initGender);
+  const [tab, setTab] = useState(initType);
   const [collapsed, setCollapsed] = useState(true);
+
+  const updateParams = (key: string, value: string) => {
+    const next = new URLSearchParams(searchParams);
+    next.set(key, value);
+    setSearchParams(next, { replace: true });
+  };
+
+  const handleFilter = (key: string) => {
+    setFilter(key);
+    updateParams('gender', key);
+  };
+  const handleTab = (key: string) => {
+    setTab(key);
+    updateParams('type', key);
+  };
 
   const visible: Product[] = collapsed ? products.slice(0, 6) : products;
 
@@ -122,7 +140,7 @@ export default function GiftRankingSection() {
         {ageGenderFilters.map((f) => {
           const isActive = filter === f.key;
           return (
-            <GenderButton key={f.key} active={isActive} onClick={() => setFilter(f.key)}>
+            <GenderButton key={f.key} active={isActive} onClick={() => handleFilter(f.key)}>
               <IconBox active={isActive}>{f.icon}</IconBox>
               <Label active={isActive}>{f.label}</Label>
             </GenderButton>
@@ -133,11 +151,7 @@ export default function GiftRankingSection() {
       {/* 탭 */}
       <TabRow>
         {rankingTabs.map((t) => (
-          <TabBtn
-            key={t.key}
-            active={tab === t.key}
-            onClick={() => setTab(t.key)}
-          >
+          <TabBtn key={t.key} active={tab === t.key} onClick={() => handleTab(t.key)}>
             {t.label}
           </TabBtn>
         ))}
@@ -151,9 +165,7 @@ export default function GiftRankingSection() {
       </Grid>
 
       {/* 더보기 / 접기 */}
-      <MoreBtn onClick={() => setCollapsed((c) => !c)}>
-        {collapsed ? '더보기' : '접기'}
-      </MoreBtn>
+      <MoreBtn onClick={() => setCollapsed((c) => !c)}>{collapsed ? '더보기' : '접기'}</MoreBtn>
     </Wrapper>
   );
 }

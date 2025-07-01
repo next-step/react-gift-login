@@ -1,4 +1,3 @@
-/** @jsxImportSource @emotion/react */
 import styled from '@emotion/styled';
 import { FiPlus } from 'react-icons/fi';
 
@@ -51,9 +50,9 @@ export default function FriendSelect() {
     <Wrapper>
       <Box>
         <PlusIcon>
-        <FiPlus />
-      </PlusIcon>
-      <Label>선물할 친구를 선택해 주세요.</Label>
+          <FiPlus />
+        </PlusIcon>
+        <Label>선물할 친구를 선택해 주세요.</Label>
       </Box>
     </Wrapper>
   );

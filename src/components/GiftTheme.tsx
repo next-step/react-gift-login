@@ -1,4 +1,3 @@
-/** @jsxImportSource @emotion/react */
 import styled from '@emotion/styled';
 import themes from '@/mock/themeData';
 import CategoryItem from './CategoryItem';
@@ -6,7 +5,7 @@ import CategoryItem from './CategoryItem';
 const Wrapper = styled.section`
   margin-top: ${({ theme }) => theme.spacing.spacing6};
   margin-bottom: ${({ theme }) => theme.spacing.spacing6};
-  padding: ${({ theme }) => theme.spacing.spacing2}
+  padding: ${({ theme }) => theme.spacing.spacing2};
 `;
 
 const Title = styled.h2`
