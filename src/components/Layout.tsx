@@ -1,19 +1,23 @@
 import styled from '@emotion/styled'
+
+import { Navbar } from './Navbar'
 import type { ReactNode } from 'react'
 
 const Wrapper = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
+   max-width: 600px;  
+  margin: 0 auto;     
+  width: 100;
+`;
 
-  
-  & > .inner {
-    width: 100%;
-    max-width: 720px;
-    padding: 0 16px; 
-    box-sizing: border-box;
-  }
-`
+const Inner = styled.div`
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 16px;
+  box-sizing: border-box;
+  flex: 1;
+`;
+
 
 interface Props {
   children: ReactNode
@@ -21,8 +25,15 @@ interface Props {
 
 export const Layout = ({ children }: Props) => {
   return (
-  <Wrapper>
-    <div className="inner">{children}</div>
-  </Wrapper>
+
+    <Wrapper>
+      
+      <Inner>
+        <Navbar/>
+        {children}  {/* ✅ LoginPage나 홈 콘텐츠 */}
+      </Inner>
+    </Wrapper>
   )
 }
+export default Layout;
+

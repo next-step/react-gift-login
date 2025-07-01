@@ -1,3 +1,4 @@
+
 import { Global, ThemeProvider } from '@emotion/react'
 import { globalReset } from '@/styles/reset'
 import { theme } from '@/styles/theme'
@@ -21,17 +22,19 @@ function App() {
       <Global styles={globalReset} />
       <AppWrapper>
         <Layout>
-          <Navbar />
+
+          
+
           <main>
             <GiftFriendSelector />
 
             <HomeContentCard>
               <CategorySection />
-              <MotivationBanner />  
+              <MotivationBanner />
               <RankingSection />
             </HomeContentCard>
 
-            
+
           </main>
         </Layout>
       </AppWrapper>
