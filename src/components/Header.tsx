@@ -33,25 +33,36 @@ const IconButton = styled.button`
 
 export default function Header() {
   const navigate = useNavigate();
-  const loc = useLocation();
+  const location = useLocation();
+
+  const handleBackClick = () => {
+
+    navigate(-1);
+  };
+
+
+  const handleLoginClick = () => {
+
+    navigate('/login', { state: { from: location.pathname } });
+  };
+
+
+
+
+
+
   return (
     <Wrap>
       {/* 뒤로가기 아이콘 */}
-      <IconButton aria-label="뒤로가기"
-        onClick={() => navigate(-1)}>
+      <IconButton aria-label="뒤로가기" onClick={handleBackClick}>
         <IoArrowBackOutline />
-
       </IconButton>
 
       {/* 중앙 타이틀 */}
       <Title>선물하기</Title>
 
       {/* 우측 더보기(또는 닫기) 아이콘 */}
-      <IconButton aria-label="로그인"
-        onClick={() =>
-          navigate('/login', { state: { from: loc.pathname } })
-        }
-      >
+      <IconButton aria-label="로그인" onClick={handleLoginClick}>
         <IoPersonOutline />
       </IconButton>
     </Wrap>

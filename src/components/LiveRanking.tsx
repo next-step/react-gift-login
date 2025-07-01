@@ -1,43 +1,109 @@
-import styled from '@emotion/styled';
-import { colors, fontSizes, spaces, } from '@/tokens/designTokens';
+import { useState, useEffect } from 'react';
+import products from '@/data/products';
+import type { Product } from '@/data/products';
+import * as S from '@/components/LiveRankingStyle';
+import { FilterGender, FilterType } from '@/components/LiveRankingFilter';
 
-const Wrap = styled.section`
-  padding: ${spaces.lg} ${spaces.md};
-  background: ${colors.bg};
-`;
+const genderList = [
+  { label: 'All', icon: 'ALL' },
+  { label: '남성이', icon: '👨‍🦰' },
+  { label: '여성이', icon: '👩‍🦰' },
+  { label: '청소년이', icon: '👦' },
+];
 
-const Title = styled.h2`
-  font-size: ${fontSizes.h2};
-  margin-bottom: ${spaces.md};
-  color: ${colors.text};
-`;
+const typeList = ['받고 싶어한', '많이 선물한', '위시로 받은'];
 
-const List = styled.ol`
-  padding-left: ${spaces.md};
-  margin: 0;
-`;
+type GenderLabel = (typeof genderList)[number]['label'];
+type TypeLabel = (typeof typeList)[number];
 
-const Item = styled.li`
-  margin-bottom: ${spaces.sm};
-  font-size: ${fontSizes.body};
-  color: ${colors.text};
-  &::marker {
-    color: ${colors.primary};
-    font-weight: bold;
-  }
-`;
+const TrendRanking = () => {
+  const [selectedGender, setSelectedGender] = useState<GenderLabel>('All');
+  const [selectedType, setSelectedType] = useState<TypeLabel>('받고 싶어한');
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [visibleCount, setVisibleCount] = useState(6);
+  const [isExpanded, setIsExpanded] = useState(false);
 
-const RANKS = ['꽃다발', '초콜릿', '커피', '케이크', '와인'];
+  const handleGenderClick = (label: string) => {
+    setSelectedGender(label);
+  };
 
-export default function LiveRanking() {
+  const handleTypeSelect = (label: string) => {
+    setSelectedType(label);
+  };
+
+  const handleProductSelect = (product: Product) => {
+    setSelectedProduct(product);
+  };
+
+  const handleToggleView = () => {
+    if (isExpanded) {
+      setVisibleCount(6);
+      setIsExpanded(false);
+    } else {
+      setVisibleCount(products.length);
+      setIsExpanded(true);
+    }
+  };
+
+  useEffect(() => {
+    console.log('선택된 Gender:', selectedGender);
+  }, [selectedGender]);
+
+  useEffect(() => {
+    console.log('선택된 Type:', selectedType);
+  }, [selectedType]);
+
+  useEffect(() => {
+    console.log('선택된 Product:', selectedProduct);
+  }, [selectedProduct]);
+
   return (
-    <Wrap>
-      <Title>실시간 급상승 선물</Title>
-      <List>
-        {RANKS.map(name => (
-          <Item key={name}>{name}</Item>
+    <S.Container>
+      <h2>실시간 급상승 선물랭킹</h2>
+
+      <S.GenderTab>
+        {genderList.map(({ icon, label }) => (
+          <FilterGender
+            key={label}
+            icon={icon}
+            label={label}
+            isActive={selectedGender === label}
+            onClick={handleGenderClick}
+          />
         ))}
-      </List>
-    </Wrap>
+      </S.GenderTab>
+
+      <S.TypeTab>
+        {typeList.map((label) => (
+          <FilterType
+            key={label}
+            label={label}
+            isActive={selectedType === label}
+            onClick={handleTypeSelect}
+          />
+        ))}
+      </S.TypeTab>
+
+      <S.ProductTab>
+        {products.slice(0, visibleCount).map((item, index) => (
+          <S.ProductItem
+            key={item.id}
+            onClick={() => handleProductSelect(item)}
+          >
+            <S.Rank rank={index + 1}>{index + 1}</S.Rank>
+            <S.ProductImage src={item.imageURL} alt={item.name} />
+            <p>{item.brandInfo.name}</p>
+            <p>{item.name}</p>
+            <strong>{item.price.sellingPrice.toLocaleString()} 원</strong>
+          </S.ProductItem>
+        ))}
+      </S.ProductTab>
+
+      <S.MoreButton onClick={handleToggleView}>
+        {isExpanded ? '접기' : '더보기'}
+      </S.MoreButton>
+    </S.Container>
   );
-}
+};
+
+export default TrendRanking;
