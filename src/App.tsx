@@ -1,21 +1,21 @@
-/** @jsxImportSource @emotion/react */
-import React from 'react';
-import { GlobalStyles } from '@/styles/GlobalStyles';
-import { NavBar } from '@/components/NavBar';
-import { CategorySection } from '@/sections/CategorySection';
-import { RankingSection } from '@/sections/RankingSection';
-import { FriendSelectionSection } from '@/components/FriendSelectionSection';
+import { ThemeProvider } from '@emotion/react';
+import { theme } from './styles/theme';
+import { BaseLayout } from './components/Layout/BaseLayout';
+import { Navigation } from './components/Layout/Navigation';
 
-function App() {
+import { BrowserRouter } from 'react-router';
+import { Routes } from './pages/Routes';
+
+const App = () => {
   return (
-    <>
-      <GlobalStyles />
-      <NavBar />     
-      <FriendSelectionSection />
-      <CategorySection />
-      <RankingSection />
-    </>
+    <BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <BaseLayout header={<Navigation />}>
+          <Routes />
+        </BaseLayout>
+      </ThemeProvider>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
