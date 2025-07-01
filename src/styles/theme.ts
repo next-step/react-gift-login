@@ -121,5 +121,4 @@ export const typography = {
   label2Bold:      { fontSize: '0.75rem', fontWeight: 700, lineHeight: '1rem'     },
   label2Regular:   { fontSize: '0.75rem', fontWeight: 400, lineHeight: '1rem'     },
 };
-
 export const theme = { palette, spacing, typography } as const;
