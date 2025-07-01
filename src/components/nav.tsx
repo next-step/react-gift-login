@@ -32,7 +32,7 @@ const iconStyle = css`
   }
 `;
 
-export default function Header() {
+export default function Nav() {
   return (
     <header css={headerStyle}>
       <IoChevronBack css={iconStyle} aria-label="뒤로가기" />

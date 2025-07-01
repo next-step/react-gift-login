@@ -1,16 +1,30 @@
 import { Global, css } from '@emotion/react';
-import reset from './styles/reset';
+import { useTheme } from '@emotion/react';
+
+import { globalStyle } from '@/styles/globalStyle';
+import reset from '@/styles/reset';
+import Nav from '@/components/nav';
+import CategorySection from '@/components/categorySection';
+import MessageSection from '@/components/messageSection';
+import GiftRecipientList from '@/components/giftRecipientList';
+import TrendRanking from '@/components/trendRanking';
 
 function App() {
-  // ...
+  const theme = useTheme();
+
   return (
     <>
       <Global
         styles={css`
-          ${reset}
+          ${reset};
+          ${globalStyle(theme)};
         `}
       />
-      {<div>카카오테크캠퍼스 Frontend 2단계</div>}
+      <Nav />
+      <GiftRecipientList />
+      <CategorySection />
+      <MessageSection />
+      <TrendRanking />
     </>
   );
 }
