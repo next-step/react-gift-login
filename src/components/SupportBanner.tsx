@@ -1,5 +1,5 @@
-import type { Theme } from '@emotion/react';
-import { css, useTheme } from '@emotion/react';
+import type { Theme } from "@emotion/react";
+import { css, useTheme } from "@emotion/react";
 
 const bannerStyle = (theme: Theme) => css`
   background-color: ${theme.colors.semantic.kakaoYellow};

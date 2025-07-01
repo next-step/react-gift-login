@@ -1,6 +1,6 @@
-import type { Theme } from '@emotion/react';
-import { css, useTheme } from '@emotion/react';
-import { FiPlus } from 'react-icons/fi';
+import type { Theme } from "@emotion/react";
+import { css, useTheme } from "@emotion/react";
+import { FiPlus } from "react-icons/fi";
 
 const boxStyle = (theme: Theme) => css`
   display: flex;
