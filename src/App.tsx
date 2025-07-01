@@ -195,18 +195,18 @@ function App() {
   const [selectRankingType, setSelectRankingType] = useState(''); // 받고 싶어한, 많이 선물한, 위시로 받은중 하나를 선택했다는 것을 저장하기 위한 state
   const [isCollapsed, setIsCollapsed] = useState(true); // 실시간 급상승 선물랭킹을 더보기 줄이기 할 수 있는 버튼의 상태를 저장하기 위한 state
 
-  const rankTypes = [
-    { type: 'WANT', label: '받고 싶어한' },
-    { type: 'MANY', label: '많이 선물한' },
-    { type: 'WISH', label: '위시로 받은' },
-  ];
-
   const rankGroup = [
     { group: 'ALL', label: 'ALL', text: '전체' },
     { group: 'FEMALE', label: '👩🏻', text: '여성이'},
     { group: 'MALE', label: '👨🏻', text: '남성이' },
     { group: 'TEEN', label: '👦🏻', text: '청소년이' },
   ]
+
+  const rankTypes = [
+    { type: 'WANT', label: '받고 싶어한' },
+    { type: 'MANY', label: '많이 선물한' },
+    { type: 'WISH', label: '위시로 받은' },
+  ];
 
   useEffect(() => {
     const savedGrop = localStorage.getItem('selectedGroup');
@@ -241,13 +241,14 @@ function App() {
         <RealtimeRankWrapper>
           <RealtimeRankTitle>실시간 급상승 선물랭킹</RealtimeRankTitle>
           <RealtimeRankNavWrapper>
-            {rankGroup.map(({ group, label }) => (
+            {rankGroup.map(({ group, label, text}) => (
               <RealtimeRankNavBtnTitleWrapper>
               <RealtimeRankNavBtn onClick={() => setSelectedGroup(group)} isSelected={selectedGroup === group}>{label}</RealtimeRankNavBtn>
-              <RealtimeRankNavTitle>전체</RealtimeRankNavTitle>
+              <RealtimeRankNavTitle>{text}</RealtimeRankNavTitle>
               </RealtimeRankNavBtnTitleWrapper>
             ))}
           </RealtimeRankNavWrapper>
+
           <RealtimeRankNav2Wrapper>
             {rankTypes.map(({ type, label }) => (
               <RealtimeRankNav2Btn key={type} onClick={() => setSelectRankingType(type)} isSelected={selectRankingType === type}>
