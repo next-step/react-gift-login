@@ -140,7 +140,11 @@ interface ThemeSpacing {
 }
 
 interface ThemeBreakpoints {
-  desktop: string;
+  desktop: number;
+}
+interface ThemeLogo {
+  width: number;
+  height: number;
 }
 
 export interface Theme {
@@ -148,6 +152,7 @@ export interface Theme {
   typography: ThemeTypography;
   spacing: ThemeSpacing;
   breakpoints: ThemeBreakpoints;
+  logo: ThemeLogo;
 }
 
 export const theme: Theme = {
@@ -358,6 +363,10 @@ export const theme: Theme = {
   },
 
   breakpoints: {
-    desktop: '721px',
+    desktop: 721,
+  },
+  logo: {
+    width: 220,
+    height: 100,
   },
 };

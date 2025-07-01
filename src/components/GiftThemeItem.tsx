@@ -45,7 +45,7 @@ const ThemeName = styled.span`
   }
 `;
 
-export function ThemeItem({ theme, onClick }: ThemeItemProps) {
+export function GiftThemeItem({ theme, onClick }: ThemeItemProps) {
   const handleClick = () => {
     onClick(theme);
   };

@@ -1,5 +1,8 @@
+import { useNavigate, useLocation } from 'react-router-dom';
 import styled from '@emotion/styled';
 import { ChevronLeft, User } from 'lucide-react';
+import { theme } from '@/styles/theme';
+import type { NavigationState } from '@/types';
 
 interface NavigationHeaderProps {
   title: string;
@@ -9,16 +12,14 @@ interface NavigationHeaderProps {
   showProfileButton?: boolean;
 }
 
-const HeaderContainer = styled.header(
-  ({ theme }) => `
+const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: ${theme.spacing.spacing1} ${theme.spacing.spacing4};
   background-color: ${theme.colors.default};
   position: relative;
-`
-);
+`;
 
 interface SideContainerProps {
   position: 'left' | 'right';
@@ -40,18 +41,15 @@ const TitleContainer = styled.div`
   text-align: center;
 `;
 
-const Title = styled.h1(
-  ({ theme }) => `
+const Title = styled.h1`
   font-size: ${theme.typography.title1Bold.fontSize};
   font-weight: ${theme.typography.title1Bold.fontWeight};
   line-height: ${theme.typography.title1Bold.lineHeight};
   color: ${theme.colors.gray1000};
   margin: 0;
-`
-);
+`;
 
-const IconButton = styled.button(
-  ({ theme }) => `
+const IconButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -62,19 +60,21 @@ const IconButton = styled.button(
   border-radius: 50%;
   cursor: pointer;
   transition: background-color 0.2s ease;
+
   &:hover {
     background-color: ${theme.colors.gray100};
   }
+
   &:active {
     background-color: ${theme.colors.gray200};
   }
+
   svg {
     width: 27px;
     height: 27px;
     color: ${theme.colors.gray1000};
   }
-`
-);
+`;
 
 export function NavigationHeader({
   title,
@@ -83,24 +83,45 @@ export function NavigationHeader({
   showBackButton = true,
   showProfileButton = true,
 }: NavigationHeaderProps) {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleBackClick = () => {
+    if (onBackClick) {
+      onBackClick();
+    } else {
+      navigate(-1);
+    }
+  };
+
+  const handleProfileClick = () => {
+    if (onProfileClick) {
+      onProfileClick();
+    } else {
+      const navState: NavigationState = { from: location.pathname };
+      navigate('/login', {
+        state: navState,
+      });
+    }
+  };
+
   return (
     <HeaderContainer>
-      {/* Left side - Back button */}
       <SideContainer position="left">
         {showBackButton && (
-          <IconButton onClick={onBackClick} type="button">
+          <IconButton onClick={handleBackClick} type="button">
             <ChevronLeft />
           </IconButton>
         )}
       </SideContainer>
-      {/* Center - Title */}
+
       <TitleContainer>
         <Title>{title}</Title>
       </TitleContainer>
-      {/* Right side - Profile button */}
+
       <SideContainer position="right">
         {showProfileButton && (
-          <IconButton onClick={onProfileClick} type="button">
+          <IconButton onClick={handleProfileClick} type="button">
             <User />
           </IconButton>
         )}
