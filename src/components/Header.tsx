@@ -5,11 +5,11 @@ const Header = () => {
   const navigate = useNavigate();
 
   const handleProfileClick = () => {
-    navigate(PATHS.LOGIN); // 예를 들어 '/profile' 페이지로 이동
+    navigate(PATHS.LOGIN);
   };
 
   const handleBackClick = () => {
-    navigate(PATHS.HOME);
+    navigate(-1);
   };
   return (
     <header className="bg-white shadow-sm p-4 flex justify-between items-center sticky top-0 z-20">
