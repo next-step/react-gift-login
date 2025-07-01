@@ -5,6 +5,34 @@ interface RankingFilterProps {
   onSelect: (label: string) => void;
 }
 
+const filters = [
+  { emoji: 'ALL', label: '전체', value: 'ALL' },
+  { emoji: '👩🏻', label: '여성이', value: 'FEMALE' },
+  { emoji: '👨🏻', label: '남성이', value: 'MALE' },
+  { emoji: '👦🏻', label: '청소년이', value: 'TEEN' },
+];
+
+const RankingFilter = ({ selectedFilter, onSelect }: RankingFilterProps) => {
+  return (
+    <FilterWrapper>
+      {filters.map(filter => {
+        const isSelected = selectedFilter === filter.value;
+        return (
+          <FilterButton
+            key={filter.value}
+            onClick={() => onSelect(filter.value)}
+          >
+            <Emoji isSelected={isSelected}>{filter.emoji}</Emoji>
+            <Label isSelected={isSelected}>{filter.label}</Label>
+          </FilterButton>
+        );
+      })}
+    </FilterWrapper>
+  );
+};
+
+export default RankingFilter;
+
 const FilterWrapper = styled.div`
   display: flex;
   justify-content: space-between;
@@ -47,31 +75,3 @@ const Label = styled.p<{ isSelected: boolean }>`
   margin: 0;
   text-align: left;
 `;
-
-const RankingFilter = ({ selectedFilter, onSelect }: RankingFilterProps) => {
-  const filters = [
-    { emoji: 'ALL', label: '전체' },
-    { emoji: '👩🏻', label: '여성이' },
-    { emoji: '👨🏻', label: '남성이' },
-    { emoji: '👦🏻', label: '청소년이' },
-  ];
-
-  return (
-    <FilterWrapper>
-      {filters.map(filter => {
-        const isSelected = selectedFilter === filter.label;
-        return (
-          <FilterButton
-            key={filter.label}
-            onClick={() => onSelect(filter.label)}
-          >
-            <Emoji isSelected={isSelected}>{filter.emoji}</Emoji>
-            <Label isSelected={isSelected}>{filter.label}</Label>
-          </FilterButton>
-        );
-      })}
-    </FilterWrapper>
-  );
-};
-
-export default RankingFilter;

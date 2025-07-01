@@ -1,37 +1,19 @@
 import styled from '@emotion/styled';
 import PresentLogo from '@/assets/present.webp';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-const Nav = styled.nav`
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: ${({ theme }) => `${theme.spacing[0]} ${theme.spacing[4]}`};
-  background-color: ${({ theme }) => theme.color.semantic.background.default};
-`;
+interface NavigationProps {
+  showLoginButton?: boolean;
+}
 
-const IconButton = styled.button`
-  border: none;
-  background-color: ${({ theme }) => theme.color.semantic.background.default};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: ${({ theme }) => theme.color.semantic.text.default};
-  cursor: pointer;
-`;
+const Navigation = ({ showLoginButton = true }: NavigationProps) => {
+  const location = useLocation();
+  const navigate = useNavigate();
 
-const Logo = styled.img`
-  height: 44px;
-  cursor: pointer;
-`;
-
-const Navigation = () => {
   return (
     <Nav>
       <div>
-        <IconButton aria-label="뒤로가기">
+        <IconButton onClick={() => navigate(-1)} aria-label="뒤로가기">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="28"
@@ -49,11 +31,23 @@ const Navigation = () => {
       </div>
 
       <div>
-        <Logo src={PresentLogo} alt="카카오 선물하기 로고" />
+        <Logo
+          src={PresentLogo}
+          alt="카카오 선물하기 로고"
+          onClick={() => navigate('/')}
+        />
       </div>
 
       <div>
-        <IconButton aria-label="로그인">
+        <IconButton
+          onClick={() =>
+            navigate('/login', {
+              state: { from: location },
+            })
+          }
+          aria-label="로그인"
+          disabled={!showLoginButton}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -75,3 +69,33 @@ const Navigation = () => {
 };
 
 export default Navigation;
+
+const Nav = styled.nav`
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: ${({ theme }) => `${theme.spacing[0]} ${theme.spacing[4]}`};
+  background-color: ${({ theme }) => theme.color.semantic.background.default};
+`;
+
+const IconButton = styled.button`
+  border: none;
+  background-color: ${({ theme }) => theme.color.semantic.background.default};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ${({ theme }) => theme.color.semantic.text.default};
+  cursor: pointer;
+
+  &:disabled {
+    cursor: default;
+  }
+`;
+
+const Logo = styled.img`
+  height: 44px;
+  cursor: pointer;
+`;

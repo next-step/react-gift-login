@@ -6,6 +6,22 @@ interface ProductCardProps {
   rank: number;
 }
 
+const ProductCard = ({ item, rank }: ProductCardProps) => {
+  return (
+    <Card>
+      <RankBadge rank={rank}>{rank}</RankBadge>
+      <Image src={item.imageURL} alt={item.name} />
+      <Brand>{item.brandInfo.name}</Brand>
+      <Name>{item.name}</Name>
+      <Price>
+        {item.price.sellingPrice.toLocaleString()} <span>원</span>
+      </Price>
+    </Card>
+  );
+};
+
+export default ProductCard;
+
 const Card = styled.div`
   display: flex;
   flex-direction: column;
@@ -58,19 +74,3 @@ const RankBadge = styled.span<{ rank: number }>`
   color: ${({ theme }) => theme.color.gray[0]};
   z-index: 1;
 `;
-
-const ProductCard = ({ item, rank }: ProductCardProps) => {
-  return (
-    <Card>
-      <RankBadge rank={rank}>{rank}</RankBadge>
-      <Image src={item.imageURL} alt={item.name} />
-      <Brand>{item.brandInfo.name}</Brand>
-      <Name>{item.name}</Name>
-      <Price>
-        {item.price.sellingPrice.toLocaleString()} <span>원</span>
-      </Price>
-    </Card>
-  );
-};
-
-export default ProductCard;
