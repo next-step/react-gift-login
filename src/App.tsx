@@ -7,22 +7,35 @@ import SupportBanner from '@/components/SupportBanner';
 import LiveRanking from '@/components/LiveRanking';
 import Footer from '@/components/Footer';
 import { Container } from '@/styles/Container';
+import { Routes, Route } from 'react-router-dom';
+import Login from '@/pages/Login';
+import NotFound from '@/pages/NotFound';
 
 function App() {
   return (
-    <>
-      <Container>
-        <GlobalStyle />
+    <Container>
+      <GlobalStyle />
 
-        <Header />
-        <Hero />
-        <CategoryList />
-        <FeaturedGifts />
-        <SupportBanner />
-        <LiveRanking />
-        <Footer />
-      </Container>
-    </>
+      <Header />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Hero />
+              <CategoryList />
+              <FeaturedGifts />
+              <SupportBanner />
+              <LiveRanking />
+              <Footer />
+            </>
+          }
+        />
+        <Route path="/login" element={<Login />} />
+        <Route path="*" element={<NotFound />} />
+
+      </Routes>
+    </Container>
   );
 }
 

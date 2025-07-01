@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
-import { IoArrowBackOutline, IoEllipsisVertical } from 'react-icons/io5';
+import { IoArrowBackOutline, IoPersonOutline } from 'react-icons/io5';
 import { colors, spaces, fontSizes } from '@/tokens/designTokens';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Wrap = styled.header`
   display: flex;
@@ -31,10 +32,29 @@ const IconButton = styled.button`
 `;
 
 export default function Header() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleBackClick = () => {
+
+    navigate(-1);
+  };
+
+
+  const handleLoginClick = () => {
+
+    navigate('/login', { state: { from: location.pathname } });
+  };
+
+
+
+
+
+
   return (
     <Wrap>
       {/* 뒤로가기 아이콘 */}
-      <IconButton aria-label="뒤로가기">
+      <IconButton aria-label="뒤로가기" onClick={handleBackClick}>
         <IoArrowBackOutline />
       </IconButton>
 
@@ -42,8 +62,8 @@ export default function Header() {
       <Title>선물하기</Title>
 
       {/* 우측 더보기(또는 닫기) 아이콘 */}
-      <IconButton aria-label="메뉴">
-        <IoEllipsisVertical />
+      <IconButton aria-label="로그인" onClick={handleLoginClick}>
+        <IoPersonOutline />
       </IconButton>
     </Wrap>
   );
