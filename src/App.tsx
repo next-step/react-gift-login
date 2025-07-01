@@ -233,10 +233,10 @@ function App() {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Layout>
-        <NavBar></NavBar>
-        <FriendSelector></FriendSelector>
-        <GiftCategorySelector></GiftCategorySelector>
-        <PromoBanner></PromoBanner>
+        <NavBar />
+        <FriendSelector />
+        <GiftCategorySelector />
+        <PromoBanner />
         {/* 코드 분리중 */}
         <RealtimeRankWrapper>
           <RealtimeRankTitle>실시간 급상승 선물랭킹</RealtimeRankTitle>
