@@ -1,6 +1,6 @@
 import { useNavigate, useLocation } from 'react-router-dom';
 import styled from '@emotion/styled';
-import CTAButton from '../components/common/CTAButton';
+import LoginButton from '../components/common/BaseButton';
 
 type LocationState = {
   from?: {
@@ -30,9 +30,12 @@ const LoginPage = () => {
       </Logo>
       <Input placeholder="이메일" />
       <Input type="password" placeholder="비밀번호" />
-      <CTAButton size="large" onClick={handleLogin}>
-        로그인
-      </CTAButton>
+      <LoginButton
+        color="yellow"
+        onClick={handleLogin}
+        label="로그인"
+        size="large"
+      ></LoginButton>
     </Wrapper>
   );
 };

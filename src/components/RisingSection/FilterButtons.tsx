@@ -5,7 +5,7 @@ type TargetGroupFilter = '전체' | '여성이' | '남성이' | '청소년이';
 type PreferenceFilter = '받고 싶어한' | '많이 선물한' | '위시로 받은';
 
 import { useState } from 'react';
-import SelectableButton from '../common/SelectableButton';
+import SelectableButton from '../common/BaseButton';
 
 const TARGET_GROUP_OPTIONS: { icon: string; label: TargetGroupFilter }[] = [
   { icon: 'ALL', label: '전체' },
@@ -49,6 +49,7 @@ export default function FilterButtons() {
               setTargetGroupSelected(label);
               localStorage.setItem('selectedTargetGroup', label);
             }}
+            color="blue"
             direction="vertical"
           />
         ))}
@@ -63,6 +64,7 @@ export default function FilterButtons() {
               setPreferenceSubSelected(label);
               localStorage.setItem('selectedPreference', label);
             }}
+            color="blue"
           />
         ))}
       </PreferencefilterContainer>
