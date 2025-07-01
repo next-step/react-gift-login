@@ -1,12 +1,11 @@
 import type { ThemeType } from "@/types/ThemeType";
 import { useTheme } from "@emotion/react";
 import styled from "@emotion/styled";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import RankingList from "@/components/RankingList";
-import type { RankingTargetCategoryType } from "@/types/RankingTargetCategoryType";
 import { rankingTargetCategory } from "@/assets/rankingTargetCategory";
+import { useSearchParams } from "react-router-dom";
 
-const rankingTargetCategoryList: RankingTargetCategoryType[] = rankingTargetCategory;
 const rankingRankCategoryList = {
   MANY_WISH: "받고 싶어한",
   MANY_RECEIVE: "많이 선물한",
@@ -14,18 +13,41 @@ const rankingRankCategoryList = {
 } as const;
 
 const Ranking = () => {
-  const [selectedTargetCategory, setSelectedTargetCategory] = useState(rankingTargetCategoryList[0].targetType);
-  const [selectedRankCategory, setSelectedRankCategory] = useState(Object.keys(rankingRankCategoryList)[0]);
+  const [rankingCategoryParams, setRankCategoryParams] = useSearchParams();
+  const targetTypeCategory = () => {
+    const targetType = rankingCategoryParams.get("targetType")?.trim();
+    if (targetType && rankingTargetCategory.some((item) => item.targetType === targetType)) {
+      return targetType;
+    } else {
+      return rankingTargetCategory[0].targetType;
+    }
+  };
+  const rankTypeCategory = () => {
+    const rankType = rankingCategoryParams.get("rankType")?.trim();
+    if (rankType && rankType in rankingRankCategoryList) {
+      return rankType;
+    }
+    return Object.keys(rankingRankCategoryList)[0];
+  };
+
+  const [selectedTargetCategory, setSelectedTargetCategory] = useState(targetTypeCategory);
+  const [selectedRankCategory, setSelectedRankCategory] = useState(rankTypeCategory);
   const theme = useTheme();
   const isSelected = (element: string, selected: string) => {
     return element === selected;
   };
+
+  useEffect(() => {
+    rankingCategoryParams.set("targetType", selectedTargetCategory);
+    rankingCategoryParams.set("rankType", selectedRankCategory);
+    setRankCategoryParams(rankingCategoryParams);
+  }, [selectedTargetCategory, selectedRankCategory]);
   return (
     <Container>
       <Title>실시간 급상승 선물랭킹</Title>
       <NavBar>
         <TargetCategoryList>
-          {rankingTargetCategoryList.map((e) => (
+          {rankingTargetCategory.map((e) => (
             <TargetCategory
               key={e.targetType}
               onClick={() => {

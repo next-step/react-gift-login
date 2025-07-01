@@ -16,6 +16,6 @@ const spacing = {
   spacing14: "56px", //56px 간격
   spacing15: "60px", //60px 간격
   spacing16: "64px", //최대 간격
-};
+} as const;
 
 export default spacing;
