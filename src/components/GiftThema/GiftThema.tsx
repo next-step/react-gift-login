@@ -1,18 +1,21 @@
 import { themes } from '@/data/themes';
-import { Title, Section, ThemeCard, ThemeList, YellowBox } from '@/components/GiftThema/GiftThema.styles';
+import { Title, Section, ThemeListContainer, YellowBox } from '@/components/GiftThema/GiftThema.styles';
+import ThemeList from '@/components/Common/ThemeList/ThemeList';
 
 export default function GiftThema() {
   return (
     <Section>
       <Title>선물 테마</Title>
-      <ThemeList>
+
+      <ThemeListContainer>
         {themes.map((item) => (
-          <ThemeCard key={item.themeId}>
-            <img src={item.image} alt={item.name} />
-            <p>{item.name}</p>
-          </ThemeCard>
+          <ThemeList
+            key={item.name}
+            image={item.image}
+            name={item.name}
+          />
         ))}
-      </ThemeList>
+      </ThemeListContainer>
 
       <YellowBox>
         <div>카카오테크 캠퍼스 3기 여러분</div>
