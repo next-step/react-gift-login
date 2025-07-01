@@ -33,22 +33,26 @@ export default function RankingFilterTabs() {
   const theme = useTheme();
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const rawParam = searchParams.get("topic");
+  const rawParam = searchParams.get("main");
   const isValid = FILTER_OPTIONS.includes(
     rawParam as (typeof FILTER_OPTIONS)[number]
   );
   const selected = isValid ? rawParam : FILTER_OPTIONS[0];
 
   useEffect(() => {
-    if (!isValid) {
-      searchParams.set("topic", FILTER_OPTIONS[0]);
-      setSearchParams(searchParams);
+    const current = searchParams.get("main");
+    const isCurrentValid = FILTER_OPTIONS.includes(current as any);
+    if (!isCurrentValid && current !== FILTER_OPTIONS[0]) {
+      const newParams = new URLSearchParams(searchParams.toString());
+      newParams.set("main", FILTER_OPTIONS[0]);
+      setSearchParams(newParams);
     }
-  }, [isValid, searchParams, setSearchParams]);
+  }, [rawParam]);
 
   const handleClick = (label: string) => {
-    searchParams.set("topic", label);
-    setSearchParams(searchParams);
+    const newParams = new URLSearchParams(searchParams);
+    newParams.set("main", label);
+    setSearchParams(newParams);
   };
 
   return (

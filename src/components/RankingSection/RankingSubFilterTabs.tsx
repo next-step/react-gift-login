@@ -8,18 +8,21 @@ const FILTER_OPTIONS = ["받고 싶어한", "많이 선물한", "위시로 받�
 export default function RankingSubFilterTabs() {
   const theme = useTheme();
   const [searchParams, setSearchParams] = useSearchParams();
-  const rawParam = searchParams.get("topic");
+  const rawParam = searchParams.get("sub");
   const isValid = FILTER_OPTIONS.includes(
     rawParam as (typeof FILTER_OPTIONS)[number]
   );
   const selected = isValid ? rawParam : FILTER_OPTIONS[0];
 
   useEffect(() => {
-    if (!isValid) {
-      searchParams.set("topic", FILTER_OPTIONS[0]);
-      setSearchParams(searchParams);
+    const current = searchParams.get("sub");
+    const isCurrentValid = FILTER_OPTIONS.includes(current as any);
+    if (!isCurrentValid && current !== FILTER_OPTIONS[0]) {
+      const newParams = new URLSearchParams(searchParams.toString());
+      newParams.set("sub", FILTER_OPTIONS[0]);
+      setSearchParams(newParams);
     }
-  }, [isValid, searchParams, setSearchParams]);
+  }, [rawParam]);
 
   return (
     <div css={containerStyle(theme)}>
@@ -27,8 +30,9 @@ export default function RankingSubFilterTabs() {
         <button
           key={option}
           onClick={() => {
-            searchParams.set("topic", option);
-            setSearchParams(searchParams);
+            const newParams = new URLSearchParams(searchParams);
+            newParams.set("sub", option);
+            setSearchParams(newParams);
           }}
           css={tabItemStyle(theme, selected === option)}
         >
