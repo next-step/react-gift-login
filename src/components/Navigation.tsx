@@ -18,7 +18,11 @@ const Navigation = () => {
     navigate(ROUTE_PATH.HOME);
   };
   const handleLoginClick = () => {
-    navigate(`${ROUTE_PATH.LOGIN}?redirect=${location.pathname}`);
+    let path: string = `${ROUTE_PATH.LOGIN}`;
+    if ((Object.values(ROUTE_PATH) as string[]).includes(location.pathname)) {
+      path = path + `?redirect=${location.pathname}`;
+    }
+    navigate(path);
   };
   return (
     <Container>

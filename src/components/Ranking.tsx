@@ -14,8 +14,21 @@ const rankingRankCategoryList = {
 
 const Ranking = () => {
   const [rankingCategoryParams, setRankCategoryParams] = useSearchParams();
-  const targetTypeCategory = rankingCategoryParams.get("targetType") || rankingTargetCategory[0].targetType;
-  const rankTypeCategory = rankingCategoryParams.get("rankType")?.trim() || Object.keys(rankingRankCategoryList)[0];
+  const targetTypeCategory = () => {
+    const targetType = rankingCategoryParams.get("targetType")?.trim();
+    if (targetType && rankingTargetCategory.some((item) => item.targetType === targetType)) {
+      return targetType;
+    } else {
+      return rankingTargetCategory[0].targetType;
+    }
+  };
+  const rankTypeCategory = () => {
+    const rankType = rankingCategoryParams.get("rankType")?.trim();
+    if (rankType && rankType in rankingRankCategoryList) {
+      return rankType;
+    }
+    return Object.keys(rankingRankCategoryList)[0];
+  };
 
   const [selectedTargetCategory, setSelectedTargetCategory] = useState(targetTypeCategory);
   const [selectedRankCategory, setSelectedRankCategory] = useState(rankTypeCategory);
