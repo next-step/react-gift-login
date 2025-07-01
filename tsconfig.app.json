@@ -7,7 +7,6 @@
     "module": "ESNext",
     "skipLibCheck": true,
 
-    /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
@@ -15,7 +14,10 @@
     "noEmit": true,
     "jsx": "react-jsx",
 
-    /* Linting */
+    /* 절대경로 import (@) */
+    "baseUrl": ".",
+    "paths": { "@/*": ["src/*"] },
+
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -29,5 +31,5 @@
       "@/*": ["src/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src", "src/types"]
 }
