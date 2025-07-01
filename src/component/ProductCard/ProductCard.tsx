@@ -3,9 +3,9 @@ import {
   ProductItem,
   ProductImage,
   Rank,
-  MoreButton,
 } from './ProductCard.styles'
 import type { Product } from '@/data/products'
+import MyButton from '@/component/Button/Button'
 
 interface ProductCardProps {
   products: Product[]
@@ -35,10 +35,9 @@ const ProductCard: React.FC<ProductCardProps> = ({
           </ProductItem>
         ))}
       </ProductTab>
-
-      <MoreButton onClick={onToggleView}>
+      <MyButton buttonType="More" onClick={onToggleView}>
         {isExpanded ? '접기' : '더보기'}
-      </MoreButton>
+      </MyButton>
     </>
   )
 }

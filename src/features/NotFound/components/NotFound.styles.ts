@@ -30,12 +30,3 @@ export const Title = styled.div`
 export const SubTitle = styled.div`
   ${theme.typography.subtitle1Regular};
 `
-
-export const HomeButton = styled.button`
-  width: 160px;
-  height: ${theme.spacing[11]};
-  margin: ${theme.spacing[10]};
-  ${theme.typography.label1Regular};
-  background-color: ${theme.colors.semanticColor.brandColor.kakaoYellow};
-  border: none;
-`

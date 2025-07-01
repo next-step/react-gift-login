@@ -36,15 +36,3 @@ export const Rank = styled.div<{ rank: number }>`
       : theme.colors.colorScale.gray[1000]};
   ${theme.typography.label2Bold}
 `
-
-export const MoreButton = styled.button`
-  width: 70%;
-  margin: ${theme.spacing[4]} auto;
-  display: block;
-  cursor: pointer;
-  padding: ${theme.spacing[3]};
-  border-radius: ${theme.spacing[1]};
-  border: 1px solid ${theme.colors.colorScale.gray[400]};
-  background-color: ${theme.colors.colorScale.gray[0]};
-  ${theme.typography.label1Regular};
-`
