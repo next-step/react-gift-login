@@ -6,9 +6,10 @@ const Wrapper = styled.section`
   align-items: center;
   gap: ${({ theme }) => theme.spacing.spacing2};
   margin: ${({ theme }) => theme.spacing.spacing4};
+  margin-top: ${({ theme }) => theme.spacing.spacing14};
   padding: ${({ theme }) => theme.spacing.spacing4};
   background-color: ${({ theme }) => theme.colors.semantic.backgroundFill};
-  border-radius: ${({ theme }) => theme.spacing.spacing3};
+  border-radius: ${({ theme }) => theme.spacing.spacing4};
   cursor: pointer;
 
   &:hover {
@@ -17,9 +18,9 @@ const Wrapper = styled.section`
 `
 
 const Text = styled.p`
-  font-size: ${({ theme }) => theme.typography.subtitle2Regular.fontSize};
-  font-weight: ${({ theme }) => theme.typography.subtitle2Regular.fontWeight};
-  line-height: ${({ theme }) => theme.typography.subtitle2Regular.lineHeight};
+  font-size: ${({ theme }) => theme.typography.subtitle1Regular.fontSize};
+  font-weight: ${({ theme }) => theme.typography.subtitle1Regular.fontWeight};
+  line-height: ${({ theme }) => theme.typography.subtitle1Regular.lineHeight};
   color: ${({ theme }) => theme.colors.semantic.textDefault};
   margin: 0;
 `

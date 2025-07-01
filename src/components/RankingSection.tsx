@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 import { useState } from 'react'
 import { productMockData } from '@/mocks/products'
+import { useSearchParams } from 'react-router-dom'
 
 const genderTabs = ['전체', '여성이', '남성이', '청소년이']
 const rankTabs = ['받고 싶어한', '많이 선물한', '위시로 받은']
@@ -10,6 +11,7 @@ const fullCount = 12
 
 const SectionWrapper = styled.section`
   margin-top: ${({ theme }) => theme.spacing.spacing6};
+  padding: 0 ${({ theme }) => theme.spacing.spacing4};
 `
 
 const Title = styled.h2`
@@ -66,6 +68,7 @@ const ProductGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: ${({ theme }) => theme.spacing.spacing4};
+  margin-bottom: ${({ theme }) => theme.spacing.spacing4};
 `
 
 const ProductCard = styled.div`
@@ -77,6 +80,7 @@ const ProductCard = styled.div`
   img {
     width: 100%;
   }
+  margin-bottom: ${({ theme }) => theme.spacing.spacing4};
 `
 
 const Badge = styled.div<{ isTop3: boolean }>`
@@ -109,7 +113,10 @@ const Price = styled.div`
 `
 
 const ToggleButton = styled.button`
+  display: block;
   width: 100%;
+  max-width: 400px; 
+  margin: 0 auto;
   padding: ${({ theme }) => theme.spacing.spacing3};
   border: 1px solid ${({ theme }) => theme.colors.semantic.borderDefault};
   border-radius: ${({ theme }) => theme.spacing.spacing2};
@@ -120,12 +127,29 @@ const ToggleButton = styled.button`
 `
 
 const RankingSection = () => {
-  const [selectedGender, setSelectedGender] = useState('남성이')
-  const [selectedRank, setSelectedRank] = useState('많이 선물한')
+  const [searchParams, setSearchParams] = useSearchParams()
+  const selectedGender = searchParams.get('gender') || '전체'
+  const selectedRank = searchParams.get('rank') || '많이 선물한'
   const [isExpanded, setIsExpanded] = useState(false)
 
   const handleToggle = () => {
     setIsExpanded((prev) => !prev)
+  }
+
+  const handleGenderClick = (gender: string) => {
+    setSearchParams(prev => {
+      const next = new URLSearchParams(prev)
+      next.set('gender', gender)
+      return next
+    })
+  }
+
+  const handleRankClick = (rank: string) => {
+    setSearchParams(prev => {
+      const next = new URLSearchParams(prev)
+      next.set('rank', rank)
+      return next
+    })
   }
 
   const visibleCount = isExpanded ? fullCount : initCount
@@ -143,7 +167,7 @@ const RankingSection = () => {
           <UserTab
             key={tab}
             isSelected={selectedGender === tab}
-            onClick={() => setSelectedGender(tab)}
+            onClick={() => handleGenderClick(tab)}
           >
             {tab === '전체' ? <span className="all">ALL</span> : <Avatar />}
             <span>{tab}</span>
@@ -156,7 +180,7 @@ const RankingSection = () => {
           <TrendTab
             key={tab}
             isSelected={selectedRank === tab}
-            onClick={() => setSelectedRank(tab)}
+            onClick={() => handleRankClick(tab)}
           >
             {tab}
           </TrendTab>
