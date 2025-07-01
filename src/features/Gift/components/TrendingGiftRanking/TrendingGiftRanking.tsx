@@ -63,6 +63,24 @@ const TrendingGiftRanking = () => {
     }
   }
 
+  // 피드백 : 유효하지 않은 쿼리 스트링의 경우 처리
+  useEffect(() => {
+    const params = new URLSearchParams(searchParams)
+    let isValid = true
+
+    if (!genderList.map((g) => g.label).includes(selectedGender as Gender)) {
+      params.set('gender', genderList[0].label)
+      isValid = false
+    }
+
+    if (!typeList.includes(selectedType as Type)) {
+      params.set('type', typeList[0])
+      isValid = false
+    }
+
+    if (!isValid) setSearchParams(params, { replace: true })
+  }, [searchParams, selectedGender, selectedType, setSearchParams])
+
   useEffect(() => {
     console.log('선택된 Gender:', selectedGender)
   }, [selectedGender])
