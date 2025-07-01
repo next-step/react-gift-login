@@ -2,6 +2,13 @@ import styled from '@emotion/styled';
 import { useState, useEffect } from 'react';
 import FilterButton from '@/components/common/FilterButton';
 
+import {
+  RANKING_FILTER_TYPE_KEY,
+  RANKING_FILTER_RANK_TYPE_KEY,
+  TARGET_TYPE,
+  RANK_TYPE,
+} from '@/constants/ranking';
+
 const Title = styled.h1`
   display: flex;
   align-items: center;
@@ -60,25 +67,43 @@ const TabBtn = styled.button<{ active?: boolean }>`
 `;
 
 const filterOptions = [
-  { type: 'ALL', label: '전체', icon: <span className="icon">ALL</span> },
-  { type: 'FEMALE', label: '여성', icon: <span className="icon">👩🏻</span> },
-  { type: 'MALE', label: '남성', icon: <span className="icon">👨🏻</span> },
-  { type: 'TEENAGER', label: '청소년', icon: <span className="icon">🧑🏻</span> },
+  {
+    type: TARGET_TYPE.ALL,
+    label: '전체',
+    icon: <span className="icon">ALL</span>,
+  },
+  {
+    type: TARGET_TYPE.FEMALE,
+    label: '여성',
+    icon: <span className="icon">👩🏻</span>,
+  },
+  {
+    type: TARGET_TYPE.MALE,
+    label: '남성',
+    icon: <span className="icon">👨🏻</span>,
+  },
+  {
+    type: TARGET_TYPE.TEENAGER,
+    label: '청소년',
+    icon: <span className="icon">🧑🏻</span>,
+  },
 ];
 
 function RankingFilter() {
   const [targetType, setTargetType] = useState(() => {
-    return localStorage.getItem('rankingFilterType') || 'ALL';
+    return localStorage.getItem(RANKING_FILTER_TYPE_KEY) || TARGET_TYPE.ALL;
   });
   useEffect(() => {
-    localStorage.setItem('rankingFilterType', targetType);
+    localStorage.setItem(RANKING_FILTER_TYPE_KEY, targetType);
   }, [targetType]);
 
   const [rankType, setRankType] = useState(() => {
-    return localStorage.getItem('rankingFilterRankType') || 'MANY_WISH';
+    return (
+      localStorage.getItem(RANKING_FILTER_RANK_TYPE_KEY) || RANK_TYPE.MANY_WISH
+    );
   });
   useEffect(() => {
-    localStorage.setItem('rankingFilterRankType', rankType);
+    localStorage.setItem(RANKING_FILTER_RANK_TYPE_KEY, rankType);
   }, [rankType]);
 
   return (
@@ -99,20 +124,20 @@ function RankingFilter() {
       </FilterBar>
       <TabBar>
         <TabBtn
-          active={rankType === 'MANY_WISH'}
-          onClick={() => setRankType('MANY_WISH')}
+          active={rankType === RANK_TYPE.MANY_WISH}
+          onClick={() => setRankType(RANK_TYPE.MANY_WISH)}
         >
           받고 싶어한
         </TabBtn>
         <TabBtn
-          active={rankType === 'MANY_GIFT'}
-          onClick={() => setRankType('MANY_GIFT')}
+          active={rankType === RANK_TYPE.MANY_GIFT}
+          onClick={() => setRankType(RANK_TYPE.MANY_GIFT)}
         >
           많이 선물한
         </TabBtn>
         <TabBtn
-          active={rankType === 'MANY_RECEIVE'}
-          onClick={() => setRankType('MANY_RECEIVE')}
+          active={rankType === RANK_TYPE.MANY_RECEIVE}
+          onClick={() => setRankType(RANK_TYPE.MANY_RECEIVE)}
         >
           위시로 받은
         </TabBtn>
