@@ -1,4 +1,6 @@
-export const productList = [
+import type { Product } from './products.types';
+
+export const productList: Product[] = [
   {
     id: 123,
     name: 'BBQ 양념치킨+크림치즈볼+콜라1.25L',
@@ -15,6 +17,5 @@ export const productList = [
       imageURL:
         'https://st.kakaocdn.net/product/gift/gift_brand/20220216170226_38ba26d8eedf450683200d6730757204.png',
     },
-  }
-
+  },
 ];
