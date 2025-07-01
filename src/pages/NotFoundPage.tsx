@@ -3,7 +3,6 @@ import { css, useTheme } from '@emotion/react';
 
 export const NotFoundPage = () => {
   const { palette, spacing, typography } = useTheme();
-
   return (
     <div
       css={css`
