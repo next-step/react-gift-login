@@ -2,9 +2,8 @@ import Banner from '@/component/Banner'
 import FriendChoise from '@/component/FriendChoise'
 import GiftRanking from '@/component/GiftRanking'
 import GiftTheme from '@/component/GiftTheme'
-import { GiftCategory } from '@/mock/GiftCategory'
+
 import styled from '@emotion/styled'
-import React from 'react'
 
 const MyDiv = styled.div`
   max-width: 720px;

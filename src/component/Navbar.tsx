@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const NavContaier = styled.div`
     position: fixed;
@@ -39,12 +39,17 @@ const MyButton = styled.button`
 `
 
 
+
 const Navbar = () => {
+
+  
+  const navigate = useNavigate();
+
   return (
     <NavContaier>
     <MyNav>
       <div>
-        <MyButton aria-label="뒤로 가기">
+        <MyButton onClick={() => navigate(-1)} aria-label="뒤로 가기">
           <MySvg
             xmlns="http://www.w3.org/2000/svg"
             width="28"
@@ -64,7 +69,7 @@ const Navbar = () => {
         </a>
       </div>
       <div>
-        <a href="/login?redirect=%2F">
+        <MyButton onClick={() => navigate('/Login')}>
           <MySvg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -76,7 +81,7 @@ const Navbar = () => {
             <circle cx="12" cy="8" r="5" />
             <path d="M20 21a8 8 0 0 0-16 0" />
           </MySvg>
-        </a>
+        </MyButton>
       </div>
     </MyNav>
     </NavContaier>

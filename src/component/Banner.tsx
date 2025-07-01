@@ -1,6 +1,5 @@
 import theme from '@/styles/theme';
 import styled from '@emotion/styled';
-import React from 'react'
 
 const BannerSection = styled.section`
   padding: 0px 16px;
