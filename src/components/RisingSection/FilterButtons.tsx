@@ -1,97 +1,90 @@
 /** @jsxImportSource @emotion/react */
 import styled from '@emotion/styled';
 
-type MainFilterOption = '전체' | '여성이' | '남성이' | '청소년이';
-type SubFilterOption = '받고 싶어한' | '많이 선물한' | '위시로 받은';
+type TargetGroupFilter = '전체' | '여성이' | '남성이' | '청소년이';
+type PreferenceFilter = '받고 싶어한' | '많이 선물한' | '위시로 받은';
 
 import { useState } from 'react';
+import SelectableButton from '../common/BaseButton';
 
-const OPTIONS: { icon: string; label: MainFilterOption }[] = [
+const TARGET_GROUP_OPTIONS: { icon: string; label: TargetGroupFilter }[] = [
   { icon: 'ALL', label: '전체' },
   { icon: '💁‍♀️', label: '여성이' },
   { icon: '🙋‍♂️', label: '남성이' },
   { icon: '🧒', label: '청소년이' },
 ];
 
-const SUB_OPTIONS: SubFilterOption[] = [
+const PREFERENCE_OPTIONS: PreferenceFilter[] = [
   '받고 싶어한',
   '많이 선물한',
   '위시로 받은',
 ];
 
 export default function FilterButtons() {
-  const [selected, setSelected] = useState<MainFilterOption>('전체');
-  const [subSelected, setSubSelected] =
-    useState<SubFilterOption>('받고 싶어한');
+  const [targetGroupselected, setTargetGroupSelected] =
+    useState<TargetGroupFilter>(() => {
+      return (
+        (localStorage.getItem('selectedTargetGroup') as TargetGroupFilter) ||
+        '전체'
+      );
+    });
+  const [preferenceSelected, setPreferenceSubSelected] =
+    useState<PreferenceFilter>(() => {
+      return (
+        (localStorage.getItem('selectedPreference') as PreferenceFilter) ||
+        '받고 싶어한'
+      );
+    });
 
   return (
     <>
-      <Container>
-        {OPTIONS.map(({ icon, label }) => (
-          <Button
+      <TargetGroupfilterContainer>
+        {TARGET_GROUP_OPTIONS.map(({ icon, label }) => (
+          <SelectableButton
             key={label}
-            isActive={selected === label}
-            onClick={() => setSelected(label)}
-          >
-            <Icon>{icon}</Icon>
-            <Label isActive={selected === label}>{label}</Label>
-          </Button>
+            icon={icon}
+            label={label}
+            isActive={targetGroupselected === label}
+            onClick={() => {
+              setTargetGroupSelected(label);
+              localStorage.setItem('selectedTargetGroup', label);
+            }}
+            color="blue"
+            direction="vertical"
+          />
         ))}
-      </Container>
-      <SubContainer>
-        {SUB_OPTIONS.map((label) => (
-          <Button
+      </TargetGroupfilterContainer>
+      <PreferencefilterContainer>
+        {PREFERENCE_OPTIONS.map((label) => (
+          <SelectableButton
             key={label}
-            isActive={subSelected === label}
-            onClick={() => setSubSelected(label)}
-          >
-            <Label isActive={subSelected === label}>{label}</Label>
-          </Button>
+            label={label}
+            isActive={preferenceSelected === label}
+            onClick={() => {
+              setPreferenceSubSelected(label);
+              localStorage.setItem('selectedPreference', label);
+            }}
+            color="blue"
+          />
         ))}
-      </SubContainer>
+      </PreferencefilterContainer>
     </>
   );
 }
 
-const Container = styled.div`
+const TargetGroupfilterContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  gap: 8px;
-  width: 100%;
-  margin-bottom: 16px;
+  width: 90%;
+  margin: 0 auto;
 `;
 
-const Button = styled.button<{ isActive: boolean }>`
+const PreferencefilterContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  padding: 8px 12px;
-  margin-right: 30px;
-  border-radius: 20px;
-  border: none;
-  background-color: ${({ isActive, theme }) =>
-    isActive ? theme.colors.blue500 : theme.colors.blue200};
-  cursor: pointer;
-  width: 80px;
-`;
-
-const Icon = styled.div`
-  font-size: 20px;
-`;
-
-const Label = styled.span<{ isActive: boolean }>`
-  font-size: 12px;
-  color: ${({ isActive, theme }) =>
-    isActive ? theme.colors.textDefault : theme.colors.gray800};
-  font-weight: ${({ isActive }) => (isActive ? 'bold' : 'normal')};
-`;
-
-const SubContainer = styled.div`
-  display: flex;
+  margin: 0 auto;
   justify-content: space-between;
   background-color: ${({ theme }) => theme.colors.blue200};
-  width: 100%;
+  width: 90%;
   margin-top: 12px;
   gap: 8px;
   border-radius: 25px;

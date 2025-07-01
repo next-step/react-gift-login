@@ -16,15 +16,15 @@ export default function RisingSection() {
 const Container = styled.section`
   display: flex;
   justify-content: space-between;
-  padding: 0 14px;
   margin-bottom: 16px;
   flex-direction: column;
   width: 100%;
 `;
 
 const Title = styled.div`
-  font-size: ${({ theme }) => theme.typography.subtitle1Regular.fontSize};
+  font-size: ${({ theme }) => theme.typography.title1Regular.fontSize};
   font-weight: ${({ theme }) => theme.typography.subtitle1Regular.fontWeight};
   color: ${({ theme }) => theme.colors.gray1000};
   margin-bottom: 12px;
+  margin-left: 16px;
 `;
