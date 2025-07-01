@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { css, ThemeProvider } from '@emotion/react';
 import { theme } from '@/theme/theme';
 import productData from '../data/productData';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const Wrapper = styled.section`
   padding: 0px 16px;
@@ -226,6 +226,29 @@ const PresentRanking: React.FC = () => {
   const [selectedType, setSelectedType] = useState<'all' | 'female' | 'male' | 'teen'>('all');
   const [selectedPresentType, setSelectedPresentType] = useState<number>(0);
 
+  useEffect(() => {
+    const savedType = localStorage.getItem('selectedType') as
+      | 'all'
+      | 'female'
+      | 'male'
+      | 'teen'
+      | null;
+    const savedPresentType = localStorage.getItem('selectedPresentType');
+
+    if (savedType) setSelectedType(savedType);
+    if (savedPresentType) setSelectedPresentType(Number(savedPresentType));
+  }, []);
+
+  const handleTypeSelect = (type: typeof selectedType) => {
+    setSelectedType(type);
+    localStorage.setItem('selectedType', type);
+  };
+
+  const handlePresentTypeSelect = (index: number) => {
+    setSelectedPresentType(index);
+    localStorage.setItem('selectedPresentType', index.toString());
+  };
+
   const {
     name,
     imageURL,
@@ -252,7 +275,7 @@ const PresentRanking: React.FC = () => {
         <SelectionBanner>
           <ReceiverType>
             {typeOptions.map((type) => (
-              <TypeButton key={type.key} onClick={() => setSelectedType(type.key)}>
+              <TypeButton key={type.key} onClick={() => handleTypeSelect(type.key)}>
                 <ButtonLogo selected={selectedType === type.key}>{type.icon}</ButtonLogo>
                 <TypeTitle selected={selectedType === type.key}>{type.label}</TypeTitle>
               </TypeButton>
@@ -265,7 +288,7 @@ const PresentRanking: React.FC = () => {
             <PresentTypeButton
               key={text}
               selected={selectedPresentType === index}
-              onClick={() => setSelectedPresentType(index)}
+              onClick={() => handlePresentTypeSelect(index)}
             >
               {text}
             </PresentTypeButton>

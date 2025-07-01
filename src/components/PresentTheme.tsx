@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { ThemeProvider } from '@emotion/react';
 import { theme } from '@/theme/theme';
-import categoryData from '@/data/categotyData';
+import categoryData from '@/data/categoryData';
 
 const Container = styled.section`
   padding: 8px;

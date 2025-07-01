@@ -157,6 +157,12 @@ const GlobalStyle = () => (
         cursor: pointer;
       }
 
+      input {
+        background: none;
+        border: none;
+        outline: none;
+        appearance: none;
+      }
       * {
         box-sizing: border-box;
       }
