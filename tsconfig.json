@@ -7,7 +7,6 @@
     "types": ["node"]
   },
   "include": ["src"],
-
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },

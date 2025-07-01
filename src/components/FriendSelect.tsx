@@ -16,7 +16,8 @@ const FriendBox = styled.div`
 const AddButton = styled.button`
   width: 32px;
   height: 32px;
-  background-color: ${({ theme }) => theme.colors.kakaoYello};
+  background-color: ${({ theme }) => theme.colors.kakaoYellow};
+
   border: none;
   border-radius: 50%;
   font-size: 20px;

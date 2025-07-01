@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import styled from '@emotion/styled';
 import { theme } from '../styles/theme';
+import { IconFilterItem } from './common/IconFilterItem';
+
 
 const filters = [
   { key: 'all', label: '전체', icon: 'ALL' },
@@ -11,61 +13,17 @@ const filters = [
 
 type FilterKey = (typeof filters)[number]['key'];
 
+const tabOptions = ['받고 싶어한', '많이 선물한', '위시로 받은'];
+
+const LOCAL_FILTER_KEY = 'gift_filter_selected';
+const LOCAL_TAB_KEY = 'gift_tab_selected';
+
 const IconFilterContainer = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
   padding: ${theme.typography.spacing.spacing4};
 `;
-
-const IconWrapper = styled.div<{ selected: boolean }>`
-  background-color: ${({ selected }) =>
-    selected ? theme.colors.blue700 : theme.colors.blue100};
-  width: 48px;
-  height: 48px;
-  border-radius: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  margin-bottom: 8px;
-`;
-
-const Label = styled.div<{ selected: boolean }>`
-  color: ${({ selected }) =>
-    selected ? theme.colors.blue700 : theme.colors.gray600};
-  ${theme.typography.body2Regular};
-  text-align: center;
-`;
-
-const Box = styled.button`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: ${theme.colors.gray00};
-  border: ${theme.colors.gray00};
-  cursor: pointer;
-`;
-const IconFilterItem = ({
-  label,
-  icon,
-  selected,
-  onClick,
-}: {
-  label: string;
-  icon: string;
-  selected: boolean;
-  onClick: () => void;
-}) => {
-  return (
-    <Box onClick={onClick}>
-      <IconWrapper selected={selected}>{icon}</IconWrapper>
-      <Label selected={selected}>{label}</Label>
-    </Box>
-  );
-};
-
-const tabOptions = ['받고 싶어한', '많이 선물한', '위시로 받은'];
 
 const Container = styled.div`
   width: 100%;
@@ -99,8 +57,28 @@ const TabButton = styled.button<{ selected: boolean }>`
 `;
 
 export default function GiftRankingFilter() {
-  const [selected, setSelected] = useState<FilterKey>('all');
-  const [selectedTab, setSelectedTab] = useState('받고 싶어한');
+  const [selected, setSelected] = useState<FilterKey>(() => {
+    const saved = localStorage.getItem(LOCAL_FILTER_KEY);
+    return (
+      filters.some(f => f.key === saved) ? saved : 'all'
+    ) as FilterKey;
+  });
+
+  const [selectedTab, setSelectedTab] = useState(() => {
+    const saved = localStorage.getItem(LOCAL_TAB_KEY);
+    return tabOptions.includes(saved || '') ? saved! : tabOptions[0];
+  });
+
+  const handleFilterChange = (key: FilterKey) => {
+    setSelected(key);
+    localStorage.setItem(LOCAL_FILTER_KEY, key);
+  };
+
+  const handleTabChange = (tab: string) => {
+    setSelectedTab(tab);
+    localStorage.setItem(LOCAL_TAB_KEY, tab);
+  };
+
 
   return (
     <Container>
@@ -113,7 +91,8 @@ export default function GiftRankingFilter() {
             label={label}
             icon={icon}
             selected={selected === key}
-            onClick={() => setSelected(key)}
+            onClick={() => handleFilterChange(key)}
+
           />
         ))}
       </IconFilterContainer>
@@ -123,7 +102,8 @@ export default function GiftRankingFilter() {
           <TabButton
             key={tab}
             selected={selectedTab === tab}
-            onClick={() => setSelectedTab(tab)}
+            onClick={() => handleTabChange(tab)}
+
           >
             {tab}
           </TabButton>

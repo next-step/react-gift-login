@@ -63,8 +63,9 @@ export const theme = {
     // 시맨틱 컬러(Semantic Colors)
 
     // 브랜드 컬러
-    kakaoYello: '#fee500',
-    kakaoYelloHover: '#ffea2e',
+    kakaoYellow: '#fee500',
+    kakaoYellowHover: '#ffea2e',
+
     kakaoYellowActive: '#d5c000',
     kakaoYellowPressed: '#d5c000',
     kakaoBrown: '#654321',

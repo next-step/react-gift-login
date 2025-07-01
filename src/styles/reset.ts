@@ -86,8 +86,8 @@ export const reset = css`
     margin: 0;
     padding: 0;
     border: 0;
+    font-family: 'Pretendard Variable', sans-serif;
     font-size: 100%;
-    font: inherit;
     vertical-align: baseline;
   }
   /* HTML5 display-role reset for older browsers */
@@ -106,6 +106,9 @@ export const reset = css`
   }
   body {
     line-height: 1;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 16px;
   }
   ol,
   ul {
@@ -125,5 +128,11 @@ export const reset = css`
   table {
     border-collapse: collapse;
     border-spacing: 0;
+  }
+  html,
+  body,
+  #root {
+    height: 100%;
+    margin: 0;
   }
 `;
