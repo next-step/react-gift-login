@@ -25,13 +25,22 @@ const actionOptions = [
   { key: "WISH", label: "위시로 받은" },
 ] as const;
 
+const isValidGroupKey = (value: string | null): value is GroupKey =>
+  groupOptions.some((opt) => opt.key === value);
+
+const isValidActionKey = (value: string | null): value is ActionKey =>
+  actionOptions.some((opt) => opt.key === value);
+
 export const RankingSection = () => {
   const theme = useTheme();
   const [isExpanded, setIsExpanded] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const selectedGroup = (searchParams.get(GROUP_PARAM) as GroupKey) ?? "ALL";
-  const selectedAction = (searchParams.get(ACTION_PARAM) as ActionKey) ?? "WANT";
+  const rawGroup = searchParams.get(GROUP_PARAM);
+  const rawAction = searchParams.get(ACTION_PARAM);
+
+  const selectedGroup: GroupKey = isValidGroupKey(rawGroup) ? rawGroup : "ALL";
+  const selectedAction: ActionKey = isValidActionKey(rawAction) ? rawAction : "WANT";
 
   const updateParam = (key: string, value: string) => {
     const newParams = new URLSearchParams(searchParams);
