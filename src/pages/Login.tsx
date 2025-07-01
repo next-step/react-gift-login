@@ -32,7 +32,7 @@ const Login = () => {
       <Content>
         <Logo>kakao</Logo>
         <Form onSubmit={handleSubmit}>
-          <Input type="text" placeholder="이메일" onChange={handleIdChange} />
+          <Input type="email" placeholder="이메일" onChange={handleIdChange} />
           <Input type="password" placeholder="비밀번호" onChange={handlePasswordChange} />
           <Divider />
           <LoginBtn type="submit">로그인</LoginBtn>

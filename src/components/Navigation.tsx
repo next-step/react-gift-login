@@ -28,14 +28,12 @@ const Navigation = () => {
     <Container>
       <Nav>
         <NavLeft>
-          <LinkBtn onClick={handleBackClick} disabled={false}>
+          <LinkBtn onClick={handleBackClick}>
             <LeftArrow />
           </LinkBtn>
         </NavLeft>
         <NavCenter>
-          <LinkBtn onClick={handleHomeClick} disabled={false}>
-            선물하기
-          </LinkBtn>
+          <LinkBtn onClick={handleHomeClick}>선물하기</LinkBtn>
         </NavCenter>
         <NavRight>
           <LinkBtn onClick={handleLoginClick} disabled={location.pathname === ROUTE_PATH.LOGIN}>
@@ -78,12 +76,12 @@ const NavCenter = styled.div`
 const NavRight = styled.div`
   margin-left: auto;
 `;
-const LinkBtn = styled.button<{ disabled: boolean }>`
+const LinkBtn = styled.button<{ disabled?: boolean }>`
   background-color: transparent;
   border: none;
   font: ${({ theme }) => theme.typography.body1Bold};
   color: ${({ theme }) => theme.color.textColor.default};
-  cursor: ${({ disabled }) => (disabled ? "default" : "pointer")};
+  cursor: ${({ disabled = false }) => (disabled ? "default" : "pointer")};
 `;
 
 export default Navigation;

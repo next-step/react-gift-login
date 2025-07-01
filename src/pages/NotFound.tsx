@@ -13,7 +13,7 @@ const NotFound = () => {
   return (
     <Container>
       <Content>
-        <Img src={NOT_FOUND_IMG_URL} />
+        <Img alt={"Not Found"} src={NOT_FOUND_IMG_URL} />
         <Wrapper>
           <Title>잘못된 접근입니다.</Title>
           <Msg>찾으시는 페이지가 존재하지 않습니다.</Msg>
