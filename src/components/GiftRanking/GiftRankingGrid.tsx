@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 import GiftItemCard from './GiftItemCard';
 import GiftRankingFilter from './GiftRankingFilter';
@@ -6,21 +6,41 @@ import GiftRankingTab from './GiftRankingTab';
 import { giftItems } from '@/mock/giftItems';
 import type { TabValue } from '@/constants/RankingTabs';
 
-
 type GiftItem = typeof giftItems[number];
 const INITIAL_VISIBLE_COUNT = 6;
 
 const GiftRankingGrid = () => {
-
   const [showAll, setShowAll] = useState(false);
-  const [selectedTab, setSelectedTab] = useState<TabValue>('wish');
+
+  const [selectedTab, setSelectedTab] = useState<TabValue>(() => {
+    const saved = localStorage.getItem('selectedSubTab');
+    return saved === 'wish' || saved === 'sent' || saved === 'wishlist'
+      ? saved
+      : 'wish';
+  });
+
+  useEffect(() => {
+    localStorage.setItem('selectedSubTab', selectedTab);
+  }, [selectedTab]);
+
+  const [selectedFilter, setSelectedFilter] = useState<'all' | 'female' | 'male' | 'teen'>(() => {
+    const saved = localStorage.getItem('selectedFilter');
+    return saved === 'all' || saved === 'female' || saved === 'male' || saved === 'teen'
+      ? saved
+      : 'all';
+  });
+
+  useEffect(() => {
+    localStorage.setItem('selectedFilter', selectedFilter);
+  }, [selectedFilter]);
+
   const visibleItems = showAll ? giftItems : giftItems.slice(0, INITIAL_VISIBLE_COUNT);
 
   return (
     <Wrapper>
       <Title>실시간 급상승 선물랭킹</Title>
 
-      <GiftRankingFilter />
+      <GiftRankingFilter onChange={setSelectedFilter} />
       <GiftRankingTab selected={selectedTab} onChange={setSelectedTab} />
 
       <Container>
@@ -36,6 +56,7 @@ const GiftRankingGrid = () => {
   );
 };
 
+export default GiftRankingGrid;
 
 const Wrapper = styled.div`
   padding: 24px 16px;
@@ -66,6 +87,3 @@ const ToggleButton = styled.button`
   width: 100%;
   cursor: pointer;
 `;
-
-
-export default GiftRankingGrid;

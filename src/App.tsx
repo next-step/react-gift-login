@@ -4,19 +4,31 @@ import CategorySection from '@/components/home/CategorySection';
 import FriendSelectSection from '@/components/home/FriendSelectSection';
 import BannerSection from '@/components/home/BannerSection';
 import GiftRankingGrid from '@/components/GiftRanking/GiftRankingGrid';
-
+import LoginPage from '@/pages/loginpage';
+import NotFoundPage from '@/pages/NotFoundPage';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <AppContainer>
-      <AppInner>
-        <NavigationBar />
-        <FriendSelectSection />
-        <CategorySection />
-        <BannerSection />
-        <GiftRankingGrid />
-      </AppInner>
-    </AppContainer>
+    <Router>
+      <AppContainer>
+        <AppInner>
+          <NavigationBar />
+          <Routes>
+            <Route path="/" element={
+              <>
+                <FriendSelectSection />
+                <CategorySection />
+                <BannerSection />
+                <GiftRankingGrid />
+              </>
+            } />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </AppInner>
+      </AppContainer>
+    </Router>
   );
 }
 
