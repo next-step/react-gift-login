@@ -22,11 +22,11 @@ const TopNavigationBar: React.FC = () => {
 
   return (
     <Nav>
-      <Icon onClick={handleGoBack} style={{ cursor: 'pointer' }}>
+      <Icon onClick={handleGoBack}>
         <NavArrowLeftIcon />
       </Icon>
       <div>선물하기</div>
-      <Icon onClick={handleLGoLogin} style={{ cursor: 'pointer' }}>
+      <Icon onClick={handleLGoLogin}>
         <ProfileIcon />
       </Icon>
     </Nav>
