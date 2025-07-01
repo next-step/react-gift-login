@@ -6,7 +6,14 @@ export default function NavigationBar() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const handleBack = () => navigate(-1);
+  const handleBack = () => {
+    const isInternalReferrer = document.referrer.includes(window.location.host);
+    if (!isInternalReferrer) {
+      navigate('/');
+    } else {
+      navigate(-1);
+    }
+  };
   const handleLogin = () => navigate('/login', { state: { from: location } });
 
   return (
