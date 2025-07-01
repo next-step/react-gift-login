@@ -1,10 +1,20 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import styled from '@emotion/styled'
 import PersonIcon from '@mui/icons-material/Person'
 
 // 타입 정의
 export type FilterKey = 'all' | 'female' | 'male' | 'teen'
 export type TabKey = 'want' | 'many' | 'wish'
+
+const filterKeys = ['all', 'female', 'male', 'teen'] as const;
+const tabKeys = ['want', 'many', 'wish'] as const;
+
+function isFilterKey(value: any): value is FilterKey {
+  return filterKeys.includes(value);
+}
+function isTabKey(value: any): value is TabKey {
+  return tabKeys.includes(value);
+}
 
 const filters: { key: FilterKey; label: string; icon: React.ReactNode }[] = [
   { key: 'all', label: '전체', icon: null },
@@ -193,9 +203,34 @@ const MoreBtn = styled.button`
   }
 `
 
+const FILTER_KEY = 'ranking_selected_filter'
+const TAB_KEY = 'ranking_selected_tab'
+
 const RankingSection = () => {
-  const [selectedFilter, setSelectedFilter] = useState<FilterKey>('all')
-  const [selectedTab, setSelectedTab] = useState<TabKey>('want')
+  // localStorage에서 초기값 불러오기
+  const getInitialFilter = () => {
+    const saved = localStorage.getItem(FILTER_KEY)
+    if (isFilterKey(saved)) return saved
+    return 'all'
+  }
+  const getInitialTab = () => {
+    const saved = localStorage.getItem(TAB_KEY)
+    if (isTabKey(saved)) return saved
+    return 'want'
+  }
+
+  const [selectedFilter, setSelectedFilter] = useState<FilterKey>(getInitialFilter)
+  const [selectedTab, setSelectedTab] = useState<TabKey>(getInitialTab)
+
+  // 상태 변경 + localStorage 저장을 명시적으로 처리
+  const handleFilterChange = (filter: FilterKey) => {
+    setSelectedFilter(filter);
+    localStorage.setItem(FILTER_KEY, filter);
+  }
+  const handleTabChange = (tab: TabKey) => {
+    setSelectedTab(tab);
+    localStorage.setItem(TAB_KEY, tab);
+  }
 
   return (
     <Section>
@@ -205,7 +240,7 @@ const RankingSection = () => {
           <FilterBtn
             key={f.key}
             active={selectedFilter === f.key}
-            onClick={() => setSelectedFilter(f.key)}
+            onClick={() => handleFilterChange(f.key)}
           >
             {f.icon}
             <FilterLabel>{f.label}</FilterLabel>
@@ -217,7 +252,7 @@ const RankingSection = () => {
           <TabBtn
             key={tab.key}
             active={selectedTab === tab.key}
-            onClick={() => setSelectedTab(tab.key)}
+            onClick={() => handleTabChange(tab.key)}
           >
             {tab.label}
           </TabBtn>
