@@ -1,13 +1,25 @@
 import type { Theme } from "@emotion/react";
 import { css, useTheme } from "@emotion/react";
 import { useSearchParams } from "react-router-dom";
+import { useEffect } from "react";
 
 const FILTER_OPTIONS = ["받고 싶어한", "많이 선물한", "위시로 받은"];
 
 export default function RankingSubFilterTabs() {
   const theme = useTheme();
   const [searchParams, setSearchParams] = useSearchParams();
-  const selected = searchParams.get("topic") || FILTER_OPTIONS[0];
+  const rawParam = searchParams.get("topic");
+  const isValid = FILTER_OPTIONS.includes(
+    rawParam as (typeof FILTER_OPTIONS)[number]
+  );
+  const selected = isValid ? rawParam : FILTER_OPTIONS[0];
+
+  useEffect(() => {
+    if (!isValid) {
+      searchParams.set("topic", FILTER_OPTIONS[0]);
+      setSearchParams(searchParams);
+    }
+  }, [isValid, searchParams, setSearchParams]);
 
   return (
     <div css={containerStyle(theme)}>

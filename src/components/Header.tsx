@@ -22,22 +22,33 @@ const titleStyle = (theme: Theme) => css`
   color: ${theme.colors.semantic.textDefault};
 `;
 
+const backButtonStyle = css`
+  background: none;
+  border: none;
+  padding: 0;
+`;
+
 export default function Header() {
   const theme = useTheme();
   const navigate = useNavigate();
 
+  const handleBack = () => {
+    if (window.history.length > 1) {
+      navigate(-1);
+    } else {
+      navigate("/");
+    }
+  };
+
   return (
     <header css={headerWrapper(theme)}>
-      <button
-        onClick={() => navigate(-1)}
-        style={{ background: "none", border: "none", padding: 0 }}
-      >
+      <button onClick={handleBack} css={backButtonStyle}>
         <FiChevronLeft size={24} />
       </button>
       <h1 css={titleStyle(theme)}>선물하기</h1>
       <button onClick={() => navigate("/login")}>
         <FiUser size={24} />
-      </button>{" "}
+      </button>
     </header>
   );
 }
