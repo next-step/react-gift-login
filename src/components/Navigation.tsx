@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import LeftArrow from "@/components/icons/LeftArrow";
 import Profile from "@/components/icons/Profile";
 import { useLocation, useNavigate } from "react-router-dom";
+import { ROUTE_PATH } from "@/App";
 
 const Navigation = () => {
   const location = useLocation();
@@ -10,14 +11,14 @@ const Navigation = () => {
     if (window.history.length > 1) {
       navigate(-1);
     } else {
-      navigate("/");
+      navigate(ROUTE_PATH.HOME);
     }
   };
   const handleHomeClick = () => {
-    navigate("/");
+    navigate(ROUTE_PATH.HOME);
   };
   const handleLoginClick = () => {
-    navigate(`/login?redirect=${location.pathname}`);
+    navigate(`${ROUTE_PATH.LOGIN}?redirect=${location.pathname}`);
   };
   return (
     <Container>
@@ -33,7 +34,7 @@ const Navigation = () => {
           </LinkBtn>
         </NavCenter>
         <NavRight>
-          <LinkBtn onClick={handleLoginClick} disabled={location.pathname === "/login"}>
+          <LinkBtn onClick={handleLoginClick} disabled={location.pathname === ROUTE_PATH.LOGIN}>
             <Profile />
           </LinkBtn>
         </NavRight>

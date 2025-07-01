@@ -1,13 +1,14 @@
 import Container from "@/components/Container";
 import styled from "@emotion/styled";
 import { useNavigate } from "react-router-dom";
+import { ROUTE_PATH } from "@/App";
 
 const NOT_FOUND_IMG_URL = "https://gift-s.kakaocdn.net/dn/gift/webapp/images/m640/img_not_found.png";
 
 const NotFound = () => {
   const navigate = useNavigate();
   const handleBtnClick = () => {
-    navigate("/");
+    navigate(ROUTE_PATH.HOME);
   };
   return (
     <Container>

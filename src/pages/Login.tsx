@@ -1,3 +1,4 @@
+import { ROUTE_PATH } from "@/App";
 import Container from "@/components/Container";
 import Divider from "@/components/Divider";
 import styled from "@emotion/styled";
@@ -13,9 +14,9 @@ const Login = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const redirect = redirectUrl.get("redirect")?.trim() || "/";
-    if (redirect === "/login") {
-      navigate("/");
+    const redirect = redirectUrl.get("redirect")?.trim() || ROUTE_PATH.HOME;
+    if (redirect === ROUTE_PATH.LOGIN) {
+      navigate(ROUTE_PATH.HOME);
     } else {
       navigate(`${redirect}`);
     }

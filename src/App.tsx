@@ -12,13 +12,19 @@ function App() {
       <GlobalStyle />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Gift />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path={ROUTE_PATH.HOME} element={<Gift />} />
+          <Route path={ROUTE_PATH.LOGIN} element={<Login />} />
+          <Route path={ROUTE_PATH.NOT_FOUND} element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
   );
 }
+
+export const ROUTE_PATH = {
+  HOME: "/",
+  LOGIN: "/login",
+  NOT_FOUND: "*",
+} as const;
 
 export default App;
