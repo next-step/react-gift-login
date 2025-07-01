@@ -4,6 +4,7 @@ import { theme } from '@/theme'
 export const Icon = styled.div`
   width: ${theme.spacing[7]};
   height: ${theme.spacing[7]};
+  cursor: pointer;
 `
 export const Nav = styled.nav`
   display: flex;

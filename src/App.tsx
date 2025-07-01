@@ -1,20 +1,15 @@
+import { BrowserRouter } from 'react-router-dom'
 import { Global } from '@emotion/react'
 import { globalStyle } from '@/styles/GlobalStyle'
-import TopNavigationBar from '@/component/TopNavigationBar'
-import GiftRecipient from '@/component/GiftRecipient'
-import GiftCategory from '@/component/GiftCategory'
-import EtceteraSection from '@/component/EtceteraSection'
-import TrendingGiftRanking from '@/component/TrendingGiftRanking'
+import AppRouter from '@/routes/Router'
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <>
       <Global styles={globalStyle} />
-      <TopNavigationBar />
-      <GiftRecipient />
-      <GiftCategory />
-      <EtceteraSection />
-      <TrendingGiftRanking />
+      <BrowserRouter>
+        <AppRouter />
+      </BrowserRouter>
     </>
   )
 }

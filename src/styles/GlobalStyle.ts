@@ -7,7 +7,7 @@ export const globalStyle = css`
     margin: 0;
     padding: 0;
     font-family: 'Pretendard Variable', sans-serif;
-    background-color: ${theme.colors.semanticColor.backgroundColor.default};
+    background-color: ${theme.colors.colorScale.gray[100]};
     color: ${theme.colors.semanticColor.textColor.default};
   }
 
@@ -18,6 +18,6 @@ export const globalStyle = css`
   #root {
     max-width: 720px;
     margin: 0 auto;
-    background-color: ${theme.colors.semanticColor.backgroundColor.disabled};
+    background-color: ${theme.colors.colorScale.gray[200]};
   }
 `
