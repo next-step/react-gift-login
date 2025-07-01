@@ -74,11 +74,10 @@ const LoginFormBtn = styled.button`
 function Login() {
     const navigate = useNavigate();
     const location = useLocation();
-
+    const from = location.state?.from?.pathname || '/';
+    
     const handleLogin = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        
-        const from = location.state?.from?.pathname || '/';
         navigate(from, { replace: true});
     };
 
