@@ -1,10 +1,10 @@
-import IconTextButton from '@/components/common/IconTextButton';
+import Button from '@/components/common/Button';
 import styled from '@emotion/styled';
 
 const FriendSelectSection = () => {
   return (
     <Section>
-      <IconTextButton
+      <Button
         icon={
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -22,8 +22,9 @@ const FriendSelectSection = () => {
             <path d="M12 5v14" />
           </svg>
         }
-        text="선물할 친구를 선택해 주세요."
-      />
+      >
+        선물할 친구를 선택해 주세요.
+      </Button>
     </Section>
   );
 };

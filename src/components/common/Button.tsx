@@ -1,42 +1,45 @@
 import styled from '@emotion/styled';
 import type { ReactNode } from 'react';
 
-interface IconTextButtonProps {
-  icon: ReactNode;
-  text: string;
+interface ButtonProps {
+  icon?: ReactNode;
+  children: ReactNode;
   onClick?: () => void;
   backgroundColor?: string;
   height?: string;
 }
 
-const IconTextButton = ({
+const Button = ({
   icon,
-  text,
+  children,
   onClick,
   backgroundColor,
   height = '74px',
-}: IconTextButtonProps) => {
+}: ButtonProps) => {
   return (
     <Wrapper>
-      <Button
+      <StyledButton
         onClick={onClick}
         backgroundColor={backgroundColor}
         height={height}
       >
-        <IconWrapper>{icon}</IconWrapper>
-        <Text>{text}</Text>
-      </Button>
+        {icon && <IconWrapper>{icon}</IconWrapper>}
+        <Text>{children}</Text>
+      </StyledButton>
     </Wrapper>
   );
 };
 
-export default IconTextButton;
+export default Button;
 
 const Wrapper = styled.div`
   width: 100%;
 `;
 
-const Button = styled.button<{ backgroundColor?: string; height: string }>`
+const StyledButton = styled.button<{
+  backgroundColor?: string;
+  height: string;
+}>`
   width: 100%;
   height: ${({ height }) => height};
   border: none;
