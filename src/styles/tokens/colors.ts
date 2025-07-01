@@ -1,6 +1,6 @@
 const colors = {
   gray: {
-    '00': '#ffffff',
+    white: '#ffffff',
     100: '#f7f8f9',
     200: '#f3f4f5',
     300: '#eeeff1',

@@ -1,26 +1,25 @@
-import { Global, ThemeProvider } from '@emotion/react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { ThemeProvider, Global } from '@emotion/react'
 import { resetStyle } from '@/styles/reset'
-import theme from './styles/theme'
+import theme from '@/styles/theme'
+import HomePage from '@/pages/HomePage'
+import LoginPage from '@/pages/LoginPage'
+import NotFoundPage from '@/pages/NotfoundPage'
 import { MainLayout } from './components/MainLayout'
-import Header from './components/Header'
-import Category from './components/Category'
-import Friends from './components/Friends'
-import Banner from './components/Banner'
-import TimeRanking from './components/TimeRanking'
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <Global styles={resetStyle} />
-      <MainLayout>
-        <Header />
-        <Friends />
-        <Category />
-        <Banner />
-        <TimeRanking />
-      </MainLayout>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<MainLayout><HomePage /></MainLayout>} />
+          <Route path="/login" element={<MainLayout><LoginPage /></MainLayout>} />
+          <Route path="*" element={<MainLayout><NotFoundPage /></MainLayout>} />
+        </Routes>
+      </BrowserRouter>
     </ThemeProvider>
   )
 }
 
-export default App;
+export default App

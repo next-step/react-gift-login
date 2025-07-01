@@ -1,16 +1,21 @@
 import styled from '@emotion/styled'
-import type { ReactNode } from 'react'
+import type { PropsWithChildren } from 'react'
+import Header from './Header';
 
-export function MainLayout(props: { children: ReactNode }) {
+export function MainLayout({ children }: PropsWithChildren) {
   return (
+    <>
+    <Header />
     <Container>
-      {props.children}
+      {children}
     </Container>
+    </>
   )
 }
 
 const Container = styled.main`
   max-width: 720px;
   margin: 0 auto;
+  padding-top: 56px;
   width: 100%;
 `;

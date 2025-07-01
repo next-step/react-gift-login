@@ -4,20 +4,30 @@ import { categories } from '@/data/categories'
 export default function Category() {
   return (
     <>
-      <Block/>
+      <Block />
       <Section>
         <Title>선물 테마</Title>
         <Grid>
           {categories.map((item) => (
-            <CategoryItem key={item.themeId}>
-              <Image src={item.image} alt={item.name} />
-              <Label>{item.name}</Label>
-            </CategoryItem>
+            <CategoryCard
+              key={item.themeId}
+              image={item.image}
+              name={item.name}
+            />
           ))}
         </Grid>
       </Section>
-      <Block/>
+      <Block />
     </>
+  )
+}
+
+function CategoryCard({ image, name }: { image: string; name: string }) {
+  return (
+    <CategoryItem>
+      <Image src={image} alt={name} />
+      <Label>{name}</Label>
+    </CategoryItem>
   )
 }
 
