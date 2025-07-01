@@ -49,9 +49,8 @@ function Header() {
       navigate(
         `${ROUTE_PATH.LOGIN}?from=${encodeURIComponent(location.pathname)}`,
       );
-    } else {
-      navigate(ROUTE_PATH.LOGIN);
     }
+    // else 블록 삭제 (아무 동작도 하지 않음)
   };
 
   return (
