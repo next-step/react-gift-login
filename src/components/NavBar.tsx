@@ -14,7 +14,6 @@ const headerStyle = css`
   border-bottom: 1px solid ${palette.gray200};
   padding: 0 ${spacing.spacing4};
 `;
-
 export const NavBar = () => {
   const navigate = useNavigate();
   const location = useLocation();
