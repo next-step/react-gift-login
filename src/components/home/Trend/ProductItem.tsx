@@ -39,7 +39,7 @@ const ProductRank = styled.span<{ rank: number }>`
     }
   }}
 
-  border-radius: 4px;
+  border-radius: ${theme.spacing.spacing1};
 
   font-size: ${theme.typography.label.label2Bold.fontSize};
   font-weight: ${theme.typography.label.label2Bold.fontWeight};
@@ -56,7 +56,7 @@ const ProductImage = styled.img`
   aspect-ratio: 1 / 1;
 
   object-fit: cover;
-  border-radius: 4px;
+  border-radius: ${theme.spacing.spacing1};
 `
 
 // * 실시간 급상승 브랜드 & 이름 컨테이너

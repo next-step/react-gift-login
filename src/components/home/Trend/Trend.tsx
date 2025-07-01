@@ -7,19 +7,20 @@ import type { TargetType, RankType } from './types'
 import { isValidTargetType, isValidRankType } from './types'
 import { TrendFilter } from './TrendFilter'
 import { ProductItem } from './ProductItem'
+import { Button } from '@/components/common/Button'
 
 // * 실시간 급상승 컨테이너
 const Container = styled.div`
   width: 100%;
   height: fit-content;
 
-  padding: 20px;
+  padding: ${theme.spacing.spacing5};
 
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: 20px;
+  gap: ${theme.spacing.spacing5};
 `
 
 // * 실시간 급상승 상품 컨테이너
@@ -40,35 +41,6 @@ const MoreButtonContainer = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: ${theme.spacing.spacing4};
-`
-
-// * 더보기 버튼
-const MoreButton = styled.button`
-  max-width: 480px;
-  width: 100%;
-  height: fit-content;
-
-  padding: ${theme.spacing.spacing3} ${theme.spacing.spacing6};
-  background-color: ${theme.colors.gray.gray00};
-  border: 1px solid ${theme.colors.gray.gray400};
-  border-radius: ${theme.spacing.spacing1};
-
-  font-size: ${theme.typography.body.body2Regular.fontSize};
-  font-weight: ${theme.typography.body.body2Regular.fontWeight};
-  line-height: ${theme.typography.body.body2Regular.lineHeight};
-  color: ${theme.colors.gray.gray800};
-
-  cursor: pointer;
-  transition: all 0.2s ease;
-
-  &:hover {
-    background-color: ${theme.colors.gray.gray100};
-    border-color: ${theme.colors.gray.gray500};
-  }
-
-  &:active {
-    background-color: ${theme.colors.gray.gray200};
-  }
 `
 
 // * 실시간 급상승 컴포넌트
@@ -161,7 +133,9 @@ export const Trend = () => {
       {/* 더보기 버튼 */}
       {shouldShowMoreButton && (
         <MoreButtonContainer>
-          <MoreButton onClick={handleMoreButtonClick}>{showAll ? '접기' : `더보기`}</MoreButton>
+          <Button variant="outline" size="medium" onClick={handleMoreButtonClick}>
+            {showAll ? '접기' : `더보기`}
+          </Button>
         </MoreButtonContainer>
       )}
     </Container>

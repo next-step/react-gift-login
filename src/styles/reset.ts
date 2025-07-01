@@ -148,4 +148,18 @@ export const resetStyles = css`
     text-decoration: none;
     color: inherit;
   }
+
+  /* 인풋, 버튼, 텍스트 공간, 선택 등 각종 스타일 초기화 */
+  input,
+  button,
+  textarea,
+  select {
+    border: none;
+    outline: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+    appearance: none; /* 브라우저 기본 스타일 제거 */
+  }
 `
