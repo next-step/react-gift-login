@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import GlobalStyle from './styles/GlobalStyle'
 import { ThemeProvider } from '@emotion/react'
 import theme from './styles/theme'
@@ -73,10 +73,13 @@ const LoginFormBtn = styled.button`
 
 function Login() {
     const navigate = useNavigate();
+    const location = useLocation();
 
     const handleLogin = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        navigate(-1);
+        
+        const from = location.state?.from?.pathname || '/';
+        navigate(from, { replace: true});
     };
 
     return (
