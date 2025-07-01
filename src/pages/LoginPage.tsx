@@ -3,10 +3,10 @@ import { useSearchParams, useNavigate } from 'react-router-dom';
 import { ROUTE_PATH } from '@/constants/routes';
 
 const PageBackground = styled.div`
-  min-height: 100vh;
-  background: #f5f6fa; // 연한 회색
+  height: 100vh;
+  width: 100vw;
+  background: #f5f6fa;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
 `;
