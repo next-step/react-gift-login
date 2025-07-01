@@ -1,22 +1,33 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import styled from '@emotion/styled';
 import NavigationBar from '@/components/common/NavigationBar';
-import HomePage from '@/pages/homepage';
+import CategorySection from '@/components/home/CategorySection';
+import FriendSelectSection from '@/components/home/FriendSelectSection';
+import BannerSection from '@/components/home/BannerSection';
+import GiftRankingGrid from '@/components/GiftRanking/GiftRankingGrid';
 import LoginPage from '@/pages/loginpage';
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <AppContainer>
-      <AppInner>
-        <BrowserRouter>
+    <Router>
+      <AppContainer>
+        <AppInner>
           <NavigationBar />
           <Routes>
-            <Route path="/" element={<HomePage />} />
+            <Route path="/" element={
+              <>
+                <FriendSelectSection />
+                <CategorySection />
+                <BannerSection />
+                <GiftRankingGrid />
+              </>
+            } />
             <Route path="/login" element={<LoginPage />} />
           </Routes>
-        </BrowserRouter>
-      </AppInner>
-    </AppContainer>
+        </AppInner>
+      </AppContainer>
+    </Router>
   );
 }
 
