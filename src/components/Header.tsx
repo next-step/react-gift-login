@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { FiChevronLeft, FiUser } from 'react-icons/fi';
+import { ROUTE_PATH } from '@/constants/routes';
 
 const HeaderBar = styled.header`
   position: fixed; // 화면에 고정
@@ -41,6 +42,17 @@ const IconButton = styled.button`
 
 function Header() {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleLoginClick = () => {
+    if (location.pathname !== ROUTE_PATH.LOGIN) {
+      navigate(
+        `${ROUTE_PATH.LOGIN}?from=${encodeURIComponent(location.pathname)}`,
+      );
+    }
+    // else 블록 삭제 (아무 동작도 하지 않음)
+  };
+
   return (
     <HeaderBar>
       <IconButton
@@ -52,7 +64,7 @@ function Header() {
       </IconButton>
       <Title>선물하기</Title>
       <IconButton
-        onClick={() => navigate('/login')}
+        onClick={handleLoginClick}
         aria-label="로그인"
         style={{ width: 32, justifyContent: 'flex-end' }}
       >

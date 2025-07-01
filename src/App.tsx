@@ -1,19 +1,8 @@
-import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import MainPage from '@/pages/MainPage';
-import LoginPage from '@/pages/LoginPage';
-import Header from '@/components/Header';
+import { RouterProvider } from 'react-router-dom';
+import { router } from '@/routes/router';
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/" element={<MainPage />} />
-      </Routes>
-    </BrowserRouter>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
