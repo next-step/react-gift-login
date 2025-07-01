@@ -4,6 +4,7 @@ import { tabs } from '@/constants/RankingTabs';
 import type { TabValue } from '@/constants/RankingTabs';
 
 type Props = {
+  selected: TabValue;
   onChange: (value: TabValue) => void;
 };
 
