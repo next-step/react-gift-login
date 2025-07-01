@@ -8,32 +8,6 @@ import { giftThemes, rankingProducts } from '@/data/mockData';
 import styled from '@emotion/styled';
 import { theme } from '@/styles/theme';
 
-const AppContainer = styled.div`
-  min-height: 100vh;
-  background: ${theme.colors.gray200};
-  display: flex;
-  justify-content: center;
-  padding: 0 ${theme.spacing.spacing4};
-
-  @media (max-width: 768px) {
-    padding: 0;
-  }
-`;
-
-const MobileViewport = styled.div`
-  width: 100%;
-  max-width: 720px;
-  min-height: 100vh;
-  background: ${theme.colors.fill};
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  position: relative;
-
-  @media (max-width: 768px) {
-    max-width: 100%;
-    box-shadow: none;
-  }
-`;
-
 export default function MainPage() {
   const handleBackClick = (): void => {
     // 뒤로 가기 기능 구현
@@ -65,3 +39,30 @@ export default function MainPage() {
     </AppContainer>
   );
 }
+
+// 스타일 정의는 컴포넌트 하단에 위치
+const AppContainer = styled.div`
+  min-height: 100vh;
+  background: ${theme.colors.gray200};
+  display: flex;
+  justify-content: center;
+  padding: 0 ${theme.spacing.spacing4};
+
+  @media (max-width: 768px) {
+    padding: 0;
+  }
+`;
+
+const MobileViewport = styled.div`
+  width: 100%;
+  max-width: 720px;
+  min-height: 100vh;
+  background: ${theme.colors.fill};
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+    box-shadow: none;
+  }
+`;
