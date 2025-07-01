@@ -222,13 +222,15 @@ const RankingSection = () => {
   const [selectedFilter, setSelectedFilter] = useState<FilterKey>(getInitialFilter)
   const [selectedTab, setSelectedTab] = useState<TabKey>(getInitialTab)
 
-  // 필터/탭 변경 시 localStorage에 저장
-  useEffect(() => {
-    localStorage.setItem(FILTER_KEY, selectedFilter)
-  }, [selectedFilter])
-  useEffect(() => {
-    localStorage.setItem(TAB_KEY, selectedTab)
-  }, [selectedTab])
+  // 상태 변경 + localStorage 저장을 명시적으로 처리
+  const handleFilterChange = (filter: FilterKey) => {
+    setSelectedFilter(filter);
+    localStorage.setItem(FILTER_KEY, filter);
+  }
+  const handleTabChange = (tab: TabKey) => {
+    setSelectedTab(tab);
+    localStorage.setItem(TAB_KEY, tab);
+  }
 
   return (
     <Section>
@@ -238,7 +240,7 @@ const RankingSection = () => {
           <FilterBtn
             key={f.key}
             active={selectedFilter === f.key}
-            onClick={() => setSelectedFilter(f.key)}
+            onClick={() => handleFilterChange(f.key)}
           >
             {f.icon}
             <FilterLabel>{f.label}</FilterLabel>
@@ -250,7 +252,7 @@ const RankingSection = () => {
           <TabBtn
             key={tab.key}
             active={selectedTab === tab.key}
-            onClick={() => setSelectedTab(tab.key)}
+            onClick={() => handleTabChange(tab.key)}
           >
             {tab.label}
           </TabBtn>
