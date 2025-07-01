@@ -14,11 +14,18 @@ const Login = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const redirect = redirectUrl.get("redirect")?.trim() || ROUTE_PATH.HOME;
-    if (redirect === ROUTE_PATH.LOGIN) {
+    const redirect = () => {
+      const path = redirectUrl.get("redirect")?.trim();
+      if (path && (Object.values(ROUTE_PATH) as string[]).includes(path)) {
+        return path;
+      } else {
+        return ROUTE_PATH.HOME;
+      }
+    };
+    if (redirect() === ROUTE_PATH.LOGIN) {
       navigate(ROUTE_PATH.HOME);
     } else {
-      navigate(`${redirect}`);
+      navigate(`${redirect()}`);
     }
   };
   const handleIdChange = (event: React.ChangeEvent<HTMLInputElement>) => {
