@@ -74,6 +74,11 @@ const LoginFormBtn = styled.button`
 function Login() {
     const navigate = useNavigate();
 
+    const handleLogin = (e: React.MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault();
+        navigate(-1);
+    };
+
     return (
         <ThemeProvider theme={theme}>
             <GlobalStyle />
@@ -84,7 +89,7 @@ function Login() {
                         <LoginFormTitle>KAKAO</LoginFormTitle>
                         <LoginFormId placeholder='이메일'></LoginFormId>
                         <LoginFormPw placeholder='비밀번호'></LoginFormPw>
-                        <LoginFormBtn onClick={() => navigate('/')}>로그인</LoginFormBtn>
+                        <LoginFormBtn onClick={handleLogin}>로그인</LoginFormBtn>
                     </LoginForm>
                 </LoginFormWrapper>
             </Layout>
