@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 
 const filters = [
@@ -8,14 +8,25 @@ const filters = [
   { label: '청소년이', value: 'teen', icon: '🧒' },
 ] as const;
 
+type FilterValue = typeof filters[number]['value'];
 
-const GiftRankingFilter = () => {
+interface GiftRankingFilterProps {
+  onChange: (value: FilterValue) => void;
+}
 
-  const [selected, setSelected] = useState<(typeof filters)[number]['value']>('all');
-  
+const GiftRankingFilter = ({ onChange }: GiftRankingFilterProps) => {
+  const [selected, setSelected] = useState<FilterValue>(() => {
+    return (localStorage.getItem('selectedFilter') as FilterValue) || 'all';
+  });
+
+  useEffect(() => {
+    localStorage.setItem('selectedFilter', selected);
+    onChange(selected);
+  }, [selected, onChange]);
+
   return (
     <FilterContainer>
-      {filters.map(filter => (
+      {filters.map((filter) => (
         <FilterButton
           key={filter.value}
           selected={selected === filter.value}
@@ -47,7 +58,7 @@ const FilterButton = styled.button<{ selected: boolean }>`
   flex-direction: column;
   align-items: center;
   justify-content: center;
- background-color: ${({ selected, theme }) =>
+  background-color: ${({ selected, theme }) =>
     selected ? theme.colors.blue700 : theme.colors.blue100};
   color: ${({ theme, selected }) =>
     selected ? theme.colors.gray00 : theme.textColors.default};
