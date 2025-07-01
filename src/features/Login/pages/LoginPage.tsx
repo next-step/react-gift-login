@@ -1,13 +1,7 @@
-import TopNavigationBar from '@/component/TopNavigationBar/TopNavigationBar'
-import Input from '@/features/Login/components/Input'
+import LoginForm from '@/features/Login/components/LoginForm'
 
-const GiftPage = () => {
-  return (
-    <>
-      <TopNavigationBar />
-      <Input />
-    </>
-  )
+const LoginPage = () => {
+  return <LoginForm />
 }
 
-export default GiftPage
+export default LoginPage
