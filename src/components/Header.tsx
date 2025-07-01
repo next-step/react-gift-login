@@ -1,18 +1,21 @@
 import styled from '@emotion/styled';
 import { FiUser } from 'react-icons/fi';
-import { FaChevronRight } from 'react-icons/fa';
+import { FaChevronLeft } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 type HeaderProps = {
   title: string;
 };
 
 const Header = ({ title }: HeaderProps) => {
+  const navigate = useNavigate();
+
   return (
     <HeaderWrapper>
       <HeaderContainer>
-        <FiUser size={24} />
+        <FaChevronLeftIcon size={16} onClick={() => navigate('/')} />
         <Title>{title}</Title>
-        <FaChevronRight size={16} />
+        <FiUserIcon size={24} onClick={() => navigate('/login')} />
       </HeaderContainer>
     </HeaderWrapper>
   );
@@ -42,4 +45,12 @@ const Title = styled.div`
     font-weight: ${theme.font.title1Bold.weight};
     line-height: ${theme.font.title1Bold.lineHeight};
   `}
+`;
+
+const FaChevronLeftIcon = styled(FaChevronLeft)`
+  cursor: pointer;
+`;
+
+const FiUserIcon = styled(FiUser)`
+  cursor: pointer;
 `;

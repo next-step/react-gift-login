@@ -1,5 +1,9 @@
 import styled from '@emotion/styled';
-import { useState } from 'react';
+
+type Props = {
+  selected: string;
+  onChange: (key: string) => void;
+};
 
 const CATEGORY_LIST = [
   { key: '전체', icon: 'ALL' },
@@ -8,14 +12,12 @@ const CATEGORY_LIST = [
   { key: '청소년이', icon: '👦🏻' },
 ] as const;
 
-const RankingCategory = () => {
-  const [selected, setSelected] = useState('전체');
-
+const RankingCategory = ({ selected, onChange }: Props) => {
   return (
     <CategoryWrapper>
       {CATEGORY_LIST.map(({ key, icon }) => (
         <CategoryItemWrapper key={key}>
-          <CategoryItemButton isActive={selected === key} onClick={() => setSelected(key)}>
+          <CategoryItemButton isActive={selected === key} onClick={() => onChange(key)}>
             <CategoryIcon>{icon}</CategoryIcon>
           </CategoryItemButton>
           <CategoryText isActive={selected === key}>{key}</CategoryText>
@@ -30,12 +32,12 @@ export default RankingCategory;
 const CategoryWrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
   width: 100%;
   max-width: 720px;
   border-radius: 16px;
   margin-top: ${({ theme }) => theme.spacing.spacing5};
   margin-bottom: ${({ theme }) => theme.spacing.spacing5};
+  justify-content: space-between;
 `;
 
 const CategoryItemWrapper = styled.div`
@@ -43,7 +45,6 @@ const CategoryItemWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   gap: ${({ theme }) => theme.spacing.spacing1};
-  flex: 1;
 `;
 
 const CategoryItemButton = styled.button<{ isActive: boolean }>`

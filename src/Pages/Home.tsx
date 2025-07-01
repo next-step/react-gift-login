@@ -4,7 +4,8 @@ import { FiPlus } from 'react-icons/fi';
 import { mockThemeList } from '@/mocks/themeListMock';
 import ThemeItem from '@/components/ThemeItem';
 import type { ThemeItemType } from '@/types/theme';
-import RankingSection from '@/components/RankingSection/RankingSection';
+import RankingSection from '@/components/RankingSection';
+import { SectionContainer, SectionTitle } from '@/components/Common/SectionLayout';
 
 const Home = () => {
   return (
@@ -17,14 +18,15 @@ const Home = () => {
             <SelectFriendText>선물할 친구를 선택해 주세요.</SelectFriendText>
           </SelectFriend>
         </SelectFriendSection>
-        <ThemeSection>
-          <ThemeSectionTitle>선물 테마</ThemeSectionTitle>
+        <SectionContainer>
+          <SectionTitle>선물 테마</SectionTitle>
           <ThemeGrid>
             {mockThemeList.slice(0, 15).map((item: ThemeItemType) => (
-              <ThemeItem key={item.themeId} item={item} />
+              <ThemeItem key={item.themeId} {...item} />
             ))}
           </ThemeGrid>
-        </ThemeSection>
+        </SectionContainer>
+
         <CheerBannerSection>
           <CheerBanner>
             <CheerBannerLabel>카카오테크 캠퍼스 3기 여러분</CheerBannerLabel>
@@ -92,23 +94,11 @@ const SelectFriendText = styled.p`
   `}
 `;
 
-const ThemeSection = styled.section`
-  padding: ${({ theme }) => ` ${theme.spacing.spacing2}`};
-  background-color: ${({ theme }) => theme.colors.backgroundDefault};
-`;
-
-const ThemeSectionTitle = styled.p`
-  ${({ theme }) => `
-    font-size: ${theme.font.title1Bold.size};
-    font-weight: ${theme.font.title1Bold.weight};
-    line-height: ${theme.font.title1Bold.lineHeight};`}
-`;
-
 const ThemeGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: ${({ theme }) => theme.spacing.spacing2};
-  padding: ${({ theme }) => theme.spacing.spacing3};
+  gap: ${({ theme }) => theme.spacing.spacing4};
+  margin-top: ${({ theme }) => theme.spacing.spacing4};
 `;
 
 const CheerBannerSection = styled.section`

@@ -1,18 +1,24 @@
 import styled from '@emotion/styled';
 import type { GiftItem } from '@/types/gift';
 
-interface RankingItemProps {
-  item: GiftItem;
+type RankingItemProps = GiftItem & {
   rank: number;
-}
+  highlightCondition?: (rank: number) => boolean;
+};
 
-const RankingItem = ({ item, rank }: RankingItemProps) => {
-  const { name, imageURL, price, brandInfo } = item;
+const RankingItem = ({
+  name,
+  imageURL,
+  price,
+  brandInfo,
+  rank,
+  highlightCondition = (rank) => rank <= 3,
+}: RankingItemProps) => {
   return (
     <ItemWrapper>
       <ImageWrapper>
         <ProductImage src={imageURL} alt={name} />
-        <RankBadge isTop3={rank <= 3}>{rank}</RankBadge>
+        <RankBadge isTop={highlightCondition(rank)}>{rank}</RankBadge>
       </ImageWrapper>
       <ItemBrand>{brandInfo.name}</ItemBrand>
       <ItemName>{name}</ItemName>
@@ -48,15 +54,15 @@ const ProductImage = styled.img`
   object-fit: cover;
 `;
 
-const RankBadge = styled.div<{ isTop3: boolean }>`
+const RankBadge = styled.div<{ isTop: boolean }>`
   position: absolute;
   top: 6px;
   left: 6px;
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: ${({ isTop3, theme }) => (isTop3 ? theme.colors.red500 : 'transparent')};
-  color: ${({ isTop3, theme }) => (isTop3 ? theme.colors.kakaoBrown : '#ffffff')};
+  background-color: ${({ isTop, theme }) => (isTop ? theme.colors.red500 : 'transparent')};
+  color: ${({ isTop, theme }) => (isTop ? theme.colors.kakaoBrown : '#ffffff')};
   font-size: 14px;
   font-weight: bold;
   display: flex;

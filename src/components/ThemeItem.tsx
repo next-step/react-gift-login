@@ -1,15 +1,11 @@
 import styled from '@emotion/styled';
 import type { ThemeItemType } from '@/types/theme';
 
-interface Props {
-  item: ThemeItemType;
-}
-
-const ThemeItem = ({ item }: Props) => {
+const ThemeItem = ({ themeId, name, image }: ThemeItemType) => {
   return (
     <ItemWrapper>
-      <ItemImage src={item.image} alt={item.name} />
-      <ItemLabel>{item.name}</ItemLabel>
+      <ItemImage src={image} alt={name} />
+      <ItemLabel>{name}</ItemLabel>
     </ItemWrapper>
   );
 };
@@ -24,8 +20,8 @@ const ItemWrapper = styled.div`
 `;
 
 const ItemImage = styled.img`
-  width: 60px;
-  height: 60px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 8px;

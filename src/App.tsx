@@ -1,10 +1,11 @@
 import GlobalStyle from '@/styles/GlobalStyle';
+import Router from '@/shared/Router';
 
 function App() {
   return (
     <>
       <GlobalStyle />
-      <div>react-gift-login</div>
+      <Router />
     </>
   );
 }

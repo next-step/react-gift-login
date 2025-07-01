@@ -4,46 +4,54 @@ import RankingItem from './RankingItem';
 import styled from '@emotion/styled';
 import { mockGiftItems } from '@/mocks/itemListMock';
 import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { SectionContainer, SectionTitle } from '@/components/Common/SectionLayout';
+
+const DEFAULT_GENDER = '전체';
+const DEFAULT_CATEGORY = '받고싶어한';
 
 const RankingSection = () => {
   const [showAll, setShowAll] = useState(false);
   const item = mockGiftItems[0];
   const RANK_COUNT = showAll ? 12 : 6;
-
   const toggleShowAll = () => setShowAll((prev) => !prev);
 
+  const [searchParams, setSearchParams] = useSearchParams();
+  const gender = searchParams.get('gender') || DEFAULT_GENDER;
+  const category = searchParams.get('category') || DEFAULT_CATEGORY;
+
+  const handleGenderChange = (newGender: string) => {
+    setSearchParams((prev) => {
+      const newParams = new URLSearchParams(prev);
+      newParams.set('gender', newGender);
+      return newParams;
+    });
+  };
+
+  const handleCategoryChange = (newCategory: string) => {
+    setSearchParams((prev) => {
+      const newParams = new URLSearchParams(prev);
+      newParams.set('category', newCategory);
+      return newParams;
+    });
+  };
+
   return (
-    <RankingSectionContainer>
-      <RankingSectionTitle>실시간 급상승 선물랭킹</RankingSectionTitle>
-      <RankingCategory />
-      <RankingTextCategory />
+    <SectionContainer>
+      <SectionTitle>실시간 급상승 선물랭킹</SectionTitle>
+      <RankingCategory selected={gender} onChange={handleGenderChange} />
+      <RankingTextCategory selected={category} onChange={handleCategoryChange} />
       <RankingGrid>
         {Array.from({ length: RANK_COUNT }).map((_, index) => (
-          <RankingItem key={index} item={item} rank={index + 1} />
+          <RankingItem key={index} rank={index + 1} {...item} />
         ))}
       </RankingGrid>
       <MoreButton onClick={toggleShowAll}>{showAll ? '접기' : '더보기'}</MoreButton>
-    </RankingSectionContainer>
+    </SectionContainer>
   );
 };
 
 export default RankingSection;
-
-export const RankingSectionContainer = styled.section`
-  width: 100%;
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 0 ${({ theme }) => ` ${theme.spacing.spacing2}`};
-  background-color: ${({ theme }) => theme.colors.backgroundDefault};
-  margin-top: ${({ theme }) => theme.spacing.spacing2};
-`;
-
-export const RankingSectionTitle = styled.p`
-  ${({ theme }) => `
-    font-size: ${theme.font.title1Bold.size};
-    font-weight: ${theme.font.title1Bold.weight};
-    line-height: ${theme.font.title1Bold.lineHeight};`}
-`;
 
 const RankingGrid = styled.div`
   display: grid;
