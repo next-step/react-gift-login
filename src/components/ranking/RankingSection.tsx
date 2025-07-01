@@ -1,112 +1,132 @@
 /** @jsxImportSource @emotion/react */
 import { css, useTheme } from "@emotion/react";
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { rankingList } from "@/mock/rankingList";
+import { RankingCard } from "@/components/ranking/RankingCard";
+import type { ThemeType } from "@/styles/theme/theme";
+
+type GroupKey = "ALL" | "FEMALE" | "MALE" | "TEEN";
+type ActionKey = "WANT" | "GIVE" | "WISH";
+
+const GROUP_PARAM = "group";
+const ACTION_PARAM = "action";
+
+const groupOptions = [
+  { key: "ALL", label: "전체", icon: "ALL" },
+  { key: "FEMALE", label: "여성이", icon: "👩🏻" },
+  { key: "MALE", label: "남성이", icon: "👨🏻" },
+  { key: "TEEN", label: "청소년이", icon: "👦🏻" },
+] as const;
+
+const actionOptions = [
+  { key: "WANT", label: "받고 싶어한" },
+  { key: "GIVE", label: "많이 선물한" },
+  { key: "WISH", label: "위시로 받은" },
+] as const;
+
+const isValidGroupKey = (value: string | null): value is GroupKey =>
+  groupOptions.some((opt) => opt.key === value);
+
+const isValidActionKey = (value: string | null): value is ActionKey =>
+  actionOptions.some((opt) => opt.key === value);
 
 export const RankingSection = () => {
   const theme = useTheme();
   const [isExpanded, setIsExpanded] = useState(false);
-  const [selectedGender, setSelectedGender] = useState("ALL");
-  const [selectedAction, setSelectedAction] = useState("받고 싶어한");
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const rawGroup = searchParams.get(GROUP_PARAM);
+  const rawAction = searchParams.get(ACTION_PARAM);
+
+  const selectedGroup: GroupKey = isValidGroupKey(rawGroup) ? rawGroup : "ALL";
+  const selectedAction: ActionKey = isValidActionKey(rawAction) ? rawAction : "WANT";
+
+  const updateParam = (key: string, value: string) => {
+    const newParams = new URLSearchParams(searchParams);
+    newParams.set(key, value);
+    setSearchParams(newParams);
+  };
 
   return (
     <section css={section(theme)}>
       <h3 css={title(theme)}>실시간 급상승 선물랭킹</h3>
 
       <div css={filterContainer(theme)}>
-        <div css={gender(theme)}>
-          {["ALL", "여성이", "남성이", "청소년이"].map(gender => (
-            <button
-              key={gender}
-              css={genderButton}
-              onClick={() => setSelectedGender(gender)}
-            >
-              <div css={genderIcon(theme, selectedGender === gender)}>
-                {gender === "ALL"
-                  ? "ALL"
-                  : gender === "여성이"
-                    ? "👩🏻"
-                    : gender === "남성이"
-                      ? "👨🏻"
-                      : "👦🏻"}
-              </div>
-              <p css={genderText(theme, selectedGender === gender)}>{gender}</p>
-            </button>
-          ))}
+        <div css={groupFilterContainer(theme)}>
+          {groupOptions.map(({ key, label, icon }) => {
+            const isSelected = selectedGroup === key;
+            return (
+              <button
+                key={key}
+                css={groupButton}
+                onClick={() => updateParam(GROUP_PARAM, key)}
+              >
+                <div css={groupIcon(theme, isSelected)}>{icon}</div>
+                <p css={groupText(theme, isSelected)}>{label}</p>
+              </button>
+            );
+          })}
         </div>
 
-        <div css={gift(theme)}>
-          {["받고 싶어한", "많이 선물한", "위시로 받은"].map(action => (
-            <button
-              key={action}
-              css={actionButton(theme, selectedAction === action)}
-              onClick={() => setSelectedAction(action)}
-            >
-              {action}
-            </button>
-          ))}
+        <div css={actionFilter(theme)}>
+          {actionOptions.map(({ key, label }) => {
+            const isSelected = selectedAction === key;
+            return (
+              <button
+                key={key}
+                css={actionButton(theme, isSelected)}
+                onClick={() => updateParam(ACTION_PARAM, key)}
+              >
+                {label}
+              </button>
+            );
+          })}
         </div>
       </div>
 
       <div css={grid(theme)}>
-        {(isExpanded ? rankingList : rankingList.slice(0, 6)).map(
-          (item, idx) => (
-            <div key={item.id} css={itemStyle}>
-              <span css={ranks(theme, idx + 1)}>{idx + 1}</span>
-              <img css={itemImg(theme)} src={item.imageURL} alt={item.name} />
-              <p css={brandName(theme)}>{item.brandInfo.name}</p>
-              <h6 css={productName(theme)}>{item.name}</h6>
-              <p css={priceStyle(theme)}>
-                {item.price.sellingPrice.toLocaleString()} <span>원</span>
-              </p>
-            </div>
-          ),
-        )}
+        {(isExpanded ? rankingList : rankingList.slice(0, 6)).map((item, idx) => (
+          <RankingCard
+            key={item.id}
+            rank={idx + 1}
+            imageURL={item.imageURL}
+            brandName={item.brandInfo.name}
+            productName={item.name}
+            price={item.price.sellingPrice}
+          />
+        ))}
       </div>
 
-      <button css={more(theme)} onClick={() => setIsExpanded(prev => !prev)}>
+      <button css={moreButton(theme)} onClick={() => setIsExpanded((prev) => !prev)}>
         <p>{isExpanded ? "접기" : "더보기"}</p>
       </button>
     </section>
   );
 };
 
-const section = (theme: any) => css`
+const section = (theme: ThemeType) => css`
   padding: ${theme.spacing.spacing4};
   background-color: white;
 `;
 
-const title = (theme: any) => css`
+const title = (theme: ThemeType) => css`
   ${theme.typography.title1Bold}
   color: ${theme.colors.textDefault};
   margin-bottom: ${theme.spacing.spacing4};
 `;
 
-const filterContainer = (theme: any) => css`
+const filterContainer = (theme: ThemeType) => css`
   margin-bottom: ${theme.spacing.spacing4};
 `;
 
-const gender = (theme: any) => css`
+const groupFilterContainer = (theme: ThemeType) => css`
   display: flex;
   justify-content: space-between;
   margin-bottom: ${theme.spacing.spacing3};
 `;
 
-const gift = (theme: any) => css`
-  display: flex;
-  justify-content: space-around;
-  padding: ${theme.spacing.spacing4};
-  background-color: ${theme.colors.blue100};
-  border-radius: 10px;
-`;
-
-const actionButton = (theme: any, isSelected: boolean) => css`
-  cursor: pointer;
-  color: ${isSelected ? theme.colors.blue700 : theme.colors.gray700};
-  ${isSelected ? theme.typography.label1Bold : theme.typography.label1Regular}
-`;
-
-const genderButton = css`
+const groupButton = css`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -116,7 +136,7 @@ const genderButton = css`
   padding: 0;
 `;
 
-const genderIcon = (theme: any, isSelected: boolean) => css`
+const groupIcon = (theme: ThemeType, isSelected: boolean) => css`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -124,80 +144,44 @@ const genderIcon = (theme: any, isSelected: boolean) => css`
   height: 50px;
   margin-bottom: ${theme.spacing.spacing1};
   border-radius: 17px;
-  ${theme.typography.label1Bold}
+  ${theme.typography.label1Bold};
   background-color: ${isSelected ? theme.colors.blue700 : theme.colors.blue100};
   color: ${isSelected ? theme.colors.blue200 : theme.colors.blue400};
 `;
 
-const genderText = (theme: any, isSelected: boolean) => css`
-  ${isSelected ? theme.typography.label1Bold : theme.typography.label1Regular}
+const groupText = (theme: ThemeType, isSelected: boolean) => css`
+  ${isSelected ? theme.typography.label1Bold : theme.typography.label1Regular};
   color: ${isSelected ? theme.colors.blue700 : theme.colors.gray700};
 `;
 
-const grid = (theme: any) => css`
+const actionFilter = (theme: ThemeType) => css`
+  display: flex;
+  justify-content: space-around;
+  padding: ${theme.spacing.spacing4};
+  background-color: ${theme.colors.blue100};
+  border-radius: 10px;
+`;
+
+const actionButton = (theme: ThemeType, isSelected: boolean) => css`
+  cursor: pointer;
+  color: ${isSelected ? theme.colors.blue700 : theme.colors.gray700};
+  ${isSelected ? theme.typography.label1Bold : theme.typography.label1Regular};
+`;
+
+const grid = (theme: ThemeType) => css`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: ${theme.spacing.spacing2};
   margin-bottom: ${theme.spacing.spacing4};
 `;
 
-const itemStyle = css`
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  cursor: pointer;
-`;
-
-const ranks = (theme: any, rank: number) => css`
-  position: absolute;
-  top: ${theme.spacing.spacing1};
-  left: ${theme.spacing.spacing1};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 30px;
-  height: 30px;
-  border-radius: 4px;
-  background-color: ${rank <= 3 ? theme.colors.red600 : theme.colors.gray600};
-  color: white;
-  ${theme.typography.label2Bold}
-`;
-
-const itemImg = (theme: any) => css`
-  width: 100%;
-  aspect-ratio: 1;
-  border-radius: 8px;
-  margin-bottom: ${theme.spacing.spacing2};
-  object-fit: cover;
-`;
-
-const brandName = (theme: any) => css`
-  ${theme.typography.label2Regular}
-  color: ${theme.colors.gray700};
-  margin-bottom: ${theme.spacing.spacing1};
-`;
-
-const productName = (theme: any) => css`
-  ${theme.typography.body2Bold}
-  color: ${theme.colors.textDefault};
-  margin-bottom: ${theme.spacing.spacing2};
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-`;
-
-const priceStyle = (theme: any) => css`
-  ${theme.typography.body2Bold}
-  color: ${theme.colors.textDefault};
-`;
-
-const more = (theme: any) => css`
+const moreButton = (theme: ThemeType) => css`
   width: 100%;
   padding: ${theme.spacing.spacing3};
   border: 1px solid ${theme.colors.gray300};
   border-radius: 8px;
   background-color: white;
   cursor: pointer;
-  ${theme.typography.body1Regular}
+  ${theme.typography.body1Regular};
   color: ${theme.colors.textDefault};
 `;
