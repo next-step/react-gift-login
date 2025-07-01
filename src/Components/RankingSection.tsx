@@ -6,6 +6,16 @@ import PersonIcon from '@mui/icons-material/Person'
 export type FilterKey = 'all' | 'female' | 'male' | 'teen'
 export type TabKey = 'want' | 'many' | 'wish'
 
+const filterKeys = ['all', 'female', 'male', 'teen'] as const;
+const tabKeys = ['want', 'many', 'wish'] as const;
+
+function isFilterKey(value: any): value is FilterKey {
+  return filterKeys.includes(value);
+}
+function isTabKey(value: any): value is TabKey {
+  return tabKeys.includes(value);
+}
+
 const filters: { key: FilterKey; label: string; icon: React.ReactNode }[] = [
   { key: 'all', label: '전체', icon: null },
   { key: 'female', label: '여성', icon: <PersonIcon style={{fontSize: 28}} /> },
@@ -200,12 +210,12 @@ const RankingSection = () => {
   // localStorage에서 초기값 불러오기
   const getInitialFilter = () => {
     const saved = localStorage.getItem(FILTER_KEY)
-    if (saved === 'all' || saved === 'female' || saved === 'male' || saved === 'teen') return saved as FilterKey
+    if (isFilterKey(saved)) return saved
     return 'all'
   }
   const getInitialTab = () => {
     const saved = localStorage.getItem(TAB_KEY)
-    if (saved === 'want' || saved === 'many' || saved === 'wish') return saved as TabKey
+    if (isTabKey(saved)) return saved
     return 'want'
   }
 
