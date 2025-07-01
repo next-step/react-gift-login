@@ -13,7 +13,10 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const from = location.state?.from?.pathname || '/';
+  const from =
+    typeof location.state?.from?.pathname === 'string'
+      ? location.state.from.pathname
+      : '/';
 
   const handleLogin = () => {
     navigate(from, { replace: true });
