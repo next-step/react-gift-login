@@ -17,7 +17,7 @@ const LoginPage = () => {
 
   return (
     <>
-      <Navigation />
+      <Navigation showLoginButton={false} />
       <Wrapper>
         <Logo src={KakaoLogo} alt="카카오 로고" />
         <InputWrapper>

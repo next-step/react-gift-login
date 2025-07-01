@@ -1,12 +1,14 @@
 import styled from '@emotion/styled';
 import PresentLogo from '@/assets/present.webp';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { ROUTES } from '@/constants/routes';
 
-const Navigation = () => {
+interface NavigationProps {
+  showLoginButton?: boolean;
+}
+
+const Navigation = ({ showLoginButton = true }: NavigationProps) => {
   const location = useLocation();
   const navigate = useNavigate();
-  const isLoginPage = location.pathname === ROUTES.LOGIN;
 
   return (
     <Nav>
@@ -44,7 +46,7 @@ const Navigation = () => {
             })
           }
           aria-label="로그인"
-          disabled={isLoginPage}
+          disabled={!showLoginButton}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
