@@ -23,3 +23,5 @@ export interface GiftItem {
   price: Price;
   brandInfo: BrandInfo;
 }
+
+
