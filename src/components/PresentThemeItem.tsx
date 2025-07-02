@@ -1,4 +1,4 @@
-import { category_data } from '@assets/CATEGORY_DATA';
+import { CATEGORY_DATA } from '@/assets/categoryData';
 import styled from '@emotion/styled';
 
 const StyledImage = styled.img`
@@ -20,7 +20,7 @@ const StyledPresentThemeItemDiv = styled.div`
 const PresentThemeItem = () => {
   return (
     <>
-      {category_data.map((item) => (
+      {CATEGORY_DATA.map((item) => (
         <StyledPresentThemeItemDiv key={item.themeId} className='border'>
           <StyledImage src={item.image} alt={item.name} />
           <StyledP>{item.name}</StyledP>

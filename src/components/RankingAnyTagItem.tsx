@@ -1,22 +1,39 @@
-import styled from '@emotion/styled';
+import StyledRankingAnyTagItem from '@/styles/StyledRankingAnyTagItem';
+import { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-const anyTagItemlist = ['받고 싶어한', '많이 선물한', '위시로 받은'];
-
-const StyledRankingAnyTagItem = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: ${({ theme }) => theme.spacing.spacing4};
-  color: ${({ theme }) => theme.palette.blue600};
-`;
+const ANY_TAG_ITEM_LIST = ['받고 싶어한', '많이 선물한', '위시로 받은'];
 
 const RankingAnyTagItem = () => {
+  const navigate = useNavigate();
+  const { search } = useLocation();
+  const [selected, setSelected] = useState<string | null>('받고 싶어한');
+
+  useEffect(() => {
+    const params = new URLSearchParams(search);
+    const value = params.get('AnyTagSelected');
+    if (value) {
+      setSelected(value);
+    }
+  }, [search]);
+
+  const handleClick = (value: string) => {
+    const params = new URLSearchParams(search);
+    params.set('AnyTagSelected', value);
+    navigate(`?${params.toString()}`, { replace: true });
+  };
+
   return (
     <>
-      {anyTagItemlist.map((item: string) => {
+      {ANY_TAG_ITEM_LIST.map((item: string) => {
         return (
-          <StyledRankingAnyTagItem key={item} className='ranking-any-tag-item'>
-            <p>{item.toLocaleLowerCase()}</p>
+          <StyledRankingAnyTagItem
+            key={item}
+            className='ranking-any-tag-item'
+            onClick={() => handleClick(item)}
+            isSelected={selected === item}
+          >
+            {item.toLowerCase()}
           </StyledRankingAnyTagItem>
         );
       })}
