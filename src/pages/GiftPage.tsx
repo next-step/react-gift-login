@@ -65,5 +65,4 @@ export const GiftPage = () => {
     </Layout>
   );
 };
-
 export default GiftPage;
