@@ -4,8 +4,12 @@
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
   ],
+<<<<<<< HEAD
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "@emotion/react"
   },
 }
+=======
+}
+>>>>>>> upstream/jabin00123

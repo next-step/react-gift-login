@@ -15,10 +15,14 @@
     "moduleDetection": "force",
     "noEmit": true,
 
+<<<<<<< HEAD
     "jsx": "react-jsx",
     "jsxImportSource": "@emotion/react",
 
     /* 절대경로 import(@) */
+=======
+    /* 절대경로 import (@) */
+>>>>>>> upstream/jabin00123
     "baseUrl": ".",
     "paths": { "@/*": ["src/*"] },
 
@@ -27,8 +31,19 @@
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+
+    "types": ["node"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
+<<<<<<< HEAD
 
   "include": ["src"]
 }
+=======
+  "include": ["src", "src/types"]
+}
+>>>>>>> upstream/jabin00123
