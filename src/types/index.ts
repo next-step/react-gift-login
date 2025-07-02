@@ -22,16 +22,6 @@ export interface GiftItem {
   imageURL: string;
   price: Price;
   brandInfo: BrandInfo;
-<<<<<<< HEAD
 }
 
-export interface RankingItem extends GiftItem {
-  give: number;
-  want: number;
-  receive: number;
-}
 
-export type RankField = 'give' | 'want' | 'receive';
-=======
-}
->>>>>>> upstream/jabin00123

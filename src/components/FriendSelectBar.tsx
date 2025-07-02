@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 
-=======
-/** @jsxImportSource @emotion/react */
->>>>>>> upstream/jabin00123
 import { css } from '@emotion/react';
 import { palette } from '@/styles/theme';
 

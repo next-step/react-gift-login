@@ -1,4 +1,3 @@
-/** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 import type { GiftItem } from '@/types';
 import { palette } from '@/styles/theme';
@@ -10,10 +9,6 @@ const card = css`
   overflow: hidden;
   background: ${palette.white};
 `;
-<<<<<<< HEAD
-=======
-
->>>>>>> upstream/jabin00123
 const imgBox = css`
   width: 100%;
   aspect-ratio: 1/1; // 가로=세로 비율 유지하는 
