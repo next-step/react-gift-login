@@ -61,8 +61,8 @@ const Login = () => {
       <StyledLoginComponentContainerDiv>
         <StyledLoginComponentDiv>
           <StyledKakoLogo>kakao</StyledKakoLogo>
-          <StyledInput id='loginid' placeholder='이메일'></StyledInput>
-          <StyledInput id='passwd' placeholder='비밀번호'></StyledInput>
+          <StyledInput type='text' id='loginid' placeholder='이메일' />
+          <StyledInput type='password' id='passwd' placeholder='비밀번호' />
           <StyledButton onClick={handelBackOrHome}>로그인</StyledButton>
         </StyledLoginComponentDiv>
       </StyledLoginComponentContainerDiv>

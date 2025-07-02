@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-const sexTagItemlist = ['전체', '여성이', '남성이', '청소년이'];
+const SEX_TAG_ITEM_LIST = ['전체', '여성이', '남성이', '청소년이'];
 
 const StyledRankingSexTagItem = styled.div`
   width: 60px;
@@ -34,11 +34,11 @@ const RankingSexTagItem = () => {
   };
   return (
     <>
-      {sexTagItemlist.map((item: string) => {
+      {SEX_TAG_ITEM_LIST.map((item: string) => {
         return (
           <StyledRankingSexTagItemBtn isSelected={selected === item} key={item} onClick={() => handleClick(item)}>
-            <StyledRankingSexTagItem className='ranking-sex-tag-item'></StyledRankingSexTagItem>
-            <p>{item.toLocaleLowerCase()}</p>
+            <StyledRankingSexTagItem className='ranking-sex-tag-item' />
+            <p>{item.toLowerCase()}</p>
           </StyledRankingSexTagItemBtn>
         );
       })}

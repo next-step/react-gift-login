@@ -2,7 +2,7 @@ import StyledRankingAnyTagItem from '@/styles/StyledRankingAnyTagItem';
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-const anyTagItemlist = ['받고 싶어한', '많이 선물한', '위시로 받은'];
+const ANY_TAG_ITEM_LIST = ['받고 싶어한', '많이 선물한', '위시로 받은'];
 
 const RankingAnyTagItem = () => {
   const navigate = useNavigate();
@@ -11,7 +11,7 @@ const RankingAnyTagItem = () => {
 
   useEffect(() => {
     const params = new URLSearchParams(search);
-    const value = params.get('anyTagSelected');
+    const value = params.get('AnyTagSelected');
     if (value) {
       setSelected(value);
     }
@@ -19,13 +19,13 @@ const RankingAnyTagItem = () => {
 
   const handleClick = (value: string) => {
     const params = new URLSearchParams(search);
-    params.set('anyTagSelected', value);
+    params.set('AnyTagSelected', value);
     navigate(`?${params.toString()}`, { replace: true });
   };
 
   return (
     <>
-      {anyTagItemlist.map((item: string) => {
+      {ANY_TAG_ITEM_LIST.map((item: string) => {
         return (
           <StyledRankingAnyTagItem
             key={item}
@@ -33,7 +33,7 @@ const RankingAnyTagItem = () => {
             onClick={() => handleClick(item)}
             isSelected={selected === item}
           >
-            {item.toLocaleLowerCase()}
+            {item.toLowerCase()}
           </StyledRankingAnyTagItem>
         );
       })}

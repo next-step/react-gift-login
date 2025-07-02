@@ -1,8 +1,8 @@
 import { GOODS_DATA } from '@/assets/goodsData';
 import type { Goods } from '@/assets/goodsData';
 import styled from '@emotion/styled';
-const basicRankingComponentNumber = 6;
-const ManyRankingComponentNumber = 18;
+const BASIC_RANKING_COMPONENT_NUMBER = 6;
+const MANY_RANKING_COMPONENT_NUMBER = 18;
 
 const StyledPresentRankingItemDiv = styled.div`
   display: flex;
@@ -41,7 +41,7 @@ const StyledPresentRankingNumContainer = styled.div<{ index: number }>`
   ${({ theme }) => theme.typography.label2Bold}
 `;
 const PresentItem = ({ isVisible }: { isVisible: boolean }) => {
-  const repeatCnt = isVisible ? ManyRankingComponentNumber : basicRankingComponentNumber;
+  const repeatCnt = isVisible ? MANY_RANKING_COMPONENT_NUMBER : BASIC_RANKING_COMPONENT_NUMBER;
   const repeatItems = Array.from({ length: repeatCnt }, (_, i) => GOODS_DATA[i % GOODS_DATA.length]);
   return (
     <>
