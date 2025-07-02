@@ -1,8 +1,8 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from '@emotion/react';
 import GlobalStyle from '@/styles/GlobalStyle';
 import { palette, typography, spacing } from '@/styles/theme';
-import { GiftPage } from '@/pages/GiftPage';
+import { GiftPage} from '@/pages/GiftPage';
 import { LoginPage } from '@/pages/LoginPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 
