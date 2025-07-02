@@ -4,7 +4,6 @@ import { useTheme } from "@emotion/react";
 
 const GiftObject = ({ gift }) => {
   const theme = useTheme();
-  console.log(gift);
   return (
     <div css={giftStyle(theme)}>
       <img src={gift.imageURL} css={imageStyle()} />

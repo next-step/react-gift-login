@@ -2,19 +2,35 @@ import { css } from "@emotion/react";
 import type { Theme } from "@emotion/react";
 import { IoArrowBackOutline, IoPersonOutline } from "react-icons/io5";
 import { useTheme } from "@emotion/react";
+import { useNavigate } from "react-router";
 
 const NavigationBar = () => {
   const theme = useTheme();
+  const navigate = useNavigate();
 
   return (
     <div css={navigationBarStyles(theme)}>
-      <button css={iconButtonStyles(theme)} aria-label="뒤로가기">
+      <button
+        onClick={() => {
+          if (window.history.length) {
+            navigate(-1);
+          } else {
+            navigate("/");
+          }
+        }}
+        css={iconButtonStyles(theme)}
+        aria-label="뒤로가기">
         <IoArrowBackOutline />
       </button>
 
       <h1 css={titleStyles(theme)}>선물하기</h1>
 
-      <button css={iconButtonStyles(theme)} aria-label="프로필">
+      <button
+        onClick={() => {
+          navigate("/login");
+        }}
+        css={iconButtonStyles(theme)}
+        aria-label="프로필">
         <IoPersonOutline />
       </button>
     </div>
