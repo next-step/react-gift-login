@@ -9,7 +9,7 @@ const GlobalStyle = () => (
       html,
       body {
         font-family: 'Pretendard', sans-serif;
-        background-color: #fff;
+        background-color: #f7f8f9;
       }
     `}
   />

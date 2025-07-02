@@ -61,15 +61,33 @@ const Wrapper = styled.div`
 export const Header = () => {
   // Target State
   const [currentTarget, setCurrentTarget] = useState('');
-  const [allIsClicked, setAllIsClicked] = useState(true);
+  const [allIsClicked, setAllIsClicked] = useState(false);
   const [femaleIsClicked, setFemaleIsClicked] = useState(false);
   const [maleIsClicked, setMaleIsClicked] = useState(false);
   const [youthIsClicked, setYouthIsClicked] = useState(false);
   // Topic State
   const [currentTopic, setCurrentTopic] = useState('');
-  const [isWanted, setIsWanted] = useState(true);
+  const [isWanted, setIsWanted] = useState(false);
   const [isMostGifted, setIsMostGifted] = useState(false);
   const [isWishlisted, setIsWishlisted] = useState(false);
+
+  useEffect(() => {
+    if ('currentTarget' in localStorage) {
+      const value = localStorage.getItem('currentTarget');
+      handleTargetClick(value!);
+    } else {
+      handleTargetClick('All');
+      localStorage.setItem('currentTarget', 'All');
+    }
+
+    if ('currentTopic' in localStorage) {
+      const value = localStorage.getItem('currentTopic');
+      handleTopicClick(value!);
+    } else {
+      handleTopicClick('Wanted');
+      localStorage.setItem('currentTopic', 'Wanted');
+    }
+  }, []);
 
   const handleTargetClick = (type: string) => {
     if (type === 'All') {
@@ -77,21 +95,25 @@ export const Header = () => {
       setFemaleIsClicked(false);
       setMaleIsClicked(false);
       setYouthIsClicked(false);
+      localStorage.setItem('currentTarget', 'All');
     } else if (type === 'Female') {
       setAllIsClicked(false);
       setFemaleIsClicked(true);
       setMaleIsClicked(false);
       setYouthIsClicked(false);
+      localStorage.setItem('currentTarget', 'Female');
     } else if (type === 'Male') {
       setAllIsClicked(false);
       setFemaleIsClicked(false);
       setMaleIsClicked(true);
       setYouthIsClicked(false);
+      localStorage.setItem('currentTarget', 'Male');
     } else if (type === 'Youth') {
       setAllIsClicked(false);
       setFemaleIsClicked(false);
       setMaleIsClicked(false);
       setYouthIsClicked(true);
+      localStorage.setItem('currentTarget', 'Youth');
     }
   };
 
@@ -104,14 +126,17 @@ export const Header = () => {
       setIsWanted(true);
       setIsMostGifted(false);
       setIsWishlisted(false);
+      localStorage.setItem('currentTopic', 'Wanted');
     } else if (type === 'MostGifted') {
       setIsWanted(false);
       setIsMostGifted(true);
       setIsWishlisted(false);
+      localStorage.setItem('currentTopic', 'MostGifted');
     } else if (type === 'Wishlisted') {
       setIsWanted(false);
       setIsMostGifted(false);
       setIsWishlisted(true);
+      localStorage.setItem('currentTopic', 'Wishlisted');
     }
   };
 
@@ -123,27 +148,50 @@ export const Header = () => {
     <Container>
       <Title>실시간 급상승 선물랭킹</Title>
       <TargetBtnContainer>
-        <TargetButton type="All" isClicked={allIsClicked} setCurrentTarget={setCurrentTarget} />
         <TargetButton
-          type="Female"
+          targetType="All"
+          isClicked={allIsClicked}
+          setCurrentTarget={setCurrentTarget}
+          aria-pressed={allIsClicked}
+        />
+        <TargetButton
+          targetType="Female"
           isClicked={femaleIsClicked}
           setCurrentTarget={setCurrentTarget}
+          aria-pressed={femaleIsClicked}
         />
-        <TargetButton type="Male" isClicked={maleIsClicked} setCurrentTarget={setCurrentTarget} />
-        <TargetButton type="Youth" isClicked={youthIsClicked} setCurrentTarget={setCurrentTarget} />
+        <TargetButton
+          targetType="Male"
+          isClicked={maleIsClicked}
+          setCurrentTarget={setCurrentTarget}
+          aria-pressed={maleIsClicked}
+        />
+        <TargetButton
+          targetType="Youth"
+          isClicked={youthIsClicked}
+          setCurrentTarget={setCurrentTarget}
+          aria-pressed={youthIsClicked}
+        />
       </TargetBtnContainer>
       <TopicBtnContainer>
         <Wrapper>
-          <TopicButton type="Wanted" isClicked={isWanted} setCurrentTopic={setCurrentTopic} />
           <TopicButton
-            type="MostGifted"
-            isClicked={isMostGifted}
+            topicType="Wanted"
+            isClicked={isWanted}
             setCurrentTopic={setCurrentTopic}
+            aria-pressed={isWanted}
           />
           <TopicButton
-            type="Wishlisted"
+            topicType="MostGifted"
+            isClicked={isMostGifted}
+            setCurrentTopic={setCurrentTopic}
+            aria-pressed={isMostGifted}
+          />
+          <TopicButton
+            topicType="Wishlisted"
             isClicked={isWishlisted}
             setCurrentTopic={setCurrentTopic}
+            aria-pressed={isWishlisted}
           />
         </Wrapper>
       </TopicBtnContainer>
