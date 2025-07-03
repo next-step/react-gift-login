@@ -1,10 +1,35 @@
-import { useState } from "react";
-import { sortOptions } from "../constants/sortoptions";
-import { tabs } from "../constants/tabs";
+import { useState, useEffect } from "react";
+import { sortOptions, type SortOptionType } from "../constants/sortoptions";
+import { tabs, type TabType } from "../constants/tabs";
+import ProductCard from "../components/ProductCard";
+
+import { productListData } from "../data/productListData";
+import type { Product } from "../types/product";
 
 const RealtimeRanking = () => {
-  const [activeTab, setActiveTab] = useState("전체");
-  const [activeSort, setActiveSort] = useState("받고 싶어한");
+  const [activeTab, setActiveTab] = useState<TabType>(() => {
+    const savedTab = localStorage.getItem("activeTab");
+    // savedTab이 TabType에 포함되지 않는 값일 수 있으므로 유효성 검사 추가 고려
+    return savedTab && tabs.includes(savedTab as TabType)
+      ? (savedTab as TabType)
+      : "전체";
+  });
+
+  const [activeSort, setActiveSort] = useState<SortOptionType>(() => {
+    const savedSort = localStorage.getItem("activeSort");
+    // savedSort가 SortOptionType에 포함되지 않는 값일 수 있으므로 유효성 검사 추가 고려
+    return savedSort && sortOptions.includes(savedSort as SortOptionType)
+      ? (savedSort as SortOptionType)
+      : "받고 싶어한";
+  });
+
+  useEffect(() => {
+    localStorage.setItem("activeTab", activeTab);
+  }, [activeTab]);
+
+  useEffect(() => {
+    localStorage.setItem("activeSort", activeSort);
+  }, [activeSort]);
 
   return (
     <section className="mb-8">
@@ -48,9 +73,17 @@ const RealtimeRanking = () => {
           ))}
         </div>
 
-        <div className="min-h-[100px] flex items-center justify-center text-gray-500 border border-dashed border-gray-300 rounded-lg p-4">
-          현재 랭킹 정보가 없습니다.
-        </div>
+        <section className="mt-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {productListData.map((product: Product, index: number) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                rank={index + 1}
+              />
+            ))}
+          </div>
+        </section>
       </div>
     </section>
   );
