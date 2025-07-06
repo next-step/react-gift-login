@@ -1,9 +1,9 @@
-import React from 'react'
-import Navbar from './../components/navbar/Navbar';
-import { PaddingSm } from './../components/padding/Padding';
-import { PaddingMd } from '@/components/padding/Padding';
-import styled from '@emotion/styled';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import Navbar from "./../components/navbar/Navbar";
+import { PaddingSm } from "./../components/padding/Padding";
+import { PaddingMd } from "@/components/padding/Padding";
+import styled from "@emotion/styled";
+import { useNavigate } from "react-router-dom";
 
 const LoginWrapper = styled.div`
   display: flex;
@@ -18,7 +18,7 @@ const Loginform = styled.section`
   width: 100%;
   max-width: 26.25rem;
   padding: 16px;
-`;    
+`;
 
 const Logo = styled.img`
   width: 5.5rem;
@@ -33,7 +33,7 @@ const Input = styled.input`
   padding: 8px 0px;
   border-color: ${({ theme }) => theme.colors.text.disabled};
   ${({ theme }) => theme.typography.body1Regular}
-`; 
+`;
 
 const LoginBtn = styled.button`
   background-color: ${({ theme }) => theme.colors.yellow.yellow600};
@@ -42,7 +42,7 @@ const LoginBtn = styled.button`
   height: 2.75rem;
 `;
 const Login = () => {
-    const navigate=useNavigate();
+  const navigate = useNavigate();
   return (
     <div>
       <Navbar />
@@ -58,11 +58,17 @@ const Login = () => {
           </InputWrapper>
 
           <PaddingMd />
-          <LoginBtn onClick={()=>{navigate(-1)}}>로그인</LoginBtn>
+          <LoginBtn
+            onClick={() => {
+              navigate(-1);
+            }}
+          >
+            로그인
+          </LoginBtn>
         </Loginform>
       </LoginWrapper>
     </div>
   );
-}
+};
 
-export default Login
+export default Login;
