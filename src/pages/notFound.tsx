@@ -7,7 +7,7 @@ import {
   ErrorContainer,
 } from './notFound.styles';
 import { useNavigate } from 'react-router-dom';
-import notFoundImg from '@/assets/images/img_not_found.png';
+import notFoundImg from '@/assets/img_not_found.png';
 
 const NotFound: React.FC = () => {
   const navigate = useNavigate();

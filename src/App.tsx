@@ -10,6 +10,7 @@ import MessageSection from '@/components/messageSection';
 import GiftRecipientList from '@/components/giftRecipientList';
 import TrendRanking from '@/components/trendRanking';
 import LoginForm from '@/Login/loginForm';
+import NotFound from '@/pages/notFound';
 
 const MainPage = () => (
   <>
@@ -35,6 +36,7 @@ function App() {
         <Route element={<Layout />}>
           <Route path="/login" element={<LoginForm />} />
           <Route path="/" element={<MainPage />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </>
