@@ -27,7 +27,7 @@ const LoginForm: React.FC = () => {
           <img
             src={KakaoLogo}
             alt="Kakao Logo"
-            style={{ width: '100%', height: '100%' }}
+            style={{ width: '100%', height: '40%' }}
           />
         </KakaoTitle>
         <InputForm placeholder="이메일" type="email" />

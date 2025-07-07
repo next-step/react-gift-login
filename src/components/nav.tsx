@@ -2,6 +2,7 @@
 import { css } from '@emotion/react';
 import { IoChevronBack } from 'react-icons/io5';
 import { FiUser } from 'react-icons/fi';
+import { useNavigate } from 'react-router-dom';
 
 const headerStyle = css`
   display: flex;
@@ -33,11 +34,21 @@ const iconStyle = css`
 `;
 
 export default function Nav() {
+  const navigate = useNavigate();
+
   return (
     <header css={headerStyle}>
-      <IoChevronBack css={iconStyle} aria-label="뒤로가기" />
+      <IoChevronBack
+        css={iconStyle}
+        onClick={() => navigate(-1)}
+        aria-label="뒤로가기"
+      />
       <div css={titleStyle}>선물하기</div>
-      <FiUser css={iconStyle} aria-label="유저 아이콘" />
+      <FiUser
+        css={iconStyle}
+        aria-label="유저 아이콘"
+        onClick={() => navigate('/login')}
+      />
     </header>
   );
 }
