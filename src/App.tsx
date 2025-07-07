@@ -3,6 +3,7 @@ import { Navbar } from '@/components/Navbar';
 import { CategorySection } from '@/components/CategorySection';
 import { ProductListSection } from '@/components/ProductListSection';
 import { LoginPage } from '@/pages/LoginPage';
+import { NotFoundPage } from '@/pages/NotFoundPage';
 import RootLayout from '@/layout/RootLayout';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         }
       />
       <Route path="/login" element={<LoginPage />} />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 }
