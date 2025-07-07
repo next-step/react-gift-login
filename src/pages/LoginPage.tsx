@@ -1,6 +1,8 @@
 import styled from '@emotion/styled'
 import { Navbar } from '@/components/Navbar'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { Button } from '@/components/common/Button'
+import { Input } from '@/components/common/Input'
 
 export function LoginPage() {
   const navigate = useNavigate()
@@ -19,7 +21,7 @@ export function LoginPage() {
         <Form>
           <Input type="email" placeholder="이메일" />
           <Input type="password" placeholder="비밀번호" />
-          <LoginButton onClick={handleLogin}>로그인</LoginButton>
+          <Button onClick={handleLogin} style={{ marginTop: '33px' }}>로그인</Button>
         </Form>
       </Container>
     </>
@@ -45,32 +47,4 @@ const Form = styled.form`
   flex-direction: column;
   width: 400px;
   gap: 13px;
-`
-
-const Input = styled.input`
-  padding: 10px 0;
-  font-size: 16px;
-  border: none;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.gray.gray400};
-
-  &:focus,
-  &:focus-visible {
-    border-bottom: 1px solid ${({ theme }) => theme.colors.gray.gray800};
-    outline: none;
-  }
-`
-
-const LoginButton = styled.button`
-  padding: 12px;
-  font-size: 14px;
-  background-color: ${({ theme }) => theme.semanticColors.brand.kakaoYellow};
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 33px;
-  transition: background-color 0.2s;
-
-  &:hover {
-    background-color: ${({ theme }) => theme.semanticColors.brand.kakaoYellowHover};
-  }
 `
