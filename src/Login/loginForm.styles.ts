@@ -4,9 +4,9 @@ import { theme } from '@/styles/theme';
 export const Container = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
+  padding-top: ${theme.spacing[12]};
   background-color: ${theme.colors.semanticColor.backgroundColor.default};
+  min-height: 100vh;
 `;
 
 export const FormContainer = styled.div`
@@ -20,9 +20,9 @@ export const FormContainer = styled.div`
 `;
 
 export const KakaoTitle = styled.div`
-  width: 100px;
-  height: 100px;
-  margin: ${theme.spacing[4]};
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: ${theme.spacing[8]};
 `;
 
 export const InputForm = styled.input`

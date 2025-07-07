@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 
 import { globalStyle } from '@/styles/globalStyle';
 import reset from '@/styles/reset';
-import Nav from '@/components/nav';
+import Layout from '@/components/Layout';
 import CategorySection from '@/components/categorySection';
 import MessageSection from '@/components/messageSection';
 import GiftRecipientList from '@/components/giftRecipientList';
@@ -13,7 +13,6 @@ import LoginForm from '@/Login/loginForm';
 
 const MainPage = () => (
   <>
-    <Nav />
     <GiftRecipientList />
     <CategorySection />
     <MessageSection />
@@ -33,8 +32,10 @@ function App() {
         `}
       />
       <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path="/login" element={<LoginForm />} />
+        <Route element={<Layout />}>
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/" element={<MainPage />} />
+        </Route>
       </Routes>
     </>
   );
