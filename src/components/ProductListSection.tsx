@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { productListMock } from '@/data/productListMock';
 import { ProductItem } from '@/components/ProductItem';
 
@@ -8,6 +8,28 @@ export function ProductListSection() {
   const [mainTab, setMainTab] = useState<'ALL' | 'F' | 'M' | 'T'>('ALL');
   const [subTab, setSubTab] = useState<'WANT' | 'GIVE' | 'WISH'>('WANT');
   const [showAll, setShowAll] = useState(false);
+
+  useEffect(() => {
+    const savedMainTab = localStorage.getItem('mainTab');
+    const savedSubTab = localStorage.getItem('subTab');
+
+    if (savedMainTab && ['ALL', 'F', 'M', 'T'].includes(savedMainTab)) {
+      setMainTab(savedMainTab as 'ALL' | 'F' | 'M' | 'T');
+    }
+    if (savedSubTab && ['WANT', 'GIVE', 'WISH'].includes(savedSubTab)) {
+      setSubTab(savedSubTab as 'WANT' | 'GIVE' | 'WISH');
+    }
+  }, []);
+
+  const handleMainTabClick = (tab: 'ALL' | 'F' | 'M' | 'T') => {
+    setMainTab(tab);
+    localStorage.setItem('mainTab', tab);
+  };
+
+  const handleSubTabClick = (tab: 'WANT' | 'GIVE' | 'WISH') => {
+    setSubTab(tab);
+    localStorage.setItem('subTab', tab);
+  };
 
   const products = showAll ? productListMock : productListMock.slice(0, 6);
 
@@ -19,29 +41,29 @@ export function ProductListSection() {
 
       {/* 1차 탭 : 대상별 */}
       <MainTabs>
-        <TabButton active={mainTab === 'ALL'} onClick={() => setMainTab('ALL')}>
+        <TabButton active={mainTab === 'ALL'} onClick={() => handleMainTabClick('ALL')}>
           🎁 전체
         </TabButton>
-        <TabButton active={mainTab === 'F'} onClick={() => setMainTab('F')}>
+        <TabButton active={mainTab === 'F'} onClick={() => handleMainTabClick('F')}>
           👩 여성이
         </TabButton>
-        <TabButton active={mainTab === 'M'} onClick={() => setMainTab('M')}>
+        <TabButton active={mainTab === 'M'} onClick={() => handleMainTabClick('M')}>
           👨 남성이
         </TabButton>
-        <TabButton active={mainTab === 'T'} onClick={() => setMainTab('T')}>
+        <TabButton active={mainTab === 'T'} onClick={() => handleMainTabClick('T')}>
           🧒 청소년이
         </TabButton>
       </MainTabs>
 
       {/* 2차 탭 : 액션별 */}
       <SubTabs>
-        <SubTabButton active={subTab === 'WANT'} onClick={() => setSubTab('WANT')}>
+        <SubTabButton active={subTab === 'WANT'} onClick={() => handleSubTabClick('WANT')}>
           받고 싶어한
         </SubTabButton>
-        <SubTabButton active={subTab === 'GIVE'} onClick={() => setSubTab('GIVE')}>
+        <SubTabButton active={subTab === 'GIVE'} onClick={() => handleSubTabClick('GIVE')}>
           많이 선물한
         </SubTabButton>
-        <SubTabButton active={subTab === 'WISH'} onClick={() => setSubTab('WISH')}>
+        <SubTabButton active={subTab === 'WISH'} onClick={() => handleSubTabClick('WISH')}>
           위시로 받은
         </SubTabButton>
       </SubTabs>
