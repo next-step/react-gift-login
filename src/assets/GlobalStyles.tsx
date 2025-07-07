@@ -23,6 +23,7 @@ const GlobalStyles = () => {
             "Segoe UI Symbol",
             sans-serif;
         }
+        
       `}
     /> 
   );
