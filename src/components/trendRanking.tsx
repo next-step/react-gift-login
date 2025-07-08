@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { products } from '@/data/product';
 import type { Product } from '@/data/product';
 import * as S from '@/components/trendRankingStyle';
@@ -17,18 +18,42 @@ type GenderLabel = (typeof genderList)[number]['label'];
 type TypeLabel = (typeof typeList)[number];
 
 const TrendRanking = () => {
-  const [selectedGender, setSelectedGender] = useState<GenderLabel>('All');
-  const [selectedType, setSelectedType] = useState<TypeLabel>('받고 싶어한');
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const getInitialGender = (): GenderLabel => {
+    const genderFromUrl = searchParams.get('gender');
+    if (genderList.some((g) => g.label === genderFromUrl)) {
+      return genderFromUrl as GenderLabel;
+    }
+    return 'All';
+  };
+
+  const getInitialType = (): TypeLabel => {
+    const typeFromUrl = searchParams.get('type');
+    if (typeList.includes(typeFromUrl as TypeLabel)) {
+      return typeFromUrl as TypeLabel;
+    }
+    return '받고 싶어한';
+  };
+
+  const [selectedGender, setSelectedGender] = useState<GenderLabel>(
+    getInitialGender
+  );
+  const [selectedType, setSelectedType] = useState<TypeLabel>(getInitialType);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [visibleCount, setVisibleCount] = useState(6);
   const [isExpanded, setIsExpanded] = useState(false);
 
   const handleGenderClick = (label: string) => {
-    setSelectedGender(label);
+    const genderLabel = label as GenderLabel;
+    setSelectedGender(genderLabel);
+    setSearchParams({ gender: genderLabel, type: selectedType });
   };
 
   const handleTypeSelect = (label: string) => {
-    setSelectedType(label);
+    const typeLabel = label as TypeLabel;
+    setSelectedType(typeLabel);
+    setSearchParams({ gender: selectedGender, type: typeLabel });
   };
 
   const handleProductSelect = (product: Product) => {
@@ -44,14 +69,6 @@ const TrendRanking = () => {
       setIsExpanded(true);
     }
   };
-
-  useEffect(() => {
-    console.log('선택된 Gender:', selectedGender);
-  }, [selectedGender]);
-
-  useEffect(() => {
-    console.log('선택된 Type:', selectedType);
-  }, [selectedType]);
 
   useEffect(() => {
     console.log('선택된 Product:', selectedProduct);

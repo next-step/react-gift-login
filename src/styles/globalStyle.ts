@@ -13,6 +13,7 @@ export const globalStyle = (theme: ThemeType) => css`
   * {
     box-sizing: border-box;
   }
+
   #root {
     max-width: 720px;
     margin: 0 auto;
